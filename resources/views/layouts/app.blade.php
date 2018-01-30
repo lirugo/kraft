@@ -12,6 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    @yield('stylesheets')
+
+
 
     <!-- Scripts -->
     <script>
@@ -22,11 +26,12 @@
 </head>
 <body>
     <div id="app">
-        <!-- Top nav --!>
+        <!-- Top nav -->
         @include('_includes.nav.main')
 
         @yield('content')
     </div>
+
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>

@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => 'manage', 'middleware' => 'role:superadministrator'], function () {
     Route::get('dashboard', 'ManageController@dashboard')->name('manage.dashboard');
 });
+
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@profile_update')->name('profile.update');

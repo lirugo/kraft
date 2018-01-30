@@ -166,6 +166,12 @@ return [
         // Package Laratrust
         Laratrust\LaratrustServiceProvider::class,
 
+        // Laravel collections FORMS and HTML
+        Collective\Html\HtmlServiceProvider::class,
+
+        // Image intervention
+        Intervention\Image\ImageServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -231,6 +237,13 @@ return [
 
         // Laratrust
         'Laratrust'   => Laratrust\LaratrustFacade::class,
+
+        // Laravel collections FORMS and HTML
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        // Image intevention
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

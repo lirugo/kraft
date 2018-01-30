@@ -1,0 +1,18 @@
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    float:left;
+    margin:10px;
+}
+.avatar-top-icon{
+    width:32px;
+    height:32px;
+    position: absolute;
+    border-radius: 50%;
+    top:10px;
+    left:10px;
+}
+.m-t-10{
+    margin-top:10px;
+}
