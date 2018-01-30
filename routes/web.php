@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('register/user', 'Auth\RegisterController@getRegisterUser');
+Route::post('register/user', 'Auth\RegisterController@createRegisterUser')->name('register.user');
 
 
 Route::get('/home', 'HomeController@index');
@@ -26,3 +28,12 @@ Route::group(['prefix' => 'manage', 'middleware' => 'role:superadministrator'], 
 
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@profile_update')->name('profile.update');
+
+
+
+
+
+// Dont forget delete
+Route::get('/complete', function () {
+    return view('auth.complete');
+});
