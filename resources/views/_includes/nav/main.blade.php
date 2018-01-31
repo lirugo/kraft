@@ -37,11 +37,13 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>Profile</a></li>
+                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>
+                                    Profile</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out"> </i>
                                     Logout
                                 </a>
 

@@ -30,6 +30,8 @@
         <!-- Top nav -->
         @include('_includes.nav.main')
 
+        @include('_includes.messages')
+
         @yield('content')
     </div>
 

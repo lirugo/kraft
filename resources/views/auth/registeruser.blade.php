@@ -16,7 +16,7 @@
                 {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Phone']) !!}
                 {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => 'Email']) !!}
                 {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => 'Password']) !!}
-                {!! Form::password('confirmpassword', ['class' => 'form-control m-t-20', 'placeholder' => 'Confirm Password']) !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => 'Confirm Password']) !!}
 
 
 

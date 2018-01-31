@@ -6,9 +6,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Image;
 
 class RegisterController extends Controller
 {
@@ -48,6 +50,7 @@ class RegisterController extends Controller
 
     public function createRegisterUser(Request $request){
 
+
         //Validate
         $this->validate($request,[
             'name' => 'required|max:255',
@@ -57,16 +60,32 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
+
         // Save data to db
-        User::create([
-            'name' => $request['name'],
-            'surname' => $request['surname'],
-            'patronymic' => $request['patronymic'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-        ]);
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->patronymic = $request->patronymic;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
 
 
+        // IF have avatar save
+        // Handle the user upload of avatar
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time().'.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
+
+            $user->avatar = $filename;
+
+        }
+
+        $user->save();
+
+
+        Session::flash('success', 'All ok');
         //Redirect
         return view('auth.complete');
     }
