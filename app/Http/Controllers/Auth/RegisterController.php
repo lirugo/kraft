@@ -56,6 +56,9 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
             'patronymic' => 'required|max:255',
+            'dateofbirth' => 'required|max:255',
+            'sex' => 'required|max:255',
+            'phone' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -67,6 +70,9 @@ class RegisterController extends Controller
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->patronymic = $request->patronymic;
+        $user->dateofbirth = $request->dateofbirth;
+        $user->sex = $request->sex;
+        $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
@@ -85,7 +91,7 @@ class RegisterController extends Controller
         $user->save();
 
 
-        Session::flash('success', 'All ok');
+        Session::flash('success', 'User was successfully created.');
         //Redirect
         return view('auth.complete');
     }
