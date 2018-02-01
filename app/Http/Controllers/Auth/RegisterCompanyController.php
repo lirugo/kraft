@@ -41,11 +41,7 @@ class RegisterCompanyController extends Controller
             'lawoffice' => 'required|max:5',
             'lawphone' => 'required|max:255',
             'lawfax' => 'required|max:255',
-
-
-
-        ]);
-
+            ]);
 
         // Save data to db
         $company = new Company;
@@ -105,11 +101,6 @@ class RegisterCompanyController extends Controller
             $company->scandoc5 = $filename;
         }
 
-        //$company->save();
 
-
-        Session::flash('success', 'Step 2 - Register user');
-        //Redirect
-        return view('auth.registeruser')->with('company', $company);
     }
 }

@@ -7,9 +7,6 @@
                 <h5> You must fill out a user profile. </h5>
                 <hr>
 
-                {{ (isset($company->companyname) ? $comp = $company->companyname : $comp = null) }}
-
-
                 {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
 
                 {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Name']) !!}
@@ -21,7 +18,6 @@
 
                 {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Phone']) !!}
                 {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => 'Email']) !!}
-                {!! Form::text('company', $comp, ['class' => 'form-control m-t-20', 'placeholder' => 'Company']) !!}
                 {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => 'Password']) !!}
                 {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => 'Confirm Password']) !!}
 
@@ -33,7 +29,11 @@
             <div class="col-md-4">
                 <h5> You must upload your photo. </h5>
                 <hr>
-                {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="avatar" hidden>
+                </label>
+
 
 
 

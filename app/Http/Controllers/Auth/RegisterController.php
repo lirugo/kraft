@@ -50,7 +50,6 @@ class RegisterController extends Controller
 
     public function createRegisterUser(Request $request){
 
-
         //Validate
         $this->validate($request,[
             'name' => 'required|max:255',

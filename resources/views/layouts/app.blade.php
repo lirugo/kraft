@@ -29,13 +29,13 @@
     <div id="app">
         <!-- Top nav -->
         @include('_includes.nav.main')
-
         @include('_includes.messages')
-
+        <!--Content-->
         @yield('content')
     </div>
 
-
+    <!--Footer-->
+    @include('_includes.footer')
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 

@@ -14,13 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Registration route
 Auth::routes();
 
 Route::get('register/user', 'Auth\RegisterController@getRegisterUser');
 Route::post('register/user', 'Auth\RegisterController@createRegisterUser')->name('register.user');
+
 Route::get('register/company', 'Auth\RegisterCompanyController@getRegisterCompany');
 Route::post('register/company', 'Auth\RegisterCompanyController@createRegisterCompany')->name('register.company');
+
+//End Registration route
+
 
 Route::get('/home', 'HomeController@index');
 

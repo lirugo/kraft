@@ -1,3 +1,5 @@
+/*HeadStyle*/
+
 .avatar{
     width:150px;
     height:150px;
@@ -13,8 +15,47 @@
     top:10px;
     left:10px;
 }
+.kraft-logo{
+    height: 50px;
+}
+
+.navbar {
+    min-height: 80px;
+}
+
+.navbar-brand {
+    padding: 0 15px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.navbar-toggle {
+    /* (80px - button height 34px) / 2 = 23px */
+    margin-top: 23px;
+    padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 26.5px;
+        padding-bottom: 26.5px;
+        line-height: 27px;
+    }
+}
+/*EndHeadStyle*/
+
+
+/*Footer*/
+
+/*EndFooter*/
+
+/*Others*/
 .m-t-10{
     margin-top:10px;
+}
+.m-t-15{
+    margin-top:15px;
 }
 .m-t-20{
     margin-top:20px;
@@ -22,8 +63,20 @@
 .m-t-100{
     margin-top:100px;
 }
+[hidden] {
+    display: none !important;
+}
+a:hover{
+    text-decoration: none;
+}
+/*EndOthers*/
+
 
 .upload-user-image{
     width: 150px;
     height: 150px;
+}
+
+.fa-university, .fa-line-chart, .fa-tasks, .fa-users, .fa-user {
+    color: #f3892d;
 }

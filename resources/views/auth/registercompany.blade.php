@@ -42,12 +42,28 @@
 
             </div>
             <div class="col-md-4">
+                <h5> <strong>You must upload your photo. </strong></h5>
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="scandoc1" hidden>
+                </label>
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="scandoc2" hidden>
+                </label>
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="scandoc3" hidden>
+                </label>
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="scandoc4" hidden>
+                </label>
+                <label class="btn btn-default">
+                    <i class="fa fa-plus"></i>
+                    <input type="file" name="scandoc5" hidden>
+                </label>
 
-                {!! Form::file('scandoc1', null, ['class' => 'form-control']) !!}
-                {!! Form::file('scandoc2', null, ['class' => 'form-control']) !!}
-                {!! Form::file('scandoc3', null, ['class' => 'form-control']) !!}
-                {!! Form::file('scandoc4', null, ['class' => 'form-control']) !!}
-                {!! Form::file('scandoc5', null, ['class' => 'form-control']) !!}
             </div>
         </div>
 
