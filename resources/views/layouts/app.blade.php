@@ -32,6 +32,8 @@
         @include('_includes.messages')
         <!--Content-->
         @yield('content')
+
+
     </div>
 
     <!--Footer-->

@@ -45,12 +45,37 @@
 }
 /*EndHeadStyle*/
 
+/*Body*/
+.background-welcome{
+    margin-top:-23px;
+    background:  url('/img/backgrounds/background-welcome.jpg')  center  no-repeat;
+    background-size:cover;
+    height: 90vh;
+}
+.text-welcome{
+    padding: 40px 40px 200px 40px;
+    width: 600px;
+    color:white;
+    opacity: 0.6;
+    background: black;
+}
+/*EndBody*/
 
 /*Footer*/
-
+.footer {
+    height:10vh; /* .push must be the same height as .footer */
+    background: #eeee;
+    position: relative;
+}
+.footer-text {
+padding-top: 4vh;
+}
 /*EndFooter*/
 
 /*Others*/
+#app{
+    min-height: 90vh;
+}
 .m-t-10{
     margin-top:10px;
 }
@@ -59,6 +84,9 @@
 }
 .m-t-20{
     margin-top:20px;
+}
+.m-b-20{
+    margin-bottom:20px;
 }
 .m-t-100{
     margin-top:100px;
