@@ -14,10 +14,10 @@ class AddCustomFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->date('dateofbirth')->after('email');
-            $table->char('sex', 1)->after('dateofbirth');
-            $table->string('phone')->after('sex');
-            $table->string('company')->after('phone')->nullable();
+            $table->date('dateofbirth')->after('email')->default(date("Y-m-d H:i:s"));
+            $table->char('sex', 1)->after('dateofbirth')->default('');
+            $table->string('phone')->after('sex')->default('');
+            $table->string('company')->after('phone')->nullable()->default('');
 
 
             $table->boolean('verified')->after('avatar')->default(false);
