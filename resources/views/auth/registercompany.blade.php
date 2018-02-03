@@ -62,7 +62,7 @@
 
                                 {!! Form::label('label','You must upload your documents.', ['class' => 'm-t-20']) !!}
                                 <br>
-                                <label class="btn btn-default">
+                                <label class="botton botton-default">
                                     <i class="fa fa-plus"></i>
                                     <input type="file" name="scandoc1" hidden>
                                 </label>
@@ -108,7 +108,7 @@
 
                                 {!! Form::label('label','Financial requisites', ['class' => 'm-t-20']) !!}
                                 <br>
-                                <label class="btn btn-default">
+                                <label class="botton botton-default">
                                     <i class="fa fa-plus"></i>
                                     <input type="file" name="avatar" hidden>
                                 </label>
