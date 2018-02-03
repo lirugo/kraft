@@ -22,6 +22,15 @@ class UserController extends Controller
     public function profile_update(Request $request)
     {
         // Validate data
+        $this->validate($request,[
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'patronymic' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'dateofbirth' => 'required|date|max:255',
+            'sex' => 'required|max:255',
+            'phone' => 'required|max:255',
+        ]);
 
         // Update data
         $user = User::find(Auth::user()->id);
@@ -30,6 +39,9 @@ class UserController extends Controller
         $user->surname = $request->surname;
         $user->patronymic = $request->patronymic;
         $user->email = $request->email;
+        $user->dateofbirth = $request->dateofbirth;
+        $user->sex = $request->sex;
+        $user->phone = $request->phone;
 
         $user->save();
 
