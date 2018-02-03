@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class LaratrustSeeder extends Seeder
 {
@@ -56,6 +57,11 @@ class LaratrustSeeder extends Seeder
             // Create default user for each role
             $user = \App\User::create([
                 'name' => ucwords(str_replace('_', ' ', $key)),
+                'surname' => ucwords(str_replace('_', ' ', $key)),
+                'patronymic' => ucwords(str_replace('_', ' ', $key)),
+                'dateofbirth' => Carbon::create('2000', '01', '01'),
+                'sex' => 'x',
+                'phone' => '000 000 00 00',
                 'email' => $key.'@app.com',
                 'password' => bcrypt('password')
             ]);
@@ -73,6 +79,11 @@ class LaratrustSeeder extends Seeder
                     // Create default user for each permission set
                     $user = \App\User::create([
                         'name' => ucwords(str_replace('_', ' ', $key)),
+                        'surname' => ucwords(str_replace('_', ' ', $key)),
+                        'patronymic' => ucwords(str_replace('_', ' ', $key)),
+                        'dateofbirth' => Carbon::create('2000', '01', '01'),
+                        'sex' => 'x',
+                        'phone' => '000 000 00 00',
                         'email' => $key.'@app.com',
                         'password' => bcrypt('password'),
                         'remember_token' => str_random(10),
