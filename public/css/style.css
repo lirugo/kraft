@@ -49,6 +49,22 @@
     background-color: transparent;
     margin-top: 15%;
 }
+.panel-login-rem {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 2px 2px;
+    font-size: 12px;
+    line-height: 1.6;
+    border-radius: 4px;
+    user-select: none;
+}
 
 .panel-heading-login {
     color: #bababa;
@@ -63,7 +79,7 @@
 /*Body*/
 .background-welcome{
     margin-top:-23px;
-    background:  url('/img/backgrounds/background-welcome.jpg')  center  no-repeat;
+    background: url('/img/backgrounds/background-welcome.jpg') center no-repeat;
     background-size:cover;
     height: 90vh;
 }
@@ -115,6 +131,44 @@ padding-top: 4vh;
 .m-t-100{
     margin-top:100px;
 }
+
+/*Margin - left*/
+.m-l-10{
+    margin-left:10px;
+}
+.m-l-15{
+    margin-left:15px;
+}
+.m-l-20{
+    margin-left:20px;
+}
+.m-l-30{
+    margin-left:30px;
+}
+.m-l-40{
+    margin-left:40px;
+}
+.m-l-50{
+    margin-left:50px;
+}
+.m-l-60{
+    margin-left:60px;
+}
+.m-l-70{
+    margin-left:70px;
+}
+.m-l-80{
+    margin-left:80px;
+}
+.m-l-90{
+    margin-left:90px;
+}
+.m-l-100{
+    margin-left:100px;
+}
+/*End Margin - left*/
+
+/**/
 [hidden] {
     display: none !important;
 }
@@ -130,7 +184,7 @@ a:hover{
 }
 
 .fa-university, .fa-line-chart, .fa-tasks, .fa-users, .fa-user {
-    color: #f3892d;
+    color: #f78620;
 }
 
 
@@ -154,6 +208,7 @@ a:hover{
     line-height: 1.6;
     user-select: none;
     margin: 15px;
+    border: transparent;
 }
 
 .botton-default:active, .botton-default:hover{
