@@ -26,8 +26,15 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
+                    <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
+                    <li>
+                        <form action="/language" method="post" class="m-t-30">
+                            <input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">
+                            <input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag" alt="English">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"

@@ -4,10 +4,10 @@
     <div class="container-fluid background-welcome">
         <div class="row">
             <div class="col-md-4 col-md-offset-2 m-t-100 text-welcome">
-                <h4>Easy choice - the best result</h4>
+                <h4>{{ trans('app.h4welcome') }}</h4>
                 <hr>
                 <h1>
-                    Systems of suspended ceilings european quality
+                    {{ trans('app.h1welcometext') }}
                 </h1>
             </div>
         </div>

@@ -14,6 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Language route
+Route::post('/language', [
+    'Middleware' => 'LanguageSwitcher',
+    'uses' => 'LanguageController@index'
+]);
+//EndLanguage route
+
 //Registration route
 Auth::routes();
 
