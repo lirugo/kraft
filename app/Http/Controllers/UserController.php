@@ -29,7 +29,6 @@ class UserController extends Controller
             'patronymic' => 'required|max:255',
             'email' => 'required|email|max:255',
             'dateofbirth' => 'required|date:"yyyy-mm-dd"|date',
-            'sex' => 'required|max:1',
             'phone' => 'required|max:255',
         ]);
 
@@ -41,7 +40,6 @@ class UserController extends Controller
         $user->patronymic = $request->patronymic;
         $user->email = $request->email;
         $user->dateofbirth = $request->dateofbirth;
-        $user->sex = $request->sex;
         $user->phone = $request->phone;
 
         $user->save();

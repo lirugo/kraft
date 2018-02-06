@@ -10,6 +10,11 @@ return [
     //End Welcome page
 
     //Footer
-    'footertext' => 'All right reserved. A direct link to the site is required when reprinting.'
+    'footertext' => 'All right reserved. A direct link to the site is required when reprinting.',
     //EndFooter
+
+       //Profile
+    'male' => 'Male',
+    'femele' => 'Femele',
+    //EndProfile
 ];
