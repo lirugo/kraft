@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Image;
 use App\User;
+use Session;
 
 class UserController extends Controller
 {
@@ -27,8 +28,8 @@ class UserController extends Controller
             'surname' => 'required|max:255',
             'patronymic' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'dateofbirth' => 'required|date|max:255',
-            'sex' => 'required|max:255',
+            'dateofbirth' => 'required|date:"yyyy-mm-dd"|date',
+            'sex' => 'required|max:1',
             'phone' => 'required|max:255',
         ]);
 
@@ -57,6 +58,7 @@ class UserController extends Controller
         }
 
         // redirect back
+        Session::flash('success', 'User profile was successfully updated.');
         return view('users.profile', ['user' => Auth::user()]);
     }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -21,11 +25,7 @@
                 {!! Form::password('password', ['class' => 'all-form m-t-20' , 'placeholder' => 'Password']) !!}
                 {!! Form::password('password_confirmation', ['class' => 'all-form m-t-20', 'placeholder' => 'Confirm Password']) !!}
 
-
-
-
             </div>
-
             <div class="col-md-4">
                 <h5> You must upload your photo. </h5>
                 <hr>
@@ -33,17 +33,9 @@
                     <i class="fa fa-plus"></i>
                     <input type="file" name="avatar" hidden>
                 </label>
-
-
-
-
             </div>
 
-
-
-            <div class="col-md-4">
-
-            </div>
+            <div class="col-md-4"></div>
         </div>
 
         <div class="row">
@@ -54,4 +46,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+
 @endsection
