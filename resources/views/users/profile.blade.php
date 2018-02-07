@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -31,10 +35,10 @@
                                 {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
 
                                 {!! Form::label('dateofbirth', 'Date of birth', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('dateofbirth', $user->dateofbirth, ['class' => 'form-control']) !!}
+                                {!! Form::text('dateofbirth', $user->dateofbirth, ['class' => 'form-control', 'id' => 'datepicker']) !!}
 
                                 {!! Form::label('sex', 'Sex', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('sex', $user->sex, ['class' => 'form-control']) !!}
+                                {!! Form::label('sex', $user->sex == 'x' ? trans('app.male') : trans('app.femele'), ['class' => 'form-control']) !!}
 
                                 {!! Form::label('phone', 'Phone', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('phone', $user->phone, ['class' => 'form-control']) !!}
@@ -44,14 +48,16 @@
 
                                 {!! Form::close() !!}
                             </div>
-                        </div>
-
-
-
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/datepicker.js"></script>
 @endsection

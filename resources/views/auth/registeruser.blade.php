@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,23 +13,19 @@
 
                 {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
 
-                {!! Form::text('name', null , ['class' => 'all-form m-t-20', 'placeholder' => 'Name']) !!}
-                {!! Form::text('surname', null , ['class' => 'all-form m-t-20', 'placeholder' => 'Surname']) !!}
-                {!! Form::text('patronymic', null , ['class' => 'all-form m-t-20', 'placeholder' => 'Patronymic']) !!}
-                {!! Form::text('dateofbirth', '1990-09-09' , ['class' => 'all-form m-t-20', 'placeholder' => 'Date of birth']) !!}
+                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Name']) !!}
+                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Surname']) !!}
+                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Patronymic']) !!}
+                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20', 'id' => 'datepicker', 'placeholder' => 'YYYY/MM/DD']) !!}
 
-                {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'all-form m-t-20']); !!}
+                {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20']); !!}
 
-                {!! Form::text('phone', null , ['class' => 'all-form m-t-20', 'placeholder' => 'Phone']) !!}
-                {!! Form::email('email', null,['class' => 'all-form m-t-20', 'placeholder' => 'Email']) !!}
-                {!! Form::password('password', ['class' => 'all-form m-t-20' , 'placeholder' => 'Password']) !!}
-                {!! Form::password('password_confirmation', ['class' => 'all-form m-t-20', 'placeholder' => 'Confirm Password']) !!}
-
-
-
+                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Phone']) !!}
+                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => 'Email']) !!}
+                {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => 'Password']) !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => 'Confirm Password']) !!}
 
             </div>
-
             <div class="col-md-4">
                 <h5> You must upload your photo. </h5>
                 <hr>
@@ -33,17 +33,9 @@
                     <i class="fa fa-plus"></i>
                     <input type="file" name="avatar" hidden>
                 </label>
-
-
-
-
             </div>
 
-
-
-            <div class="col-md-4">
-
-            </div>
+            <div class="col-md-4"></div>
         </div>
 
         <div class="row">
@@ -54,4 +46,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/datepicker.js"></script>
 @endsection
