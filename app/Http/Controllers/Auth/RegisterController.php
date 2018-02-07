@@ -77,7 +77,6 @@ class RegisterController extends Controller
 
 
         // IF have avatar save
-        // Handle the user upload of avatar
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time().'.'.$avatar->getClientOriginalExtension();

@@ -15,6 +15,6 @@ return [
 
        //Profile
     'male' => 'Male',
-    'femele' => 'Femele',
+    'femele' => 'Female',
     //EndProfile
 ];
