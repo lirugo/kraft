@@ -42,8 +42,6 @@ class UserController extends Controller
         $user->dateofbirth = $request->dateofbirth;
         $user->phone = $request->phone;
 
-        $user->save();
-
         // Handle the user upload of avatar
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
@@ -52,10 +50,12 @@ class UserController extends Controller
 
             $user = Auth::user();
             $user->avatar = $filename;
-            $user->save();
         }
 
-        // redirect back
+        //Save user
+        $user->save();
+
+        //redirect back
         Session::flash('success', 'User profile was successfully updated.');
         return view('users.profile', ['user' => Auth::user()]);
     }

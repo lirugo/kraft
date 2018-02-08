@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', 'HomeController@index');
+
 //Language route
 Route::post('/language', [
     'Middleware' => 'LanguageSwitcher',
@@ -23,27 +25,27 @@ Route::post('/language', [
 
 //Registration route
 Auth::routes();
-
 Route::get('register/user', 'Auth\RegisterController@getRegisterUser');
 Route::post('register/user', 'Auth\RegisterController@createRegisterUser')->name('register.user');
 
 Route::get('register/company', 'Auth\RegisterCompanyController@getRegisterCompany');
 Route::post('register/company', 'Auth\RegisterCompanyController@createRegisterCompany')->name('register.company');
-
 //End Registration route
 
-
-Route::get('/home', 'HomeController@index');
-
+//Manage route
 Route::group(['prefix' => 'manage', 'middleware' => 'role:superadministrator'], function () {
     Route::get('dashboard', 'ManageController@dashboard')->name('manage.dashboard');
 });
+//EndManage route
 
+//User route
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@profile_update')->name('profile.update');
+//EndUser route
 
-
-
+//Company route
+Route::get('company/profile', 'CompanyController@profile');
+//EndCompany route
 
 
 // Dont forget delete

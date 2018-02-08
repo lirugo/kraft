@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 
 
+use App\Role;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Image;
+
 
 class RegisterController extends Controller
 {
@@ -85,11 +87,15 @@ class RegisterController extends Controller
             $user->avatar = $filename;
 
         }
-
+        //Save user
         $user->save();
 
+        //AttachRole designer/arch for new user
+        $designer = Role::where('name', 'designer')->first();
+        $user->attachRole($designer);
 
-        Session::flash('success', 'User was successfully created.');
+        //Flash message
+        Session::flash('success', 'Architec/Designer was successfully created.');
         //Redirect
         return view('auth.complete');
     }
