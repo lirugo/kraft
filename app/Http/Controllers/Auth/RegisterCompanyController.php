@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Company;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -141,10 +142,14 @@ class RegisterCompanyController extends Controller
 
         $company->save();
         $user->save();
-
         //EndSave user
 
-        Session::flash('success', 'Company and user was successfully created.');
+        //AttachRole designer/arch for new user
+        $distributor = Role::where('name', 'distributor')->first();
+        $user->attachRole($distributor);
+
+        //Set Flash message
+        Session::flash('success', 'Company and distributor was successfully created.');
         //Redirect
         return view('auth.complete');
 
