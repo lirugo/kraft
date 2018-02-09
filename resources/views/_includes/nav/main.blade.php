@@ -28,14 +28,10 @@
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
-                    <li>
-                        <form action="/language" method="post" class="m-t-30 m-l-20">
-                            <input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">
-                            <input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag m-l-10" alt="English">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
                 @else
+                    <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
+                    <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
+                    <li><a href="#">{{trans('app.objects')}}</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                            style="position: relative; padding-left: 50px;">
@@ -55,7 +51,6 @@
                                     <i class="fa fa-sign-out"> </i>
                                     Logout
                                 </a>
-
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
@@ -63,6 +58,13 @@
                         </ul>
                     </li>
                 @endif
+                <li>
+                    <form action="/language" method="post" class="m-t-30 m-l-20">
+                        <input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">
+                        <input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag m-l-10" alt="English">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
