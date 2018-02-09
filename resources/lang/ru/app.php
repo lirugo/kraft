@@ -17,4 +17,10 @@ return [
     'male' => 'Мужской',
     'femele' => 'Женский',
     //EndProfile
+
+    //Menu
+    'main' => 'Главная',
+    'manage' => 'Панель управления',
+    'objects' => 'Объекты',
+    //EndMenu
 ];

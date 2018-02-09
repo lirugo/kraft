@@ -13,8 +13,14 @@ return [
     'footertext' => 'All right reserved. A direct link to the site is required when reprinting.',
     //EndFooter
 
-       //Profile
+    //Profile
     'male' => 'Male',
     'femele' => 'Female',
     //EndProfile
+
+    //Menu
+    'main' => 'Main',
+    'manage' => 'Manage Dashboard',
+    'objects' => 'Objects',
+    //EndMenu
 ];
