@@ -131,6 +131,7 @@ class RegisterCompanyController extends Controller
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->company = $company->companyname;
 
         // IF have avatar save
         if($request->hasFile('avatar')){

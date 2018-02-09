@@ -23,4 +23,11 @@ class CompanyController extends Controller
         else
             return abort(403);
     }
+
+    public function getcompanyusers(){
+        $user = Auth::user();
+        $users = User::all()->where('company', '=' , $user->company);
+        $company = Company::where('email', $user->email)->firstOrFail();
+            return view('company.users')->with('users', $users);
+    }
 }

@@ -17,7 +17,7 @@
                                 {!! Form::label('label','Company profile') !!}
                                 <hr>
                                 {!! Form::label('companyname', 'Company name', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('companyname', $company->companyname, ['class' => 'form-control']) !!}
+                                {!! Form::text('companyname', $company->companyname, ['class' => 'form-control','readonly']) !!}
                                 {!! Form::label('city', 'City', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('city', $company->city, ['class' => 'form-control']) !!}
                                 {!! Form::label('street', 'Street', ['class' => 'm-t-10']) !!}
