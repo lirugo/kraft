@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-4">
                                 <hr>
-                                <img src="/uploads/avatars/default.jpg" style="
+                                <img src="/uploads/avatars/{{$user->avatar}}" style="
                                     width:150px;
                                     height:150px;
                                     border-radius: 50%;
