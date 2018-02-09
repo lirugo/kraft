@@ -24,14 +24,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                    @role('distributor')
                                 <div class="col-md-2 text-center">
                                     <div class="card">
+                                        <a href="/company/profile">
                                         <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
                                             Profile Company
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
+                                    @endrole
                                 <div class="col-md-2 text-center">
                                     <div class="card">
                                         <i class="fa fa-users fa-5x" aria-hidden="true"></i>

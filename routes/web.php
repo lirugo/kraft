@@ -33,7 +33,9 @@ Route::post('register/company', 'Auth\RegisterCompanyController@createRegisterCo
 //End Registration route
 
 //Manage route
-Route::group(['prefix' => 'manage', 'middleware' => 'role:superadministrator'], function () {
+Route::group(['prefix' => 'manage',
+    'middleware' => 'role:superadministrator|administrator|distributor|worker|manager|top-manager'],
+    function () {
     Route::get('dashboard', 'ManageController@dashboard')->name('manage.dashboard');
 });
 //EndManage route
