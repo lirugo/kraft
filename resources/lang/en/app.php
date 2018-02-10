@@ -5,7 +5,7 @@ return [
     'registration' => 'Registration',
 
     //Welcome page
-    'h4welcome' => 'Easy choice - the best result',
+    'h4welcome' => 'Easy choice - the perfect result',
     'h1welcometext' => 'Systems of suspended ceilings european quality',
     //End Welcome page
 
