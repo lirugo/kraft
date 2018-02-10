@@ -23,4 +23,16 @@ return [
     'manage' => 'Manage Dashboard',
     'objects' => 'Objects',
     //EndMenu
+
+    //Manage
+    'managers' => 'Managers',
+    'distributors' => 'Distributors',
+    'statistics' => 'Statistics',
+    'profilecompany' => 'Profile Company',
+    'userscompany' => 'Users Company',
+    'profileuser' => 'Profile User',
+    'calculator' => 'Calculator',
+    'invoice' => 'Invoice',
+    'history' => 'History',
+    //EndManage
 ];

@@ -23,4 +23,16 @@ return [
     'manage' => 'Панель управления',
     'objects' => 'Объекты',
     //EndMenu
+
+    //Manage
+    'managers' => 'Менеджеры',
+    'distributors' => 'Дистрибьюторы',
+    'statistics' => 'Статистика',
+    'profilecompany' => 'Профиль компании',
+    'userscompany' => 'Пользователи компании',
+    'profileuser' => 'Профиль пользователя',
+    'calculator' => 'Калькулятор',
+    'invoice' => 'Счета',
+    'history' => 'История',
+    //EndManage
 ];
