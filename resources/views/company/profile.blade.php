@@ -14,8 +14,11 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4">
+                                {!! Form::model($company, ['route' =>['company.change', $company->id], 'method' => 'POST', 'files' => true]) !!}
                                 {!! Form::label('label','Company profile') !!}
                                 <hr>
+                                {!! Form::label('id', 'Company id', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('id', $company->id, ['class' => 'form-control','readonly']) !!}
                                 {!! Form::label('companyname', 'Company name', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('companyname', $company->companyname, ['class' => 'form-control','readonly']) !!}
                                 {!! Form::label('city', 'City', ['class' => 'm-t-10']) !!}
@@ -36,6 +39,10 @@
                                 </div>
                                 {!! Form::label('label','Contact information', ['class' => 'm-t-10']) !!}
                                 <hr>
+                                {!! Form::label('phone', 'Phone', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('phone', $company->phone , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Phone']) !!}
+                                {!! Form::label('fax', 'Fax', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('fax', $company->fax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Fax']) !!}
                                 {!! Form::label('smartphone', 'Smartphone', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('smartphone', $company->smartphone, ['class' => 'form-control']) !!}
                                 {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}
@@ -60,17 +67,22 @@
                                 {!! Form::label('lawstreet', 'Law street', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('lawstreet', $company->lawstreet , ['class' => 'form-control required', 'placeholder' => 'Law Street']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::label('house', 'Law House', ['class' => 'm-t-10']) !!}
-                                    {!! Form::text('house', $company->lawhouse , ['class' => 'form-control form-inline required', 'placeholder' => 'House']) !!}
+                                    {!! Form::label('lawhouse', 'Law House', ['class' => 'm-t-10']) !!}
+                                    {!! Form::text('lawhouse', $company->lawhouse , ['class' => 'form-control form-inline required', 'placeholder' => 'House']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('housing', 'Law Housing', ['class' => 'm-t-10']) !!}
-                                    {!! Form::text('housing', $company->lawhousing , ['class' => 'form-control form-inline required', 'placeholder' => 'Housing']) !!}
+                                    {!! Form::label('lawhousing', 'Law Housing', ['class' => 'm-t-10']) !!}
+                                    {!! Form::text('lawhousing', $company->lawhousing , ['class' => 'form-control form-inline required', 'placeholder' => 'Housing']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('office', 'Law Office', ['class' => 'm-t-10']) !!}
-                                    {!! Form::text('office', $company->lawoffice , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
+                                    {!! Form::label('lawoffice', 'Law Office', ['class' => 'm-t-10']) !!}
+                                    {!! Form::text('lawoffice', $company->lawoffice , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
                                 </div>
+                                {!! Form::label('lawphone', 'Law Phone', ['class' => 'm-t-20']) !!}
+                                {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Phone']) !!}
+                                {!! Form::label('lawfax', 'Law Fax', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('lawfax', $company->lawfax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Fax']) !!}
+
 
                             </div>
                             <div class="col-md-4">
