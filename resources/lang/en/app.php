@@ -45,4 +45,11 @@ return [
     'login' => 'Login',
     'forgotyourpassword' => 'Forgot your password?',
     //EndLogin Page
+
+    //Register Page
+    'register' => 'Register',
+    'registertext' => 'To access the system, you need to register',
+    'company' => 'Company',
+    'arch/design' => 'Architect/Designer',
+    //EndRegister Page
 ];
