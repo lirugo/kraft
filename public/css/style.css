@@ -226,7 +226,10 @@ a:hover{
     color: #fff;
     background-color: #f78620;
 }
-
+.botton-primary:hover {
+    color: #fff;
+    background-color: #000000;
+}
 
 
 /*New Form*/
