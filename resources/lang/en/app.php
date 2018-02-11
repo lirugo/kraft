@@ -52,4 +52,21 @@ return [
     'company' => 'Company',
     'arch/design' => 'Architect/Designer',
     //EndRegister Page
+
+    //RegisterArch/Design Page
+    'userprofile' => 'You must fill out a user profile.',
+    'uploadavatar' => 'You must upload your photo.',
+    //EndRegister Page
+
+    //Registerfield
+    'name' => 'Name',
+    'surname' => 'Surame',
+    'patronymic' => 'Patronymic',
+    'date' => 'YYYY/MM/DD',
+    'phone' => 'Phone',
+    'email' => 'Email',
+    'password' => 'Password',
+    'confirmpassword' => 'Confirm Password',
+
+    //EndRegisterfield
 ];

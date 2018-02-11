@@ -8,26 +8,26 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h5> You must fill out a user profile. </h5>
+                <h5> {{trans('app.userprofile')}} </h5>
                 <hr>
 
                 {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
 
-                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Name']) !!}
-                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Surname']) !!}
-                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Patronymic']) !!}
-                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20', 'id' => 'datepicker', 'placeholder' => 'YYYY/MM/DD']) !!}
+                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.name')]) !!}
+                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.surname')]) !!}
+                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.patronymic')]) !!}
+                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
 
                 {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20']); !!}
 
-                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => 'Phone']) !!}
-                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => 'Email']) !!}
-                {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => 'Password']) !!}
-                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => 'Confirm Password']) !!}
+                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.phone')]) !!}
+                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => trans('app.email')]) !!}
+                {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => trans('app.password')]) !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => trans('app.confirmpassword')]) !!}
 
             </div>
             <div class="col-md-4">
-                <h5> You must upload your photo. </h5>
+                <h5> {{trans('app.uploadavatar')}} </h5>
                 <hr>
                 <label class="botton botton-default">
                     <i class="fa fa-plus"></i>
@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-12">
                 <hr>
-                {!! Form::submit('Registration', ['class' => 'botton pull-right btn-sm botton-primary m-t-10']) !!}
+                {!! Form::submit(trans('app.registration'), ['class' => 'botton pull-right btn-sm botton-primary m-t-10']) !!}
                 {!! Form::close() !!}
             </div>
         </div>
