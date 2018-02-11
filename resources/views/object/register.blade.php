@@ -26,6 +26,8 @@
                             {!! Form::text('lon',null , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Lon', 'id' => 'lon', 'readonly']) !!}
                             {!! Form::text('postcode',null , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Post code', 'id' => 'postal_code', 'readonly']) !!}
 
+                            {{ Form::select('region', array_merge(['' => 'Please Select Region'], $region), null,['class' => 'form-control'])}}
+
 
                         </div>
                         <div class="col-md-4"></div>

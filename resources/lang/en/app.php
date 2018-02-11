@@ -97,6 +97,5 @@ return [
     'agreement' => 'I agree with the Terms and Conditions.',
     'previous' => 'Previous',
     'next' => 'Next',
-
     //EndRegisterfield
 ];
