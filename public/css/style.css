@@ -278,3 +278,13 @@ a:hover{
     border-color: #4d90fe;
 }
 /*EndGoogleMapAPI*/
+
+/*Dashboard Link*/
+
+.txt-dash {
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #636b6f;
+    text-transform: uppercase;
+}

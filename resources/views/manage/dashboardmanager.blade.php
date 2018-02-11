@@ -18,7 +18,7 @@
                         <div class="col-md-2 text-center">
                             <div class="card">
                                 <i class="fa fa-university fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
+                                <div class="description m-t-10 txt-dash">
                                     {{ trans('app.objects') }}
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                         <div class="col-md-2 text-center">
                             <div class="card">
                                 <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
+                                <div class="description m-t-10 txt-dash">
                                     {{ trans('app.statistics') }}
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="card">
                                 <a href="/company/profile">
                                     <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
-                                    <div class="description m-t-10">
+                                    <div class="description m-t-10 txt-dash ">
                                         {{ trans('app.profilecompany') }}
                                     </div>
                                 </a>
