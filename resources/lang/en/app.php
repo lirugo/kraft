@@ -35,4 +35,14 @@ return [
     'invoice' => 'Invoice',
     'history' => 'History',
     //EndManage
+
+    //Login Page
+    'logintext1' => 'TO LOGIN THE SYSTEM',
+    'logintext2' => 'YOU MUST AUTHORIZATION',
+    'emailaddress' => 'E-Mail Address',
+    'password' => 'Password',
+    'rememberme' => 'Remember me',
+    'login' => 'Login',
+    'forgotyourpassword' => 'Forgot your password?',
+    //EndLogin Page
 ];
