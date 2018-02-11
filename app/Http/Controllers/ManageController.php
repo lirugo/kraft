@@ -25,5 +25,8 @@ class ManageController extends Controller
         else
             if($user->hasRole('administrator' || 'superadministrator'))
                 return view('manage.dashboard');
+        else
+            return abort(403);
+
     }
 }

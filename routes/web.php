@@ -52,6 +52,14 @@ Route::get('company/users', 'CompanyController@getcompanyusers');
 Route::post('company/profile', 'CompanyController@changeprofile')->name('company.change');
 //EndCompany route
 
+//Manage route
+Route::group(['prefix' => 'object',
+    'middleware' => 'role:distributor'],
+    function () {
+        Route::get('register', 'Object\ObjectController@register')->name('object.register');
+    });
+//EndManage route
+
 
 // Dont forget delete
 Route::get('/complete', function () {

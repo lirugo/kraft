@@ -14,7 +14,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4">
-                                {!! Form::model($company, ['route' =>['company.change', $company->id], 'method' => 'POST', 'files' => true]) !!}
+                                {!! Form::model(['route' =>['company.change'], 'method' => 'POST', 'files' => true]) !!}
                                 {!! Form::label('label','Company profile') !!}
                                 <hr>
                                 {!! Form::label('id', 'Company id', ['class' => 'm-t-10']) !!}

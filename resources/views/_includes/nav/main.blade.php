@@ -31,7 +31,7 @@
                 @else
                     <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
-                    <li><a href="#">{{trans('app.objects')}}</a></li>
+                    <li><a href="{{ url('/object/register') }}">{{trans('app.objects')}}</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                            style="position: relative; padding-left: 50px;">
