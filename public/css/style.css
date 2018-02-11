@@ -288,3 +288,27 @@ a:hover{
     color: #636b6f;
     text-transform: uppercase;
 }
+
+/*Checkbox bootstrap*/
+.form-group-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.form-group-checkbox input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group-checkbox input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group-checkbox input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;
+}
+
+.form-group-checkbox input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group-checkbox input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;
+}
+/*EndCheckbox bootstrap*/

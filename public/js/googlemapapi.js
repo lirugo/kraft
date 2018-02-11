@@ -1,7 +1,14 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 50.4501, lng: 30.523400000000038},
-        zoom: 13
+        zoom: 13,
+        disableDefaultUI: true,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.SMALL
+        },
+        draggableCursor:'crosshair',
+        draggingCursor: 'move'
     });
     var input = document.getElementById('searchInput');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -14,7 +21,6 @@ function initMap() {
         map: map,
         anchorPoint: new google.maps.Point(0, -29)
     });
-
     autocomplete.addListener('place_changed', function() {
         infowindow.close();
         marker.setVisible(false);
@@ -72,8 +78,9 @@ function initMap() {
             }
         }
 
-       // document.getElementById('location').innerHTML = place.formatted_address;
+        // document.getElementById('location').innerHTML = place.formatted_address;
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
     });
+    // Select place by click
 }

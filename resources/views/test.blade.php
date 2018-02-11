@@ -1,116 +1,59 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place details</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-@section('content')
-<style>
-    #map {
-        width: 100%;
-        height: 400px;
-    }
-    .controls {
-        margin-top: 10px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-    #searchInput {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 50%;
-    }
-    #searchInput:focus {
-        border-color: #4d90fe;
-    }
-</style>
-<input id="searchInput" class="controls" type="text" placeholder="Enter a location">
-<div id="map" ></div>
-<ul id="geoData">
-    <li>Full Address: <span id="location"></span></li>
-    <li>Postal Code: <span id="postal_code"></span></li>
-    <li>Country: <span id="country"></span></li>
-    <li>Latitude: <span id="lat"></span></li>
-    <li>Longitude: <span id="lon"></span></li>
-</ul>
-<script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 50.4501, lng: 30.523400000000038},
-            zoom: 13
-        });
-        var input = document.getElementById('searchInput');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -33.866, lng: 151.196},
+                zoom: 15
+            });
 
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.bindTo('bounds', map);
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
 
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-            map: map,
-            anchorPoint: new google.maps.Point(0, -29)
-        });
-
-        autocomplete.addListener('place_changed', function() {
-            infowindow.close();
-            marker.setVisible(false);
-            var place = autocomplete.getPlace();
-            if (!place.geometry) {
-                window.alert("Autocomplete's returned place contains no geometry");
-                return;
-            }
-
-            // If the place has a geometry, then present it on a map.
-            if (place.geometry.viewport) {
-                map.fitBounds(place.geometry.viewport);
-            } else {
-                map.setCenter(place.geometry.location);
-                map.setZoom(17);
-            }
-            marker.setIcon(({
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(35, 35)
-            }));
-            marker.setPosition(place.geometry.location);
-            marker.setVisible(true);
-
-            var address = '';
-            if (place.address_components) {
-                address = [
-                    (place.address_components[0] && place.address_components[0].short_name || ''),
-                    (place.address_components[1] && place.address_components[1].short_name || ''),
-                    (place.address_components[2] && place.address_components[2].short_name || '')
-                ].join(' ');
-            }
-
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-            infowindow.open(map, marker);
-
-            //Location details
-            for (var i = 0; i < place.address_components.length; i++) {
-                if(place.address_components[i].types[0] == 'postal_code'){
-                    document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+            service.getDetails({
+                placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+            }, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                            'Place ID: ' + place.place_id + '<br>' +
+                            place.formatted_address + '</div>');
+                        infowindow.open(map, this);
+                    });
                 }
-                if(place.address_components[i].types[0] == 'country'){
-                    document.getElementById('country').innerHTML = place.address_components[i].long_name;
-                }
-            }
-            document.getElementById('location').innerHTML = place.formatted_address;
-            document.getElementById('lat').innerHTML = place.geometry.location.lat();
-            document.getElementById('lon').innerHTML = place.geometry.location.lng();
-        });
-    }
-</script>
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="map"></div>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initMap">
 </script>
-@endsection
+</body>
+</html>
