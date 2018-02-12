@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
 
     <div class="container-fluid">
@@ -8,36 +12,38 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register object</div>
                     <div class="panel-body">
-                        {!! Form::model(['route' =>[''], 'method' => 'POST', 'files' => true]) !!}
+                        {!! Form::model(['route' =>['object.register'], 'method' => 'POST', 'files' => true]) !!}
                         <div class="row">
                             <div class="col-md-12">
-                                <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+                                {!! Form::text('searchInput',null , ['class' => 'controls form-control m-b-10 required', 'placeholder' => 'Enter a location', 'id' => 'searchInput']) !!}
+
                                 <div id="map" ></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                              {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('country',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.country'), 'id' => 'country', 'readonly']) !!}
-                            {!! Form::text('city',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.country'), 'id' => 'city', 'readonly']) !!}
-                            {!! Form::text('street',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.street'), 'id' => 'street', 'readonly']) !!}
-                            {!! Form::text('house',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.house'), 'id' => 'street_number', 'readonly']) !!}
-                            {!! Form::text('lat',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lat'), 'id' => 'lat', 'readonly']) !!}
-                            {!! Form::text('lon',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lon'), 'id' => 'lon', 'readonly']) !!}
-                            {!! Form::text('postcode',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.postcode'), 'id' => 'postal_code', 'readonly']) !!}
+                            {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object']) !!}
+                            {!! Form::text('country',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.country'), 'id' => 'country', 'readonly']) !!}
+                            {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city'), 'id' => 'city', 'readonly']) !!}
+                            {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street'), 'id' => 'street', 'readonly']) !!}
+                            {!! Form::text('house',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.house'), 'id' => 'street_number', 'readonly']) !!}
+                            {!! Form::text('lat',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.lat'), 'id' => 'lat', 'readonly']) !!}
+                            {!! Form::text('lon',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.lon'), 'id' => 'lon', 'readonly']) !!}
+                            {!! Form::text('postcode',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.postcode'), 'id' => 'postal_code', 'readonly']) !!}
 
-                            {{ Form::select('region', array_merge(['' => trans('app.selectregion')], $region), null,['class' => 'form-control'])}}
+                            {{ Form::select('region', array_merge([null => trans('app.selectregion')], $region), null,['class' => 'form-control','required'])}}
                             <hr>
                             <div class="col-md-6">
-                                {!! Form::text('sworks', null , ['class' => 'form-control  required', 'placeholder' => trans('app.sworks')]) !!}
+                                {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks')]) !!}
                             </div>
                             <div class="col-md-6">
-                                {!! Form::text('dateofdelivery', null , ['class' => 'form-control required', 'placeholder' => trans('app.dateofdelivery')]) !!}
+                                {!! Form::text('dateofdelivery', null , ['class' => 'form-control', 'placeholder' => trans('app.dateofdelivery'), 'id' => 'datepicker']) !!}
                             </div>
                             <br>
                             <br>
                             <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product1" id="product1" autocomplete="off" />
+                                <input type="checkbox" name="product1" id="product1" value="1"/>
                                 <div class="[ btn-group ]">
                                     <label for="product1" class="[ btn btn-default ]">
                                         <span class="[ fa fa-plus ]"></span>
@@ -49,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product2" id="product2" autocomplete="off" />
+                                <input type="checkbox" name="product2" id="product2" value="1" />
                                 <div class="[ btn-group ]">
                                     <label for="product2" class="[ btn btn-default ]">
                                         <span class="[ fa fa-plus ]"></span>
@@ -61,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product3" id="product3" autocomplete="off" />
+                                <input type="checkbox" name="product3" id="product3" value="1" />
                                 <div class="[ btn-group ]">
                                     <label for="product3" class="[ btn btn-default ]">
                                         <span class="[ fa fa-plus ]"></span>
@@ -73,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product4" id="product4" autocomplete="off" />
+                                <input type="checkbox" name="product4" id="product4" value="1" />
                                 <div class="[ btn-group ]">
                                     <label for="product4" class="[ btn btn-default ]">
                                         <span class="[ fa fa-plus ]"></span>
@@ -85,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product5" id="product5" autocomplete="off" />
+                                <input type="checkbox" name="product5" id="product5" value="1" />
                                 <div class="[ btn-group ]">
                                     <label for="product5" class="[ btn btn-default ]">
                                         <span class="[ fa fa-plus ]"></span>
@@ -100,16 +106,16 @@
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.customer'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('customer',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.customer')]) !!}
-                            {!! Form::text('customername',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.customername')]) !!}
-                            {!! Form::text('customersurname',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.customersurname')]) !!}
-                            {!! Form::text('customerpatronymic',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.customerpatronymic')]) !!}
-                            {!! Form::text('customerpphone',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.customerpphone')]) !!}
+                            {!! Form::text('customer',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customer')]) !!}
+                            {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername')]) !!}
+                            {!! Form::text('customersurname',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customersurname')]) !!}
+                            {!! Form::text('customerpatronymic',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpatronymic')]) !!}
+                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpphone')]) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.generalbuilder')]) !!}
-                            {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.delegatebuilder')]) !!}
+                            {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.generalbuilder')]) !!}
+                            {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.delegatebuilder')]) !!}
                             {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.delegatebuildername')]) !!}
                             {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
                             {!! Form::text('delegatebuilderpatronymic',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.delegatebuilderpatronymic')]) !!}
@@ -139,7 +145,7 @@
                             {!! Form::text('designpatronymic',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.designpatronymic')]) !!}
                             {!! Form::text('designphone',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.designphone')]) !!}
 
-                            {{ Form::textarea('notes', null, ['class' => 'm-t-20', 'placeholder' => trans('app.comments')]) }}
+                            {{ Form::textarea('comments', null, ['class' => 'm-t-20', 'placeholder' => trans('app.comments')]) }}
                             <br>
                             {!! Form::label('label',trans('app.uploadphotoobject',['class' => 'm-t-20'])) !!}
                             <hr>
@@ -167,6 +173,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+                                {!! Form::submit('Create Object',['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>
@@ -179,6 +186,9 @@
 
 
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/datepicker.js"></script>
     <script src="/js/googlemapapi.js"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initMap">

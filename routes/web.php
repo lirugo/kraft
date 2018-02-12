@@ -58,6 +58,7 @@ Route::group(['prefix' => 'object',
     function () {
         Route::get('show', 'Object\ObjectController@show')->name('object.show');
         Route::get('register', 'Object\ObjectController@register')->name('object.register');
+        Route::post('register', 'Object\ObjectController@postregister')->name('object.register');
     });
 //EndManage route
 
