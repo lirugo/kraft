@@ -56,6 +56,7 @@ Route::post('company/profile', 'CompanyController@changeprofile')->name('company
 Route::group(['prefix' => 'object',
     'middleware' => 'role:distributor'],
     function () {
+        Route::get('show', 'Object\ObjectController@show')->name('object.show');
         Route::get('register', 'Object\ObjectController@register')->name('object.register');
     });
 //EndManage route

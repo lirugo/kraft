@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class ObjectController extends Controller
 {
+    public function show(){
+        return view('object.show');
+    }
     public function register(){
-
         $region = [
             'Киевская область',
             'Днепропетровская область',

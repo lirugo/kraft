@@ -17,11 +17,13 @@ class CreateObjectsTable extends Migration
             $table->increments('id');
             $table->integer('companyid');
             $table->string('name');
+            $table->string('country');
             $table->string('region');
-            $table->string('district');
             $table->string('city');
             $table->string('street');
-            $table->string('house');
+            $table->string('postcode');
+            $table->string('lat');
+            $table->string('lon');
 
             $table->integer('sworks');
             $table->date('dateofdelivery')->nullable();
@@ -62,11 +64,11 @@ class CreateObjectsTable extends Migration
             //Comments
             $table->text('comments')->nullable();
             //Products
-            $table->string('product1')->nullable();
-            $table->string('product2')->nullable();
-            $table->string('product3')->nullable();
-            $table->string('product4')->nullable();
-            $table->string('product5')->nullable();
+            $table->boolean('product1')->default(false);
+            $table->boolean('product2')->default(false);
+            $table->boolean('product3')->default(false);
+            $table->boolean('product4')->default(false);
+            $table->boolean('product5')->default(false);
             //Specification
             $table->integer('specificationid')->nullable();
             //Verify
