@@ -115,6 +115,6 @@ class CompanyController extends Controller
         else
             Session::flash('success', 'You don\'t change any data');
         //Redirect
-        return view('manage.dashboard');
+        return redirect(route('manage.dashboard'));
     }
 }

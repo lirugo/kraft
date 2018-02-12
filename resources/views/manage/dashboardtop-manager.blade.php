@@ -43,24 +43,20 @@
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
-                                <a href="/company/profile">
                                     <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('app.profilecompany') }}
                                     </div>
-                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="row m-t-100">
                         <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
-                                <a href="/company/users">
                                     <i class="fa fa-users fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('app.userscompany') }}
                                     </div>
-                                </a>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">

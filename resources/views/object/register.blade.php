@@ -25,6 +25,7 @@
                             {!! Form::text('lat',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lat'), 'id' => 'lat', 'readonly']) !!}
                             {!! Form::text('lon',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lon'), 'id' => 'lon', 'readonly']) !!}
                             {!! Form::text('postcode',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.postcode'), 'id' => 'postal_code', 'readonly']) !!}
+                            {!! Form::text('postcode',null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.postcode'), 'id' => 'place_id', 'readonly']) !!}
 
                             {{ Form::select('region', array_merge(['' => trans('app.selectregion')], $region), null,['class' => 'form-control'])}}
                             <hr>

@@ -32,7 +32,7 @@
                                 {!! Form::text('patronymic', $user->patronymic, ['class' => 'form-control']) !!}
 
                                 {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
+                                {!! Form::text('email', $user->email, ['class' => 'form-control', 'readonly']) !!}
 
                                 {!! Form::label('dateofbirth', 'Date of birth', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('dateofbirth', $user->dateofbirth, ['class' => 'form-control', 'id' => 'datepicker']) !!}

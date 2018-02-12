@@ -81,6 +81,10 @@ function initMap() {
         // document.getElementById('location').innerHTML = place.formatted_address;
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
+
+        document.getElementById('place_id').value = place.place_id;
+
     });
     // Select place by click
+
 }
