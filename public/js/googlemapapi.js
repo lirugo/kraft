@@ -82,9 +82,84 @@ function initMap() {
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
 
-        document.getElementById('place_id').value = place.place_id;
+       // document.getElementById('place_id').value = place.place_id;
 
     });
     // Select place by click
 
+    map.addListener('click', function(e) {
+        infowindow.close();
+        placeMarker(e.latLng, map);
+         geocoder = new google.maps.Geocoder;
+         infowindow = new google.maps.InfoWindow;
+
+        geocodeLatLng(geocoder, map, infowindow);
+    });
 }
+var marker;
+var place;
+var geocoder;
+var infowindow;
+
+function placeMarker(position, map) {
+
+    if ( marker ) {
+        marker.setPosition(position);
+    } else {
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+        });
+
+    }
+}
+
+function geocodeLatLng(geocoder, map, infowindow) {
+    var input = marker.getPosition().lat() + ',' + marker.getPosition().lng();
+    var latlngStr = input.split(',', 2);
+
+    var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+
+    geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === 'OK') {
+            if (results[1]) {
+                placeMarker(input, map);
+
+                infowindow.setContent(results[0].formatted_address);
+                infowindow.open(map, marker);
+
+                //Parse data address
+                var place = results[0];
+                for (var i = 0; i < place.address_components.length; i++) {
+                    if(place.address_components[i].types[0] == 'postal_code'){
+                        document.getElementById('postal_code').value = place.address_components[i].long_name;
+                    }
+                    if(place.address_components[i].types[0] == 'country'){
+                        document.getElementById('country').value = place.address_components[i].long_name;
+                    }
+                    if(place.address_components[i].types[0] == 'locality'){
+                        document.getElementById('city').value = place.address_components[i].long_name;
+                    }
+                    if(place.address_components[i].types[0] == 'route'){
+                        document.getElementById('street').value = place.address_components[i].long_name;
+                    }
+                    if(place.address_components[i].types[0] == 'street_number'){
+                        document.getElementById('street_number').value = place.address_components[i].long_name;
+                    }
+                }
+                document.getElementById('lat').value = place.geometry.location.lat();
+                document.getElementById('lon').value = place.geometry.location.lng();
+                //Parse data address
+                infowindow.open(map, marker);
+            }else {
+                window.alert('No results found');
+            }
+        }
+        else {
+            window.alert('Geocoder failed due to: ' + status);
+        }
+
+    });
+
+}
+
