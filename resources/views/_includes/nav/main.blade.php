@@ -32,19 +32,12 @@
                     <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
                     <li><a href="{{ url('/object/register') }}">{{trans('app.objects')}}</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                           style="position: relative; padding-left: 50px;">
-                            <img src="/uploads/avatars/{{ Auth::user()->avatar }}" class="avatar-top-icon m-t-15"/>
-                            {{ Auth::user()->name }}
-                        </a>
-                    </li>
                     <li>
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out"> </i>
-                            Logout
+                            {{ trans('app.logout') }}
                         </a>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
