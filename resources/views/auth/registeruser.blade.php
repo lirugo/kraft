@@ -14,17 +14,17 @@
 
                 {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
 
-                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.name')]) !!}
-                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.surname')]) !!}
-                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.patronymic')]) !!}
-                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
+                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.name')]) !!}
+                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.surname')]) !!}
+                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.patronymic')]) !!}
+                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
 
-                {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20']); !!}
+                {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20', 'required']); !!}
 
-                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'placeholder' => trans('app.phone')]) !!}
-                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'placeholder' => trans('app.email')]) !!}
-                {!! Form::password('password', ['class' => 'form-control m-t-20' , 'placeholder' => trans('app.password')]) !!}
-                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'placeholder' => trans('app.confirmpassword')]) !!}
+                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.phone')]) !!}
+                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.email')]) !!}
+                {!! Form::password('password', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.password')]) !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.confirmpassword')]) !!}
 
             </div>
             <div class="col-md-4">
