@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <meta charset=utf-8 />
-    <title>JS Bin</title>
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <style>
-        article, aside, figure, footer, header, hgroup,
-        menu, nav, section { display: block; }
-    </style>
-</head>
-<body>
-<input type='file' onchange="readURL(this);" />
-<img id="blah" src="#" alt="your image" />
+    <link href="/css/dropzone.css" rel="stylesheet">
 
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script src="/js/dropzone.js"></script>
 
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    .width(150)
-                    .height(200);
-            };
+        <input type="text" id="upl">
+        <div id="iamgeUpload" class="dropzone"></div>
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-</body>
-</html>
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone("div#iamgeUpload", {
+            url:'/upload/avatar',
+            type:'POST',
+            maxFilesize:3,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            maxFiles: 1,
+            addRemoveLinks: true,
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{{ csrf_token() }}}");
+            },
+            init: function() {
+                var myDropzone = this;
+                this.on('success', function(file, response) {
+                    document.getElementById('upl').value = response.success;
+                })
+            }
+        });
+    </script>
+

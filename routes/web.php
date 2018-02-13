@@ -70,3 +70,5 @@ Route::get('/complete', function () {
 Route::get('/test', function () {
     return view('test');
 });
+Route::get('dropzone', 'HomeController@dropzone');
+Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
