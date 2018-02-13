@@ -853,6 +853,17 @@ pre code{
         width:1170px;
     }
 }
+@media (min-width:1280px){
+    .container{
+        width:1250px;
+    }
+}
+
+@media (min-width:1366px){
+    .container{
+        width:1326px;
+    }
+}
 
 @media (min-width:1600px){
     .container{

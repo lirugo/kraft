@@ -11,7 +11,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <a href="{{ route('object.register') }}"><input type="button" value="Create Object" class="btn btn-sml btn-primary pull-left"/></a>
+                                <a href="{{ route('object.register') }}"><input type="button" value="Create Object" class="botton botton-primary botton-default pull-left"/></a>
                             </div>
                         </div>
                         <div class="row">
