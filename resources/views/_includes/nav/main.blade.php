@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="/img/logo/logo.png" class="kraft-logo m-t-10"/>
+                <img src="/img/logo/logo.png" class="kraft-logo"/>
             </a>
         </div>
 

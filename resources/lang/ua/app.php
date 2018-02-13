@@ -5,8 +5,8 @@ return [
     'registration' => 'Регістрація',
 
     //Welcome page
-    'h4welcome' => 'Легкий вибір - Кращий результат',
-    'h1welcometext' => 'Системи підвісних стель європейської якості',
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Система управління замовленнями',
     //End Welcome page
 
     //Footer

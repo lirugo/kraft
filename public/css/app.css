@@ -854,6 +854,17 @@ pre code{
     }
 }
 
+@media (min-width:1600px){
+    .container{
+        width:1560px;
+    }
+}
+
+@media (min-width:1920px){
+    .container{
+        width:1890px;
+    }
+
 .row{
     margin-left:-15px;
     margin-right:-15px;

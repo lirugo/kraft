@@ -6,8 +6,8 @@ return [
     'logout' => 'Logout',
 
     //Welcome page
-    'h4welcome' => 'Easy choice - the perfect result',
-    'h1welcometext' => 'Systems of suspended ceilings european quality',
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Order management system',
     //End Welcome page
 
     //Footer

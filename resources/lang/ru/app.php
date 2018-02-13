@@ -6,8 +6,8 @@ return [
     'logout' => 'Выход',
 
     //Welcome page
-    'h4welcome' => 'Легкий выбор - Лучший результат',
-    'h1welcometext' => 'Системы подвесных потолков европейского качества',
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Система управления заказами',
     //End Welcome page
 
     //Footer
@@ -64,10 +64,8 @@ return [
     'patronymic' => 'Отчество',
     'date' => 'YYYY/MM/DD',
     'dateofbirth' => 'Дата рождения',
-    'phone' => 'Телефон',
     'email' => 'Email',
     'phone' => 'Телефон',
-    'password' => 'Пароль',
     'confirmpassword' => 'Повторите пароль',
     'gender' => 'Пол',
 
