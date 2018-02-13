@@ -31,9 +31,7 @@
                 <h5> {{trans('app.uploadavatar')}} </h5>
                 <hr>
                 {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
-
                 <div id="iamgeUpload" class="dropzone"></div>
-
             </div>
 
             <div class="col-md-4"></div>

@@ -80,7 +80,7 @@ class RegisterController extends Controller
 
         // IF have avatar save
 
-            $user->avatar = $request->avatar;
+        if(isset($request->avatar))$user->avatar = $request->avatar;
 
 
         //Save user

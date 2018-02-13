@@ -2,6 +2,7 @@
 
 @section('stylesheets')
     <link rel="stylesheet" href="/css/jquery.steps.css">
+    <link href="/css/dropzone.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
 @endsection
 
@@ -60,44 +61,21 @@
 
                             {!! Form::label('label',trans('app.uploaddocuments')) !!}
                             <br>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc1" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc2" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc3" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc4" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc5" hidden>
-                            </label>
+                            <div id="scanUpload" class="dropzone"></div>
+                            <div id="boatAddForm"></div>
                         </div>
                     </section>
                     <h3>Register User</h3>
                     <section>
                         <div class="col-md-4">
-
                             {!! Form::label('label', trans('app.profileuser')) !!}
                             {!! Form::text('name', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.name')]) !!}
                             {!! Form::text('surname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.surname')]) !!}
                             {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')]) !!}
                             {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
-
                             {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'form-control m-b-10 required']); !!}
-
                             {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')]) !!}
                             {!! Form::email('email', null,['class' => 'form-control m-b-10 required email',   'placeholder' => trans('app.email')]) !!}
-
-
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.password')) !!}
@@ -107,10 +85,8 @@
                             <br>
                             <h5> You must upload your photo. </h5>
                             <hr>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="avatar" hidden>
-                            </label>
+                            {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
+                            <div id="iamgeUpload" class="dropzone"></div>
                         </div>
 
                     </section>
@@ -133,7 +109,48 @@
     <script src="/js/jquery.steps.js"></script>
     <script src="/js/jquery.validate.js"></script>
     <script src="/js/script.js"></script>
-
+    <script src="/js/dropzone.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
+
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone("div#iamgeUpload", {
+            url:'/upload/avatar',
+            type:'POST',
+            maxFilesize:3,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            maxFiles: 1,
+            addRemoveLinks: true,
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{{ csrf_token() }}}");
+            },
+            init: function() {
+                var myDropzone = this;
+                this.on('success', function(file, response) {
+                    document.getElementById('upl').value = response.success;
+                })
+            }
+        });
+        var myDropzone = new Dropzone("div#scanUpload", {
+            url:'/upload/scan',
+            type:'POST',
+            maxFilesize:3,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            maxFiles: 5,
+            addRemoveLinks: true,
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{{ csrf_token() }}}");
+            },
+            init: function() {
+                var myDropzone = this;
+                this.on('success', function(file, response) {
+                    $("#boatAddForm").append($('<input type="text" ' +
+                        'name="scans[]" ' +
+                        'value="' + response.success + '">'));
+                })
+            }
+        });
+    </script>
+
 @endsection

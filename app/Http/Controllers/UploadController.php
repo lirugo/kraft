@@ -13,4 +13,12 @@ class UploadController extends Controller
         $image->move(public_path('uploads/avatars'),$imageName);
         return response()->json(['success'=>$imageName]);
     }
+
+    public function uploadscan(Request $request)
+    {
+        $image = $request->file('file');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('uploads/scandocs'),$imageName);
+        return response()->json(['success'=>$imageName]);
+    }
 }

@@ -20,7 +20,6 @@ class RegisterCompanyController extends Controller
     }
 
     public function createRegisterCompany(Request $request){
-
         //Validate
         $this->validate($request,[
             //Validate company profile
@@ -83,43 +82,12 @@ class RegisterCompanyController extends Controller
         $company->lawphone = $request->lawphone;
         $company->lawfax = $request->lawfax;
 
-        // IF have docs then save
-        if($request->hasFile('scandoc1')){
-            $scandoc1 = $request->file('scandoc1');
-            $filename = time().'.'.$scandoc1->getClientOriginalExtension();
-            $path = $request->scandoc1->storeAs('scandocs/scandoc1', $filename, 'public_uploads');
-            Storage::disk('public_uploads')->put($path, file_get_contents($request->file('scandoc1')));
-            $company->scandoc1 = $filename;
-        }
-        if($request->hasFile('scandoc2')){
-            $scandoc2 = $request->file('scandoc2');
-            $filename = time().'.'.$scandoc2->getClientOriginalExtension();
-            $path = $request->scandoc1->storeAs('scandocs/scandoc2', $filename, 'public_uploads');
-            Storage::disk('public_uploads')->put($path, file_get_contents($request->file('scandoc2')));
-            $company->scandoc2 = $filename;
-        }
-        if($request->hasFile('scandoc3')){
-            $scandoc3 = $request->file('scandoc3');
-            $filename = time().'.'.$scandoc3->getClientOriginalExtension();
-            $path = $request->scandoc3->storeAs('scandocs/scandoc3', $filename, 'public_uploads');
-            Storage::disk('public_uploads')->put($path, file_get_contents($request->file('scandoc3')));
-            $company->scandoc3 = $filename;
-        }
-        if($request->hasFile('scandoc4')){
-            $scandoc4 = $request->file('scandoc4');
-            $filename = time().'.'.$scandoc4->getClientOriginalExtension();
-            $path = $request->scandoc4->storeAs('scandocs/scandoc4', $filename, 'public_uploads');
-            Storage::disk('public_uploads')->put($path, file_get_contents($request->file('scandoc4')));
-            $company->scandoc4 = $filename;
-        }
-        if($request->hasFile('scandoc5')){
-            $scandoc5 = $request->file('scandoc5');
-            $filename = time().'.'.$scandoc5->getClientOriginalExtension();
-            $path = $request->scandoc5->storeAs('scandocs/scandoc5', $filename, 'public_uploads');
-            Storage::disk('public_uploads')->put($path, file_get_contents($request->file('scandoc5')));
-            $company->scandoc5 = $filename;
-        }
-
+        // IF have scan docs then save
+        if(isset($request->scans[0]))$company->scandoc1 = $request->scans[0];
+        if(isset($request->scans[1]))$company->scandoc2 = $request->scans[1];
+        if(isset($request->scans[2]))$company->scandoc3 = $request->scans[2];
+        if(isset($request->scans[3]))$company->scandoc4 = $request->scans[3];
+        if(isset($request->scans[4])) $company->scandoc5 = $request->scans[4];
 
 
         //Save user
@@ -134,12 +102,7 @@ class RegisterCompanyController extends Controller
         $user->company = $company->companyname;
 
         // IF have avatar save
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time().'.'.$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
-            $user->avatar = $filename;
-        }
+        if(isset($request->avatar))$user->avatar = $request->avatar;
 
         $company->save();
         $user->save();

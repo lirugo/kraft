@@ -62,6 +62,10 @@ Route::group(['prefix' => 'object',
     });
 //EndManage route
 
+//UploadController
+Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
+Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
+//EndUploadController
 
 // Dont forget delete
 Route::get('/complete', function () {
@@ -71,4 +75,3 @@ Route::get('/test', function () {
     return view('test');
 });
 Route::get('dropzone', 'HomeController@dropzone');
-Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
