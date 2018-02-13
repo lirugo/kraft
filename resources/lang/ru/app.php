@@ -1,8 +1,9 @@
 <?php
 return [
     'language' => 'Язык',
-    'login' => 'Войти',
+    'login' => 'Вход',
     'registration' => 'Регистрация',
+    'logout' => 'Выход',
 
     //Welcome page
     'h4welcome' => 'Легкий выбор - Лучший результат',
@@ -35,4 +36,108 @@ return [
     'invoice' => 'Счета',
     'history' => 'История',
     //EndManage
+
+    //Login Page
+    'logintext1' => 'ДЛЯ ВХОДА В СИСТЕМУ',
+    'logintext2' => 'НЕОБХОДИМО АВТОРИЗИРОВАТЬСЯ',
+    'emailaddress' => 'E-Mail',
+    'password' => 'Пароль',
+    'rememberme' => 'Запомнить меня',
+    'forgotyourpassword' => 'Забыли пароль?',
+    //EndLogin Page
+
+    //Register Page
+    'register' => 'Регистрация',
+    'registertext' => 'Для доступа к системе необходима регистрация',
+    'company' => 'Компания',
+    'arch/design' => 'Архитектор/Дизайнер',
+    //EndRegister Page
+
+    //RegisterArch/Design Page
+    'userprofile' => 'Необходимо заполнить профиль пользователя.',
+    'uploadavatar' => 'Загрузите Ваше фото.',
+    //EndRegister Page
+
+    //Registerfield
+    'name' => 'Имя',
+    'surname' => 'Фамилия',
+    'patronymic' => 'Отчество',
+    'date' => 'YYYY/MM/DD',
+    'dateofbirth' => 'Дата рождения',
+    'phone' => 'Телефон',
+    'email' => 'Email',
+    'phone' => 'Телефон',
+    'password' => 'Пароль',
+    'confirmpassword' => 'Повторите пароль',
+    'gender' => 'Пол',
+
+    'registercompany' => 'Регистрация компании',
+    'profileuser' => 'Профиль пользователя',
+    'communications' => 'Контактные данные',
+    'financialrequisites' => 'Финансовые реквизиты',
+    'lawaddress' => 'Юридический адрес',
+    'financialrequisites' => 'Финансовые реквизиты',
+    'uploaddocuments' => 'Необходимо загрузить скан-копии документов. ',
+    'companyname' => 'Компания',
+    'city' => 'Город',
+    'street' => 'Улица',
+    'house' => 'Дом',
+    'housing' => 'Корпус',
+    'office' => 'Офис',
+    'fax' => 'Факс',
+    'smartphone' => 'Моб. телефон',
+    'bank' => 'Банк',
+    'mfo' => 'МФО',
+    'settlementaccount' => 'Расчетный счет',
+    'okpo' => 'ОКПО',
+    'lawcity' => 'Город',
+    'lawstreet' => 'Улица',
+    'lawhouse' => 'Дом',
+    'lawoffice' => 'Офис/квартира',
+    'lawhousing'=> 'Корпус',
+    'lawphone' => 'Телефон',
+    'lawfax' => 'Факс',
+    'agreement' => 'Я подтверждаю правильность предоставленных мною данных.',
+    'previous' => 'Назад',
+    'next' => 'Далее',
+    //EndRegisterfield
+
+    //CreateObject
+    'objectdata' => 'Данные объекта',
+    'sworks' => 'Площадь планируемых работ',
+    //'dateofdelivery' => 'dateofdelivery',
+    'customer' => 'Заказчик (представитель)',
+    'customername' => 'Имя',
+    'customersurname' => 'Фамилия',
+    'customerpatronymic' => 'Отчество',
+    'customerpphone' => 'Телефон',
+    'generalbuilder' => 'Генеральный подрядчик',
+    'delegatebuilder' => 'Представитель генерального подрядчика',
+    'delegatebuildername' => 'Имя',
+    'delegatebuildersurname' => 'Фамилия',
+    'delegatebuilderpatronymic' => 'Отчество',
+    'delegatebuilderphone' => 'Телефон',
+    'subbuilder' => 'Субподрядчик',
+    'subbuildername' => 'Имя',
+    'subbuildersurname' => 'Фамилия',
+    'subbuilderpatronymic' => 'Отчество',
+    'subbuilderphone' => 'Телефон',
+    'architectname' => 'Имя',
+    'architectsurname' => 'Фамилия',
+    'architectpatronymic' => 'Отчество',
+    'architectphone' => 'Телефон',
+    'designname' => 'Имя',
+    'designsurname' => 'Фамилия',
+    'designpatronymic' => 'Отчество',
+    'designphone' => 'Телефон',
+    'comments' => 'Комментарий',
+    'uploadphotoobject' => 'Загрузить фотографии объекта',
+    'country' => 'Страна',
+    'lat' => 'Широта',
+    'lon' => 'Долгота',
+    'postcode' => 'Почтовый индекс',
+    'selectregion' => 'Выберите область',
+    'architect' => 'Архитектура',
+    'design' => 'Дизайнер',
+    //EndCreateObject
 ];

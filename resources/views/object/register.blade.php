@@ -37,7 +37,7 @@
                             <div class="col-md-6">
                                 {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks')]) !!}
                             </div>
-                            <div class="col-md-6">
+                           <div class="col-md-6">
                                 {!! Form::text('dateofdelivery', null , ['class' => 'form-control', 'placeholder' => trans('app.dateofdelivery'), 'id' => 'datepicker']) !!}
                             </div>
                             <br>
@@ -173,7 +173,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Form::submit('Create Object',['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}
+                                {!! Form::submit('Create Object',['class' => 'pull-right botton botton-primary botton-default m-t-10']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>
