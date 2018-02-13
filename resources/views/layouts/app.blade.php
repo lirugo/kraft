@@ -29,6 +29,7 @@
     <div id="app">
         <!-- Top nav -->
         @include('_includes.nav.main')
+        @yield('breadcrumbs')
         @include('_includes.messages')
         <!--Content-->
         @yield('content')

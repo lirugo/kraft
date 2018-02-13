@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('manage') !!}
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="row">
