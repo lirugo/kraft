@@ -77,6 +77,15 @@ Route::group(['prefix' => 'manager',
     });
 //manager route
 
+//manager route
+Route::group(['prefix' => 'admin',
+    'middleware' => 'role:administrator|superadministrator'],
+    function () {
+        Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
+        Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
+    });
+//manager route
+
 //UploadController
 Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
 Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
