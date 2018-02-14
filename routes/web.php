@@ -52,7 +52,7 @@ Route::get('company/users', 'CompanyController@getcompanyusers');
 Route::post('company/profile', 'CompanyController@changeprofile')->name('company.change');
 //EndCompany route
 
-//Manage route
+//object route
 Route::group(['prefix' => 'object',
     'middleware' => 'role:distributor'],
     function () {
@@ -60,7 +60,19 @@ Route::group(['prefix' => 'object',
         Route::get('register', 'Object\ObjectController@register')->name('object.register');
         Route::post('register', 'Object\ObjectController@postregister')->name('object.register');
     });
-//EndManage route
+//object route
+
+//manager route
+Route::group(['prefix' => 'manager',
+    'middleware' => 'role:manager|top-manager'],
+    function () {
+        Route::get('users', 'Manager\ManagerController@users')->name('manger.users');
+        Route::get('objects', 'Manager\ManagerController@objects')->name('manger.objects');
+
+        Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manger.user.activate');
+        Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manger.user.verified');
+    });
+//manager route
 
 //UploadController
 Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');

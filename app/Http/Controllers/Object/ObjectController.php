@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\DB;
 class ObjectController extends Controller
 {
     public function show(){
-        return view('object.show');
+        $user = Auth::user();
+        $company = Company::where('companyname', $user->company)->firstOrFail();
+        $objects = Object::all()->where('companyid', '=' , $company->id);
+        return view('object.show')->with('objects', $objects);
     }
+
     public function register(){
         $region = [
             'Киевская область',

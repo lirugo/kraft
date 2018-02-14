@@ -16,6 +16,7 @@ class AddCustomeFieldToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('surname')->after('name');
             $table->string('patronymic')->after('surname');
+            $table->string('region')->after('patronymic')->nullable();
         });
     }
 
@@ -29,6 +30,7 @@ class AddCustomeFieldToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropIfExists('username');
             $table->dropIfExists('patronymic');
+            $table->dropIfExists('region');
         });
     }
 }

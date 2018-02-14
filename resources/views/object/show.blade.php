@@ -1,28 +1,70 @@
 @extends('layouts.app')
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('object') !!}
+
 @endsection
 @section('content')
     <div class="container-fluid">
-        <div class="row">
+        <div class="row m-t-20">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Show Object</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="{{ route('object.register') }}"><input type="button" value="Create Object" class="btn btn-sml btn-primary pull-left"/></a>
+                <div class="col-md-2 col-md-offset-1 text-center">
+                    <div class="card">
+                        <a href="/object/register">
+                            <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Новый объект
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <hr>
-                                Show Object
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="#">
+                            <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Калькулятор
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row m-t-20">
+            <div class="col-md-10 col-md-offset-1">
+                <h5>Зарегестрированые объекты компании</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Область</th>
+                        <th scope="col">Менеджер</th>
+                        <th scope="col">Дата регистрации</th>
+                        <th scope="col">Дата поставки товара</th>
+                        <th scope="col">Следующий отчет</th>
+                        <th scope="col">Региональный менеджер</th>
+                        <th scope="col">Телефон РМ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($objects as $object)
+                    <tr>
+                        <th scope="row">{{$object->id}}</th>
+                        <td>{{$object->name}}</td>
+                        <td>{{$object->region}}</td>
+                        <td> #####</td>
+                        <td>{{$object->created_at}}</td>
+                        <td>$$$$$$</td>
+                        <td>$$$$$$</td>
+                        <td>$$$$$$</td>
+                        <td>$$$$$$</td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
     </div>
 @endsection

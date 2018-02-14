@@ -61,6 +61,7 @@ class RegisterCompanyController extends Controller
         $user = new User;
 
         $company->companyname = $request->companyname;
+        $company->region = $request->region;
         $company->city = $request->city;
         $company->street = $request->street;
         $company->house = $request->house;
@@ -100,6 +101,7 @@ class RegisterCompanyController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->company = $company->companyname;
+        $user->region = $request->region;
 
         // IF have avatar save
         if(isset($request->avatar))$user->avatar = $request->avatar;
