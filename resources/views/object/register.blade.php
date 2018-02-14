@@ -4,6 +4,7 @@
 @endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+    <link href="/css/dropzone.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -172,29 +173,15 @@
 
                             {{ Form::textarea('comments', null, ['class' => 'm-t-20', 'placeholder' => trans('app.comments')]) }}
                             <br>
-                            {!! Form::label('label',trans('app.uploadphotoobject',['class' => 'm-t-20'])) !!}
-                            <hr>
-                            <br>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc1" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc2" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc3" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc4" hidden>
-                            </label>
-                            <label class="botton botton-default">
-                                <i class="fa fa-plus"></i>
-                                <input type="file" name="scandoc5" hidden>
-                            </label>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! Form::label('label',trans('app.uploadphotoobject',['class' => 'm-t-20'])) !!}
+                                <hr>
+                                <div id="scanUpload" class="dropzone"></div>
+                                <div id="boatAddForm"></div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -211,11 +198,34 @@
 
 
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/js/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
+    <script src="/js/dropzone.js"></script>
     <script src="/js/googlemapapi.js"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initMap">
     </script>
+            <script type="text/javascript">
+                Dropzone.autoDiscover = false;
+                var myDropzone = new Dropzone("div#scanUpload", {
+                    url:'/upload/photo',
+                    type:'POST',
+                    maxFilesize:3,
+                    acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                    maxFiles: 5,
+                    addRemoveLinks: true,
+                    sending: function(file, xhr, formData) {
+                        formData.append("_token", "{{{ csrf_token() }}}");
+                    },
+                    init: function() {
+                        var myDropzone = this;
+                        this.on('success', function(file, response) {
+                            $("#boatAddForm").append($('<input type="hidden" ' +
+                                'name="photos[]" ' +
+                                'value="' + response.success + '">'));
+                        })
+                    }
+                });
+            </script>
 @endsection

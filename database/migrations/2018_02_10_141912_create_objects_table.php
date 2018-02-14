@@ -65,6 +65,8 @@ class CreateObjectsTable extends Migration
             $table->string('photo1')->nullable();
             $table->string('photo2')->nullable();
             $table->string('photo3')->nullable();
+            $table->string('photo4')->nullable();
+            $table->string('photo5')->nullable();
             //Comments
             $table->text('comments')->nullable();
             //Products

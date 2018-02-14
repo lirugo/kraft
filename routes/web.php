@@ -71,12 +71,16 @@ Route::group(['prefix' => 'manager',
 
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manger.user.activate');
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manger.user.verified');
+
+        Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manger.object.activate');
+        Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manger.object.verified');
     });
 //manager route
 
 //UploadController
 Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
 Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
+Route::post('upload/photo', 'UploadController@uploadphoto')->name('upload.photo');
 //EndUploadController
 
 // Dont forget delete
