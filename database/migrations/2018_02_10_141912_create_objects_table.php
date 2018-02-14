@@ -16,9 +16,12 @@ class CreateObjectsTable extends Migration
         Schema::create('objects', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('companyid');
+            $table->integer('creatorid');
+            $table->integer('rmid')->nullable();
             $table->string('name');
             $table->string('country');
             $table->string('region');
+            $table->string('regionname');
             $table->string('city');
             $table->string('street');
             $table->string('postcode');
@@ -27,6 +30,7 @@ class CreateObjectsTable extends Migration
 
             $table->integer('sworks');
             $table->date('dateofdelivery')->nullable();
+            $table->date('dateofreport')->nullable();
             //Customer
             $table->string('customer');
             $table->string('customername');

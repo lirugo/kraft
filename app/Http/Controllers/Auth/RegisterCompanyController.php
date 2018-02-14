@@ -61,7 +61,19 @@ class RegisterCompanyController extends Controller
         $user = new User;
 
         $company->companyname = $request->companyname;
+        //Region
+        if($request->region[0] == 1)
+            $regionname = "center";
+        elseif($request->region[0] == 2)
+            $regionname = "east";
+        elseif($request->region[0] == 3)
+            $regionname = "south";
+        elseif($request->region[0] == 4)
+            $regionname = "west";
+
         $company->region = $request->region;
+        $company->regionname = $regionname;
+        //EndRegion
         $company->city = $request->city;
         $company->street = $request->street;
         $company->house = $request->house;
@@ -90,7 +102,6 @@ class RegisterCompanyController extends Controller
         if(isset($request->scans[3]))$company->scandoc4 = $request->scans[3];
         if(isset($request->scans[4])) $company->scandoc5 = $request->scans[4];
 
-
         //Save user
         $user->name = $request->name;
         $user->surname = $request->surname;
@@ -102,6 +113,7 @@ class RegisterCompanyController extends Controller
         $user->password = bcrypt($request->password);
         $user->company = $company->companyname;
         $user->region = $request->region;
+        $user->regionname = $regionname;
 
         // IF have avatar save
         if(isset($request->avatar))$user->avatar = $request->avatar;

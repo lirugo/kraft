@@ -19,33 +19,33 @@
                             {!! Form::text('companyname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.companyname')]) !!}
 
                             <select required name="region" class="form-control m-b-10">
-                                <option value="center">Киевская область</option>
-                                <option value="center">Житомирская область</option>
-                                <option value="center">Черниговская область</option>
+                                <option value="12">Киевская область</option>
+                                <option value="11">Житомирская область</option>
+                                <option value="13">Черниговская область</option>
 
-                                <option value="east">Днепропетровская область</option>
-                                <option value="east">Донецкая область</option>
-                                <option value="east">Запорожская область</option>
-                                <option value="east">Луганская область</option>
-                                <option value="east">Полтавская область</option>
-                                <option value="east">Сумская область</option>
-                                <option value="east">Харьковская область</option>
+                                <option value="21">Днепропетровская область</option>
+                                <option value="22">Донецкая область</option>
+                                <option value="23">Запорожская область</option>
+                                <option value="24">Луганская область</option>
+                                <option value="25">Полтавская область</option>
+                                <option value="26">Сумская область</option>
+                                <option value="27">Харьковская область</option>
 
-                                <option value="south">Винницкая область</option>
-                                <option value="south">Кропивницкая область</option>
-                                <option value="south">Николаевская область</option>
-                                <option value="south">Одесская область</option>
-                                <option value="south">Херсонская область</option>
-                                <option value="south">Черкасская область</option>
+                                <option value="31">Винницкая область</option>
+                                <option value="32">Кропивницкая область</option>
+                                <option value="33">Николаевская область</option>
+                                <option value="34">Одесская область</option>
+                                <option value="35">Херсонская область</option>
+                                <option value="36">Черкасская область</option>
 
-                                <option value="west">Волынская область</option>
-                                <option value="west">Закарпатская область</option>
-                                <option value="west">Ивано-Франковская область</option>
-                                <option value="west">Львовская область</option>
-                                <option value="west">Ровненская область</option>
-                                <option value="west">Тернопольская область</option>
-                                <option value="west">Хмельницкая область</option>
-                                <option value="west">Черновицкая область</option>
+                                <option value="41">Волынская область</option>
+                                <option value="42">Закарпатская область</option>
+                                <option value="43">Ивано-Франковская область</option>
+                                <option value="44">Львовская область</option>
+                                <option value="45">Ровненская область</option>
+                                <option value="46">Тернопольская область</option>
+                                <option value="47">Хмельницкая область</option>
+                                <option value="48">Черновицкая область</option>
                             </select>
 
                             {!! Form::text('city', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.city')]) !!}

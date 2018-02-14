@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Object;
 
 use App\Object;
 use App\Company;
+use App\User;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,19 @@ class ObjectController extends Controller
         $user = Auth::user();
         $company = Company::where('companyname', $user->company)->firstOrFail();
         $objects = Object::all()->where('companyid', '=' , $company->id);
+
+        foreach ($objects as $object)
+        {
+           $creator = User::findOrFail($object->creatorid);
+               $object->creatorname = $creator->name;
+           if(!empty($object->rmid))
+           {
+               $rm = User::findOrFail($object->rmid);
+               $object->rmname = $rm->name;
+               $object->rmphone = $rm->phone;
+           }
+        }
+
         return view('object.show')->with('objects', $objects);
     }
 
@@ -52,7 +66,6 @@ class ObjectController extends Controller
     }
 
     public function postregister(Request $request){
-
         //GetCompanyID
         $user = Auth::user();
         $company = Company::where('email', $user->email)->firstOrFail();
@@ -68,7 +81,6 @@ class ObjectController extends Controller
             'lat' => 'required|max:255',
             'lon' => 'required|max:255',
             'sworks' => 'required|max:255',
-            'dateofdelivery' => 'required|max:255',
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
             'customersurname' => 'required|max:255',
@@ -97,9 +109,25 @@ class ObjectController extends Controller
         // Save data to db
         $object = new Object();
         $object->companyid = $company->id;
+        $object->creatorid = $user->id;
         $object->name = $request->name;
         $object->country = $request->country;
+        //Region
+        if($request->region[0] == 1)
+            $regionname = "center";
+        elseif($request->region[0] == 2)
+            $regionname = "east";
+        elseif($request->region[0] == 3)
+            $regionname = "south";
+        elseif($request->region[0] == 4)
+            $regionname = "west";
         $object->region = $request->region;
+        $object->regionname = $regionname;
+
+        //RmID
+        $rm = User::where('regionname', '=', $regionname)->first();
+        $object->rmid = $rm->id;
+        //EndRegion
         $object->city = $request->city;
         $object->street = $request->street;
         $object->postcode = $request->postcode;
@@ -134,6 +162,7 @@ class ObjectController extends Controller
         $object->photo2 = $request->scandoc2;
         $object->photo3 = $request->scandoc3;
         $object->comments = $request->comments;
+
         if(isset($request->product1))$object->product1 = $request->product1;
         if(isset($request->product2))$object->product2 = $request->product1;
         if(isset($request->product3))$object->product3 = $request->product1;

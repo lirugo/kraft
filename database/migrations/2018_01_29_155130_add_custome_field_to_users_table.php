@@ -17,6 +17,7 @@ class AddCustomeFieldToUsersTable extends Migration
             $table->string('surname')->after('name');
             $table->string('patronymic')->after('surname');
             $table->string('region')->after('patronymic')->nullable();
+            $table->string('regionname')->after('region')->nullable();
         });
     }
 
@@ -31,6 +32,7 @@ class AddCustomeFieldToUsersTable extends Migration
             $table->dropIfExists('username');
             $table->dropIfExists('patronymic');
             $table->dropIfExists('region');
+            $table->dropIfExists('regionname');
         });
     }
 }
