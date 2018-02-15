@@ -49,7 +49,14 @@ class AdminController extends Controller
         //Flash message
         Session::flash('success', $role->name.' was successfully created.');
         //Redirect
-        return redirect('manage/dashboard');
+        return redirect('admin');
     }
 
+    public function admin(){
+        return view('admin.manage.dashboard');
+    }
+
+    public function settings(){
+        return view('admin.settings.settings');
+    }
 }
