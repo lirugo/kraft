@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Company;
+use App\Object;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,8 +14,18 @@ class ManagerController extends Controller
 {
     public function users(){
         $user = Auth::user();
-        $users = User::all()->where('region', '=' , $user->region);
+        $users = User::all()->where('regionname', '=' , $user->regionname);
+        foreach ($users as $key => $datauser)
+            if($datauser->hasRole('distributor') || $datauser->hasRole('designer'));
+            else unset($users[$key]);
+
         return view('manager.users')->with('users', $users);
+    }
+
+    public function objects(){
+        $user = Auth::user();
+        $objects = Object::all()->where('regionname', '=' , $user->regionname);
+        return view('manager.objects')->with('objects', $objects);
     }
 
     public function activateuser(Request $request, $id){
@@ -34,4 +45,22 @@ class ManagerController extends Controller
         Session::flash('success', 'User status was changed.');
         return back();
     }
+
+    public function activateobject(Request $request, $id){
+        $object = Object::find($id);
+        $object->active == true ? $object->active = false : $object->active = true;
+        $object->save();
+        Session::flash('success', 'Object status was changed.');
+        return back();
+    }
+
+    public function verifiedobject(Request $request, $id){
+        $object = User::find($id);
+        $object->verified == true ? $object->verified = false : $object->verified = true;
+
+        $object->save();
+        Session::flash('success', 'Object status was changed.');
+        return back();
+    }
+
 }

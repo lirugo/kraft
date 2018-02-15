@@ -87,6 +87,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/manager/users">
+                                <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+                                <div class="description m-t-10">
+                                    List users
+                                </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

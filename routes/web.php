@@ -37,6 +37,7 @@ Route::group(['prefix' => 'manage',
     'middleware' => 'role:superadministrator|administrator|distributor|worker|manager|top-manager|designer'],
     function () {
     Route::get('dashboard', 'ManageController@dashboard')->name('manage.dashboard');
+    Route::get('/', 'ManageController@dashboard')->name('manage');
 });
 //EndManage route
 
@@ -71,12 +72,50 @@ Route::group(['prefix' => 'manager',
 
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manger.user.activate');
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manger.user.verified');
+
+        Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manger.object.activate');
+        Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manger.object.verified');
     });
 //manager route
+
+//admin route
+Route::get('admin/login', 'Admin\LoginController@showlogin')->name('admin.login');
+Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login');
+
+Route::post('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::group(['prefix' => 'admin',
+    'middleware' => 'role:administrator|superadministrator'],
+    function () {
+        Route::get('/', 'Admin\AdminController@admin');
+        Route::get('manage', 'Admin\AdminController@admin')->name('admin.manage');
+        Route::get('settings', 'Admin\AdminController@settings')->name('admin.settings');
+
+
+
+        Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
+        Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
+
+        //Mode
+        Route::post('settings/maintenance/off', [
+            'as' => 'admin.settings.maintenance.off',
+            function () {
+                \Artisan::call('up');
+                return redirect()->back();
+        }]);
+        Route::post('settings/maintenance/on', [
+            'as' => 'admin.settings.maintenance.on',
+            function () {
+                \Artisan::call('down');
+                return redirect()->back();
+            }]);
+
+    });
+//admin route
 
 //UploadController
 Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
 Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
+Route::post('upload/photo', 'UploadController@uploadphoto')->name('upload.photo');
 //EndUploadController
 
 // Dont forget delete

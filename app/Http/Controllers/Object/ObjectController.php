@@ -80,7 +80,7 @@ class ObjectController extends Controller
             'postcode' => 'required|max:20',
             'lat' => 'required|max:255',
             'lon' => 'required|max:255',
-            'sworks' => 'required|max:255',
+            'sworks' => 'required|integer|max:255',
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
             'customersurname' => 'required|max:255',
@@ -168,6 +168,13 @@ class ObjectController extends Controller
         if(isset($request->product3))$object->product3 = $request->product1;
         if(isset($request->product4))$object->product4 = $request->product1;
         if(isset($request->product5))$object->product5 = $request->product1;
+
+        // IF have scan docs then save
+        if(isset($request->photos[0]))$object->photo1 = $request->photos[0];
+        if(isset($request->photos[1]))$object->photo2 = $request->photos[1];
+        if(isset($request->photos[2]))$object->photo3 = $request->photos[2];
+        if(isset($request->photos[3]))$object->photo4 = $request->photos[3];
+        if(isset($request->photos[4]))$object->photo5 = $request->photos[4];
         $object->specificationid = $request->specificationid;
 
         $object->save();
