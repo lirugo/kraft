@@ -10,6 +10,14 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect('/admin/login');
+    }
     public function createuser(){
         return view('admin.users.create');
     }

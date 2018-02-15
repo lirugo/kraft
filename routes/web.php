@@ -79,12 +79,9 @@ Route::group(['prefix' => 'manager',
 //manager route
 
 //admin route
-Route::get('admin/login', 'Admin\LoginController@showlogin')->name('admin.login');
-Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login');
 
-Route::post('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
-Route::group(['prefix' => 'admin',
-    'middleware' => 'role:administrator|superadministrator'],
+
+Route::group(['prefix' => 'admin'],
     function () {
         Route::get('/', 'Admin\AdminController@admin');
         Route::get('manage', 'Admin\AdminController@admin')->name('admin.manage');
@@ -110,6 +107,13 @@ Route::group(['prefix' => 'admin',
             }]);
 
     });
+
+
+//new admin system
+Route::get('/admin', 'Admin\AdminController@admin');
+Route::get('admin/login', 'Admin\LoginController@showlogin')->name('admin.login');
+Route::post('admin/login', 'Admin\LoginController@login')->name('admin.login');
+
 //admin route
 
 //UploadController
