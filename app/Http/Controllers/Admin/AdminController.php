@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Role;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,10 +15,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
-    public function logout(){
-        Auth::logout();
-        return redirect('/admin/login');
-    }
+
     public function createuser(){
         return view('admin.users.create');
     }
@@ -46,7 +44,7 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         // IF have avatar save
-        if(isset($request->avatar))$user->avatar = $request->avatar;
+        if(!empty($request->avatar))$user->avatar = $request->avatar;
         $user->regionname = $request->regionname;
         //Save user
         $user->save();
@@ -66,5 +64,14 @@ class AdminController extends Controller
 
     public function settings(){
         return view('admin.settings.settings');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect('/admin/login');
+    }
+
+    public function showusers(){
+        $users = User::orderBy('id','desc')->paginate(6);
+        return view('admin.users.show', ['users' => $users]);
     }
 }

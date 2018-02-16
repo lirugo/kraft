@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('manage') !!}
+    {!! Breadcrumbs::render('admin') !!}
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -25,6 +25,16 @@
                                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         Create User
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-md-offset-1 text-center">
+                            <div class="card">
+                                <a href="/admin/users/show">
+                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        List users
                                     </div>
                                 </a>
                             </div>
