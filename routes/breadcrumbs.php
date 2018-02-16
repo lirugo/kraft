@@ -62,4 +62,12 @@ Breadcrumbs::register('showusers', function($breadcrumbs)
 });
 //EndAdminBradCrumbs
 
+//ManagerBreadcrumbs
+Breadcrumbs::register('distributors', function($breadcrumbs)
+{
+    $breadcrumbs->parent('manage');
+    $breadcrumbs->push('Distributors', route('manager.users'));
+});
+//EndManagerBreadcrumbs
+
 

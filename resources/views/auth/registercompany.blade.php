@@ -89,11 +89,15 @@
                             {!! Form::label('label',trans('app.financialrequisites')) !!}
                             {!! Form::text('lawphone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawphone')]) !!}
                             {!! Form::text('lawfax', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawfax')]) !!}
+                        </div>
 
-                            {!! Form::label('label',trans('app.uploaddocuments')) !!}
-                            <br>
-                            <div id="scanUpload" class="dropzone"></div>
-                            <div id="boatAddForm"></div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                {!! Form::label('label',trans('app.uploaddocuments')) !!}
+                                <br>
+                                <div id="scanUpload" class="dropzone"></div>
+                                <div id="boatAddForm"></div>
+                            </div>
                         </div>
                     </section>
                     <h3>Register User</h3>
@@ -133,7 +137,6 @@
         </div>
     </div>
 @endsection
-
 
 @section('scripts')
     <script src="/js/jquery-3.3.1.js"></script>
@@ -176,12 +179,11 @@
             init: function() {
                 var myDropzone = this;
                 this.on('success', function(file, response) {
-                    $("#boatAddForm").append($('<input type="text" ' +
+                    $("#boatAddForm").append($('<input type="hidden" ' +
                         'name="scans[]" ' +
                         'value="' + response.success + '">'));
                 })
             }
         });
     </script>
-
 @endsection

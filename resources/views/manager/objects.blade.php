@@ -30,12 +30,12 @@
                             <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                             <td>{{$object->dateofdelivery}}</td>
                             <td>{{$object->dateofreport}}</td>
-                            <td>
-                                {!! Form::model($object,['route' => ['manger.object.activate', $object->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
+                            <td width="200px">
+                                {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
                                 <button class="btn btn-danger btn-sm pull-right">{{$object->active == true ? "Отключить" : "Активировать"}}</button>
                                 {!! Form::close() !!}
-                                {!! Form::model($object,['route' => ['manger.object.verified', $object->id], 'method' => 'POST']) !!}
-                                <button class="btn btn-danger btn-sm pull-right">{{$object->active == true ? "Непроверен" : "Проверен"}}</button>
+                                {!! Form::model($object,['route' => ['manager.object.verified', $object->id], 'method' => 'POST', 'style' => 'margin-right:90px;']) !!}
+                                <button class="btn btn-danger btn-sm pull-right">{{$object->verify == true ? "Перепроверить" : "Проверить"}}</button>
                                 {!! Form::close() !!}
                             </td>
                         @endif
@@ -72,12 +72,12 @@
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>{{$object->dateofreport}}</td>
-                                <td>
-                                    {!! Form::model($object,['route' => ['manger.object.activate', $object->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
-                                    <button class="btn btn-danger btn-sm pull-right">{{$object->active == true ? "Отключить" : "Активировать"}}</button>
+                                <td width="200px">
+                                    {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
+                                    <button class="btn btn-danger btn-sm pull-right">{{$object->active == true ? "Перепроверить" : "Активировать"}}</button>
                                     {!! Form::close() !!}
-                                    {!! Form::model($object,['route' => ['manger.object.verified', $object->id], 'method' => 'POST']) !!}
-                                    <button class="btn btn-danger btn-sm pull-right">{{$object->active == true ? "Непроверен" : "Проверен"}}</button>
+                                    {!! Form::model($object,['route' => ['manager.object.verified', $object->id], 'method' => 'POST', 'style' => 'margin-right:110px;']) !!}
+                                    <button class="btn btn-danger btn-sm pull-right">{{$object->verify == true ? "Перепроверить" : "Проверен"}}</button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

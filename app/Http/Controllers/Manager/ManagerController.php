@@ -55,8 +55,8 @@ class ManagerController extends Controller
     }
 
     public function verifiedobject(Request $request, $id){
-        $object = User::find($id);
-        $object->verified == true ? $object->verified = false : $object->verified = true;
+        $object = Object::find($id);
+        $object->verify == true ? $object->verify = false : $object->verify = true;
 
         $object->save();
         Session::flash('success', 'Object status was changed.');

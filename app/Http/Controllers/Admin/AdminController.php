@@ -74,4 +74,12 @@ class AdminController extends Controller
         $users = User::orderBy('id','desc')->paginate(6);
         return view('admin.users.show', ['users' => $users]);
     }
+
+    public function activateuser(Request $request, $id){
+        $user = User::find($id);
+        $user->active == true ? $user->active = false : $user->active = true;
+        $user->save();
+        Session::flash('success', 'User status was changed.');
+        return back();
+    }
 }

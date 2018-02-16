@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('breadcrumbs')
-
+    {!! Breadcrumbs::render('distributors') !!}
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -10,12 +10,11 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" style="height: 50px;">
                             {{$user->name}}
-                            <button class="btn btn-danger btn-sm pull-right">Delete</button>
-                            {!! Form::model($user,['route' => ['manger.user.activate', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
+                            {!! Form::model($user,['route' => ['manager.user.activate', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
                             <button class="btn btn-danger btn-sm pull-right">{{$user->active == true ? "Отключить" : "Активировать"}}</button>
                             {!! Form::close() !!}
-                            {!! Form::model($user,['route' => ['manger.user.verified', $user->id], 'method' => 'POST']) !!}
-                            <button class="btn btn-danger btn-sm pull-right">{{$user->active == true ? "Непроверен" : "Проверен"}}</button>
+                            {!! Form::model($user,['route' => ['manager.user.verified', $user->id], 'method' => 'POST', 'style' => 'margin-right:110px;']) !!}
+                            <button class="btn btn-danger btn-sm pull-right">{{$user->verified == true ? "Перепроверка" : "Проверить"}}</button>
                             {!! Form::close() !!}
                         </div>
                         <div class="panel-body">
