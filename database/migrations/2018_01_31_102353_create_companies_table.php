@@ -28,12 +28,10 @@ class CreateCompaniesTable extends Migration
             $table->string('phone');
             $table->string('fax');
             $table->string('email')->unique();
-
             $table->string('bank');
             $table->string('mfo');
             $table->string('settlementaccount');
             $table->string('okpo');
-
             $table->string('lawcity');
             $table->string('lawstreet');
             $table->integer('lawhouse');

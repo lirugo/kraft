@@ -13,87 +13,31 @@
                     <div class="row m-t-20">
                         <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
+                                <a href="/manager/users">
                                 <i class="fa fa-list fa-5x" aria-hidden="true"></i>
                                 <div class="description m-t-10">
                                     {{ trans('app.distributors') }}
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
+                                <a href="/manager/objects">
                                 <i class="fa fa-university fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10 txt-dash">
+                                <div class="description m-t-10 m-t-10">
                                     {{ trans('app.objects') }}
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
-                            <div class="card">
-                                <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10 txt-dash">
-                                    {{ trans('app.statistics') }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                    <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
-                                    <div class="description m-t-10 txt-dash ">
-                                        {{ trans('app.profilecompany') }}
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-                                    <div class="description m-t-10">
-                                        {{ trans('app.userscompany') }}
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row m-t-100">
-                        <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
                                 <a href="/profile">
                                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('app.profileuser') }}
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    {{ trans('app.calculator') }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                <i class="fa fa-file-excel-o fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    {{ trans('app.invoice') }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                <i class="fa fa-history fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    {{ trans('app.history') }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                <a href="/manager/users">
-                                <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    List users
-                                </div>
                                 </a>
                             </div>
                         </div>

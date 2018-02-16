@@ -28,7 +28,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
                 <h5>Зарегестрированые объекты компании</h5>
@@ -66,7 +65,6 @@
                 </table>
             </div>
         </div>
-
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
                 <h5>Не зарегестрированые объекты компании</h5>
@@ -104,6 +102,5 @@
                 </table>
             </div>
         </div>
-
     </div>
 @endsection

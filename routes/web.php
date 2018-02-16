@@ -67,14 +67,14 @@ Route::group(['prefix' => 'object',
 Route::group(['prefix' => 'manager',
     'middleware' => 'role:manager|top-manager'],
     function () {
-        Route::get('users', 'Manager\ManagerController@users')->name('manger.users');
-        Route::get('objects', 'Manager\ManagerController@objects')->name('manger.objects');
+        Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
+        Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
 
-        Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manger.user.activate');
-        Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manger.user.verified');
+        Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manager.user.activate');
+        Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manager.user.verified');
 
-        Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manger.object.activate');
-        Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manger.object.verified');
+        Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manager.object.activate');
+        Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manager.object.verified');
     });
 //manager route
 
@@ -96,6 +96,7 @@ Route::group(['prefix' => 'admin'],
         Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
         Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
 
+        Route::post('users/activate/{id}', 'Manager\ManagerController@activateuser')->name('admin.users.activate');
         //Mode
         Route::post('settings/maintenance/off', [
             'as' => 'admin.settings.maintenance.off',
