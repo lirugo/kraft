@@ -40,3 +40,26 @@ Breadcrumbs::register('createobject', function($breadcrumbs)
     $breadcrumbs->push('Create Object', url('object/register'));
 });
 
+//AdminBradCrumbs
+Breadcrumbs::register('admin', function($breadcrumbs)
+{
+    $breadcrumbs->push('Admin Panel', route('admin.manage'));
+});
+Breadcrumbs::register('settings', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin');
+    $breadcrumbs->push('Settings',route('admin.settings'));
+});
+Breadcrumbs::register('createuser', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin');
+    $breadcrumbs->push('Create User',route('admin.users.create'));
+});
+Breadcrumbs::register('showusers', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin');
+    $breadcrumbs->push('List Users',route('admin.users.show'));
+});
+//EndAdminBradCrumbs
+
+

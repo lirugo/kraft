@@ -89,6 +89,9 @@ Route::group(['prefix' => 'admin'],
 
         Route::get('login', 'Admin\LoginController@showlogin')->name('admin.login');
         Route::post('login', 'Admin\LoginController@login')->name('admin.login');
+        Route::get('logout', 'Admin\AdminController@logout')->name('admin.logout');
+
+        Route::get('users/show', 'Admin\AdminController@showusers')->name('admin.users.show');
 
         Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
         Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
@@ -109,9 +112,6 @@ Route::group(['prefix' => 'admin'],
 
     });
 
-
-//new admin system
-Route::get('admin/logout', 'Admin\AdminController@logout')->name('admin.logout');
 //admin route
 
 //UploadController

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('breadcrumbs')
+    {!! Breadcrumbs::render('createuser') !!}
 @endsection
 
 @section('stylesheets')
