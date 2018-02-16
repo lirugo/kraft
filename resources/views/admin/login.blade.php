@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel-login panel-default">
-                    <div class="panel-heading-login">Admin {{ trans('app.logintext1') }} <br> {{ trans('app.logintext2') }}</div>
+                    <div class="panel-heading-login">Admin Login</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login') }}">
                             {{ csrf_field() }}

@@ -13,7 +13,7 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest:admin');
     }
 
     public function showlogin(){
@@ -27,21 +27,11 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
         //Attempt to log the user in
-        $user = User::where('email', '=', $request->email)->first();
-        if(!empty($user)){
-            if($user->hasRole('administrator') || $user->hasRole('superadministrator')){
-                if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                    // Authentication passed...
-                    return redirect()->intended('admin');
-                }
-            }
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+            // Authentication passed...
+            return redirect()->intended('admin');
         }
-        //If unseccess redirect back
-        return redirect()->back();
-    }
 
-    public function logout(){
-        Auth::logout();
-        return redirect('/admin/login');
+        return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 }
