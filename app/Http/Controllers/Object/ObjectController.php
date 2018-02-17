@@ -68,7 +68,7 @@ class ObjectController extends Controller
     public function postregister(Request $request){
         //GetCompanyID
         $user = Auth::user();
-        $company = Company::where('email', $user->email)->firstOrFail();
+        $company = Company::where('companyname', $user->company)->firstOrFail();
         //Validate
         $this->validate($request,[
             //Validate company profile
@@ -77,6 +77,7 @@ class ObjectController extends Controller
             'region' => 'required|max:255',
             'city' => 'required|max:255',
             'street' => 'required|max:255',
+            'house' => 'required|max:255',
             'postcode' => 'required|max:20',
             'lat' => 'required|max:255',
             'lon' => 'required|max:255',
@@ -136,6 +137,7 @@ class ObjectController extends Controller
         //EndRegion
         $object->city = $request->city;
         $object->street = $request->street;
+        $object->house = $request->house;
         $object->postcode = $request->postcode;
         $object->lat = $request->lat;
         $object->lon = $request->lon;

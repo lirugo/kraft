@@ -24,6 +24,7 @@ class CreateObjectsTable extends Migration
             $table->string('regionname');
             $table->string('city');
             $table->string('street');
+            $table->string('house');
             $table->string('postcode');
             $table->string('lat');
             $table->string('lon');
