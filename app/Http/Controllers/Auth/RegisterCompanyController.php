@@ -116,7 +116,7 @@ class RegisterCompanyController extends Controller
         $user->regionname = $regionname;
 
         // IF have avatar save
-        if(isset($request->avatar))$user->avatar = $request->avatar;
+        if(!empty($request->avatar))$user->avatar = $request->avatar;
 
         $company->save();
         $user->save();

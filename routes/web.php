@@ -72,6 +72,8 @@ Route::group(['prefix' => 'manager',
         Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
 
+        Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
+
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manager.user.activate');
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manager.user.verified');
 

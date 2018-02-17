@@ -69,4 +69,17 @@ class ManagerController extends Controller
         return back();
     }
 
+    public function showobject($id){
+        $object = Object::find($id);
+        $company = Company::find($object->companyid);
+        $rm = User::find($object->rmid);
+        $creator = User::find($object->creatorid);
+
+        $object->company = $company;
+        $object->rm = $rm;
+        $object->creator = $creator;
+
+        return view('manager.objects.show')->with('object', $object);
+    }
+
 }
