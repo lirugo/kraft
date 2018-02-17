@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\CompanyChange;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -116,5 +117,51 @@ class CompanyController extends Controller
             Session::flash('success', 'You don\'t change any data');
         //Redirect
         return redirect(route('manage.dashboard'));
+    }
+
+    public function createuser(){
+        return view('company.createuser');
+    }
+
+    public function createuserpost(Request $request){
+        $creator = Auth::User();
+        //Validate
+        $this->validate($request,[
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'patronymic' => 'required|max:255',
+            'dateofbirth' => 'required|max:255',
+            'sex' => 'required|max:255',
+            'phone' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        // Save data to db
+        $user = new User;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->patronymic = $request->patronymic;
+        $user->dateofbirth = $request->dateofbirth;
+        $user->sex = $request->sex;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->regionname = $creator->regionname;
+        $user->company = $creator->company;
+        $user->password = bcrypt($request->password);
+        // IF have avatar save
+        if(!empty($request->avatar))$user->avatar = $request->avatar;
+        $user->active = true;
+        $user->verified = true;
+        //Save user
+        $user->save();
+        //AttachRole designer/arch for new user
+        $worker = Role::where('name', 'worker')->first();
+        $user->attachRole($worker);
+
+        //Flash message
+        Session::flash('success', 'User in your company was successfully created.');
+        //Redirect
+        return redirect(route('manage'));
     }
 }

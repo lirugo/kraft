@@ -49,8 +49,10 @@ Route::post('profile', 'UserController@profile_update')->name('profile.update');
 //Company route
 Route::get('company/profile', 'CompanyController@profile');
 Route::get('company/users', 'CompanyController@getcompanyusers');
+Route::get('company/users/create', 'CompanyController@createuser');
 
 Route::post('company/profile', 'CompanyController@changeprofile')->name('company.change');
+Route::post('company/users/create', 'CompanyController@createuserpost')->name('company.users.create');
 //EndCompany route
 
 //object route
