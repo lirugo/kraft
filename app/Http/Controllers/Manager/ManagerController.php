@@ -25,6 +25,12 @@ class ManagerController extends Controller
     public function objects(){
         $user = Auth::user();
         $objects = Object::all()->where('regionname', '=' , $user->regionname);
+        foreach ($objects as $object)
+        {
+            $creator = User::find($object->creatorid);
+            $object->creatorname = $creator->name;
+        }
+
         return view('manager.objects')->with('objects', $objects);
     }
 

@@ -20,11 +20,11 @@ class ObjectController extends Controller
 
         foreach ($objects as $object)
         {
-           $creator = User::findOrFail($object->creatorid);
+           $creator = User::find($object->creatorid);
                $object->creatorname = $creator->name;
            if(!empty($object->rmid))
            {
-               $rm = User::findOrFail($object->rmid);
+               $rm = User::find($object->rmid);
                $object->rmname = $rm->name;
                $object->rmphone = $rm->phone;
            }
@@ -125,8 +125,14 @@ class ObjectController extends Controller
         $object->regionname = $regionname;
 
         //RmID
-        $rm = User::where('regionname', '=', $regionname)->first();
-        $object->rmid = $rm->id;
+        $users = User::all();
+        $rm = null;
+        foreach($users as $user)
+        {
+            if($user->hasRole('manager') && $user->regionname == $regionname)
+                $rm = $user->id;
+        }
+        $object->rmid = $rm;
         //EndRegion
         $object->city = $request->city;
         $object->street = $request->street;

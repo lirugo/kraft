@@ -20,7 +20,7 @@
                 {!! Form::password('password', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.password')]) !!}
                 {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.confirmpassword')]) !!}
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 text-center">
                 <h5> {{trans('app.uploadavatar')}} </h5>
                 <hr>
                 {!! Form::hidden('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
