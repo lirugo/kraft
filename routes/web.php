@@ -57,7 +57,7 @@ Route::post('company/users/create', 'CompanyController@createuserpost')->name('c
 
 //object route
 Route::group(['prefix' => 'object',
-    'middleware' => 'role:distributor'],
+    'middleware' => 'role:distributor|worker'],
     function () {
         Route::get('show', 'Object\ObjectController@show')->name('object.show');
         Route::get('register', 'Object\ObjectController@register')->name('object.register');

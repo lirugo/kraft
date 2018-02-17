@@ -27,6 +27,9 @@ class ManageController extends Controller
             if($user->hasRole('distributor'))
                 return view('manage.dashboardcompany');
         else
+            if($user->hasRole('worker'))
+                return view('manage.dashboardworker');
+        else
             return abort(403);
 
     }

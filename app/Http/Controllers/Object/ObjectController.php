@@ -68,7 +68,7 @@ class ObjectController extends Controller
     public function postregister(Request $request){
         //GetCompanyID
         $user = Auth::user();
-        $company = Company::where('email', $user->email)->firstOrFail();
+        $company = Company::where('companyname', $user->company)->firstOrFail();
         //Validate
         $this->validate($request,[
             //Validate company profile
