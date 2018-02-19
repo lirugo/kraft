@@ -1,29 +1,37 @@
 <?php
 return [
+    //Login/Register Page
+    'logintext1' => 'TO LOGIN THE SYSTEM',
+    'logintext2' => 'YOU MUST AUTHORIZATION',
+    'emailaddress' => 'E-Mail Address',
+    'password' => 'Password',
+    'rememberme' => 'Remember me',
+    'forgotyourpassword' => 'Forgot your password?',
     'language' => 'Language',
     'login' => 'Login',
     'registration' => 'Registration',
     'logout' => 'Logout',
-
-    //Welcome page
-    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
-    'h1welcometext' => 'Order management system',
-    //End Welcome page
-
-    //Footer
-    'footertext' => 'All right reserved. A direct link to the site is required when reprinting. SmalLTeam',
-    //EndFooter
-
-    //Profile
-    'male' => 'Male',
-    'femele' => 'Female',
-    //EndProfile
+    'register' => 'Register',
+    'registertext' => 'To access the system, you need to register',
+    'company' => 'Company',
+    'arch/design' => 'Architect/Designer',
+    //End Login/Register Page
 
     //Menu
     'main' => 'Main',
     'manage' => 'Manage Dashboard',
     'objects' => 'Objects',
     //EndMenu
+
+    //RegisterArch/Design Page
+    'userprofile' => 'You must fill out a user profile.',
+    'uploadavatar' => 'You must upload your photo.',
+    //EndRegister Page
+
+    //Profile
+    'male' => 'Male',
+    'femele' => 'Female',
+    //EndProfile
 
     //Manage
     'managers' => 'Managers',
@@ -37,27 +45,6 @@ return [
     'history' => 'History',
     //EndManage
 
-    //Login Page
-    'logintext1' => 'TO LOGIN THE SYSTEM',
-    'logintext2' => 'YOU MUST AUTHORIZATION',
-    'emailaddress' => 'E-Mail Address',
-    'password' => 'Password',
-    'rememberme' => 'Remember me',
-    'forgotyourpassword' => 'Forgot your password?',
-    //EndLogin Page
-
-    //Register Page
-    'register' => 'Register',
-    'registertext' => 'To access the system, you need to register',
-    'company' => 'Company',
-    'arch/design' => 'Architect/Designer',
-    //EndRegister Page
-
-    //RegisterArch/Design Page
-    'userprofile' => 'You must fill out a user profile.',
-    'uploadavatar' => 'You must upload your photo.',
-    //EndRegister Page
-
     //Registerfield
     'name' => 'Name',
     'surname' => 'Surame',
@@ -66,17 +53,12 @@ return [
     'dateofbirth' => 'Date of birth',
     'phone' => 'Phone',
     'email' => 'Email',
-    'password' => 'Password',
     'confirmpassword' => 'Confirm Password',
     'gender' => 'Gender',
-
     'registercompany' => 'Register company',
-    'profilecompany' => 'Profile company',
-    'profileuser' => 'Profile user',
     'communications' => 'Communications',
     'financialrequisites' => 'Financial requisites',
     'lawaddress' => 'Law address',
-    'financialrequisites' => 'Financial requisites',
     'uploaddocuments' => 'You must upload your documents. ',
     'companyname' => 'Company Name',
     'city' => 'City',
@@ -90,20 +72,21 @@ return [
     'mfo' => 'MFO',
     'settlementaccount' => 'Settlement Account',
     'okpo' => 'OKPO',
-    'lawcity' => 'Law city',
-    'lawstreet' => 'Law Street',
-    'lawhouse' => 'Law House',
-    'lawoffice' => 'Law Office',
-    'lawphone' => 'Law Phone',
-    'lawfax' => 'Law Fax',
+    'lawcity' => 'City',
+    'lawstreet' => 'Street',
+    'lawhouse' => 'House',
+    'lawoffice' => 'Office',
+    'lawhousing'=> 'Housing',
+    'lawphone' => 'Phone',
+    'lawfax' => 'Fax',
     'agreement' => 'I agree with the Terms and Conditions.',
     'previous' => 'Previous',
     'next' => 'Next',
     //EndRegisterfield
 
     //CreateObject
-    'objectdata' => 'objectdata',
-    'sworks' => 'sworks',
+    'objectdata' => 'Object data',
+    'sworks' => 'Area of work',
     'dateofdelivery' => 'dateofdelivery',
     'customer' => 'Customer',
     'customername' => 'Name',
@@ -139,4 +122,13 @@ return [
     'architect' => 'Architect',
     'design' => 'Disegner',
     //EndCreateObject
+
+    //Welcome page
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Order management system',
+    //End Welcome page
+
+    //Footer
+    'footertext' => 'All right reserved. A direct link to the site is required when reprinting. SmalLTeam',
+    //EndFooter
 ];

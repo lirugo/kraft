@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center m-t-100">
+        <div class="col-md-5 col-md-offset-3 text-center m-t-100">
             <h1> {{ trans('app.register') }} </h1>
             <h5> {{ trans('app.registertext') }}</h5>
                 <hr>
