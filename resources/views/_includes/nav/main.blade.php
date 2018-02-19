@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav style="max-width:100%" class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
 

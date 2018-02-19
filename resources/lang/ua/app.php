@@ -1,28 +1,37 @@
 <?php
 return [
+    //Login/Register Page
+    'logintext1' => 'TO LOGIN THE SYSTEM',
+    'logintext2' => 'YOU MUST AUTHORIZATION',
+    'emailaddress' => 'E-Mail Address',
+    'password' => 'Password',
+    'rememberme' => 'Remember me',
+    'forgotyourpassword' => 'Forgot your password?',
     'language' => 'Мова',
     'login' => 'Ввійти',
     'registration' => 'Регістрація',
-
-    //Welcome page
-    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
-    'h1welcometext' => 'Система управління замовленнями',
-    //End Welcome page
-
-    //Footer
-    'footertext' => 'Всі права захищені. При передруці матеріалів посилання на сайт є обов\'язковим. SmalLTeam',
-    //EndFooter
-
-    //Profile
-    'male' => 'Чоловіча',
-    'femele' => 'Жіноча',
-    //EndProfile
+    'logout' => 'Вихід',
+    'register' => 'Регістрація',
+    'registertext' => 'Для доступу до системи необхідна реєстрація',
+    'company' => 'Компанія',
+    'arch/design' => 'Архітектор/Дизайнер',
+    //End Login/Register Page
 
     //Menu
     'main' => 'Головна',
     'manage' => 'Панель управління',
     'objects' => 'Об\'єкти',
     //EndMenu
+
+    //RegisterArch/Design Page
+    'userprofile' => 'Необхідно заповнити профіль користувача.',
+    'uploadavatar' => 'Завантажте Ваше фото.',
+    //EndRegister Page
+
+    //Profile
+    'male' => 'Чоловіча',
+    'femele' => 'Жіноча',
+    //EndProfile
 
     //Manage
     'managers' => 'Менеджери',
@@ -36,66 +45,43 @@ return [
     'history' => 'Історія',
     //EndManage
 
-    //Login Page
-    'logintext1' => 'TO LOGIN THE SYSTEM',
-    'logintext2' => 'YOU MUST AUTHORIZATION',
-    'emailaddress' => 'E-Mail Address',
-    'password' => 'Password',
-    'rememberme' => 'Remember me',
-    'forgotyourpassword' => 'Forgot your password?',
-    //EndLogin Page
-
-    //Register Page
-    'register' => 'Register',
-    'registertext' => 'To access the system, you need to register',
-    'company' => 'Company',
-    'arch/design' => 'Architect/Designer',
-    //EndRegister Page
-
-    //RegisterArch/Design Page
-    'userprofile' => 'You must fill out a user profile.',
-    'uploadavatar' => 'You must upload your photo.',
-    //EndRegister Page
 
     //Registerfield
-    'name' => 'Name',
-    'surname' => 'Surame',
-    'patronymic' => 'Patronymic',
+    'name' => 'Ім\'я',
+    'surname' => 'Прізвище',
+    'patronymic' => 'По батькові',
     'date' => 'YYYY/MM/DD',
-    'phone' => 'Phone',
+    'dateofbirth' => 'Дата народження',
+    'phone' => 'Телефон',
     'email' => 'Email',
-    'password' => 'Password',
-    'confirmpassword' => 'Confirm Password',
-
-    'registercompany' => 'Register company',
-    'profilecompany' => 'Profile company',
-    'profileuser' => 'Profile user',
-    'communications' => 'Communications',
-    'financialrequisites' => 'Financial requisites',
-    'lawaddress' => 'Law address',
-    'financialrequisites' => 'Financial requisites',
-    'uploaddocuments' => 'You must upload your documents. ',
-    'companyname' => 'Company Name',
-    'city' => 'City',
-    'street' => 'Street',
-    'house' => 'House',
-    'housing' => 'Housing',
-    'office' => 'Office',
-    'fax' => 'Fax',
-    'smartphone' => 'Smart Phone',
-    'bank' => 'Bank',
-    'mfo' => 'MFO',
-    'settlementaccount' => 'Settlement Account',
-    'okpo' => 'OKPO',
-    'lawcity' => 'Law city',
-    'lawstreet' => 'Law Street',
-    'lawhouse' => 'Law House',
-    'lawoffice' => 'Law Office',
-    'lawphone' => 'Law Phone',
-    'lawfax' => 'Law Fax',
-    'agreement' => 'I agree with the Terms and Conditions.',
-    'previous' => 'Previous',
-    'next' => 'Next',
+    'confirmpassword' => 'Повторіть пароль',
+    'registercompany' => 'Регістрація компанії',
+    'communications' => 'Контактні дані',
+    'financialrequisites' => 'Фінансові реквізити',
+    'lawaddress' => 'Юридична адреса',
+    'uploaddocuments' => 'Необхідно завантажити скан-копії документів. ',
+    'companyname' => 'Компанія',
+    'city' => 'Місто',
+    'street' => 'Вулиця',
+    'house' => 'Будинок',
+    'housing' => 'Корпус',
+    'office' => 'Офіс',
+    'fax' => 'Факс',
+    'smartphone' => 'Моб. телефон',
+    'bank' => 'Банк',
+    'mfo' => 'МФО',
+    'settlementaccount' => 'Розрахунковий рахунок',
+    'okpo' => 'ЄДРПОУ',
+    'lawcity' => 'Місто',
+    'lawstreet' => 'Вілиця',
+    'lawhouse' => 'Будинок',
+    'lawoffice' => 'Офіс',
+    'lawhousing'=> 'Корпус',
+    'lawphone' => 'Телефон',
+    'lawfax' => 'Факс',
+    'agreement' => 'Я підтверджую правильність наданих мною даних.',
+    'previous' => 'Назад',
+    'next' => 'Далі',
     //EndRegisterfield
 
     //CreateObject
@@ -136,4 +122,13 @@ return [
     'architect' => 'architect',
     'design' => 'Дизайнер',
     //EndCreateObject
+
+    //Welcome page
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Система управління замовленнями',
+    //End Welcome page
+
+    //Footer
+    'footertext' => 'Всі права захищені. При передруці матеріалів посилання на сайт є обов\'язковим. SmalLTeam',
+    //EndFooter
 ];

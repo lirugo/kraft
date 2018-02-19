@@ -1,29 +1,37 @@
 <?php
 return [
+    //Login/Register Page
+    'logintext1' => 'ДЛЯ ВХОДА В СИСТЕМУ',
+    'logintext2' => 'НЕОБХОДИМО АВТОРИЗИРОВАТЬСЯ',
+    'emailaddress' => 'E-Mail',
+    'password' => 'Пароль',
+    'rememberme' => 'Запомнить меня',
+    'forgotyourpassword' => 'Забыли пароль?',
     'language' => 'Язык',
     'login' => 'Вход',
     'registration' => 'Регистрация',
     'logout' => 'Выход',
-
-    //Welcome page
-    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
-    'h1welcometext' => 'Система управления заказами',
-    //End Welcome page
-
-    //Footer
-    'footertext' => 'Все права защищены. При перепечатке материалов ссылка на сайт обязательна.',
-    //EndFooter
-
-    //Profile
-    'male' => 'Мужской',
-    'femele' => 'Женский',
-    //EndProfile
+    'register' => 'Регистрация',
+    'registertext' => 'Для доступа к системе необходима регистрация',
+    'company' => 'Компания',
+    'arch/design' => 'Архитектор/Дизайнер',
+    //End Login/Register Page
 
     //Menu
     'main' => 'Главная',
     'manage' => 'Панель управления',
     'objects' => 'Объекты',
     //EndMenu
+
+    //RegisterArch/Design Page
+    'userprofile' => 'Необходимо заполнить профиль пользователя.',
+    'uploadavatar' => 'Загрузите Ваше фото.',
+    //EndRegister Page
+
+    //Profile
+    'male' => 'Мужской',
+    'femele' => 'Женский',
+    //EndProfile
 
     //Manage
     'managers' => 'Менеджеры',
@@ -37,44 +45,20 @@ return [
     'history' => 'История',
     //EndManage
 
-    //Login Page
-    'logintext1' => 'ДЛЯ ВХОДА В СИСТЕМУ',
-    'logintext2' => 'НЕОБХОДИМО АВТОРИЗИРОВАТЬСЯ',
-    'emailaddress' => 'E-Mail',
-    'password' => 'Пароль',
-    'rememberme' => 'Запомнить меня',
-    'forgotyourpassword' => 'Забыли пароль?',
-    //EndLogin Page
-
-    //Register Page
-    'register' => 'Регистрация',
-    'registertext' => 'Для доступа к системе необходима регистрация',
-    'company' => 'Компания',
-    'arch/design' => 'Архитектор/Дизайнер',
-    //EndRegister Page
-
-    //RegisterArch/Design Page
-    'userprofile' => 'Необходимо заполнить профиль пользователя.',
-    'uploadavatar' => 'Загрузите Ваше фото.',
-    //EndRegister Page
-
     //Registerfield
     'name' => 'Имя',
     'surname' => 'Фамилия',
     'patronymic' => 'Отчество',
     'date' => 'YYYY/MM/DD',
     'dateofbirth' => 'Дата рождения',
-    'email' => 'Email',
     'phone' => 'Телефон',
+    'email' => 'Email',
     'confirmpassword' => 'Повторите пароль',
     'gender' => 'Пол',
-
     'registercompany' => 'Регистрация компании',
-    'profileuser' => 'Профиль пользователя',
     'communications' => 'Контактные данные',
     'financialrequisites' => 'Финансовые реквизиты',
     'lawaddress' => 'Юридический адрес',
-    'financialrequisites' => 'Финансовые реквизиты',
     'uploaddocuments' => 'Необходимо загрузить скан-копии документов. ',
     'companyname' => 'Компания',
     'city' => 'Город',
@@ -87,7 +71,7 @@ return [
     'bank' => 'Банк',
     'mfo' => 'МФО',
     'settlementaccount' => 'Расчетный счет',
-    'okpo' => 'ОКПО',
+    'okpo' => 'ЕГРПОУ',
     'lawcity' => 'Город',
     'lawstreet' => 'Улица',
     'lawhouse' => 'Дом',
@@ -103,7 +87,7 @@ return [
     //CreateObject
     'objectdata' => 'Данные объекта',
     'sworks' => 'Площадь планируемых работ',
-    //'dateofdelivery' => 'dateofdelivery',
+    'dateofdelivery' => 'dateofdelivery',
     'customer' => 'Заказчик (представитель)',
     'customername' => 'Имя',
     'customersurname' => 'Фамилия',
@@ -138,4 +122,14 @@ return [
     'architect' => 'Архитектура',
     'design' => 'Дизайнер',
     //EndCreateObject
+
+    //Welcome page
+    'h4welcome' => 'KRAFT Deckensysteme Ukraine',
+    'h1welcometext' => 'Система управления заказами',
+    //End Welcome page
+
+    //Footer
+    'footertext' => 'Все права защищены. При перепечатке материалов ссылка на сайт обязательна.',
+    //EndFooter
+
 ];
