@@ -29,8 +29,8 @@
                             {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object']) !!}
                             {!! Form::text('country',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.country'), 'id' => 'country', 'readonly']) !!}
                             {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city'), 'id' => 'city', 'readonly']) !!}
-                            {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street'), 'id' => 'street', 'readonly']) !!}
-                            {!! Form::text('house',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.house'), 'id' => 'street_number', 'readonly']) !!}
+                            {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street'), 'id' => 'street']) !!}
+                            {!! Form::text('house',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.house'), 'id' => 'street_number']) !!}
                             {!! Form::text('lat',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.lat'), 'id' => 'lat', 'readonly']) !!}
                             {!! Form::text('lon',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.lon'), 'id' => 'lon', 'readonly']) !!}
                             {!! Form::text('postcode',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.postcode'), 'id' => 'postal_code', 'readonly']) !!}
@@ -141,37 +141,37 @@
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
                             {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.generalbuilder')]) !!}
-                            {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.delegatebuilder')]) !!}
-                            {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.delegatebuildername')]) !!}
-                            {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
-                            {!! Form::text('delegatebuilderpatronymic',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.delegatebuilderpatronymic')]) !!}
-                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.delegatebuilderphone')]) !!}
+                            {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuilder')]) !!}
+                            {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildername')]) !!}
+                            {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
+                            {!! Form::text('delegatebuilderpatronymic',null , ['class' => 'form-control m-b-10 ', 'placeholder' => trans('app.delegatebuilderpatronymic')]) !!}
+                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuilderphone')]) !!}
 
                             {!! Form::label('label',trans('app.subbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('subbuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.subbuilder')]) !!}
-                            {!! Form::text('subbuildername',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.subbuildername')]) !!}
-                            {!! Form::text('subbuildersurname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.subbuildersurname')]) !!}
-                            {!! Form::text('subbuilderpatronymic',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.subbuilderpatronymic')]) !!}
-                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.subbuilderphone')]) !!}
+                            {!! Form::text('subbuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilder')]) !!}
+                            {!! Form::text('subbuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildername')]) !!}
+                            {!! Form::text('subbuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildersurname')]) !!}
+                            {!! Form::text('subbuilderpatronymic',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilderpatronymic')]) !!}
+                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilderphone')]) !!}
 
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.architect'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('architectname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.architectname')]) !!}
-                            {!! Form::text('architectsurname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.architectsurname')]) !!}
-                            {!! Form::text('architectpatronymic',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.architectpatronymic')]) !!}
-                            {!! Form::text('architectphone',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.architectphone')]) !!}
+                            {!! Form::text('architectname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.architectname')]) !!}
+                            {!! Form::text('architectsurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.architectsurname')]) !!}
+                            {!! Form::text('architectpatronymic',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.architectpatronymic')]) !!}
+                            {!! Form::text('architectphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.architectphone')]) !!}
 
                             {!! Form::label('label',trans('app.design'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('designname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.designname')]) !!}
-                            {!! Form::text('designsurname',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.designsurname')]) !!}
-                            {!! Form::text('designpatronymic',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.designpatronymic')]) !!}
-                            {!! Form::text('designphone',null , ['class' => 'form-control m-b-10', 'required', 'placeholder' => trans('app.designphone')]) !!}
+                            {!! Form::text('designname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.designname')]) !!}
+                            {!! Form::text('designsurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.designsurname')]) !!}
+                            {!! Form::text('designpatronymic',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.designpatronymic')]) !!}
+                            {!! Form::text('designphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.designphone')]) !!}
 
-                            {{ Form::textarea('comments', null, ['class' => 'm-t-20', 'required','placeholder' => trans('app.comments')]) }}
+                            {{ Form::textarea('comments', null, ['class' => 'm-t-20','placeholder' => trans('app.comments')]) }}
                             <br>
 
                         </div>

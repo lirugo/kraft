@@ -81,14 +81,14 @@ class ObjectController extends Controller
             'postcode' => 'required|max:20',
             'lat' => 'required|max:255',
             'lon' => 'required|max:255',
-            'sworks' => 'required|integer|max:255',
+            'sworks' => 'required|integer',
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
             'customersurname' => 'required|max:255',
             'customerpatronymic' => 'required|max:255',
             'customerphone' => 'required|max:255',
             'generalbuilder' => 'required|max:255',
-            'delegatebuildername' => 'required|max:255',
+           /* 'delegatebuildername' => 'required|max:255',
             'delegatebuildersurname' => 'required|max:255',
             'delegatebuilderpatronymic' => 'required|max:255',
             'delegatebuilderphone' => 'required|max:255',
@@ -105,7 +105,7 @@ class ObjectController extends Controller
             'designsurname' => 'required|max:255',
             'designpatronymic' => 'required|max:255',
             'designphone' => 'required|max:255',
-            'comments' => 'required|max:255',
+            'comments' => 'required|max:255',*/
         ]);
         // Save data to db
         $object = new Object();

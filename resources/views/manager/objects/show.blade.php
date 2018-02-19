@@ -145,6 +145,14 @@
                 @endif
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
+                {!! Form::submit($object->active == true ? "Отключить" : "Активировать", ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
     </div>
 @endsection
 
