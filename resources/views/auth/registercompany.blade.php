@@ -56,7 +56,7 @@
                                 {!! Form::text('house', null , ['class' => 'form-control form-inline m-b-10 required', 'placeholder' => trans('app.house')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('housing', null , ['class' => 'form-control form-inline m-b-10 required', 'placeholder' => trans('app.housing')]) !!}
+                                {!! Form::text('housing', null , ['class' => 'form-control form-inline m-b-10', 'placeholder' => trans('app.housing')]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('office', null , ['class' => 'form-control m-b-10 required', 'placeholder ' => trans('app.office')]) !!}
@@ -80,7 +80,7 @@
                                 {!! Form::text('lawhouse', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawhouse')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('lawhousing', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawhousing')]) !!}
+                                {!! Form::text('lawhousing', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.lawhousing')]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('lawoffice', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawoffice')]) !!}
@@ -121,7 +121,7 @@
                             <br>
                             <h5> You must upload your photo. </h5>
                             <hr>
-                            {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
+                            {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'hidden', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
                             <div id="iamgeUpload" class="dropzone"></div>
                         </div>
 

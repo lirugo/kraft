@@ -28,7 +28,7 @@ class AdminController extends Controller
             'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
-            'phone' => 'required|max:255',
+            'phone' => 'required|numeric',
             'email' => 'required|email|max:255|unique:users',
             'role' => 'required',
             'password' => 'required|min:6|confirmed',

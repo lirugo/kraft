@@ -29,14 +29,15 @@
             <div class="col-md-4">
                 <h5> {{trans('app.uploadavatar')}} </h5>
                 <hr>
-                {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
-                <div id="iamgeUpload" class="dropzone"></div>
+                {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20 ','hidden','id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
+                <div id="iamgeUpload" class="dropzone text-center"></div>
                 <h5> Select Role User </h5>
                 <hr>
-                {!! Form::select('role', ['manager' => "Manager", 'top-manager' => "Top Manager"], null, ['class' => 'form-control m-t-20', 'required']); !!}
+                {!! Form::select('role', ['manager' => "Manager"], null, ['class' => 'form-control m-t-20', 'required']); !!}
                 <h5> Select Region User </h5>
                 <hr>
                 {!! Form::select('regionname', [
+                    '' => "Select Region",
                     'center' => "Center",
                     'east' => "East",
                     'south' => "South",
