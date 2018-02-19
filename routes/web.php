@@ -70,6 +70,7 @@ Route::group(['prefix' => 'manager',
     'middleware' => 'role:manager|top-manager'],
     function () {
         Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
+        Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
 
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
@@ -124,6 +125,12 @@ Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avat
 Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
 Route::post('upload/photo', 'UploadController@uploadphoto')->name('upload.photo');
 //EndUploadController
+
+//DesignerRoute
+Route::get('designer/object/show', 'Designer\DesignerController@showobject');
+Route::get('designer/object/register', 'Designer\DesignerController@object');
+Route::post('designer/object/register', 'Designer\DesignerController@objectpost');
+//EndDesignerRoute
 
 // Dont forget delete
 Route::get('/complete', function () {

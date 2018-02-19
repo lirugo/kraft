@@ -15,6 +15,36 @@
                 {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.patronymic')]) !!}
                 {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
                 {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20', 'required']); !!}
+                <select required name="region" class="form-control m-t-20">
+                    <option value="" disabled selected>Выберите область</option>
+                    <option value="12">Киевская область</option>
+                    <option value="11">Житомирская область</option>
+                    <option value="13">Черниговская область</option>
+
+                    <option value="21">Днепропетровская область</option>
+                    <option value="22">Донецкая область</option>
+                    <option value="23">Запорожская область</option>
+                    <option value="24">Луганская область</option>
+                    <option value="25">Полтавская область</option>
+                    <option value="26">Сумская область</option>
+                    <option value="27">Харьковская область</option>
+
+                    <option value="31">Винницкая область</option>
+                    <option value="32">Кропивницкая область</option>
+                    <option value="33">Николаевская область</option>
+                    <option value="34">Одесская область</option>
+                    <option value="35">Херсонская область</option>
+                    <option value="36">Черкасская область</option>
+
+                    <option value="41">Волынская область</option>
+                    <option value="42">Закарпатская область</option>
+                    <option value="43">Ивано-Франковская область</option>
+                    <option value="44">Львовская область</option>
+                    <option value="45">Ровненская область</option>
+                    <option value="46">Тернопольская область</option>
+                    <option value="47">Хмельницкая область</option>
+                    <option value="48">Черновицкая область</option>
+                </select>
                 {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.phone')]) !!}
                 {!! Form::email('email', null,['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.email')]) !!}
                 {!! Form::password('password', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.password')]) !!}

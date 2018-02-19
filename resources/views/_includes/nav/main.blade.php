@@ -31,7 +31,6 @@
                 @else
                     <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
-                    <li><a href="{{ url('/object/show') }}">{{trans('app.objects')}}</a></li>
                     <li>
                         <a href="{{ url('/logout') }}"
                            onclick="event.preventDefault();

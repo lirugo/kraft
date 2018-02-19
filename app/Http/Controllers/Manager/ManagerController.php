@@ -16,7 +16,7 @@ class ManagerController extends Controller
         $user = Auth::user();
         $users = User::all()->where('regionname', '=' , $user->regionname);
         foreach ($users as $key => $datauser)
-            if($datauser->hasRole('distributor') || $datauser->hasRole('designer'));
+            if($datauser->hasRole('distributor'));
             else unset($users[$key]);
 
         return view('manager.users')->with('users', $users);
@@ -32,6 +32,16 @@ class ManagerController extends Controller
         }
 
         return view('manager.objects')->with('objects', $objects);
+    }
+
+    public function arch(){
+        $user = Auth::user();
+        $users = User::all()->where('regionname', '=' , $user->regionname);
+            foreach ($users as $key => $datauser)
+                if($datauser->hasRole('designer') || $datauser->hasRole('designer'));
+                else unset($users[$key]);
+
+        return view('manager.arch')->with('users', $users);
     }
 
     public function activateuser(Request $request, $id){

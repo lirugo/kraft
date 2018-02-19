@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('object') !!}
+    {!! Breadcrumbs::render('objectshow') !!}
 @endsection
 
 @section('stylesheets')
@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-md-4">
                 Компания/Менеджер:
-                {!! Form::label('Company Name',$object->company->companyname) !!}
-                {!! Form::label('Manager',", ".$object->creator->patronymic." ".$object->creator->name) !!}
+                {!! !empty($object->company) ? Form::label('Company Name', $object->company->companyname).", " : "" !!}
+                {!! Form::label('Manager',$object->creator->patronymic." ".$object->creator->name) !!}
                 <br>
                 Региональный менеджер:
                 {!! Form::label('RM',$object->rm->patronymic." ".$object->rm->name) !!}

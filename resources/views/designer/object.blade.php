@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('createobject') !!}
+    {!! Breadcrumbs::render('designerobject') !!}
 @endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register object</div>
                     <div class="panel-body">
-                        {!! Form::model(['route' =>['object.register'], 'method' => 'POST', 'files' => true]) !!}
+                        {!! Form::model(['route' =>['designer.object.register'], 'method' => 'POST', 'files' => true]) !!}
                         <div class="row">
                             <div class="col-md-12">
                                 {!! Form::text('searchInput',null , ['class' => 'controls form-control m-b-10 required', 'placeholder' => 'Enter a location', 'id' => 'searchInput']) !!}
@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                             {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
+                            {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
                             <hr>
                             {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object']) !!}
                             {!! Form::text('country',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.country'), 'id' => 'country', 'readonly']) !!}
@@ -66,7 +66,7 @@
                                 <option value="48">Черновицкая область</option>
                             </select>
                             <hr>
-                                {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks')]) !!}
+                            {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks')]) !!}
                             <br>
                             <br>
                             <div class="[ form-group-checkbox  m-t-20 ]">
@@ -207,26 +207,26 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initMap">
     </script>
-            <script type="text/javascript">
-                Dropzone.autoDiscover = false;
-                var myDropzone = new Dropzone("div#scanUpload", {
-                    url:'/upload/photo',
-                    type:'POST',
-                    maxFilesize:3,
-                    acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                    maxFiles: 5,
-                    addRemoveLinks: true,
-                    sending: function(file, xhr, formData) {
-                        formData.append("_token", "{{{ csrf_token() }}}");
-                    },
-                    init: function() {
-                        var myDropzone = this;
-                        this.on('success', function(file, response) {
-                            $("#boatAddForm").append($('<input type="hidden" ' +
-                                'name="photos[]" ' +
-                                'value="' + response.success + '">'));
-                        })
-                    }
-                });
-            </script>
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone("div#scanUpload", {
+            url:'/upload/photo',
+            type:'POST',
+            maxFilesize:3,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            maxFiles: 5,
+            addRemoveLinks: true,
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{{ csrf_token() }}}");
+            },
+            init: function() {
+                var myDropzone = this;
+                this.on('success', function(file, response) {
+                    $("#boatAddForm").append($('<input type="hidden" ' +
+                        'name="photos[]" ' +
+                        'value="' + response.success + '">'));
+                })
+            }
+        });
+    </script>
 @endsection

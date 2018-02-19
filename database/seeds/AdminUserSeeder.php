@@ -20,15 +20,5 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('password'),
             'active' => true,
         ]);
-
-        DB::table('admins')->insert([
-            'name' => 'test-admin',
-            'surname' => 'test-admin',
-            'patronymic' => 'test-admin',
-            'phone' => '+38 000 00 00',
-            'email' => 'test-admin@gmail.com',
-            'password' => bcrypt('1Gfhjkm1'),
-            'active' => true,
-        ]);
     }
 }

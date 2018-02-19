@@ -13,28 +13,22 @@
                     <div class="row m-t-20">
                         <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
-                                <a href="/profile">
-                                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                                    <div class="description m-t-10">
-                                        {{ trans('app.profileuser') }}
+                                <a href="/designer/object/show">
+                                    <i class="fa fa-university fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10 m-t-10">
+                                        {{ trans('app.objects') }}
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
-                                <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    {{ trans('app.calculator') }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <div class="card">
-                                <i class="fa fa-history fa-5x" aria-hidden="true"></i>
-                                <div class="description m-t-10">
-                                    {{ trans('app.history') }}
-                                </div>
+                                <a href="/profile">
+                                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        {{ trans('app.profileuser') }}
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>

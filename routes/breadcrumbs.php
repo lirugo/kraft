@@ -33,6 +33,12 @@ Breadcrumbs::register('object', function($breadcrumbs)
     $breadcrumbs->parent('manage');
     $breadcrumbs->push('Objects', url('object/show'));
 });
+Breadcrumbs::register('objectshow', function($breadcrumbs)
+{
+    $breadcrumbs->parent('manage');
+    $breadcrumbs->push('Object', url('manager/objects'));
+    $breadcrumbs->push('Show', url('object/show{}'));
+});
 //CreateObject
 Breadcrumbs::register('createobject', function($breadcrumbs)
 {
@@ -68,6 +74,16 @@ Breadcrumbs::register('distributors', function($breadcrumbs)
     $breadcrumbs->parent('manage');
     $breadcrumbs->push('Distributors', route('manager.users'));
 });
+Breadcrumbs::register('designers', function($breadcrumbs)
+{
+    $breadcrumbs->parent('manage');
+    $breadcrumbs->push('Designers', route('manager.arch'));
+});
 //EndManagerBreadcrumbs
 
-
+Breadcrumbs::register('designerobject', function($breadcrumbs)
+{
+    $breadcrumbs->parent('manage');
+    $breadcrumbs->push('Objects', url('designer/object/show'));
+    $breadcrumbs->push('Create Object', url('designer/object/register'));
+});

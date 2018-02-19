@@ -58,12 +58,12 @@ class RegisterController extends Controller
             'surname' => 'required|max:255',
             'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
-            'sex' => 'required|max:255',
+            'sex' => 'required',
+            'region' => 'required',
             'phone' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
-
 
         // Save data to db
         $user = new User;
@@ -77,10 +77,20 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
+        if($request->region[0] == 1)
+            $regionname = "center";
+        elseif($request->region[0] == 2)
+            $regionname = "east";
+        elseif($request->region[0] == 3)
+            $regionname = "south";
+        elseif($request->region[0] == 4)
+            $regionname = "west";
+
+        $user->region = $request->region;
+        $user->regionname = $regionname;
 
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
-
 
         //Save user
         $user->save();
