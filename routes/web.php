@@ -99,7 +99,8 @@ Route::group(['prefix' => 'admin'],
         Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
         Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
 
-        Route::post('users/activate/{id}', 'Manager\ManagerController@activateuser')->name('admin.users.activate');
+        Route::post('users/activate/{id}', 'Admin\AdminController@activateuser')->name('admin.users.activate');
+        Route::post('users/delete/{id}', 'Admin\AdminController@deleteuser')->name('admin.users.delete');
         //Mode
         Route::post('settings/maintenance/off', [
             'as' => 'admin.settings.maintenance.off',

@@ -15,9 +15,13 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="height: 50px;">
                                     {{$user->name}}
-                                    {!! Form::model($user,['route' => ['admin.users.activate', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
+                                    {!! Form::model($user,['route' => ['admin.users.delete', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
+                                    <button class="btn btn-danger btn-sm pull-right">Удалить</button>
+                                    {!! Form::close() !!}
+                                    {!! Form::model($user,['route' => ['admin.users.activate', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px; padding-right:80px;']) !!}
                                     <button class="btn btn-danger btn-sm pull-right">{{$user->active == true ? "Отключить" : "Активировать"}}</button>
                                     {!! Form::close() !!}
+
                                 </div>
                                 <div class="panel-body">
                                     <div class="col-md-6">
