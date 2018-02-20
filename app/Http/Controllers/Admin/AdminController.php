@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Company;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -65,6 +66,7 @@ class AdminController extends Controller
     public function settings(){
         return view('admin.settings.settings');
     }
+
     public function logout(){
         Auth::logout();
         return redirect('/admin/login');
@@ -80,6 +82,23 @@ class AdminController extends Controller
         $user->active == true ? $user->active = false : $user->active = true;
         $user->save();
         Session::flash('success', 'User status was changed.');
-        return back();
+        return redirect()->back();
+    }
+
+    public function deleteuser(Request $request, $id){
+        $user = User::find($id);
+        if($user->hasRole('distributor'))
+        {
+            $company = Company::all()->where('email', '=', $user->email)->first();
+            $users = User::all();
+            foreach ($users as $u)
+                if($u->company == $company->companyname)
+                    $u->delete();
+            $company->delete();
+        }
+        $user->delete();
+
+        Session::flash('success', 'User was deleted.');
+        return redirect()->back();
     }
 }
