@@ -1,12 +1,12 @@
 <?php
 return [
     //Login/Register Page
-    'logintext1' => 'TO LOGIN THE SYSTEM',
-    'logintext2' => 'YOU MUST AUTHORIZATION',
+    'logintext1' => 'ДЛЯ ВХОДУ У СИСТЕМУ',
+    'logintext2' => 'НЕОБХІДНО АВТОРИЗУВАТИСЯ',
     'emailaddress' => 'E-Mail Address',
-    'password' => 'Password',
-    'rememberme' => 'Remember me',
-    'forgotyourpassword' => 'Forgot your password?',
+    'password' => 'Пароль',
+    'rememberme' => 'Запам\'ятати мене',
+    'forgotyourpassword' => 'Забули пароль?',
     'language' => 'Мова',
     'login' => 'Ввійти',
     'registration' => 'Регістрація',
