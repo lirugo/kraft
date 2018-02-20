@@ -3,33 +3,38 @@
     {!! Breadcrumbs::render('main') !!}
 @endsection
 @section('content')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.css">
 
 
+    <select id="role_user" name="roleuser" class="form-control">
+        <option id="" selected disabled>Select Role User</option>
+        <option id="manager" value="manager">Manager</option>
+        <option id="top-manager" value="top-manager">Top-Manager</option>
+    </select>
 
-    <a data-toggle="lightbox" href="#demoLightbox">
-        <img src="https://dummyimage.com/600x400/000/fff" class="small-img">
-    </a>
-    <div id="demoLightbox" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
-        <div class='lightbox-dialog'>
-            <div class='lightbox-content'>
-                <img src="https://dummyimage.com/600x400/000/fff">
-                <div class='lightbox-caption'>
-                    Write here your caption here
-                </div>
-            </div>
-        </div>
+    <div id="region" class="m-t-20">
+            <p>Region</p>
+            <select name="regionname" class="form-control">
+                    <option>Center</option>
+                    <option>East</option>
+                    <option>South</option>
+                    <option>West</option>
+            </select>
     </div>
 
 
 
-
-</div>
-
-    @endsection
+@endsection
 
 @section('scripts')
-    <script src="/js/jquery-3.3.1.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
+    <script>
+        $(function() {
+            $("#role_user").change(function() {
+                if ($("#manager").is(":selected")) {
+                    $("#region").show();
+                } else {
+                    $("#region").hide();
+                }
+            }).trigger('change');
+        });
+    </script>
 @endsection

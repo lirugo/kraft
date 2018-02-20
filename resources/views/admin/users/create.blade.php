@@ -31,18 +31,23 @@
                 <hr>
                 {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20 ','hidden','id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
                 <div id="iamgeUpload" class="dropzone text-center"></div>
+                <hr>
                 <h5> Select Role User </h5>
-                <hr>
-                {!! Form::select('role', ['manager' => "Manager"], null, ['class' => 'form-control m-t-20', 'required']); !!}
-                <h5> Select Region User </h5>
-                <hr>
-                {!! Form::select('regionname', [
-                    '' => "Select Region",
-                    'center' => "Center",
-                    'east' => "East",
-                    'south' => "South",
-                    'west' => "West"
-                ], null, ['class' => 'form-control m-t-20', 'required']); !!}
+                <select id="role_user" name="role" class="form-control" required>
+                    <option value="" selected disabled>Select Role User</option>
+                    <option id="manager" value="manager">Manager</option>
+                    <option id="top-manager" value="top-manager">Top-Manager</option>
+                </select>
+
+                <div id="region" class="m-t-20">
+                    <h5>Region</h5>
+                    <select name="regionname" class="form-control">
+                        <option value="center">Center</option>
+                        <option value="east">East</option>
+                        <option value="south">South</option>
+                        <option value="west">West</option>
+                    </select>
+                </div>
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -80,6 +85,16 @@
                     document.getElementById('upl').value = response.success;
                 })
             }
+        });
+
+        $(function() {
+            $("#role_user").change(function() {
+                if ($("#manager").is(":selected")) {
+                    $("#region").show();
+                } else {
+                    $("#region").hide();
+                }
+            }).trigger('change');
         });
     </script>
 @endsection
