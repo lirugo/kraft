@@ -26,6 +26,7 @@
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                         <hr>
+                                        <p>Role: {{!empty($user->roles->first()->name) ? $user->roles->first()->name : 'No role'}}</p>
                                         <p>{{trans('app.name')}}: {{$user->name}}</p>
                                         <p>{{trans('app.surname')}}: {{$user->surname}}</p>
                                         <p>{{trans('app.patronymic')}}: {{$user->patronymic}}</p>

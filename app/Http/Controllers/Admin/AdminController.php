@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Company;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -86,6 +87,15 @@ class AdminController extends Controller
 
     public function deleteuser(Request $request, $id){
         $user = User::find($id);
+        if($user->hasRole('distributor'))
+        {
+            $company = Company::all()->where('email', '=', $user->email)->first();
+            $users = User::all();
+            foreach ($users as $u)
+                if($u->company == $company->companyname)
+                    $u->delete();
+            $company->delete();
+        }
         $user->delete();
 
         Session::flash('success', 'User was deleted.');
