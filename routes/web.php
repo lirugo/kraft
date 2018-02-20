@@ -84,11 +84,9 @@ Route::group(['prefix' => 'manager',
 //manager route
 
 //admin route
-
-
 Route::group(['prefix' => 'admin'],
     function () {
-        Route::get('/', 'Admin\AdminController@admin');
+        Route::get('/', 'Admin\AdminController@admin')->name('admin');
         Route::get('manage', 'Admin\AdminController@admin')->name('admin.manage');
         Route::get('settings', 'Admin\AdminController@settings')->name('admin.settings');
 
@@ -117,7 +115,6 @@ Route::group(['prefix' => 'admin'],
             }]);
 
     });
-
 //admin route
 
 //UploadController
