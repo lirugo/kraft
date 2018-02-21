@@ -72,12 +72,9 @@ Route::group(['prefix' => 'manager',
         Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
         Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
-
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
-
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manager.user.activate');
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manager.user.verified');
-
         Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manager.object.activate');
         Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manager.object.verified');
     });
@@ -131,6 +128,10 @@ Route::post('designer/object/register', 'Designer\DesignerController@objectpost'
 //EndDesignerRoute
 
 //Cron
+Route::get('routes/console', function()
+{
+    Artisan::queue('command:checkDateReportObject');
+});
 //EndCron
 
 // Dont forget delete
