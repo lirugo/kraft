@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Company;
 use App\Object;
+use App\Report;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -67,8 +68,13 @@ class ManagerController extends Controller
         $object = Object::find($id);
         $object->active = true;
         $object->dateofactivate = Carbon::now();
-        $object->dateofreport = Carbon::now()->addDays($request->reporttime);
         $object->reporttime = $request->reporttime;
+
+            $report = new Report();
+            $report->object_id = $object->id;
+            $report->dateofreport = Carbon::now()->addDays($request->reporttime);
+            $report->save();
+
         $object->save();
 
         Session::flash('success', 'Object status was changed.');
@@ -86,7 +92,6 @@ class ManagerController extends Controller
 
     public function showobject($id){
         $object = Object::find($id);
-        $ob = Object::find($id);
         $company = Company::find($object->companyid);
         $rm = User::find($object->rmid);
         $creator = User::find($object->creatorid);
@@ -96,16 +101,17 @@ class ManagerController extends Controller
         $object->creator = $creator;
 
         //Days to report
-        if($ob->dateofreport == Carbon::now()->format('Y-m-d'));
+        $reports = $object->reports;
+        $repid = 0;
+        foreach ($reports as $report)
         {
-            $ob->dateofreport = Carbon::now()->addDays($ob->reporttime);
-            $ob->save();
-        }
-      
-        if(!empty($object->dateofreport)){
-            $date1 = Carbon::parse($object->dateofreport);
-            $date_diff = $date1->diffInDays(Carbon::now());
-            $object->daystoreport = $date_diff;
+            if($report->id > $repid)
+            {
+                $date = Carbon::parse($report->dateofreport);
+                $date_diff = $date->diffInDays(Carbon::now());
+                $object->daystoreport = $date_diff;
+                $object->dateofreport = $report->dateofreport;
+            }
         }
         //Days to report
 

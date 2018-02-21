@@ -63,6 +63,9 @@ class LaratrustSeeder extends Seeder
                 'sex' => 'x',
                 'phone' => '000 000 00 00',
                 'email' => $key.'@app.com',
+                'active' => true,
+                'company' => 'companynamecenter',
+                'regionname' => 'center',
                 'password' => bcrypt('password')
             ]);
 
