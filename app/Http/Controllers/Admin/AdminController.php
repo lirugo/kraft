@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Company;
+use App\Object;
 use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -90,6 +91,9 @@ class AdminController extends Controller
         if($user->hasRole('distributor'))
         {
             $company = Company::all()->where('email', '=', $user->email)->first();
+            $objects = Object::all()->where('companyid', '=', $company->id);
+            foreach ($objects as $object)
+                if(!empty($object))$object->delete();
             $users = User::all();
             foreach ($users as $u)
                 if($u->company == $company->companyname)

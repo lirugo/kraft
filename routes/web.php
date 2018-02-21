@@ -130,6 +130,9 @@ Route::get('designer/object/register', 'Designer\DesignerController@object');
 Route::post('designer/object/register', 'Designer\DesignerController@objectpost');
 //EndDesignerRoute
 
+//Cron
+//EndCron
+
 // Dont forget delete
 Route::get('/complete', function () {
     return view('auth.complete');

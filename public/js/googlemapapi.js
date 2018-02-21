@@ -58,7 +58,7 @@ function initMap() {
 
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
         infowindow.open(map, marker);
-
+        alert(place.address_components[3].long_name);
         //Location details
         for (var i = 0; i < place.address_components.length; i++) {
             if(place.address_components[i].types[0] == 'postal_code'){

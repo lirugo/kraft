@@ -30,19 +30,43 @@
                 {!! Form::label('RMPhone',$object->rm->phone) !!}
             </div>
             <div class="col-md-4">
-                Дата Регистрации:
-                {!! Form::label('Create Date', Carbon\Carbon::parse($object->created_at)->format('d.m.Y ')) !!}
+                <strong>Дата Регистрации:</strong>
+                {!! Form::label('Create Date', Carbon\Carbon::parse($object->created_at)->format('d.m.Y')) !!}
                 <br>
-                Дата поставки товара:
-                $$$$$$$$$$$$$$
+                <div class="form-inline">
+                    {!! Form::label('Дата поставки товара: ', null, ['class' => 'm-t-10']) !!}
+                    {!! Form::text('dateofdelivery',null, ['class' => 'form-control', 'placeholder' => 'DD/MM/YYYY', 'id' => 'datepicker']) !!}
+                </div>
                 <br>
-                Следующий отчет через:
-                $$$$$$
+                {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
+                <div class="form-inline">
+                    {!! Form::label('Переодичнось отчетов: каждые', null) !!}
+                    {!! Form::select('reporttime', [
+                    '7' => '7 Дней',
+                    '14' => '14 Дней',
+                    '30' => '30 Дней'
+                    ],null, ['class' => 'form-control']) !!}
+                </div>
+                <strong> Дата Активации: </strong>
+                {!! Form::label('Activate Date', empty($object->dateofactivate) ? " " : Carbon\Carbon::parse($object->dateofactivate)->format('d.m.Y')) !!}
+                <br>
+                <p>
+                    <strong>До следующего отчета: </strong>
+                    {{ $object->daystoreport ? $object->daystoreport." дней" : ""}}
+                </p>
+                <p>
+                    <strong>Дата следующего отчета:</strong>
+                    {!! Form::label('Date Report', empty($object->dateofreport) ? " " : Carbon\Carbon::parse($object->dateofreport)->format('d.m.Y')) !!}
+                </p>
+                @if($object->active == false)
+                {!! Form::submit("Активировать", ['class' => 'btn btn-primary pull-right']) !!}
+                @endif
+                {!! Form::close() !!}
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <hr>
                 <p>
                     <strong>Данные объекта:</strong><br>
@@ -145,14 +169,6 @@
                 @endif
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <hr>
-                {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
-                {!! Form::submit($object->active == true ? "Отключить" : "Активировать", ['class' => 'btn btn-primary pull-right']) !!}
-                {!! Form::close() !!}
-            </div>
-        </div>
     </div>
 @endsection
 
@@ -160,4 +176,7 @@
     <script src="/js/jquery-3.3.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/datepicker.js"></script>
+
 @endsection

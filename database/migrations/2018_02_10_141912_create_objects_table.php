@@ -31,7 +31,9 @@ class CreateObjectsTable extends Migration
 
             $table->integer('sworks');
             $table->date('dateofdelivery')->nullable();
+            $table->date('dateofactivate')->nullable();
             $table->date('dateofreport')->nullable();
+            $table->integer('reporttime')->nullable();
             //Customer
             $table->string('customer');
             $table->string('customername');
