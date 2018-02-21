@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel-login panel-default">
-                    <div class="panel-heading-login">{{ trans('admin.login') }}</div>
+                    <div class="panel-heading-login">{{ trans('adminpanel.login') }}</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('adminpanel.login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
