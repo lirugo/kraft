@@ -72,6 +72,7 @@ Route::group(['prefix' => 'manager',
         Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
         Route::get('distributor/{id}', 'Manager\ManagerController@distributor')->name('manager.distributor');
         Route::get('distributor/profile/{id}', 'Manager\ManagerController@distributorprofile')->name('manager.distributor.profile');
+        Route::get('distributor/users/{id}', 'Manager\ManagerController@userscompany')->name('manager.distributor.users');
         Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');

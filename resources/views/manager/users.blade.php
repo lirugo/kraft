@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('breads')
-    <a class="link-bread" href="/manage">Панель управления</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
 

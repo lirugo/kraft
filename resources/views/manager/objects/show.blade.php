@@ -41,11 +41,15 @@
                 {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
                 <div class="form-inline">
                     {!! Form::label('Переодичнось отчетов: каждые', null) !!}
+                    @if($object->active == false)
                     {!! Form::select('reporttime', [
                     '7' => '7 Дней',
                     '14' => '14 Дней',
                     '30' => '30 Дней'
                     ],null, ['class' => 'form-control']) !!}
+                    @else
+                         {{$object->reporttime}} дней
+                    @endif
                 </div>
                 <strong> Дата Активации: </strong>
                 {!! Form::label('Activate Date', empty($object->dateofactivate) ? " " : Carbon\Carbon::parse($object->dateofactivate)->format('d.m.Y')) !!}

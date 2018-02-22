@@ -29,8 +29,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function getcompany()
-    {
-        return $this->hasOne('App\Company');
-    }
+public function getcompany()
+{
+    return $this->hasOne('App\Company');
+}
 }

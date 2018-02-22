@@ -1,8 +1,14 @@
 @extends('layouts.app')
 @section('breads')
-    <a class="link-bread" href="/manage">Панель управления</a>
-    <a class="link-bread" href="/manager/distributor/{{$user->id}}">Дистрибьютор</a>
-    <a class="link-bread" href="#">Профиль компании</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/manager/distributor/{{$user->id}}">Дистрибьютор</a>
+                <a class="link-bread" href="#">Профиль компании</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -35,8 +41,18 @@
                 <p>Телефон: {{ $user->getcompany->lawphone }}</p>
             </div>
             <div class="col-md-3 col-md-offset-1"  style="padding-top: 30px;">
-                <h5><strong>Сотрудники компании</strong></h5>
+                <a href="/manager/distributor/users/{{ $user->id }}"><h5><strong>Сотрудники компании</strong></h5></a>
                 <hr style="margin: 0;">
+                @php
+                    $users = \App\User::all()->where('company', '=', $user->company);
+                @endphp
+
+                @foreach($users as $us)
+                    <h5><strong>{{ $us->name." ".$us->surname." ".$us->patronymic }}</strong></h5>
+                    <hr style="margin: 0;">
+                    <p>Телефон: {{ $us->phone }}</p>
+                    <br>
+                @endforeach
             </div>
         </div>
     </div>

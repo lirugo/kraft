@@ -34,6 +34,13 @@ class ManagerController extends Controller
         return view('manager.distributor.profile')->with('user', $user);
     }
 
+    public function userscompany($id){
+        $user = User::find($id);
+        $users = User::all()->where('company', '=', $user->company);
+        $users->idback = $id;
+        return view('manager.distributor.users')->with('users', $users);
+    }
+
     public function objects(){
         $user = Auth::user();
         $objects = Object::all()->where('regionname', '=' , $user->regionname);

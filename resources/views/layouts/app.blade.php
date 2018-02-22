@@ -29,13 +29,7 @@
         @include('_includes.nav.main')
         @yield('breadcrumbs')
         <!-- Breads -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 p-20">
-                    @yield('breads')
-                </div>
-            </div>
-        </div>
+        @yield('breads')
         <!-- EndBreads -->
         @include('_includes.messages')
         <!--Content-->
