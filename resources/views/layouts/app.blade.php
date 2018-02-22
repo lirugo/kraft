@@ -16,8 +16,6 @@
     <link href="/css/font-awesome.css" rel="stylesheet">
     @yield('stylesheets')
 
-
-
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -30,11 +28,18 @@
         <!-- Top nav -->
         @include('_includes.nav.main')
         @yield('breadcrumbs')
+        <!-- Breads -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 p-20">
+                    @yield('breads')
+                </div>
+            </div>
+        </div>
+        <!-- EndBreads -->
         @include('_includes.messages')
         <!--Content-->
         @yield('content')
-
-
     </div>
 
     <!--Footer-->

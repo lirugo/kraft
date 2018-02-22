@@ -115,9 +115,10 @@ class RegisterCompanyController extends Controller
 
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
-
-        $company->save();
         $user->save();
+        $company->user_id = $user->id;
+        $company->save();
+
         //EndSave user
 
         //AttachRole designer/arch for new user

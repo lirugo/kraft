@@ -237,7 +237,6 @@ a:hover{
     color: #ffffff;
     background-color: #f78620;
 }
-
 .botton {
     display: inline-block;
     font-weight: 400;
@@ -253,7 +252,6 @@ a:hover{
     margin: 15px;
     border: transparent;
 }
-
 .botton-default:active, .botton-default:hover{
     color: #ffffff;
     background-color: #000000;
@@ -267,7 +265,18 @@ a:hover{
     color: #fff;
     background-color: #000000;
 }
-
+.link-bread{
+    border: 2px solid gray;
+    font-family: Roboto;
+    font-size:15px;
+    padding: 10px 0 10px 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 10px;
+}
+.p-20{
+    padding: 20px;
+}
 
 /*New Form*/
 

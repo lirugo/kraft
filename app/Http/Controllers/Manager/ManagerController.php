@@ -15,13 +15,23 @@ use Session;
 class ManagerController extends Controller
 {
     public function users(){
-        $user = Auth::user();
-        $users = User::all()->where('regionname', '=' , $user->regionname);
-        foreach ($users as $key => $datauser)
-            if($datauser->hasRole('distributor'));
+        $u = Auth::user();
+        $users = User::all()->where('regionname', '=' , $u->regionname);
+        foreach ($users as $key => $user)
+            if($user->active == true && $user->hasRole('distributor'));
+            else if($user->active == true && $user->hasRole('designer'));
             else unset($users[$key]);
-
         return view('manager.users')->with('users', $users);
+    }
+
+    public function distributor($id){
+        $distributors = User::find($id);
+        return view('manager.user')->with('distributors', $distributors);
+    }
+
+    public function distributorprofile($id){
+        $user = User::find($id);
+        return view('manager.distributor.profile')->with('user', $user);
     }
 
     public function objects(){

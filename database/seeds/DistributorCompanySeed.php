@@ -12,9 +12,10 @@ class DistributorCompanySeed extends Seeder
     public function run()
     {
         DB::table('companies')->insert([
+            'user_id' => '3',
             'companyname' => 'companynamecenter',
-            'region' => 'center',
-            'regionname' => '11',
+            'region' => '11',
+            'regionname' => 'center',
             'city' => 'city',
             'street' => 'street',
             'house' => '21',
