@@ -5,15 +5,15 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel-login panel-default">
-                    <div class="panel-heading-login">{{ trans('adminpanel.login') }}</div>
+                    <div class="panel-heading-login">{{ trans('admin.login') }}</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('adminpanel.login') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email" class="col-md-4 control-label">{{ trans('app.emailaddress') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
@@ -27,7 +27,7 @@
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="password" class="col-md-4 control-label">{{ trans('app.password') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <input id="password" type="password" class="form-control" name="password" required>
 
                                     @if ($errors->has('password'))
