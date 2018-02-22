@@ -9,6 +9,4 @@ class Object extends Model
     public function reports(){
         return $this->hasMany('App\Report');
     }
-
-
 }

@@ -10,7 +10,8 @@
             <div class="col-md-4" style="padding: 30px 0 0 50px;">
                 <h5>{{$user->getcompany->companyname}}</h5>
                 <hr style="margin: 0;">
-                {{dd($user->getcompany->reports)}}
+                @php $region = \App\Region::where('region_id', '=', $user->getcompany->region)->first(); @endphp
+                
 
             </div>
         </div>
