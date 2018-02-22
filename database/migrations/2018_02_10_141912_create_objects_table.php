@@ -19,15 +19,16 @@ class CreateObjectsTable extends Migration
             $table->integer('creatorid');
             $table->integer('rmid')->nullable();
             $table->string('name');
-            $table->string('country');
+            //$table->string('country');
             $table->string('region');
             $table->string('regionname');
             $table->string('city');
             $table->string('street');
             $table->string('house');
-            $table->string('postcode');
-            $table->string('lat');
-            $table->string('lon');
+            $table->string('housing')->nullable();
+            //$table->string('postcode');
+            //$table->string('lat');
+            //$table->string('lon');
 
             $table->integer('sworks');
             $table->date('dateofdelivery')->nullable();

@@ -73,14 +73,15 @@ class ObjectController extends Controller
         $this->validate($request,[
             //Validate company profile
             'name' => 'required|max:255',
-            'country' => 'required|max:255',
+            //'country' => 'required|max:255',
             'region' => 'required|max:255',
             'city' => 'required|max:255',
             'street' => 'required|max:255',
             'house' => 'required|max:255',
-            'postcode' => 'required|max:20',
-            'lat' => 'required|max:255',
-            'lon' => 'required|max:255',
+            'housing' => 'required|max:255',
+            //'postcode' => 'required|max:20',
+            //'lat' => 'required|max:255',
+            //'lon' => 'required|max:255',
             'sworks' => 'required|integer',
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
@@ -112,7 +113,7 @@ class ObjectController extends Controller
         $object->companyid = $company->id;
         $object->creatorid = $user->id;
         $object->name = $request->name;
-        $object->country = $request->country;
+        //$object->country = $request->country;
         //Region
         if($request->region[0] == 1)
             $regionname = "center";
@@ -138,9 +139,10 @@ class ObjectController extends Controller
         $object->city = $request->city;
         $object->street = $request->street;
         $object->house = $request->house;
-        $object->postcode = $request->postcode;
-        $object->lat = $request->lat;
-        $object->lon = $request->lon;
+        $object->housing = $request->housing;
+        //$object->postcode = $request->postcode;
+        //$object->lat = $request->lat;
+        //$object->lon = $request->lon;
         $object->sworks = $request->sworks;
         $object->dateofdelivery = $request->dateofdelivery;
         $object->customer = $request->customer;
