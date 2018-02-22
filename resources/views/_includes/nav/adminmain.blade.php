@@ -40,7 +40,7 @@
                     </li>
                 @endif
                 <li>
-                    <form action="/language" method="post" class="m-t-30 m-l-20 m-r-10">
+                    <form action="/language" method="post" class="m-t-30 m-l-20 m-r-20">
                         <input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">
                         <input type=image src="/img/icon/flags/ua.png" name="locale" value="ua" class="flag m-l-10" alt="Ukrainian">
                         <input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag m-l-10" alt="English">

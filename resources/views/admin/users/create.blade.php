@@ -32,20 +32,19 @@
                 {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20 ','hidden','id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
                 <div id="iamgeUpload" class="dropzone text-center"></div>
                 <hr>
-                <h5> Select Role User </h5>
                 <select id="role_user" name="role" class="form-control" required>
-                    <option value="" selected disabled>Select Role User</option>
-                    <option id="manager" value="manager">Manager</option>
-                    <option id="top-manager" value="top-manager">Top-Manager</option>
+                    <option value="" selected disabled>{{ trans('admin.selectuserrole') }}</option>
+                    <option id="manager" value="manager">{{ trans('admin.managerrole') }}</option>
+                    <option id="top-manager" value="top-manager">{{ trans('admin.toprole') }}</option>
                 </select>
 
                 <div id="region" class="m-t-20">
-                    <h5>Region</h5>
+                    <h5>{{ trans('admin.regionrole') }}</h5>
                     <select name="regionname" class="form-control">
-                        <option value="center">Center</option>
-                        <option value="east">East</option>
-                        <option value="south">South</option>
-                        <option value="west">West</option>
+                        <option value="center">{{ trans('admin.centerrole') }}</option>
+                        <option value="east">{{ trans('admin.eastrole') }}</option>
+                        <option value="south">{{ trans('admin.southrole') }}</option>
+                        <option value="west">{{ trans('admin.westrole') }}</option>
                     </select>
                 </div>
             </div>
@@ -53,7 +52,6 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <hr>
                 {!! Form::submit(trans('app.registration'), ['class' => 'botton pull-right btn-sm botton-primary m-t-10']) !!}
                 {!! Form::close() !!}
             </div>

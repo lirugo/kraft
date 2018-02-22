@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel-heading">Mange Dashboard for admin</div>
+                <div class="panel-heading">{{ trans('admin.pagination') }}</div>
                 <div class="panel-body">
                     <div class="row m-t-20">
                         <div class="col-md-2 col-md-offset-1 text-center">
@@ -14,7 +14,7 @@
                                 <a href="/admin/settings">
                                     <i class="fa fa-cogs fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
-                                        Settings
+                                        {{ trans('admin.setting') }}
                                     </div>
                                 </a>
                             </div>
@@ -24,7 +24,7 @@
                                 <a href="/admin/users/create">
                                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
-                                        Create User
+                                        {{ trans('admin.createuser') }}
                                     </div>
                                 </a>
                             </div>
@@ -34,7 +34,7 @@
                                 <a href="/admin/users/show">
                                     <i class="fa fa-users fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
-                                        List users
+                                        {{ trans('admin.listusers') }}
                                     </div>
                                 </a>
                             </div>
