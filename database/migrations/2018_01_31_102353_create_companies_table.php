@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('companyname');
+            $table->string('companyname')->unique();
             $table->string('region');
             $table->string('regionname');
             $table->string('city');

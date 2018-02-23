@@ -23,7 +23,7 @@ class RegisterCompanyController extends Controller
         //Validate
         $this->validate($request,[
             //Validate company profile
-            'companyname' => 'required|max:255',
+            'companyname' => 'required|unique:companies|max:255',
             'city' => 'required|max:255',
             'street' => 'required|max:255',
             'house' => 'required|integer',
