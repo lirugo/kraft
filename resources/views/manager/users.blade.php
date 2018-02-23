@@ -13,11 +13,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4" style="padding-left: 60px;">
-                <h5>Зарегистрированые дистрибьюторы</h5>
+                <h5>Зарегистрированные дистрибьюторы</h5>
                 <hr>
-                <br>
                 @foreach($users as $user)
-                    @if($user->hasRole('distributor'))
+                    @if($user->hasRole('distributor')  && $user->active == true)
                         @php $region = \App\Region::where('region_id', '=', $user->getcompany->region)->first(); @endphp
                         <h5><a href="/manager/distributor/{{ $user->id }}"><strong>{{ $user->getcompany->companyname }}</strong></a></h5>
                         <hr style="margin:0; padding: 0;">
@@ -25,6 +24,28 @@
                         <h6>{{ $user->getcompany->city }}</h6>
                         <h6>{{ $user->name." ".$user->surname." ".$user->patronymic }}</h6>
                         <h6>{{ $user->phone }}</h6>
+                        <br>
+                    @endif
+                @endforeach
+
+                <h5>Незарегистрированные дистрибьюторы</h5>
+                <hr>
+                @foreach($users as $user)
+                    @if($user->hasRole('distributor') && $user->active == false)
+                        @php $region = \App\Region::where('region_id', '=', $user->getcompany->region)->first(); @endphp
+                        <h5><a href="/manager/distributor/{{ $user->id }}"><strong>{{ $user->getcompany->companyname }}</strong></a></h5>
+                        <hr style="margin:0; padding: 0;">
+                        <h6>{{ $region->regionname_ru." область" }}</h6>
+                        <h6>{{ $user->getcompany->city }}</h6>
+                        <h6>{{ $user->name." ".$user->surname." ".$user->patronymic }}</h6>
+                        <h6>{{ $user->phone }}</h6>
+                        <h6>
+                            {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
+                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::close() !!}
+
+                        </h6>
+                        <br>
                         <br>
                     @endif
                 @endforeach

@@ -18,7 +18,7 @@ class ManagerController extends Controller
         $u = Auth::user();
         $users = User::all()->where('regionname', '=' , $u->regionname);
         foreach ($users as $key => $user)
-            if($user->active == true && $user->hasRole('distributor'));
+            if($user->hasRole('distributor'));
                 else if($user->active == true && $user->hasRole('designer'));
                 else unset($users[$key]);
         return view('manager.users')->with('users', $users);

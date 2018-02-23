@@ -15,7 +15,7 @@ class CreateObjectsTable extends Migration
     {
         Schema::create('objects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('companyid')->unsigned();
+            $table->integer('companyid')->unsigned()->nullable();
             $table->foreign('companyid')->references('id')->on('companies');
             $table->integer('creatorid');
             $table->integer('rmid')->nullable();
