@@ -27,10 +27,8 @@ class RegisterCompanyController extends Controller
             'city' => 'required|max:255',
             'street' => 'required|max:255',
             'house' => 'required|integer',
-            'office' => 'required|max:5',
-            'smartphone' => 'required|max:20',
-            'phone' => 'required|max:20',
-            'fax' => 'required|max:255',
+            'phonecompany' => 'required|regex:/(\+38)[ 0-9]{10}/',
+
             'bank' => 'required|max:255',
             'mfo' => 'required|max:255',
             'settlementaccount' => 'required|max:255',
@@ -39,9 +37,7 @@ class RegisterCompanyController extends Controller
             'lawcity' => 'required|max:255',
             'lawstreet' => 'required|max:255',
             'lawhouse' => 'required|integer',
-            'lawoffice' => 'required|max:5',
-            'lawphone' => 'required|max:255',
-            'lawfax' => 'required|max:255',
+            'lawphone' => 'required|regex:/(\+38)[ 0-9]{10}/',
 
             //Validate user profile
             'name' => 'required|max:255',
@@ -49,7 +45,7 @@ class RegisterCompanyController extends Controller
             'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
-            'phone' => 'required|max:255',
+            'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             ]);
@@ -78,7 +74,7 @@ class RegisterCompanyController extends Controller
         $company->housing = $request->housing;
         $company->office = $request->office;
         $company->smartphone = $request->smartphone;
-        $company->phone = $request->phone;
+        $company->phone = $request->phonecompany;
         $company->fax = $request->fax;
         $company->email = $request->email;
         $company->bank = $request->bank;
@@ -99,6 +95,14 @@ class RegisterCompanyController extends Controller
         if(isset($request->scans[2]))$company->scandoc3 = $request->scans[2];
         if(isset($request->scans[3]))$company->scandoc4 = $request->scans[3];
         if(isset($request->scans[4])) $company->scandoc5 = $request->scans[4];
+
+        //Social
+        $company->site = $request->site;
+        $company->social1 = $request->social1;
+        $company->social2 = $request->social2;
+        $company->social3 = $request->social3;
+        $company->social4 = $request->social4;
+        $company->social5 = $request->social5;
 
         //Save user
         $user->name = $request->name;

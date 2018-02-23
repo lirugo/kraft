@@ -45,7 +45,7 @@
                     <option value="47">Хмельницкая область</option>
                     <option value="48">Черновицкая область</option>
                 </select>
-                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.phone')]) !!}
+                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.phone')." +38"]) !!}
                 {!! Form::email('email', null,['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.email')]) !!}
                 {!! Form::password('password', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.password')]) !!}
                 {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.confirmpassword')]) !!}

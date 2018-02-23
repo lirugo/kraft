@@ -16,7 +16,7 @@
                     <section>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.profilecompany')) !!}
-                            {!! Form::text('companyname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.companyname')]) !!}
+                            {!! Form::text('companyname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.companyname')." *"]) !!}
 
                             <select required name="region" class="form-control m-b-10">
                                 <option value="" disabled selected>Выберите область</option>
@@ -49,47 +49,52 @@
                                 <option value="48">Черновицкая область</option>
                             </select>
 
-                            {!! Form::text('city', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.city')]) !!}
-                            {!! Form::text('street', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.street')]) !!}
+                            {!! Form::text('city', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.city')." *"]) !!}
+                            {!! Form::text('street', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.street')." *"]) !!}
 
                             <div class="col-md-4">
-                                {!! Form::text('house', null , ['class' => 'form-control form-inline m-b-10 required', 'placeholder' => trans('app.house')]) !!}
+                                {!! Form::text('house', null , ['class' => 'form-control form-inline m-b-10 required', 'placeholder' => trans('app.house')." *"]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('housing', null , ['class' => 'form-control form-inline m-b-10', 'placeholder' => trans('app.housing')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('office', null , ['class' => 'form-control m-b-10 required', 'placeholder ' => trans('app.office')]) !!}
+                                {!! Form::text('office', null , ['class' => 'form-control m-b-10', 'placeholder ' => trans('app.office')]) !!}
                             </div>
                             {!! Form::label('label',trans('app.communications'),['class' => 'm-b-10']) !!}
-                            {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')]) !!}
-                            {!! Form::text('fax', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.fax')]) !!}
-                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.smartphone')]) !!}
+                            {!! Form::text('phonecompany', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')." * +38"]) !!}
+                            {!! Form::text('fax', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.fax')]) !!}
+                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.smartphone')." * +38"]) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.financialrequisites')) !!}
-                            {!! Form::text('bank', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.bank')]) !!}
-                            {!! Form::text('mfo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.mfo')]) !!}
-                            {!! Form::text('settlementaccount', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.settlementaccount')]) !!}
-                            {!! Form::text('okpo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.okpo')]) !!}
+                            {!! Form::text('bank', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.bank')." *"]) !!}
+                            {!! Form::text('mfo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.mfo')." *"]) !!}
+                            {!! Form::text('settlementaccount', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.settlementaccount')." *"]) !!}
+                            {!! Form::text('okpo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.okpo')." *"]) !!}
 
                             {!! Form::label('label', trans('app.lawaddress'), ['class' => 'm-b-10']) !!}
-                            {!! Form::text('lawcity', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawcity')]) !!}
-                            {!! Form::text('lawstreet', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawstreet')]) !!}
+                            {!! Form::text('lawcity', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawcity')." *"]) !!}
+                            {!! Form::text('lawstreet', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawstreet')." *"]) !!}
                             <div class="col-md-4">
-                                {!! Form::text('lawhouse', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawhouse')]) !!}
+                                {!! Form::text('lawhouse', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawhouse')." *"]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('lawhousing', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.lawhousing')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('lawoffice', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawoffice')]) !!}
+                                {!! Form::text('lawoffice', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.lawoffice')]) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
-                            {!! Form::label('label',trans('app.financialrequisites')) !!}
-                            {!! Form::text('lawphone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawphone')]) !!}
-                            {!! Form::text('lawfax', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawfax')]) !!}
+                            {!! Form::label('label', "Телефон  бухгалтерии") !!}
+                            {!! Form::text('lawphone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawphone')." * +38"]) !!}
+                            {!! Form::label('label', "Web site company") !!}
+                            {!! Form::text('site', null , ['class' => 'form-control m-b-10', 'placeholder' => "website.com"]) !!}
+                            {!! Form::label('label', "Соц. сети") !!}
+                            {!! Form::text('social1', null , ['class' => 'form-control m-b-10', 'placeholder' => "facebook.com"]) !!}
+                            {!! Form::text('social2', null , ['class' => 'form-control m-b-10', 'placeholder' => "twitter.com"]) !!}
+                            {!! Form::text('social3', null , ['class' => 'form-control m-b-10', 'placeholder' => "linkedin.com"]) !!}
                         </div>
 
                         <div class="row">
@@ -110,8 +115,8 @@
                             {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')]) !!}
                             {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
                             {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'form-control m-b-10 required']); !!}
-                            {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')]) !!}
-                            {!! Form::email('email', null,['class' => 'form-control m-b-10 required email',   'placeholder' => trans('app.email')]) !!}
+                            {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')." * +38"]) !!}
+                            {!! Form::email('email', null,['class' => 'form-control m-b-10 required email', 'placeholder' => trans('app.email')]) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.password')) !!}

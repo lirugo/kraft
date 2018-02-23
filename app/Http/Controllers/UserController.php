@@ -29,7 +29,7 @@ class UserController extends Controller
             'patronymic' => 'required|max:255',
             'email' => 'required|email|max:255',
             'dateofbirth' => 'required|date:"yyyy-mm-dd"|date',
-            'phone' => 'required|max:255',
+            'phone' => 'required|numeric',
         ]);
 
         // Update data

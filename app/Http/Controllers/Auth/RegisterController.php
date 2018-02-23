@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'dateofbirth' => 'required|max:255',
             'sex' => 'required',
             'region' => 'required',
-            'phone' => 'required|max:255',
+            'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
