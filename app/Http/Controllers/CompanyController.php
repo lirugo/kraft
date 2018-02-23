@@ -151,8 +151,6 @@ class CompanyController extends Controller
         $user->password = bcrypt($request->password);
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
-        $user->active = true;
-        $user->verified = true;
         //Save user
         $user->save();
         //AttachRole designer/arch for new user

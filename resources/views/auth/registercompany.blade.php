@@ -64,7 +64,7 @@
                             {!! Form::label('label',trans('app.communications'),['class' => 'm-b-10']) !!}
                             {!! Form::text('phonecompany', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.phone')." * +38"]) !!}
                             {!! Form::text('fax', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.fax')]) !!}
-                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.smartphone')." * +38"]) !!}
+                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.smartphone')." +38"]) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.financialrequisites')) !!}
