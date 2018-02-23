@@ -7,15 +7,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h5> {{trans('app.userprofile')}} </h5>
-                <hr>
                 {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
-                {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.name')]) !!}
-                {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.patronymic')]) !!}
-                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.surname')]) !!}
-                {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
-                {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20', 'required']); !!}
-                <select required name="region" class="form-control m-t-20">
+                {!! Form::label('label',trans('app.userprofile')) !!}
+                <hr style="margin:0;">
+                {!! Form::text('name', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.name')." *"]) !!}
+                {!! Form::text('patronymic', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.patronymic')." *"]) !!}
+                {!! Form::text('surname', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.surname')." *"]) !!}
+                {!! Form::text('dateofbirth',null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')." *"]) !!}
+                {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control', 'required']); !!}
+                <select required name="region" class="form-control">
                     <option value="" disabled selected>Выберите область</option>
                     <option value="12">Киевская область</option>
                     <option value="11">Житомирская область</option>
@@ -45,18 +45,50 @@
                     <option value="47">Хмельницкая область</option>
                     <option value="48">Черновицкая область</option>
                 </select>
-                {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.phone')." +38"]) !!}
-                {!! Form::email('email', null,['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.email')]) !!}
-                {!! Form::password('password', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.password')]) !!}
-                {!! Form::password('password_confirmation', ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.confirmpassword')]) !!}
+                {!! Form::text('phone', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.phone')."* +38"]) !!}
+                {!! Form::email('email', null,['class' => 'form-control', 'required', 'placeholder' => trans('app.email')." *"]) !!}
+                {!! Form::password('password', ['class' => 'form-control', 'required', 'placeholder' => trans('app.password')." *"]) !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control', 'required', 'placeholder' => trans('app.confirmpassword')." *"]) !!}
             </div>
-            <div class="col-md-4 text-center">
-                <h5> {{trans('app.uploadavatar')}} </h5>
-                <hr>
+            <div class="col-md-4">
+                {!! Form::label('label', "Portfolio") !!}
+                <hr style="margin:0;">
+                {!! Form::text('site', null , ['class' => 'form-control m-b-10', 'placeholder' => "portfolio.com"]) !!}
+                {!! Form::label('label', "Your web site") !!}
+                <hr style="margin:0;">
+                {!! Form::text('site', null , ['class' => 'form-control m-b-10', 'placeholder' => "website.com"]) !!}
+                {!! Form::label('label', "Соц. сети") !!}
+                <hr style="margin:0;">
+                {!! Form::text('social1', null , ['class' => 'form-control', 'placeholder' => "facebook.com"]) !!}
+                {!! Form::text('social2', null , ['class' => 'form-control', 'placeholder' => "twitter.com"]) !!}
+                {!! Form::text('social3', null , ['class' => 'form-control m-b-10', 'placeholder' => "linkedin.com"]) !!}
+                {!! Form::label('label',trans('app.uploadavatar')) !!}
+                <hr style="margin:0; margin-bottom: 10px">
                 {!! Form::hidden('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
-                <div id="iamgeUpload" class="dropzone"></div>
+                <div id="iamgeUpload" class="dropzone text-center"></div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                {!! Form::label('label', "Текущее место работы") !!}
+                <hr style="margin:0;">
+                <select id="work_user" name="work_user" class="form-control" required>
+                    <option value="" selected disabled>Текущее место работы</option>
+                    <option id="work_company" name="work_company" value="company">На компанию</option>
+                    <option id="work_himself" name="work_himself" value="himself">На себя</option>
+                </select>
+                <div id="company" class="m-t-10">
+                    {!! Form::label('label', "Укажите информацию о компании") !!}
+                    <hr style="margin:0;">
+                    {!! Form::text('companyname', null , ['class' => 'form-control required', 'placeholder' => trans('app.companyname')." *"]) !!}
+                    {!! Form::text('companycity', null , ['class' => 'form-control required', 'placeholder' => "Город *"]) !!}
+                    {!! Form::text('companysite', null , ['class' => 'form-control required', 'placeholder' => "Сайт *"]) !!}
+                </div>
+
+                {!! Form::number('workexperience', null , ['class' => 'form-control m-b-10','required', 'min' => '1', 'placeholder' => "Стаж работы * - кол-во лет"]) !!}
+                {!! Form::label('label', "Дополнительная информация") !!}
+                <hr style="margin:0;">
+                {{ Form::textarea('comments', null, ['class' => 'form-control m-t-20 m-b-10', 'placeholder' => trans('app.comments')]) }}
+
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -92,6 +124,16 @@
                     document.getElementById('upl').value = response.success;
                 })
             }
+        });
+
+        $(function() {
+            $("#work_user").change(function() {
+                if ($("#work_company").is(":selected")) {
+                    $("#company").show();
+                } else {
+                    $("#company").hide();
+                }
+            }).trigger('change');
         });
     </script>
 @endsection

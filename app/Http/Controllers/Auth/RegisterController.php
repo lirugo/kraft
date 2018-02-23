@@ -51,7 +51,6 @@ class RegisterController extends Controller
     }
 
     public function createRegisterUser(Request $request){
-
         //Validate
         $this->validate($request,[
             'name' => 'required|max:255',
@@ -60,6 +59,7 @@ class RegisterController extends Controller
             'dateofbirth' => 'required|max:255',
             'sex' => 'required',
             'region' => 'required',
+            'workexperience' => 'required|numeric',
             'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -85,6 +85,21 @@ class RegisterController extends Controller
             $regionname = "south";
         elseif($request->region[0] == 4)
             $regionname = "west";
+
+        //Social
+        $user->site = $request->site;
+        $user->social1 = $request->social1;
+        $user->social2 = $request->social2;
+        $user->social3 = $request->social3;
+        $user->social4 = $request->social4;
+        $user->social5 = $request->social5;
+
+        $user->work_user = $request->work_user;
+        $user->companyname = $request->companyname;
+        $user->companycity = $request->companycity;
+        $user->companysite = $request->companysite;
+        $user->comments = $request->comments;
+        $user->workexperience = $request->workexperience;
 
         $user->region = $request->region;
         $user->regionname = $regionname;

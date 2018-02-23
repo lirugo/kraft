@@ -18,6 +18,18 @@ class AddCustomeFieldToUsersTable extends Migration
             $table->string('patronymic')->after('surname');
             $table->string('region')->after('patronymic')->nullable();
             $table->string('regionname')->after('region')->nullable();
+            $table->string('site')->nullable();
+            $table->string('social1')->nullable();
+            $table->string('social2')->nullable();
+            $table->string('social3')->nullable();
+            $table->string('social4')->nullable();
+            $table->string('social5')->nullable();
+            $table->string('work_user')->nullable();
+            $table->string('companyname')->nullable();
+            $table->string('companycity')->nullable();
+            $table->string('companysite')->nullable();
+            $table->string('comments')->nullable();
+            $table->string('workexperience')->nullable();
         });
     }
 
@@ -33,6 +45,18 @@ class AddCustomeFieldToUsersTable extends Migration
             $table->dropIfExists('patronymic');
             $table->dropIfExists('region');
             $table->dropIfExists('regionname');
+            $table->dropIfExists('site');
+            $table->dropIfExists('social1');
+            $table->dropIfExists('social2');
+            $table->dropIfExists('social3');
+            $table->dropIfExists('social4');
+            $table->dropIfExists('social5');
+            $table->dropIfExists('work_user');
+            $table->dropIfExists('companyname');
+            $table->dropIfExists('companycity');
+            $table->dropIfExists('companysite');
+            $table->dropIfExists('comments');
+            $table->dropIfExists('workexperience');
         });
     }
 }
