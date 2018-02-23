@@ -62,7 +62,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->region}}</td>
-                                <td>{{$object->creatorname}}</td>
+                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -109,10 +109,11 @@
                     @foreach($distributors->getcompany->objects as $object)
                         @if($object->active == false)
                             <tr>
+
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->region}}</td>
-                                <td>{{$object->creatorname}}</td>
+                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
