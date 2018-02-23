@@ -43,7 +43,6 @@
                             {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
                             {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
                             {!! Form::close() !!}
-
                         </h6>
                         <br>
                         <br>
@@ -54,9 +53,8 @@
             <div class="col-md-4 col-md-offset-2">
                 <h5>Зарегистрированые Архитекторы</h5>
                 <hr>
-                <br>
                 @foreach($users as $user)
-                    @if($user->hasRole('designer'))
+                    @if($user->hasRole('designer') && $user->active == 1)
                         <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $user->phone }}</h6>
@@ -64,6 +62,22 @@
                     @endif
                 @endforeach
 
+                <h5>Незарегистрированые Архитекторы</h5>
+                <hr>
+                @foreach($users as $user)
+                    @if($user->hasRole('designer') && $user->active == 0)
+                        <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
+                        <hr style="margin:0; padding: 0;">
+                        <h6>{{ $user->phone }}</h6>
+                        <h6>
+                            {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
+                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::close() !!}
+                        </h6>
+                        <br>
+                        <br>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

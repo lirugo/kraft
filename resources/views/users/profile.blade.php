@@ -27,11 +27,11 @@
                                 {!! Form::label('name', 'Name', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
 
-                                {!! Form::label('surname', 'Surname', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('surname', $user->surname, ['class' => 'form-control']) !!}
-
                                 {!! Form::label('patronymic', 'Patronymic', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('patronymic', $user->patronymic, ['class' => 'form-control']) !!}
+
+                                {!! Form::label('surname', 'Surname', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('surname', $user->surname, ['class' => 'form-control']) !!}
 
                                 {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('email', $user->email, ['class' => 'form-control', 'readonly']) !!}
