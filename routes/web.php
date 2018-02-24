@@ -89,7 +89,8 @@ Route::group(['prefix' => 'manager',
 Route::group(['prefix' => 'distributor',
     'middleware' => 'role:distributor|worker'],
     function () {
-        Route::get('objects', 'Distributor\ObjectsController@objects')->name('object.show');
+        Route::get('objects', 'Distributor\ObjectsController@objects');
+        Route::get('object/show/{id}', 'Distributor\ObjectsController@objectshow')->name('object.show');
     });
 //distributor route
 

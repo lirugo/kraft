@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-2 col-md-offset-1 text-center">
                 <div class="card">
-                    <a href="{{ route('manager.designer.profile', $user->id) }}">
+                    <a href="{{ route('designer.profile', $user->id) }}">
                         <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
                         <div class="description m-t-10">
                            Профиль дизайнера

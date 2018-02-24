@@ -43,6 +43,7 @@
                         <th scope="col">Дней до отчета</th>
                         <th scope="col">РМ</th>
                         <th scope="col">Телефон РМ</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -72,6 +73,9 @@
                                 </td>
                                 <td>{{$object->rmuser->name}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
+                                <td>
+                                    <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                </td>
                             </tr>
                         @endif
                     @endforeach
@@ -91,9 +95,10 @@
                         <th scope="col">Менеджер</th>
                         <th scope="col">Дата регистрации</th>
                         <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
-                        <th scope="col">Региональный менеджер</th>
+                        <th scope="col">Дней до отчета</th>
+                        <th scope="col">РМ</th>
                         <th scope="col">Телефон РМ</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -103,12 +108,15 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->region}}</td>
-                                <td>{{$object->creatorname}}</td>
+                                <td>{{$object->user->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
-                                <td>{{$object->dateofreport}}</td>
-                                <td>{{$object->rmname}}</td>
-                                <td>{{$object->rmphone}}</td>
+                                <td></td>
+                                <td>{{$object->rmuser->name}}</td>
+                                <td>{{$object->rmuser->phone}}</td>
+                                <td>
+                                    <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                </td>
                             </tr>
                         @endif
                     @endforeach
