@@ -49,10 +49,11 @@
                     {!! Form::label('Переодичнось отчетов: каждые', null) !!}
                     @if($object->active == false)
                     {!! Form::select('reporttime', [
+                    '' => 'Выберите период',
                     '7' => '7 Дней',
                     '14' => '14 Дней',
                     '30' => '30 Дней'
-                    ],null, ['class' => 'form-control']) !!}
+                    ],null, ['class' => 'form-control', 'required']) !!}
                     @else
                          {{$object->reporttime}} дней
                     @endif

@@ -13,7 +13,7 @@
                         <div class="row m-t-20">
                             <div class="col-md-2 col-md-offset-1 text-center">
                                 <div class="card">
-                                <a href="/object/show">
+                                <a href="/distributor/objects">
                                 <i class="fa fa-university fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('app.objects') }}

@@ -29,9 +29,19 @@ class ManagerController extends Controller
         return view('manager.user')->with('distributors', $distributors);
     }
 
+    public function designer($id){
+        $user = User::find($id);
+        return view('manager.designer.show')->with('user', $user);
+    }
+
     public function distributorprofile($id){
         $user = User::find($id);
         return view('manager.distributor.profile')->with('user', $user);
+    }
+
+    public function designerprofile($id){
+        $user = User::find($id);
+        return view('manager.designer.profile')->with('user', $user);
     }
 
     public function userscompany($id){

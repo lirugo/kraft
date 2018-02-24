@@ -25,6 +25,7 @@
 </head>
 <body>
     <div id="app">
+        {{ csrf_field() }}
         <!-- Top nav -->
         @include('_includes.nav.main')
         @yield('breadcrumbs')

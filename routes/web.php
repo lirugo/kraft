@@ -71,6 +71,8 @@ Route::group(['prefix' => 'manager',
     function () {
         Route::get('users', 'Manager\ManagerController@users')->name('manager.users');
         Route::get('distributor/{id}', 'Manager\ManagerController@distributor')->name('manager.distributor');
+        Route::get('designer/{id}', 'Manager\ManagerController@designer')->name('manager.designer');
+        Route::get('designer/profile/{id}', 'Manager\ManagerController@designerprofile')->name('manager.designer.profile');
         Route::get('distributor/profile/{id}', 'Manager\ManagerController@distributorprofile')->name('manager.distributor.profile');
         Route::get('distributor/users/{id}', 'Manager\ManagerController@userscompany')->name('manager.distributor.users');
         Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
@@ -82,6 +84,14 @@ Route::group(['prefix' => 'manager',
         Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manager.object.verified');
     });
 //manager route
+
+//distributor route
+Route::group(['prefix' => 'distributor',
+    'middleware' => 'role:distributor|worker'],
+    function () {
+        Route::get('objects', 'Distributor\ObjectsController@objects')->name('object.show');
+    });
+//distributor route
 
 //admin route
 Route::group(['prefix' => 'admin'],

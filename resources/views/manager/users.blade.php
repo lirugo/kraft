@@ -55,7 +55,7 @@
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 1)
-                        <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
+                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></a></h5>
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $user->phone }}</h6>
                         <br>
@@ -66,7 +66,7 @@
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 0)
-                        <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
+                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></a></h5>
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $user->phone }}</h6>
                         <h6>

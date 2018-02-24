@@ -28,7 +28,7 @@ class AddCustomeFieldToUsersTable extends Migration
             $table->string('companyname')->nullable();
             $table->string('companycity')->nullable();
             $table->string('companysite')->nullable();
-            $table->string('comments')->nullable();
+            $table->text('comments')->nullable();
             $table->string('workexperience')->nullable();
         });
     }
