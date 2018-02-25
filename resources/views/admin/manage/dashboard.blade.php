@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-2 col-md-offset-1 text-center">
+                        <div class="col-md-2 text-center">
                             <div class="card">
                                 <a href="/admin/users/create">
                                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
@@ -29,12 +29,22 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-2 col-md-offset-1 text-center">
+                        <div class="col-md-2 text-center">
                             <div class="card">
                                 <a href="/admin/users/show">
                                     <i class="fa fa-users fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('admin.listusers') }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/admin/product/upload">
+                                    <i class="fa fa-upload fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Upload products
                                     </div>
                                 </a>
                             </div>

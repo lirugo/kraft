@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('manage') !!}
-@endsection
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -13,7 +10,7 @@
                     <div class="row m-t-20">
                         <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
-                                <a href="/object/show">
+                                <a href="/worker/objects/show">
                                     <i class="fa fa-university fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10 m-t-10">
                                         {{ trans('app.objects') }}

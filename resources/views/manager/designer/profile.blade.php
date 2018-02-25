@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/users">Дистрибьюторы</a>
-                <a class="link-bread" href="#">Профиль дизайнера</a>
+                <a class="link-bread" href="/manager/users">Дизайнеры</a>
+                <a class="link-bread" href="/manager/designer/{{$user->id}}">Дизайнер</a>
             </div>
         </div>
     </div>

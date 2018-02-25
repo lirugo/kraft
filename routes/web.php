@@ -110,6 +110,11 @@ Route::group(['prefix' => 'admin'],
         Route::get('users/create', 'Admin\AdminController@createuser')->name('admin.users.create');
         Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
 
+        //Product
+            Route::get('product/upload', 'Product\ProductController@upload');
+            Route::post('product/upload', 'Product\ProductController@uploadpost')->name('admin.product.upload');
+        //Product
+
         Route::post('users/activate/{id}', 'Admin\AdminController@activateuser')->name('admin.users.activate');
         Route::post('users/delete/{id}', 'Admin\AdminController@deleteuser')->name('admin.users.delete');
         //Mode
@@ -137,9 +142,15 @@ Route::post('upload/photo', 'UploadController@uploadphoto')->name('upload.photo'
 
 //DesignerRoute
 Route::get('designer/object/show', 'Designer\DesignerController@showobject');
+Route::get('designer/object/show/{id}', 'Designer\DesignerController@getobject');
 Route::get('designer/object/register', 'Designer\DesignerController@object');
 Route::post('designer/object/register', 'Designer\DesignerController@objectpost');
 //EndDesignerRoute
+
+//WorkerRoute
+Route::get('worker/objects/show', 'Worker\WorkerController@objects');
+Route::get('worker/object/show/{id}', 'Worker\WorkerController@objectshow');
+//WorkerRoute
 
 //Cron
 Route::get('routes/console', function()

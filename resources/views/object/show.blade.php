@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('object') !!}
-@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row m-t-20">

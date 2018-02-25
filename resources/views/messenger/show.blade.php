@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-1">
                 <h1>{{ $thread->subject }}</h1>
-                <div style="height:500px; overflow:auto;" id="scrollbottom">
+                <div style="height:auto; max-height:400px; overflow:auto;" id="scrollbottom">
                 @each('messenger.partials.messages', $thread->messages, 'message')
                 </div>
                 @include('messenger.partials.form-message')

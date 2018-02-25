@@ -32,6 +32,11 @@ class DesignerController extends Controller
         return view('designer.object');
     }
 
+    public function getobject($id){
+        $object = Object::find($id);
+        return view('designer.getobject')->with('object', $object);
+    }
+
     public function objectpost(Request $request){
         //GetCompanyID
         $user = Auth::user();

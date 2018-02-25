@@ -165,6 +165,6 @@ class ObjectController extends Controller
         //Set Flash message
         Session::flash('success', 'Object was successfully created.');
         //Redirect
-        return redirect('object/show');
+        return redirect('manage');
     }
 }
