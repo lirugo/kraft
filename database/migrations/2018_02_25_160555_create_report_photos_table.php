@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportsTable extends Migration
+class CreateReportPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('report_photos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('object_id')->unsigned();
-            $table->foreign('object_id')->references('id')->on('objects');
-            $table->text('comments')->nullable();
-            $table->date('dateofreport');
-            $table->boolean('done')->default(false);
+            $table->foreign('object_id')->references('object_id')->on('reports');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('report_photos');
     }
 }

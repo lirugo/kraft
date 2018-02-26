@@ -9,6 +9,8 @@
                     {!! Form::open(['route' => 'admin.product.upload', 'enctype' => 'multipart/form-data', 'method' => 'POST']) !!}
                     {!! Form::file('mock_data', ['style' => 'margin:10px 0 10px 0', 'accept' => '.csv']) !!}
                     {!! Form::submit('Upload', ['class' => 'btn btn-primary']) !!}
+                    <br>
+                    {!! Form::label('Example => 1,name,green,22,hard') !!}
                     {!! Form::close() !!}
                     <div class="text-center">
                         {{$products->links()}}

@@ -10,4 +10,9 @@ class Report extends Model
     {
         return $this->belongsTo('App\Object');
     }
+
+    public function Photo()
+    {
+        return $this->hasMany('App\ReportPhoto', 'object_id', 'object_id');
+    }
 }

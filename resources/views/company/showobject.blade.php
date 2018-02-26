@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/users">Дистрибюторы</a>
+                <a class="link-bread" href="/distributor/objects">Объекты</a>
             </div>
         </div>
     </div>
@@ -173,6 +173,11 @@
                         </div>
                     </div>
                 @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/report/{{$object->id}}" class="btn btn-primary">Отчеты</a>
             </div>
         </div>
     </div>

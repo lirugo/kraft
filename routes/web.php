@@ -138,6 +138,7 @@ Route::group(['prefix' => 'admin'],
 Route::post('upload/avatar', 'UploadController@uploadavatar')->name('upload.avatar');
 Route::post('upload/scan', 'UploadController@uploadscan')->name('upload.scan');
 Route::post('upload/photo', 'UploadController@uploadphoto')->name('upload.photo');
+Route::post('upload/report', 'UploadController@uploadreport')->name('upload.report');
 //EndUploadController
 
 //DesignerRoute
@@ -151,6 +152,13 @@ Route::post('designer/object/register', 'Designer\DesignerController@objectpost'
 Route::get('worker/objects/show', 'Worker\WorkerController@objects');
 Route::get('worker/object/show/{id}', 'Worker\WorkerController@objectshow');
 //WorkerRoute
+
+//ReportRoute
+Route::get('report/{id}', 'Report\ReportController@index');
+Route::get('report/show/{id}', 'Report\ReportController@show');
+Route::get('report/submit/{id}', 'Report\ReportController@submit');
+Route::post('report/upload/{id}', 'Report\ReportController@upload')->name('report.upload');
+//ReportRoute
 
 //Cron
 Route::get('routes/console', function()
