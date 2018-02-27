@@ -1,6 +1,12 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('profile') !!}
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
@@ -11,8 +17,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ $user->name }}'s Profile</div>
-
                     <div class="panel-body">
                         <img src="/uploads/avatars/{{ $user->avatar }}" class="avatar"/>
                         {!! Form::open(['method' => 'POST', 'route' =>['profile.update'], 'files' => true]) !!}

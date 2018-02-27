@@ -50,7 +50,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->region}}</td>
-                                <td>{{$object->rmuser->name}}</td>
+                                <td>{{$object->user->name." ".$object->user->surname}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -100,7 +100,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->region}}</td>
-                                <td>{{$object->rmuser->name}}</td>
+                                <td>{{$object->user->name." ".$object->user->surname}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>

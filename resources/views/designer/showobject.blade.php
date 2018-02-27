@@ -1,6 +1,13 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('object') !!}
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="#">Объекты</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -30,17 +37,18 @@
         </div>
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
-                <h5>Зарегестрированые объекты</h5>
-                <table class="table" id="clickable">
+                <h5>Зарегестрированые объекты компании</h5>
+                <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Название</th>
                         <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
                         <th scope="col">Дата регистрации</th>
                         <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
+                        <th scope="col">Дней до отчета</th>
+                        <th scope="col">РМ</th>
+                        <th scope="col">Телефон РМ</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -54,7 +62,6 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -69,6 +76,8 @@
                                             echo "Дней просрочено: ".$reportdiff->days;
                                     @endphp
                                 </td>
+                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
+                                <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/designer/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
                                 </td>
@@ -79,21 +88,20 @@
                 </table>
             </div>
         </div>
-
-        <!-- ShowNotRegistred objects-->
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
-                <h5>Не зарегестрированые объекты</h5>
-                <table class="table" id="clickable">
+                <h5>Не зарегестрированые объекты компании</h5>
+                <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Название</th>
                         <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
                         <th scope="col">Дата регистрации</th>
                         <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
+                        <th scope="col">Дней до отчета</th>
+                        <th scope="col">РМ</th>
+                        <th scope="col">Телефон РМ</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -104,10 +112,11 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
+                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
+                                <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/designer/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
                                 </td>

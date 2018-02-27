@@ -1,6 +1,14 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('createobject') !!}
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/designer/object/show">Объекты</a>
+                <a class="link-bread" href="#">Регистрация</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
@@ -13,7 +21,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Register object</div>
                     <div class="panel-body">
                         {!! Form::model(['route' =>['object.register'], 'method' => 'POST', 'files' => true]) !!}
                         <div class="row">
@@ -133,7 +140,7 @@
                             {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername').' *']) !!}
                             {!! Form::text('customersurname',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customersurname').' *']) !!}
                             {!! Form::text('customerpatronymic',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpatronymic').' *']) !!}
-                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpphone').' *']) !!}
+                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00','placeholder' => trans('app.customerpphone').' *']) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
@@ -142,7 +149,7 @@
                             {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildername')]) !!}
                             {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
                             {!! Form::text('delegatebuilderpatronymic',null , ['class' => 'form-control m-b-10 ', 'placeholder' => trans('app.delegatebuilderpatronymic')]) !!}
-                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuilderphone')]) !!}
+                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00','placeholder' => trans('app.delegatebuilderphone')]) !!}
 
 
 
@@ -154,7 +161,7 @@
                             {!! Form::text('subbuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildername')]) !!}
                             {!! Form::text('subbuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildersurname')]) !!}
                             {!! Form::text('subbuilderpatronymic',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilderpatronymic')]) !!}
-                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilderphone')]) !!}
+                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00', 'placeholder' => trans('app.subbuilderphone')]) !!}
 
                         </div>
                         <div class="row">
