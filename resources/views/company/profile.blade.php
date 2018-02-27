@@ -1,6 +1,13 @@
 @extends('layouts.app')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('profilecompany') !!}
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="#">Профиль компании</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
@@ -21,7 +28,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ $company->companyname }} Profile</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4">

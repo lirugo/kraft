@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('stylesheets')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
     <link href="/css/dropzone.css" rel="stylesheet">
