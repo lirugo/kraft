@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="#">Список клиентов</a>
             </div>
         </div>
     </div>

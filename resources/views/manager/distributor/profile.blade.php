@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/distributor/{{$user->id}}">Дистрибьютор</a>
+                <a class="link-bread" href="/manager/users">Список клиентов</a>
+                <a class="link-bread" href="/manager/distributor/{{$user->id}}">{{$user->getcompany->companyname}}</a>
                 <a class="link-bread" href="#">Профиль компании</a>
             </div>
         </div>

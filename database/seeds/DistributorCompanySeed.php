@@ -43,7 +43,7 @@ class DistributorCompanySeed extends Seeder
             'rmid' => '5',
             'name' => 'name',
             //'country' => 'country',
-            'region' => '21',
+            'region' => '11',
             'regionname' => 'center',
             'city' => 'city',
             'street' => 'street',
