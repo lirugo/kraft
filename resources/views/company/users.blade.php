@@ -12,38 +12,72 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-12">
+                Зарегистрированные пользователи компании
+                <hr style="margin: 0;">
+            </div>
+        </div>
+        <div class="row">
             @foreach($users as $user)
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" style="height: 50px;">
-                            {{$user->name}}
-                            <button class="btn btn-danger btn-sm pull-right">Delete</button>
-                            <button class="btn btn-primary btn-sm pull-right"  style="margin-right: 5px;">Edit</button>
+                @if($user->active == true)
+                    <div class="col-md-4" style="padding-bottom: 20px;">
+                        <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
+                        <hr style="margin: 0;">
+                        <div class="col-md-4">
+                            <img src="/uploads/avatars/{{$user->avatar}}" style="
+                                            width:100px;
+                                            height:100px;
+                                            border-radius: 50%;
+                                            display: block;
+                                            margin: 0 auto;
+                                            margin-top: 10px;
+                                        "/>
                         </div>
-                        <div class="panel-body">
-                            <div class="col-md-4">
-                                <hr>
-                                <p>{{trans('app.name')}}: {{$user->name}}</p>
-                                <p>{{trans('app.surname')}}: {{$user->surname}}</p>
-                                <p>{{trans('app.patronymic')}}: {{$user->patronymic}}</p>
-                                <p>{{trans('app.dateofbirth')}}: {{$user->dateofbirth}}</p>
-                                <p>{{trans('app.gender')}}: {{$user->sex == 'X' ? trans('app.male') : trans('app.femele')}}</p>
-                                <p>{{trans('app.email')}}: {{$user->email}}</p>
-                                <p>{{trans('app.phone')}}: {{$user->phone}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <hr>
-                                <img src="/uploads/avatars/{{$user->avatar}}" style="
-                                    width:150px;
-                                    height:150px;
-                                    border-radius: 50%;
-                                    display: block;
-                                    margin: 0 auto;
-                                "/>
-                            </div>
+                        <div class="col-md-8">
+                            <br>
+                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
+                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>Email: {{ $user->email }}</p>
                         </div>
                     </div>
-                </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                Незарегистрированные пользователи компании
+                <hr style="margin: 0;">
+            </div>
+        </div>
+        <div class="row">
+            @foreach($users as $user)
+                @if($user->active == false)
+                    <div class="col-md-4" style="padding-bottom: 20px;">
+                        <h5><strong>{{ $user->name." ".$user->surname." ".$user->patronymic }}</strong></h5>
+                        <hr style="margin: 0;">
+                        <div class="col-md-4">
+                            <img src="/uploads/avatars/{{$user->avatar}}" style="
+                                            width:100px;
+                                            height:100px;
+                                            border-radius: 50%;
+                                            display: block;
+                                            margin: 0 auto;
+                                            margin-top: 10px;
+                                        "/>
+                        </div>
+                        <div class="col-md-8">
+                            <br>
+                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
+                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>Email: {{ $user->email }}</p>
+                            <p>
+                                {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
+                                {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                                {!! Form::close() !!}
+                            </p>
+                        </div>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>
