@@ -1,5 +1,13 @@
 @extends('layouts.app')
-
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/manage">Панель управления</a>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="row m-t-20">
@@ -54,7 +62,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name}}</td>
+                                <td>{{$object->user->name." ".$object->user->surname}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -69,7 +77,7 @@
                                             echo "Дней просрочено: ".$reportdiff->days;
                                     @endphp
                                 </td>
-                                <td>{{$object->rmuser->name}}</td>
+                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/worker/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
@@ -106,11 +114,11 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name}}</td>
+                                <td>{{$object->user->name." ".$object->user->surname}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
-                                <td>{{$object->rmuser->name}}</td>
+                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/worker/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
