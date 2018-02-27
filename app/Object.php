@@ -17,4 +17,9 @@ class Object extends Model
     {
         return $this->belongsTo('App\User', 'rmid');
     }
+
+    public function getregion()
+    {
+        return $this->hasOne('App\Region', 'region_id', 'region');
+    }
 }

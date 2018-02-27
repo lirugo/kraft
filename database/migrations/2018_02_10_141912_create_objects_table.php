@@ -21,7 +21,7 @@ class CreateObjectsTable extends Migration
             $table->integer('rmid')->nullable();
             $table->string('name');
             //$table->string('country');
-            $table->string('region');
+            $table->integer('region')->unsigned()->nullable();
             $table->string('regionname');
             $table->string('city');
             $table->string('street');
