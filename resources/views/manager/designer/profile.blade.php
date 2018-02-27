@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3" style="padding: 30px 0 0 50px;">
-                <h5><strong>{{$user->name." ".$user->patronymic." ".$user->surname}}</strong></h5>
+                <h5><strong>{{$user->surname." ".$user->name." ".$user->patronymic}}</strong></h5>
                 <hr>
                 <p>Дата рождения: {{ $user->dateofbirth }}</p>
                 <p>Моб. телефон: {{ $user->phone }}</p>

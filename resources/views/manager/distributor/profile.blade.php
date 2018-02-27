@@ -27,7 +27,7 @@
                 <br>
                 <h5><strong>{{$user->getcompany->companyname}}</strong></h5>
                 <hr style="margin: 0;">
-                <h5>ФИО: {{ $user->name." ".$user->surname." ".$user->patronymic }}</h5>
+                <h5>ФИО: {{ $user->surname." ".$user->name." ".$user->patronymic }}</h5>
                 <p>Дата рождения: {{ $user->dateofbirth }}</p>
                 <p>Телефон: {{ $user->phone }}</p>
                 <p>Email: {{ $user->email }}</p>
@@ -49,7 +49,7 @@
                 @endphp
 
                 @foreach($users as $us)
-                    <h5><strong>{{ $us->name." ".$us->surname." ".$us->patronymic }}</strong></h5>
+                    <h5><strong>{{ $us->surname." ".$us->name." ".$us->patronymic }}</strong></h5>
                     <hr style="margin: 0;">
                     <p>Телефон: {{ $us->phone }}</p>
                     <br>

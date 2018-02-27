@@ -19,9 +19,9 @@
                 <h5> {{trans('app.userprofile')}} </h5>
                 <hr>
                 {!! Form::open(['method' => 'POST', 'route' =>['company.users.create'], 'files' => true]) !!}
+                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.surname')]) !!}
                 {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.name')]) !!}
                 {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.patronymic')]) !!}
-                {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.surname')]) !!}
                 {!! Form::text('dateofbirth',null , ['class' => 'form-control m-t-20','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
                 {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control m-t-20', 'required']); !!}
                 {!! Form::text('phone', null , ['class' => 'form-control m-t-20', 'required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00', 'placeholder' => trans('app.phone')." * +38"]) !!}

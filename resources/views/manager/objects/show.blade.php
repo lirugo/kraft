@@ -86,14 +86,14 @@
                     <strong>Cумарная площадь планируемых работ:</strong> {{ $object->sworks }} м<sup>2</sup><br>
                 </p>
                 <p>
-                    <strong>Заказчик (представитель заказчика):</strong> {{ $object->customepatronymic." ".$object->customername." ".$object->customersurname }}<br>
+                    <strong>Заказчик (представитель заказчика):</strong> {{ $object->customesurname." ".$object->customername." ".$object->customerpatronymic }}<br>
                     <strong>Генеральный подрядчик:</strong> {{ $object->generalbuilder }}<br>
-                    <strong>Представитель генерального подрядчика:</strong> {{ $object->delegatebuilderpatronymic." ".$object->delegatebuildername." тел.".$object->delegatebuilderphone }}<br>
+                    <strong>Представитель генерального подрядчика:</strong> {{ $object->delegatebuildersurname." ".$object->delegatebuildername." ".$object->delegatebuilderpatronymic." тел.".$object->delegatebuilderphone }}<br>
                 </p>
                 <p>
-                    <strong>Субподрядчик:</strong> {{ $object->subbuilderpatronymic." ".$object->subbuildername." ".$object->subbuildersurname." тел.".$object->subbuilderphone  }}<br>
-                    <strong>Архитектура:</strong> {{ $object->archpatronymic." ".$object->archname." ".$object->archsurname." тел.".$object->archphone  }}<br>
-                    <strong>Дизайн:</strong> {{ $object->designpatronymic." ".$object->designname." ".$object->designsurname." тел.".$object->designphone  }}<br>
+                    <strong>Субподрядчик:</strong> {{ $object->subbuildersurname." ".$object->subbuildername." ".$object->subbuilderpatronymic." тел.".$object->subbuilderphone  }}<br>
+                    <strong>Архитектура:</strong> {{ $object->archsurname." ".$object->archname." ".$object->archpatronymic." тел.".$object->archphone  }}<br>
+                    <strong>Дизайн:</strong> {{ $object->designsurname." ".$object->designname." ".$object->designpatronymic." тел.".$object->designphone  }}<br>
                 </p>
                 <p>
                     <strong>Комментарий:</strong> {{ $object->comments }}<br>
