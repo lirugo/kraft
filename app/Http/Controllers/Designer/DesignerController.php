@@ -44,6 +44,7 @@ class DesignerController extends Controller
         $this->validate($request,[
             //Validate company profile
             'name' => 'required|max:255',
+            'type' => 'required|max:25',
             //'country' => 'required|max:255',
             'region' => 'required|max:255',
             'city' => 'required|max:255',
@@ -82,6 +83,7 @@ class DesignerController extends Controller
         $object = new Object();
         $object->creatorid = $user->id;
         $object->name = $request->name;
+        $object->type = $request->type;
         //$object->country = $request->country;
         //Region
         if($request->region[0] == 1)
@@ -94,6 +96,7 @@ class DesignerController extends Controller
             $regionname = "west";
         $object->region = $request->region;
         $object->regionname = $regionname;
+        $object->locationinformation = $request->locationinformation;
 
         //RmID
         $users = User::all();

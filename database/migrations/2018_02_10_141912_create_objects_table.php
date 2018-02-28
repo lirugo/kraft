@@ -19,6 +19,7 @@ class CreateObjectsTable extends Migration
             $table->foreign('companyid')->references('id')->on('companies');
             $table->integer('creatorid');
             $table->integer('rmid')->nullable();
+            $table->string('type');
             $table->string('name');
             //$table->string('country');
             $table->integer('region')->unsigned()->nullable();
@@ -27,6 +28,7 @@ class CreateObjectsTable extends Migration
             $table->string('street');
             $table->string('house');
             $table->string('housing')->nullable();
+            $table->text('locationinformation')->nullable();
             //$table->string('postcode');
             //$table->string('lat');
             //$table->string('lon');
@@ -43,7 +45,7 @@ class CreateObjectsTable extends Migration
             $table->string('customerpatronymic');
             $table->string('customerphone');
             //GeneralBuilder
-            $table->string('generalbuilder');
+            $table->string('generalbuilder')->nullable();
             $table->string('delegatebuildername')->nullable();
             $table->string('delegatebuildersurname')->nullable();
             $table->string('delegatebuilderpatronymic')->nullable();

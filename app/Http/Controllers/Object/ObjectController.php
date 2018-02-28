@@ -46,12 +46,12 @@ class ObjectController extends Controller
         $this->validate($request,[
             //Validate company profile
             'name' => 'required|max:255',
+            'type' => 'required|max:25',
             //'country' => 'required|max:255',
             'region' => 'required|max:255',
             'city' => 'required|max:255',
             'street' => 'required|max:255',
             'house' => 'required|max:255',
-            'housing' => 'required|max:255',
             //'postcode' => 'required|max:20',
             //'lat' => 'required|max:255',
             //'lon' => 'required|max:255',
@@ -61,7 +61,6 @@ class ObjectController extends Controller
             'customersurname' => 'required|max:255',
             'customerpatronymic' => 'required|max:255',
             'customerphone' => 'required|max:255',
-            'generalbuilder' => 'required|max:255',
            /* 'delegatebuildername' => 'required|max:255',
             'delegatebuildersurname' => 'required|max:255',
             'delegatebuilderpatronymic' => 'required|max:255',
@@ -86,6 +85,7 @@ class ObjectController extends Controller
         $object->companyid = $company->id;
         $object->creatorid = $user->id;
         $object->name = $request->name;
+        $object->type = $request->type;
         //$object->country = $request->country;
         //Region
         if($request->region[0] == 1)
@@ -98,6 +98,7 @@ class ObjectController extends Controller
             $regionname = "west";
         $object->region = $request->region;
         $object->regionname = $regionname;
+        $object->locationinformation = $request->locationinformation;
 
         //RmID
         $users = User::all();

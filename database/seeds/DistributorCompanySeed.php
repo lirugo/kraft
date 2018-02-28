@@ -42,6 +42,7 @@ class DistributorCompanySeed extends Seeder
             'creatorid' => '3',
             'rmid' => '5',
             'name' => 'name',
+            'type' => 'ТРЦ',
             //'country' => 'country',
             'region' => '11',
             'regionname' => 'center',

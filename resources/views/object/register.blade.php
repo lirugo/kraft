@@ -31,6 +31,7 @@
                             {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
                             <hr>
                             {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object *']) !!}
+                            {!! Form::text('type',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Тип объекта - ТРЦ, магазин, офис... *']) !!}
                             <select required name="region" class="form-control m-b-10">
                                 <option value="" disabled selected>Выберите область</option>
                                 <option value="12">Киевская область</option>
@@ -64,9 +65,8 @@
                             {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city').' *', 'id' => 'city']) !!}
                             {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street').' *', 'id' => 'street']) !!}
                             {!! Form::text('house',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.house').' *', 'id' => 'street_number']) !!}
-                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10', 'required','placeholder' => "Корпус *", 'id' => 'street_number']) !!}
-
-
+                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => "Корпус", 'id' => 'street_number']) !!}
+                            {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => "Дополнительная информация о месте положения объекта", 'id' => 'street_number']) !!}
                             <hr>
                             {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks').' *']) !!}
                             <br>
@@ -143,7 +143,7 @@
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10','required', 'placeholder' => trans('app.generalbuilder').' *']) !!}
+                            {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.generalbuilder')]) !!}
                             {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuilder')]) !!}
                             {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildername')]) !!}
                             {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
