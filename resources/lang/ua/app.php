@@ -50,7 +50,7 @@ return [
     'name' => 'Ім\'я',
     'surname' => 'Прізвище',
     'patronymic' => 'По батькові',
-    'date' => 'YYYY/MM/DD',
+    'date' => 'Дата народження',
     'dateofbirth' => 'Дата народження',
     'phone' => 'Телефон',
     'email' => 'Email',

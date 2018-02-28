@@ -49,7 +49,7 @@ return [
     'name' => 'Name',
     'surname' => 'Surame',
     'patronymic' => 'Middle name',
-    'date' => 'YYYY/MM/DD',
+    'date' => 'Date of birth',
     'dateofbirth' => 'Date of birth',
     'phone' => 'Phone',
     'email' => 'Email',

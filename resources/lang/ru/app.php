@@ -49,7 +49,7 @@ return [
     'name' => 'Имя',
     'surname' => 'Фамилия',
     'patronymic' => 'Отчество',
-    'date' => 'YYYY/MM/DD',
+    'date' => 'Дата рождения',
     'dateofbirth' => 'Дата рождения',
     'phone' => 'Телефон',
     'email' => 'Email',

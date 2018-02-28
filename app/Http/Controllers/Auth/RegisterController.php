@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'dateofbirth' => 'required|max:255',
             'sex' => 'required',
             'region' => 'required',
+            'city' => 'required|max:255',
             'workexperience' => 'required|numeric',
             'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
@@ -103,6 +104,7 @@ class RegisterController extends Controller
 
         $user->region = $request->region;
         $user->regionname = $regionname;
+        $user->city = $request->city;
 
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
