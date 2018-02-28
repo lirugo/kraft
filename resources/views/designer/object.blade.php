@@ -140,7 +140,7 @@
                             {!! Form::text('customersurname',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customersurname').' *']) !!}
                             {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername').' *']) !!}
                             {!! Form::text('customerpatronymic',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpatronymic').' *']) !!}
-                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00','placeholder' => trans('app.customerpphone').' *']) !!}
+                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX','placeholder' => trans('app.customerpphone').' *']) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
@@ -149,7 +149,7 @@
                             {!! Form::text('delegatebuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildersurname')]) !!}
                             {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildername')]) !!}
                             {!! Form::text('delegatebuilderpatronymic',null , ['class' => 'form-control m-b-10 ', 'placeholder' => trans('app.delegatebuilderpatronymic')]) !!}
-                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00','placeholder' => trans('app.delegatebuilderphone')]) !!}
+                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX','placeholder' => trans('app.delegatebuilderphone')]) !!}
 
 
 
@@ -161,7 +161,7 @@
                             {!! Form::text('subbuildersurname',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildersurname')]) !!}
                             {!! Form::text('subbuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildername')]) !!}
                             {!! Form::text('subbuilderpatronymic',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilderpatronymic')]) !!}
-                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 000 00 00', 'placeholder' => trans('app.subbuilderphone')]) !!}
+                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX', 'placeholder' => trans('app.subbuilderphone')]) !!}
 
                         </div>
                         <div class="row">

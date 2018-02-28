@@ -62,9 +62,9 @@
                                 {!! Form::text('office', null , ['class' => 'form-control m-b-10', 'placeholder ' => trans('app.office')]) !!}
                             </div>
                             {!! Form::label('label',trans('app.communications'),['class' => 'm-b-10']) !!}
-                            {!! Form::text('phonecompany', null , ['class' => 'form-control m-b-10 phone required', 'placeholder' => trans('app.phone')." * +38"]) !!}
+                            {!! Form::text('phonecompany', null , ['class' => 'form-control m-b-10 phone required', 'placeholder' => trans('app.phone')." *"]) !!}
                             {!! Form::text('fax', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.fax')]) !!}
-                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10 phone', 'placeholder' => trans('app.smartphone')." +38"]) !!}
+                            {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10 phone', 'placeholder' => trans('app.smartphone').""]) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.financialrequisites')) !!}
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label', "Телефон  бухгалтерии") !!}
-                            {!! Form::text('lawphone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.lawphone')." * +38"]) !!}
+                            {!! Form::text('lawphone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.lawphone')." *"]) !!}
                             {!! Form::label('label', "Web site company") !!}
                             {!! Form::text('site', null , ['class' => 'form-control m-b-10', 'placeholder' => "website.com"]) !!}
                             {!! Form::label('label', "Соц. сети") !!}
@@ -115,7 +115,7 @@
                             {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')]) !!}
                             {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
                             {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'form-control m-b-10 required']); !!}
-                            {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.phone')." * +38"]) !!}
+                            {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.phone')." *"]) !!}
                             {!! Form::email('email', null,['class' => 'form-control m-b-10 required email', 'placeholder' => trans('app.email')]) !!}
                         </div>
                         <div class="col-md-4">
@@ -157,7 +157,7 @@
         jQuery.validator.addMethod("phone", function(value, element) {
 
             return this.optional( element ) || /(\+38)[ 0-9]{10}/.test( value );
-        }, 'Format phone +38 000 00 00.');
+        }, 'Format phone +38 XXX XXX XXXX.');
 
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone("div#iamgeUpload", {
