@@ -110,18 +110,18 @@
                     <section>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.profileuser')) !!}
-                            {!! Form::text('surname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.surname')]) !!}
-                            {!! Form::text('name', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.name')]) !!}
-                            {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')]) !!}
-                            {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')]) !!}
+                            {!! Form::text('surname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.surname')." *"]) !!}
+                            {!! Form::text('name', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.name')." *"]) !!}
+                            {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')." *"]) !!}
+                            {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')." *"]) !!}
                             {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'form-control m-b-10 required']); !!}
                             {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.phone')." *"]) !!}
-                            {!! Form::email('email', null,['class' => 'form-control m-b-10 required email', 'placeholder' => trans('app.email')]) !!}
+                            {!! Form::email('email', null,['class' => 'form-control m-b-10 required email', 'placeholder' => trans('app.email')." *"]) !!}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.password')) !!}
-                            {!! Form::password('password', ['class' => 'form-control m-b-10 required' , 'placeholder' => trans('app.password')]) !!}
-                            {!! Form::password('password_confirmation', ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.confirmpassword')]) !!}
+                            {!! Form::password('password', ['class' => 'form-control m-b-10 required' , 'placeholder' => trans('app.password')." *"]) !!}
+                            {!! Form::password('password_confirmation', ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.confirmpassword')." *"]) !!}
 
                             <br>
                             <h5> You must upload your photo. </h5>
