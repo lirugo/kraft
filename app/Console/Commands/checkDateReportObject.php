@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Object;
+use App\Report;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -39,13 +40,15 @@ class checkDateReportObject extends Command
      */
     public function handle()
     {
-        $objects = Object::all();
-        foreach ($objects as $object)
+        $reports = Report::all()->where('done' , '=' , false);
+        foreach ($reports as $report)
         {
-            if($object->dateofreport == Carbon::now()->format('Y-m-d'))
+            if($report->dateofreport == Carbon::now()->format('Y-m-d'))
             {
-                $object->dateofreport = Carbon::parse($object->dateofreport)->addDays($object->reporttime);
-                $object->save();
+                $r = new Report();
+                $r->object_id = $report->object_id;
+                $r->dateofreport =  Carbon::parse($report->dateofreport)->addDays($report->object->reporttime);
+                $r->save();
             }
         }
     }
