@@ -71,9 +71,7 @@
                             <p>Телефон: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
                             <p>
-                                {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
-                                {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
-                                {!! Form::close() !!}
+
                             </p>
                         </div>
                     </div>

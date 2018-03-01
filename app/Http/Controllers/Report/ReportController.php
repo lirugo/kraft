@@ -13,7 +13,17 @@ use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($id){
+        $object = object::find($id);
+        $user = Auth::user();
+        if($object->user->id != $user->id)
+            return back();
+
         $reports = Report::all()->where('object_id', '=', $id);
         return view('report.index')->with('reports', $reports);
     }

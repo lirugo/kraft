@@ -176,6 +176,11 @@
                 @endif
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/report/{{$object->id}}" class="btn btn-primary">Отчеты</a>
+            </div>
+        </div>
     </div>
 @endsection
 

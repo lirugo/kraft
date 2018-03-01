@@ -14,6 +14,11 @@ use Session;
 
 class ManagerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function users(){
         $u = Auth::user();
         $users = User::all()->where('regionname', '=' , $u->regionname);

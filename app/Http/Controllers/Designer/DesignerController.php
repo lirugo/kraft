@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DesignerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showobject(){
         $user = Auth::user();
         $objects = Object::all()->where('creatorid', '=' , $user->id);
@@ -59,7 +64,7 @@ class DesignerController extends Controller
             'customersurname' => 'required|max:255',
             'customerpatronymic' => 'required|max:255',
             'customerphone' => 'required|max:255',
-            'generalbuilder' => 'required|max:255',
+            //'generalbuilder' => 'required|max:255',
             /* 'delegatebuildername' => 'required|max:255',
              'delegatebuildersurname' => 'required|max:255',
              'delegatebuilderpatronymic' => 'required|max:255',
