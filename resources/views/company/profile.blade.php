@@ -86,9 +86,8 @@
                                     {!! Form::label('lawoffice', 'Law Office', ['class' => 'm-t-10']) !!}
                                     {!! Form::text('lawoffice', $company->lawoffice , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
                                 </div>
-                                {!! Form::label('lawphone', 'Law Phone', ['class' => 'm-t-20']) !!}
-                                {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Phone']) !!}
-                                {!! Form::label('lawfax', 'Law Fax', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('lawphone', 'Телфон бух.', ['class' => 'm-t-20']) !!}
+                                {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10', 'required','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX',  'placeholder' => 'Law Phone']) !!}
                                 {!! Form::text('lawfax', $company->lawfax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Fax']) !!}
                             </div>
                         </div>
@@ -97,8 +96,8 @@
                                 {!! Form::label('label','Contact information', ['class' => 'm-t-10']) !!}
                                 <hr>
                                 <div class="col-md-3">
-                                {!! Form::label('phone', 'Phone', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('phone', $company->phone , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Phone']) !!}
+                                {!! Form::label('phonecompany', 'Phone', ['class' => 'm-t-10']) !!}
+                                {!! Form::text('phone', $company->phone , ['class' => 'form-control', 'required','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX', 'placeholder' => trans('app.phone')."*"]) !!}
                                 </div>
                                 <div class="col-md-3">
                                 {!! Form::label('fax', 'Fax', ['class' => 'm-t-10']) !!}
@@ -195,14 +194,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                {!! Form::label('label',trans('app.uploadphotoobject',['class' => 'm-t-20'])) !!}
-                                <hr>
-                                <div id="scanUpload" class="dropzone"></div>
-                                <div id="boatAddForm"></div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 {!! Form::submit('Update Profile', ['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}

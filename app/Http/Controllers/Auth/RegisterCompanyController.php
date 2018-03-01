@@ -13,8 +13,6 @@ use Image;
 
 class RegisterCompanyController extends Controller
 {
-    //
-
     public function getRegisterCompany(){
         return view('auth.registercompany');
     }

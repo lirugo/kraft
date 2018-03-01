@@ -19,10 +19,10 @@ class CompanyController extends Controller
 
     public function profile(){
         $user = Auth::user();
-        $company = Company::where('email', $user->email)->firstOrFail();
+        $companychange = Company::where('email', $user->email)->firstOrFail();
 
         if($user->hasRole('distributor'))
-            return view('company.profile')->with('company', $company);
+            return view('company.profile')->with('company', $companychange);
         else
             return abort(403);
     }
@@ -30,7 +30,7 @@ class CompanyController extends Controller
     public function getcompanyusers(){
         $user = Auth::user();
         $users = User::all()->where('company', '=' , $user->company);
-        $company = Company::where('email', $user->email)->firstOrFail();
+        $companychange = Company::where('email', $user->email)->firstOrFail();
             return view('company.users')->with('users', $users);
     }
 
@@ -42,79 +42,62 @@ class CompanyController extends Controller
             'city' => 'required|max:255',
             'street' => 'required|max:255',
             'house' => 'required|integer',
-            'housing' => 'required|max:5',
-            'office' => 'required|max:5',
-            'smartphone' => 'required|max:20',
-            'phone' => 'required|max:20',
-            'fax' => 'required|max:255',
+            'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
             'bank' => 'required|max:255',
             'mfo' => 'required|max:255',
             'settlementaccount' => 'required|max:255',
             'okpo' => 'required|max:255',
-
             'lawcity' => 'required|max:255',
             'lawstreet' => 'required|max:255',
             'lawhouse' => 'required|integer',
-            'lawhousing' => 'required|max:5',
-            'lawoffice' => 'required|max:5',
-            'lawphone' => 'required|max:255',
-            'lawfax' => 'required|max:255',
+            'lawphone' => 'required|regex:/(\+38)[ 0-9]{10}/',
         ]);
 
-        $count = 0;
         // Save data to db
+        $count = 0;
+        $company = Company::find($request->id);
         $companychange = new CompanyChange;
-        $company = Company::where('email', $request->email)->firstOrFail();
-
-        $companychange->companyid = $request->id;
+        $companychange->company_id = $request->id;
         $companychange->companyname = $request->companyname;
+        $companychange->region = $company->region;
+        $companychange->regionname = $company->regionname;
+        $companychange->email = $request->email;
+        if($request->city != $company->city) $count++; $companychange->city = $request->city;
+        if($request->street != $company->street) $count++;$companychange->street = $request->street;
+        if($request->house != $company->house) $count++; $companychange->house = $request->house;
+        if($request->housing != $company->housing)$count++; $companychange->housing = $request->housing;
+        if($request->office != $company->office) $count++; $companychange->office = $request->office;
+        if($request->smartphone != $company->smartphone) $count++; $companychange->smartphone = $request->smartphone;
+        if($request->phone != $company->phone)$count++; $companychange->phone = $request->phone;
+        if($request->fax != $company->fax) $count++; $companychange->fax = $request->fax;
+        if($request->bank != $company->bank) $count++; $companychange->bank = $request->bank;
+        if($request->mfo != $company->mfo) $count++; $companychange->mfo = $request->mfo;
+        if($request->settlementaccount != $company->settlementaccount) $count++; $companychange->settlementaccount = $request->settlementaccount;
+        if($request->okpo != $company->okpo) $count++; $companychange->okpo = $request->okpo;
+        if($request->lawcity != $company->lawcity) $count++; $companychange->lawcity = $request->lawcity;
+        if($request->lawstreet != $company->lawstreet) $count++; $companychange->lawstreet = $request->lawstreet;
+        if($request->lawhouse != $company->lawhouse) $count++; $companychange->lawhouse = $request->lawhouse;
+        if($request->lawhousing != $company->lawhousing) $count++; $companychange->lawhousing = $request->lawhousing;
+        if($request->lawoffice != $company->lawoffice) $count++; $companychange->lawoffice = $request->lawoffice;
+        if($request->lawphone != $company->lawphone) $count++; $companychange->lawphone = $request->lawphone;
+        if($request->lawfax != $company->lawfax) $count++; $companychange->lawfax = $request->lawfax;
 
-        if($company->city == $request->city);
-        else { $companychange->city = $request->city; $count++; }
-        if($company->street == $request->street);
-        else { $companychange->street = $request->street; $count++; }
-        if($company->house == $request->house);
-        else { $companychange->house = $request->house; $count++; }
-        if($company->housing == $request->housing);
-        else { $companychange->housing = $request->housing; $count++; }
-        if($company->office == $request->office);
-        else { $companychange->office = $request->office; $count++; }
-        if($company->smartphone == $request->smartphone);
-        else { $companychange->smartphone = $request->smartphone; $count++; }
-        if($company->phone == $request->phone);
-        else { $companychange->phone = $request->phone; $count++; }
-        if($company->fax == $request->fax);
-        else { $companychange->fax = $request->fax; $count++; }
-        if($company->bank == $request->bank);
-        else { $companychange->bank = $request->bank; $count++; }
-        if($company->mfo == $request->mfo);
-        else { $companychange->mfo = $request->mfo; $count++; }
-        if($company->settlementaccount == $request->settlementaccount);
-        else { $companychange->settlementaccount = $request->settlementaccount; $count++; }
-        if($company->okpo == $request->okpo);
-        else { $companychange->okpo = $request->okpo; $count++; }
-        if($company->lawcity == $request->lawcity);
-        else { $companychange->lawcity = $request->lawcity; $count++; }
-        if($company->lawstreet == $request->lawstreet);
-        else { $companychange->lawstreet = $request->lawstreet; $count++; }
-        if($company->lawhouse == $request->lawhouse);
-        else { $companychange->lawhouse = $request->lawhouse; $count++; }
-        if($company->lawhousing == $request->lawhousing);
-        else { $companychange->lawhousing = $request->lawhousing; $count++; }
-        if($company->lawoffice == $request->lawoffice);
-        else { $companychange->lawoffice = $request->lawoffice; $count++; }
-        if($company->lawphone == $request->lawphone);
-        else { $companychange->lawphone = $request->lawphone; $count++; }
-        if($company->lawfax == $request->lawfax);
-        else { $companychange->lawfax = $request->lawfax; $count++; }
+        $companychange->count = $count;
+
+        //if($companychange->site != $company->site){$companychange->site = $request->site; $count++; };
+        //if($companychange->social1 != $company->social1){$companychange->social1 = $request->social1; $count++; };
+        //if($companychange->social2 != $company->social2){$companychange->social2 = $request->social2; $count++; };
+        //if($companychange->social3 != $company->social3){$companychange->social3 = $request->social3; $count++; };
+        //if($companychange->social4 != $company->social4){$companychange->social4 = $request->social4; $count++; };
+        //if($companychange->social5 != $company->social5){$companychange->social5 = $request->social5; $count++; };
 
         $companychange->save();
 
         //Set Flash message
-        if($count != 0)
-            Session::flash('success', 'Your changes have been sent on moderation. '.$count);
+        if($count == 0)
+            Session::flash('warning', 'You dont change any data.');
         else
-            Session::flash('success', 'You don\'t change any data');
+            Session::flash('success', 'Your changes have been sent on moderation.'.$count);
         //Redirect
         return redirect(route('manage.dashboard'));
     }

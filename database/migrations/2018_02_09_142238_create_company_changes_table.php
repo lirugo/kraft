@@ -15,19 +15,21 @@ class CreateCompanyChangesTable extends Migration
     {
         Schema::create('company_changes', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->boolean('done')->default(false);
+            $table->integer('company_id')->unsigned();
+            $table->integer('count')->unsigned();
             $table->string('companyname');
             $table->string('region');
             $table->string('regionname');
             $table->string('city');
             $table->string('street');
             $table->integer('house');
-            $table->char('housing',5);
-            $table->char('office',5);
-            $table->string('smartphone');
+            $table->char('housing',5)->nullable();
+            $table->char('office',5)->nullable();
+            $table->string('smartphone')->nullable();
             $table->string('phone');
-            $table->string('fax');
-            $table->string('email')->unique();
+            $table->string('fax')->nullable();
+            $table->string('email');
             $table->string('bank');
             $table->string('mfo');
             $table->string('settlementaccount');
@@ -35,18 +37,21 @@ class CreateCompanyChangesTable extends Migration
             $table->string('lawcity');
             $table->string('lawstreet');
             $table->integer('lawhouse');
-            $table->char('lawhousing',5);
-            $table->char('lawoffice',5);
+            $table->char('lawhousing',5)->nullable();
+            $table->char('lawoffice',5)->nullable();
             $table->string('lawphone');
-            $table->string('lawfax');
-            $table->string('scandoc1')->default('scandoc1');
-            $table->string('scandoc2')->default('scandoc2');
-            $table->string('scandoc3')->default('scandoc3');
-            $table->string('scandoc4')->default('scandoc4');
-            $table->string('scandoc5')->default('scandoc5');
-
-            $table->boolean('verifiedchange')->default(false);
-
+            $table->string('lawfax')->nullable();
+            $table->string('scandoc1')->default('scandoc1.jpg');
+            $table->string('scandoc2')->default('scandoc2.jpg');
+            $table->string('scandoc3')->default('scandoc3.jpg');
+            $table->string('scandoc4')->default('scandoc4.jpg');
+            $table->string('scandoc5')->default('scandoc5.jpg');
+            $table->string('site')->nullable();
+            $table->string('social1')->nullable();
+            $table->string('social2')->nullable();
+            $table->string('social3')->nullable();
+            $table->string('social4')->nullable();
+            $table->string('social5')->nullable();
             $table->timestamps();
         });
     }

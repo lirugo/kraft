@@ -78,6 +78,8 @@ Route::group(['prefix' => 'manager',
         Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
+        Route::get('moderation', 'Manager\ModerationController@index');
+        Route::get('moderation/company', 'Manager\ModerationController@company');
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manager.user.activate');
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manager.user.verified');
         Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manager.object.activate');

@@ -17,7 +17,6 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->string('companyname')->unique();
             $table->string('region');
             $table->string('regionname');
@@ -46,14 +45,12 @@ class CreateCompaniesTable extends Migration
             $table->string('scandoc3')->default('scandoc3.jpg');
             $table->string('scandoc4')->default('scandoc4.jpg');
             $table->string('scandoc5')->default('scandoc5.jpg');
-
             $table->string('site')->nullable();
             $table->string('social1')->nullable();
             $table->string('social2')->nullable();
             $table->string('social3')->nullable();
             $table->string('social4')->nullable();
             $table->string('social5')->nullable();
-
             $table->timestamps();
         });
     }
