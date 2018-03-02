@@ -18,7 +18,10 @@
                         <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
                                 <a href="/manager/moderation/company">
-                                    <i class="fa fa-list fa-5x" aria-hidden="true"></i>
+                                        <i class="fa fa-list fa-5x" aria-hidden="true"></i>
+                                        @if($data['company'] != 0)
+                                        <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['company'] }}</span>
+                                        @endif
                                     <div class="description m-t-10">
                                         Компания
                                     </div>

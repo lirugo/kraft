@@ -13,9 +13,16 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            @if(count($chs) == 0)
+            <div class="col-md-12 text-center">
+                <h1>Запросов на изменение профиля - нет.</h1>
+            </div>
+            @endif
                 @foreach($chs as $ch)
                 <div class="col-md-5 col-md-offset-1">
-                    <h2 class="text-center">{{ $ch->companyname }} {{"(".$ch->count.")"}}</h2>
+                    <h2 class="text-center">{{ $ch->companyname }}
+                        <span class="badge badge-light">{{$ch->count}}</span>
+                        </h2>
                     <div class="col-md-6">
                         Старые данные
                         <hr style="margin:0;">
@@ -78,7 +85,9 @@
                     </div>
                     <br>
                     <hr>
-                    <button class="btn btn-primary pull-right">Подтвердить</button>
+                    {!! Form::model($ch, ['route' => ['moderation.company.profile', $ch->id], 'method' => 'POST']) !!}
+                    {!! Form::submit('Подтвердить', ['class' => 'btn btn-primary pull-right']) !!}
+                    {!! Form::close() !!}
                 </div>
                 @endforeach
         </div>

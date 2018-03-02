@@ -17,6 +17,7 @@ class CreateCompanyChangesTable extends Migration
             $table->increments('id');
             $table->boolean('done')->default(false);
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->integer('count')->unsigned();
             $table->string('companyname');
             $table->string('region');
