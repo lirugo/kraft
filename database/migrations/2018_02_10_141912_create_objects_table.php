@@ -43,6 +43,7 @@ class CreateObjectsTable extends Migration
             $table->string('customername');
             $table->string('customersurname');
             $table->string('customerpatronymic');
+            $table->string('customerposition')->nullable();
             $table->string('customerphone');
             //GeneralBuilder
             $table->string('generalbuilder')->nullable();

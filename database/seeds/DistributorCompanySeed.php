@@ -57,6 +57,7 @@ class DistributorCompanySeed extends Seeder
             'customername' => 'customername',
             'customersurname' => 'customersurname',
             'customerpatronymic' => 'customerpatronymic',
+            'customerposition' => 'mstpresident',
             'customerphone' => 'customerphone',
             'generalbuilder' => 'generalbuilder',
         ]);

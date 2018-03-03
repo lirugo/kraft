@@ -125,6 +125,7 @@ class DesignerController extends Controller
         $object->customername = $request->customername;
         $object->customersurname = $request->customersurname;
         $object->customerpatronymic = $request->customerpatronymic;
+        $object->customerposition = $request->customerposition;
         $object->customerphone = $request->customerphone;
         $object->generalbuilder = $request->generalbuilder;
         $object->delegatebuildername = $request->delegatebuildername;
