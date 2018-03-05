@@ -170,6 +170,10 @@ Route::get('routes/console', function()
 });
 //EndCron
 
+//CalcRoute
+Route::get('/calc', 'Calc\CalcController@index');
+//EndCalcRoute
+
 //Message route
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
