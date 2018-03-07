@@ -1385,16 +1385,16 @@
         },
         {
             "name": "santigarcor/laratrust",
-            "version": "5.0.8",
+            "version": "5.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/santigarcor/laratrust.git",
-                "reference": "ae86b729850bcb0dba0189cdbdf3f379046f18b8"
+                "reference": "526cc3e8970c35b97c71a7a6d8b63c2073568bb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/ae86b729850bcb0dba0189cdbdf3f379046f18b8",
-                "reference": "ae86b729850bcb0dba0189cdbdf3f379046f18b8",
+                "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/526cc3e8970c35b97c71a7a6d8b63c2073568bb1",
+                "reference": "526cc3e8970c35b97c71a7a6d8b63c2073568bb1",
                 "shasum": ""
             },
             "require": {
@@ -1450,7 +1450,7 @@
                 "rbac",
                 "roles"
             ],
-            "time": "2018-01-26T15:01:00+00:00"
+            "time": "2018-03-05T13:21:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1626,7 +1626,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.5",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",

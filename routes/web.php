@@ -172,6 +172,7 @@ Route::get('routes/console', function()
 
 //CalcRoute
 Route::get('/calc', 'Calc\CalcController@index');
+Route::get('calc/tprofile', 'Calc\CalcController@tprofile');
 //EndCalcRoute
 
 //Message route
@@ -183,6 +184,7 @@ Route::group(['prefix' => 'messages'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 //EndMessage route
+
 // Dont forget delete
 Route::get('/complete', function () {
     return view('auth.complete');
