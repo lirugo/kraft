@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="/calc/tprofile">
+                        <a href="/calc">
                             <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
                                 Калькулятор

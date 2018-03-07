@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/calc/tprofile">Калкьулятор</a>
+                <a class="link-bread" href="/calc/">Калкьулятор</a>
+                <a class="link-bread" href="#">T-Профиль</a>
             </div>
         </div>
     </div>
