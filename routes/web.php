@@ -173,6 +173,7 @@ Route::get('routes/console', function()
 //CalcRoute
 Route::get('/calc', 'Calc\CalcController@index');
 Route::get('calc/tprofile', 'Calc\CalcController@tprofile');
+Route::get('calc/grilyato', 'Calc\CalcController@grilyato');
 //EndCalcRoute
 
 //Message route
@@ -184,6 +185,11 @@ Route::group(['prefix' => 'messages'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 //EndMessage route
+
+//TopManager
+Route::get('/managers', 'TopManager\ManagersController@index');
+Route::get('/managers/{id}', 'TopManager\ManagersController@show');
+//EndTopManager
 
 // Dont forget delete
 Route::get('/complete', function () {

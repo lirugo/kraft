@@ -18,4 +18,8 @@ class CalcController extends Controller
     public function tprofile(){
         return view('calc.tprofile');
     }
+
+    public function grilyato(){
+        return view('calc.grilyato');
+    }
 }
