@@ -1,12 +1,17 @@
 @extends('layouts.admin')
-@section('breadcrumbs')
-    {!! Breadcrumbs::render('admin') !!}
+@section('breads')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 p-20">
+                <a class="link-bread" href="/admin/manage">Admin</a>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel-heading">{{ trans('admin.pagination') }}</div>
                 <div class="panel-body">
                     <div class="row m-t-20">
                         <div class="col-md-2 col-md-offset-1 text-center">
@@ -45,6 +50,16 @@
                                     <i class="fa fa-upload fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         Upload products
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/admin/calc">
+                                    <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Setting Calculator
                                     </div>
                                 </a>
                             </div>

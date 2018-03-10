@@ -118,6 +118,12 @@ Route::group(['prefix' => 'admin'],
             Route::post('product/upload', 'Product\ProductController@uploadpost')->name('admin.product.upload');
         //Product
 
+        //Calc
+        Route::get('calc', 'Admin\CalcController@index');
+        Route::get('calc/tprofile', 'Admin\CalcController@tprofile');
+        Route::post('calc/tprofile/update', 'Admin\CalcController@tprofileupdate')->name('admin.calc.tprofile.update');
+        //EndCalc
+
         Route::post('users/activate/{id}', 'Admin\AdminController@activateuser')->name('admin.users.activate');
         Route::post('users/delete/{id}', 'Admin\AdminController@deleteuser')->name('admin.users.delete');
         //Mode
@@ -171,9 +177,12 @@ Route::get('routes/console', function()
 //EndCron
 
 //CalcRoute
-Route::get('/calc', 'Calc\CalcController@index');
-Route::get('calc/tprofile', 'Calc\CalcController@tprofile');
-Route::get('calc/grilyato', 'Calc\CalcController@grilyato');
+Route::get('/calc/history/show/{id}', 'Calc\CalcController@history');
+Route::get('/calc/{id}', 'Calc\CalcController@index');
+Route::get('calc/tprofile/{id}', 'Calc\CalcController@tprofile');
+Route::post('calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
+Route::get('calc/grilyato/{id}', 'Calc\CalcController@grilyato');
+Route::get('calc/cube/{id}', 'Calc\CalcController@cube');
 //EndCalcRoute
 
 //Message route
@@ -189,6 +198,7 @@ Route::group(['prefix' => 'messages'], function () {
 //TopManager
 Route::get('/managers', 'TopManager\ManagersController@index');
 Route::get('/managers/{id}', 'TopManager\ManagersController@show');
+Route::get('/distributors', 'TopManager\DistributorsController@index');
 //EndTopManager
 
 // Dont forget delete

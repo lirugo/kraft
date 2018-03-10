@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/calc/">Калкьулятор</a>
+                <a class="link-bread" href="/calc/{{$data['object']->id}}">Калькулятор</a>
                 <a class="link-bread" href="#">T-Профиль</a>
             </div>
         </div>
@@ -23,8 +23,8 @@
                 <br>
                 <br>
                 {!! Form::label('label', "Конфигурация помещения:") !!}
-                {{ Form::radio('difficult', '3', false,  ['id' => 'easy']) }} Простая
-                {{ Form::radio('difficult', '7', false,  ['id' => 'hard']) }} Сложная
+                {{ Form::radio('difficult', $data['constants']->easy, false,  ['id' => 'easy']) }} Простая
+                {{ Form::radio('difficult', $data['constants']->hard, false,  ['id' => 'hard']) }} Сложная
                 <br>
                 <br>
                 {!! Form::label('label', "Толщина профиля:") !!}
@@ -118,163 +118,208 @@
 @endsection
 
 @section('scripts')
-
     <script src="/js/jquery.validate.js"></script>
     <script>
-            $(function() {
-                $("#table").hide();
-                $("#model").change(function() {
-                    for (var i=document.getElementById('colors').options.length; i-->2;)
-                                document.getElementById('colors').options[i] = null;
-
-                    var colors = document.getElementById("colors");
-                    var option = document.createElement("option");
-                    var option1 = document.createElement("option");
-                    var option2 = document.createElement("option");
-                    var option3 = document.createElement("option");
-                    var option4 = document.createElement("option");
-                    if ($("#NOVA").is(":selected"))
-                    {
-                        option.text = "RAL 9003 (белый)";
-                        option.value = "9003";
-                        colors.add(option);
-                        $("#color").show();
-                    } else  if ($("#FORTIS").is(":selected"))
-                    {
-                        option.text = "RAL 9003 (белый)";
-                        option.value = "9003";
-                        colors.add(option);
-                        option1.text = "RAL 9005 (черынй)";
-                        option1.value = "9005";
-                        colors.add(option1);
-                        option2.text = "RAL 9007 (серый)";
-                        option2.value = "9007";
-                        colors.add(option2);
-                        $("#color").show();
-                    } else  if ($("#HD").is(":selected") || $("#RH1000").is(":selected"))
-                    {
-                        option.text = "RAL 9003 (белый)";
-                        option.value = "9003";
-                        colors.add(option);
-                        option1.text = "RAL 9005 (черынй)";
-                        option1.value = "9005";
-                        colors.add(option1);
-                        option2.text = "RAL 9007 (серый)";
-                        option2.value = "9007";
-                        colors.add(option2);
-                        $("#color").show();
-                    } else {
-                        document.getElementById("color").selectedIndex = "0";
-                        $("#othercolor").hide();
-                        $("#color").hide();
-                    }
-                }).trigger('change');
-
-                $("#color").change(function() {
-                    if ($("#other").is(":selected")) {
-                        $("#othercolor").show();
-                    } else {
-                        $("#othercolor").hide();
-                    }
-                }).trigger('change');
-            });
-
-            //Submit BTN
-            document.getElementById("calc").addEventListener("click", calcFunction);
-
-            function calcFunction() {
-                //Validate
-                var numbers = /^[0-9]+$/;
-                if(!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers))
+        $(function() {
+            $("#table").hide();
+            $("#model").change(function() {
+                for (var i=document.getElementById('colors').options.length; i-->2;)
+                    document.getElementById('colors').options[i] = null;
+                var colors = document.getElementById("colors");
+                var option = document.createElement("option");
+                var option1 = document.createElement("option");
+                var option2 = document.createElement("option");
+                var option3 = document.createElement("option");
+                var option4 = document.createElement("option");
+                if ($("#NOVA").is(":selected"))
                 {
-                    document.getElementById("areaceiling").focus();
-                    alert('S is empty or not digit');
-                    return;
-                }
-                if(!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers))
+                    option.text = "RAL 9003 (белый)";
+                    option.value = "9003";
+                    colors.add(option);
+                    $("#color").show();
+                } else  if ($("#FORTIS").is(":selected"))
                 {
-                    document.getElementById("pceiling").focus();
-                    alert('P is empty or not digit');
-                    return;
-                }
-                if(!document.getElementById('easy').checked && !document.getElementById('hard').checked)
+                    option.text = "RAL 9003 (белый)";
+                    option.value = "9003";
+                    colors.add(option);
+                    option1.text = "RAL 9005 (черынй)";
+                    option1.value = "9005";
+                    colors.add(option1);
+                    option2.text = "RAL 9007 (серый)";
+                    option2.value = "9007";
+                    colors.add(option2);
+                    $("#color").show();
+                } else  if ($("#HD").is(":selected") || $("#RH1000").is(":selected"))
                 {
-                    document.getElementById("easy").focus();
-                    alert('Выберите конфигурацию помещения.');
-                    return;
+                    option.text = "RAL 9003 (белый)";
+                    option.value = "9003";
+                    colors.add(option);
+                    option1.text = "RAL 9005 (черынй)";
+                    option1.value = "9005";
+                    colors.add(option1);
+                    option2.text = "RAL 9007 (серый)";
+                    option2.value = "9007";
+                    colors.add(option2);
+                    $("#color").show();
+                } else {
+                    document.getElementById("color").selectedIndex = "0";
+                    $("#othercolor").hide();
+                    $("#color").hide();
                 }
-                if(!document.getElementById('15mm').checked && !document.getElementById('24mm').checked)
-                {
-                    document.getElementById("15mm").focus();
-                    alert('Выберите толщину профиля.');
-                    return;
-                }
-                if(!document.getElementById('model').validity.valid)
-                {
-                    document.getElementById("model").focus();
-                    alert('Model is empty');
-                    return;
-                }
-                if(document.getElementById('colors').value === "default")
-                {
-                    document.getElementById("colors").focus();
-                    alert('Color is empty');
-                    return;
-                }
-                if(document.getElementById('colors').value === "other" && document.getElementById('othercolorinput').value === "")
-                {
-                    document.getElementById("othercolorinput").focus();
-                    alert('Введите 4 цифры цвета RAL');
-                    return;
-                }
-                //EndValidate
-                //InitialData
-                var s = document.getElementById("areaceiling").value;
-                var p = document.getElementById("pceiling").value;
-                var difficult = $('input[name=difficult]:checked').val();
-                //EndInitialData
+            }).trigger('change');
 
-                //DataProcessing
-                var tp3600 = 0.234*s + ((0.234*s)/100)*difficult;
-                var tp1200 = 1.4*s + ((1.4*s)/100)*difficult;
-                var tp600 = 1.4*s + ((1.4*s)/100)*difficult;
-                var angles = p/difficult;
-                var susp = 0.7*s + ((0.7*s)/100)*difficult;
-                //EndDataProcessing
+            $("#color").change(function() {
+                if ($("#other").is(":selected")) {
+                    $("#othercolor").show();
+                } else {
+                    $("#othercolor").hide();
+                }
+            }).trigger('change');
+        });
 
-                //SetDataInTable
-                //CountTable
-                document.getElementById("table-tp3600").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+"), шт";
-                document.getElementById("table-tp1200").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+"), шт";
-                document.getElementById("table-tp600").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+"), шт";
-                document.getElementById("table-angles").innerHTML = Math.ceil(angles)+" ("+Math.ceil(angles*100)/100+"), шт";
-                document.getElementById("table-susp").innerHTML = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+"), шт";
-                //PriceTable
-                var price;
-                if(document.getElementById('colors').value === "other") price = 45;
-                else price = 30;
-                document.getElementById("table-price-tp3600").innerHTML = price+" грн";
-                document.getElementById("table-price-tp1200").innerHTML = price+" грн";
-                document.getElementById("table-price-tp600").innerHTML = price+" грн";
-                document.getElementById("table-price-angles").innerHTML = price+" грн";
-                document.getElementById("table-price-susp").innerHTML = price+" грн";
-                //PackTable
-                document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
-                document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
-                document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
-                document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
-                document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
-                //SummTable
-                document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
-                document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
-                document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
-                document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/50)*price*50+" грн";
-                document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/100)*price*100+" грн";
-                document.getElementById("table-summ").innerHTML = Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100+" грн";
-                //ShowTable
-                $("#table").show();
-                //EndSetDataInTable
+        //Submit BTN
+        document.getElementById("calc").addEventListener("click", calcFunction);
 
+        function calcFunction() {
+            //Validate
+            var numbers = /^[0-9]+$/;
+            if(!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers))
+            {
+                document.getElementById("areaceiling").focus();
+                alert('S is empty or not digit');
+                return;
             }
+            if(!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers))
+            {
+                document.getElementById("pceiling").focus();
+                alert('P is empty or not digit');
+                return;
+            }
+            if(!document.getElementById('easy').checked && !document.getElementById('hard').checked)
+            {
+                document.getElementById("easy").focus();
+                alert('Выберите конфигурацию помещения.');
+                return;
+            }
+            if(!document.getElementById('15mm').checked && !document.getElementById('24mm').checked)
+            {
+                document.getElementById("15mm").focus();
+                alert('Выберите толщину профиля.');
+                return;
+            }
+            if(!document.getElementById('model').validity.valid)
+            {
+                document.getElementById("model").focus();
+                alert('Model is empty');
+                return;
+            }
+            if(document.getElementById('colors').value === "default")
+            {
+                document.getElementById("colors").focus();
+                alert('Color is empty');
+                return;
+            }
+            if(document.getElementById('colors').value === "other" && document.getElementById('othercolorinput').value === "")
+            {
+                document.getElementById("othercolorinput").focus();
+                alert('Введите 4 цифры цвета RAL');
+                return;
+            }
+            //EndValidate
+            //InitialData
+            var s = document.getElementById("areaceiling").value;
+            var p = document.getElementById("pceiling").value;
+            var difficult = $('input[name=difficult]:checked').val();
+            //EndInitialData
+
+            //DataProcessing
+            //Constatnts
+            //EndConstatnts
+            var tp3600 = tp3600c*s + ((tp3600c*s)/100)*difficult;
+            var tp1200 = tp1200c*s + ((tp1200c*s)/100)*difficult;
+            var tp600 = tp600c*s + ((tp600c*s)/100)*difficult;
+            var angles = p/L3000c;
+            var susp = suspc*s + ((suspc*s)/100)*difficult;
+            //EndDataProcessing
+
+            //SetDataInTable
+            //CountTable
+            document.getElementById("table-tp3600").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+"), шт";
+            document.getElementById("table-tp1200").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+"), шт";
+            document.getElementById("table-tp600").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+"), шт";
+            document.getElementById("table-angles").innerHTML = Math.ceil(angles)+" ("+Math.ceil(angles*100)/100+"), шт";
+            document.getElementById("table-susp").innerHTML = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+"), шт";
+            //PriceTable
+            var price;
+            if(document.getElementById('colors').value === "other") price = 45;
+            else price = 30;
+            document.getElementById("table-price-tp3600").innerHTML = price+" грн";
+            document.getElementById("table-price-tp1200").innerHTML = price+" грн";
+            document.getElementById("table-price-tp600").innerHTML = price+" грн";
+            document.getElementById("table-price-angles").innerHTML = price+" грн";
+            document.getElementById("table-price-susp").innerHTML = price+" грн";
+            //PackTable
+            document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
+            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
+            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
+            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
+            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
+            //SummTable
+            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
+            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
+            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
+            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/50)*price*50+" грн";
+            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/100)*price*100+" грн";
+            document.getElementById("table-summ").innerHTML = Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100+" грн";
+            //ShowTable
+            $("#table").show();
+            //EndSetDataInTable
+
+            //Send Ajax Post to Controller save in database
+            // make an ajax request to a PHP file
+            // on our site that will update the database
+            // pass in our lat/lng as parameters
+            $.post('/calc/tprofile/history/'+id, {
+                    _token: $('meta[name=csrf-token]').attr('content'),
+                    id: id,
+                    type: "T-Profile",
+                    tp3600: tp3600,
+                    tp1200: tp1200,
+                    tp600: tp600,
+                    L3000: angles,
+                    susp: susp,
+
+                    //PriceByOne
+                    tp3600_priceByOne: price,
+                    tp1200_priceByOne: price,
+                    tp600_priceByOne: price,
+                    L3000_priceByOne: price,
+                    susp_priceByOne: price,
+
+                    //CountPackage
+                    tp3600_package:Math.ceil(tp3600/25),
+                    tp1200_package:Math.ceil(tp1200/50),
+                    tp600_package:Math.ceil(tp600/75),
+                    L3000_package:Math.ceil(angles/50),
+                    susp_package:Math.ceil(susp/100),
+
+                    //CommonPrice
+                    tp3600_price:Math.ceil(tp3600/25)*price*25,
+                    tp1200_price:Math.ceil(tp1200/50)*price*50,
+                    tp600_price:Math.ceil(tp600/75)*price*75,
+                    L3000_price:Math.ceil(angles/50)*price*50,
+                    susp_price:Math.ceil(susp/100)*price*100,
+                    sum: Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100
+
+
+        }
+            )
+                .done(function(data) {
+                    //alert(data);
+                })
+                .fail(function() {
+                    alert( "error" );
+                });
+        }
     </script>
 @endsection

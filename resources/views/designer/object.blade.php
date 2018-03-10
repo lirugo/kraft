@@ -140,7 +140,7 @@
                             {!! Form::text('customersurname',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customersurname').' *']) !!}
                             {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername').' *']) !!}
                             {!! Form::text('customerpatronymic',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customerpatronymic').' *']) !!}
-                            {!! Form::text('customerposition',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Должность']) !!}
+                            {!! Form::text('customerposition',null , ['class' => 'form-control m-b-10 ', 'placeholder' => 'Должность']) !!}
                             {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX','placeholder' => trans('app.customerpphone').' *']) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}

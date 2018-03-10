@@ -16,14 +16,14 @@
                         <!-- Subject Form Input -->
                         <div class="form-group">
                             <label class="control-label">Subject</label>
-                            <input type="text" class="form-control" name="subject" placeholder="Subject"
+                            <input type="text" class="form-control" name="subject" placeholder="Subject" required
                                    value="{{ old('subject') }}">
                         </div>
 
                         <!-- Message Form Input -->
                         <div class="form-group">
                             <label class="control-label">Message</label>
-                            <textarea name="message" class="form-control">{{ old('message') }}</textarea>
+                            <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
                         </div>
 
                         @if($users->count() > 0)

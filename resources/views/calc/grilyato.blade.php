@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/calc/">Калкьулятор</a>
+                <a class="link-bread" href="/calc/">Калькулятор</a>
                 <a class="link-bread" href="#">Грильято</a>
             </div>
         </div>
@@ -80,26 +80,31 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Профиль 3600 мм</th>
                         <th scope="col">Профиль 2400 мм</th>
                         <th scope="col">Профиль 1200 мм</th>
                         <th scope="col">Профиль 600 мм</th>
                         <th scope="col">Профиль 600 мм, мама</th>
                         <th scope="col">Профиль 600 мм, папа</th>
+                        <th scope="col">Профиль 600 мм, торцевой элемент</th>
                         <th scope="col">Соединитель</th>
                         <th scope="col">Уголок L 3000 мм</th>
                         <th scope="col">Подвес в сборе шт</th>
                         <th scope="col">Дюбель для подвесов</th>
                         <th scope="col">Дюбель для L-прифиля</th>
+                        <th scope="col">Итого</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <th scope="row">Кол-во</th>
+                        <td id="table-tp3600"></td>
                         <td id="table-tp2400"></td>
                         <td id="table-tp1200"></td>
                         <td id="table-tp600"></td>
                         <td id="table-tp600f"></td>
                         <td id="table-tp600m"></td>
+                        <td id="table-tp600tc"></td>
                         <td id="table-susp"></td>
                         <td id="table-angles"></td>
                         <td id="table-suspass"></td>
@@ -109,26 +114,47 @@
                     <tr>
                         <th scope="row">Цена за шт</th>
                         <td id="table-price-tp3600"></td>
+                        <td id="table-price-tp2400"></td>
                         <td id="table-price-tp1200"></td>
                         <td id="table-price-tp600"></td>
-                        <td id="table-price-angles"></td>
+                        <td id="table-price-tp600f"></td>
+                        <td id="table-price-tp600m"></td>
+                        <td id="table-price-tp600tc"></td>
                         <td id="table-price-susp"></td>
+                        <td id="table-price-angles"></td>
+                        <td id="table-price-suspass"></td>
+                        <td id="table-price-dowel1"></td>
+                        <td id="table-price-dowel2"></td>
                     </tr>
                     <tr>
                         <th scope="row">Кол-во упаковок</th>
                         <td id="table-pack-tp3600"></td>
+                        <td id="table-pack-tp2400"></td>
                         <td id="table-pack-tp1200"></td>
                         <td id="table-pack-tp600"></td>
-                        <td id="table-pack-angles"></td>
+                        <td id="table-pack-tp600f"></td>
+                        <td id="table-pack-tp600m"></td>
+                        <td id="table-pack-tp600tc"></td>
                         <td id="table-pack-susp"></td>
+                        <td id="table-pack-angles"></td>
+                        <td id="table-pack-suspass"></td>
+                        <td id="table-pack-dowel1"></td>
+                        <td id="table-pack-dowel2"></td>
                     </tr>
                     <tr>
                         <th scope="row">Стоимость</th>
                         <td id="table-summ-tp3600"></td>
+                        <td id="table-summ-tp2400"></td>
                         <td id="table-summ-tp1200"></td>
                         <td id="table-summ-tp600"></td>
-                        <td id="table-summ-angles"></td>
+                        <td id="table-summ-tp600f"></td>
+                        <td id="table-summ-tp600m"></td>
+                        <td id="table-summ-tp600tc"></td>
                         <td id="table-summ-susp"></td>
+                        <td id="table-summ-angles"></td>
+                        <td id="table-summ-suspass"></td>
+                        <td id="table-summ-dowel1"></td>
+                        <td id="table-summ-dowel2"></td>
                         <td id="table-summ"></td>
                     </tr>
                     </tbody>
@@ -139,7 +165,6 @@
 @endsection
 
 @section('scripts')
-
     <script src="/js/jquery.validate.js"></script>
     <script>
         $(function() {
@@ -160,44 +185,37 @@
         function calcFunction() {
             //Validate
             var numbers = /^[0-9]+$/;
-            if(!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers))
-            {
+            if (!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers)) {
                 document.getElementById("areaceiling").focus();
                 alert('S is empty or not digit');
                 return;
             }
-            if(!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers))
-            {
+            if (!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers)) {
                 document.getElementById("pceiling").focus();
                 alert('P is empty or not digit');
                 return;
             }
-            if(!document.getElementById('easy').checked && !document.getElementById('hard').checked)
-            {
+            if (!document.getElementById('easy').checked && !document.getElementById('hard').checked) {
                 document.getElementById("easy").focus();
                 alert('Выберите конфигурацию помещения.');
                 return;
             }
-            if(!document.getElementById('model').validity.valid)
-            {
+            if (!document.getElementById('model').validity.valid) {
                 document.getElementById("model").focus();
                 alert('Model is empty');
                 return;
             }
-            if(document.getElementById('color').value === "default")
-            {
+            if (document.getElementById('color').value === "default") {
                 document.getElementById("color").focus();
                 alert('Color is empty');
                 return;
             }
-            if(document.getElementById('color').value === "other" && document.getElementById('othercolorinput').value === "")
-            {
+            if (document.getElementById('color').value === "other" && document.getElementById('othercolorinput').value === "") {
                 document.getElementById("othercolorinput").focus();
                 alert('Введите 4 цифры цвета RAL');
                 return;
             }
-            if(!document.getElementById('sizecells').validity.valid)
-            {
+            if (!document.getElementById('sizecells').validity.valid) {
                 document.getElementById("sizecells").focus();
                 alert('Select size cells.');
                 return;
@@ -208,79 +226,133 @@
             var s = document.getElementById("areaceiling").value;
             var p = document.getElementById("pceiling").value;
             var difficult = $('input[name=difficult]:checked').val();
+            var sizecells = document.getElementById("sizecells").value;
             //EndInitialData
 
             //DataProcessing
-            var k2400;
-            if(document.getElementById("model").value === 'classical' || document.getElementById("model").value === 'pyramidal')
-            {
-                if(document.getElementById("sizecells").value <= 100)
-                    k2400 = 0.696;
+            if(document.getElementById("model").value === 'classical' || document.getElementById("model").value === 'pyramidal'){
+                var k2400;
+                if (document.getElementById("model").value === 'classical' || document.getElementById("model").value === 'pyramidal') {
+                    if (document.getElementById("sizecells").value <= 100)
+                        k2400 = 0.696;
+                    else
+                        k2400 = 0.348;
+                }
+                var tp2400 = k2400 * s + ((k2400 * s) / 100) * difficult;
+                var tp3600 = 0;
+                var tp600tc = 0;
+                var tp1200;
+                var tp600, tp600f, tp600m;
+                if (document.getElementById("sizecells").value <= 100)
+                    tp1200 = 0;
                 else
-                    k2400 = 0.348;
+                    tp1200 = 1.392 * s + ((1.392 * s) / 100) * difficult;
+
+                if (document.getElementById("sizecells").value <= 100)
+                    tp600 = 2.783 * s + ((2.783 * s) / 100) * difficult;
+                else
+                    tp600 = 1.392 * s + ((1.392 * s) / 100) * difficult;
+
+                tp600f = (600 / (sizecells - 1)) * 2.78 * p;
+                tp600f = tp600f + (tp600f / 100) * (difficult / 10);
+                tp600m = tp600f;
+
+                var susp = tp2400 * 0.9;
+                var angles = p / 3;
+                angles = angles + ((angles / 100) * difficult) * 2;
+                var suspass = tp2400 * 3;
+                var dowel1, dowel2;
+
+                dowel1 = suspass;
+                dowel2 = p * 2;
             }
-            var tp2400 = k2400*s+((k2400*s)/100)*difficult;
-            var sizecells = document.getElementById("sizecells").value;
-            var tp1200;
-            var tp600, tp600f, tp600m;
-            if(document.getElementById("sizecells").value <= 100)
-                tp1200 = 0;
-            else
-                tp1200 = 1.392*s+((1.392*s)/100)*difficult;
-
-            if(document.getElementById("sizecells").value <= 100)
-                tp600 = 2.783*s+((2.783*s)/100)*difficult;
-            else
-                tp600 = 1.392*s+((1.392*s)/100)*difficult;
-
-            tp600f = (600/sizecells-1)*2.78*p+(((600/sizecells-1)*2.78*p)/100)*difficult;
-            tp600m = tp600f;
-
-            var susp = 2400*0.9;
-            var angles = p/3+((p/100)*difficult)*2;
-            var suspass = susp*3;
-            var dowel1,dowel2;
-
-            dowel1 = suspass/100;
-            dowel2 = p*2;
-
+            else {
+                var susp = 0;
+                var angles =0;
+                var suspass = 0;
+                var tp2400 = 0;
+                var dowel1 = 0, dowel2 = 0;
+                var tp3600 = 0.324*s+((0.324*s)/100)*difficult;
+                tp1200 = 1.4*s+((1.4*s)/100)*difficult;
+                tp600 = 1.4*s+((1.4*s)/100)*difficult;
+                tp600f = (600 / (sizecells - 1)) * 2.78 * p;
+                tp600f = tp600f + (tp600f / 100) * (difficult / 10);
+                tp600m = tp600f;
+                var tp600tc = 11.12*s+((11.12*s)/100)*difficult;
+            }
             //EndDataProcessing
 
             //SetDataInTable
             //CountTable
+            document.getElementById("table-tp3600").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+"), шт";
             document.getElementById("table-tp2400").innerHTML = Math.ceil(tp2400)+" ("+Math.ceil(tp2400*100)/100+"), шт";
             document.getElementById("table-tp1200").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+"), шт";
             document.getElementById("table-tp600").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+"), шт";
             document.getElementById("table-tp600f").innerHTML = Math.ceil(tp600f)+" ("+Math.ceil(tp600f*100)/100+"), шт";
             document.getElementById("table-tp600m").innerHTML = Math.ceil(tp600m)+" ("+Math.ceil(tp600m*100)/100+"), шт";
+            document.getElementById("table-tp600tc").innerHTML = Math.ceil(tp600tc)+" ("+Math.ceil(tp600tc*100)/100+"), шт";
             document.getElementById("table-susp").innerHTML = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+"), шт";
             document.getElementById("table-angles").innerHTML = Math.ceil(angles)+" ("+Math.ceil(angles*100)/100+"), шт";
             document.getElementById("table-suspass").innerHTML = Math.ceil(suspass)+" ("+Math.ceil(suspass*100)/100+"), шт";
             document.getElementById("table-dowel1").innerHTML = Math.ceil(dowel1)+" ("+Math.ceil(dowel1*100)/100+"), шт";
             document.getElementById("table-dowel2").innerHTML = Math.ceil(dowel2)+" ("+Math.ceil(dowel2*100)/100+"), шт";
-            //PriceTable
-            // var price;
-            // if(document.getElementById('colors').value === "other") price = 45;
-            // else price = 30;
-            // document.getElementById("table-price-tp3600").innerHTML = price+" грн";
-            // document.getElementById("table-price-tp1200").innerHTML = price+" грн";
-            // document.getElementById("table-price-tp600").innerHTML = price+" грн";
-            // document.getElementById("table-price-angles").innerHTML = price+" грн";
-            // document.getElementById("table-price-susp").innerHTML = price+" грн";
-            // //PackTable
-            // document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
-            // document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
-            // document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
-            // document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
-            // document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
-            // //SummTable
-            // document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
-            // document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
-            // document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
-            // document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/50)*price*50+" грн";
-            // document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/100)*price*100+" грн";
-            // document.getElementById("table-summ").innerHTML = Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100+" грн";
-            // //ShowTable
+            // PriceTable
+            var price;
+            if(document.getElementById('color').value === "other") price = 45;
+            else price = 30;
+            document.getElementById("table-price-tp3600").innerHTML = price+" грн";
+            document.getElementById("table-price-tp2400").innerHTML = price+" грн";
+            document.getElementById("table-price-tp1200").innerHTML = price+" грн";
+            document.getElementById("table-price-tp600").innerHTML = price+" грн";
+            document.getElementById("table-price-tp600f").innerHTML = price+" грн";
+            document.getElementById("table-price-tp600m").innerHTML = price+" грн";
+            document.getElementById("table-price-tp600tc").innerHTML = price+" грн";
+            document.getElementById("table-price-susp").innerHTML = price+" грн";
+            document.getElementById("table-price-angles").innerHTML = price+" грн";
+            document.getElementById("table-price-suspass").innerHTML = price+" грн";
+            document.getElementById("table-price-dowel1").innerHTML = price+" грн";
+            document.getElementById("table-price-dowel2").innerHTML = price+" грн";
+            //PackTable
+            document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
+            document.getElementById("table-pack-tp2400").innerHTML = Math.ceil(tp2400/25)+" уп";
+            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
+            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
+            document.getElementById("table-pack-tp600f").innerHTML = Math.ceil(tp600f/75)+" уп";
+            document.getElementById("table-pack-tp600m").innerHTML = Math.ceil(tp600m/75)+" уп";
+            document.getElementById("table-pack-tp600tc").innerHTML = Math.ceil(tp600tc/75)+" уп";
+            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
+            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
+            document.getElementById("table-pack-suspass").innerHTML = Math.ceil(suspass/50)+" уп";
+            document.getElementById("table-pack-dowel1").innerHTML = Math.ceil(dowel1/100)+" уп";
+            document.getElementById("table-pack-dowel2").innerHTML = Math.ceil(dowel2/100)+" уп";
+            //SummTable
+            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
+            document.getElementById("table-summ-tp2400").innerHTML = Math.ceil(tp2400/25)*price*25+" грн";
+            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
+            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
+            document.getElementById("table-summ-tp600f").innerHTML = Math.ceil(tp600f/75)*price*75+" грн";
+            document.getElementById("table-summ-tp600m").innerHTML = Math.ceil(tp600m/75)*price*75+" грн";
+            document.getElementById("table-summ-tp600tc").innerHTML = Math.ceil(tp600tc/75)*price*75+" грн";
+            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/50)*price*50+" грн";
+            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/100)*price*100+" грн";
+            document.getElementById("table-summ-suspass").innerHTML = Math.ceil(suspass/100)*price*100+" грн";
+            document.getElementById("table-summ-dowel1").innerHTML = Math.ceil(dowel1/100)*price*100+" грн";
+            document.getElementById("table-summ-dowel2").innerHTML = Math.ceil(dowel2/100)*price*100+" грн";
+            document.getElementById("table-summ").innerHTML =
+                Math.ceil(tp3600/25)*price*25+
+                Math.ceil(tp2400/25)*price*25+
+                Math.ceil(tp1200/50)*price*50+
+                Math.ceil(tp600/75)*price*75+
+                Math.ceil(tp600f/75)*price*75+
+                Math.ceil(tp600m/75)*price*75+
+                Math.ceil(tp600tc/75)*price*75+
+                Math.ceil(susp/50)*price*50+
+                Math.ceil(angles/100)*price*100+
+                Math.ceil(suspass/100)*price*100+
+                Math.ceil(dowel1/100)*price*100+
+                Math.ceil(dowel2/100)*price*100+
+                " грн";
+            //ShowTable
             $("#table").show();
             //EndSetDataInTable
 

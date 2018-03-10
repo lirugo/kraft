@@ -21,10 +21,11 @@ class ReportController extends Controller
     public function index($id){
         $object = object::find($id);
         $user = Auth::user();
-        if($object->user->id != $user->id)
-            return back();
-
         $reports = Report::all()->where('object_id', '=', $id);
+        if($reports->count() == 0){
+            Session::flash('warning', 'У Вас еще нет отчетов, или объект не активирован. Ваш РМ - '.$object->rmuser->name.' '.$object->rmuser->surname.', тел:'.$object->rmuser->phone);
+            return back();
+        }
         return view('report.index')->with('reports', $reports);
     }
 

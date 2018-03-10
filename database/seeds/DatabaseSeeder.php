@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RegionsSeeder::class);
         $this->call(AdminUserSeeder::class);
         $this->call(DistributorCompanySeed::class);
+        $this->call(ConstantsSeeder::class);
     }
 }

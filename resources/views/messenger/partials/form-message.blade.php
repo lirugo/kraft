@@ -4,7 +4,7 @@
     {{ csrf_field() }}
     <!-- Message Form Input -->
     <div class="form-group">
-        <textarea name="message" class="form-control">{{ old('message') }}</textarea>
+        <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
     </div>
     <!-- Submit Form Input -->
     <div class="form-group">

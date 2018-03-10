@@ -24,6 +24,40 @@
 @endsection
 @section('content')
     <div class="container">
+        <div class="row m-t-20 m-b-20">
+            <div class="col-md-12">
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/calc/{{$object->id}}">
+                            <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Калькулятор
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/calc/history/show/{{$object->id}}">
+                            <i class="fa fa-history fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                История расчетов
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/report/{{$object->id}}">
+                            <i class="fa fa-flag fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Отчеты
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 Компания/Менеджер:
@@ -176,11 +210,7 @@
                 @endif
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="/report/{{$object->id}}" class="btn btn-primary">Отчеты</a>
-            </div>
-        </div>
+        <br>
     </div>
 @endsection
 

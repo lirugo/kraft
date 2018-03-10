@@ -98,17 +98,22 @@ class ManagerController extends Controller
 
     public function activateobject(Request $request, $id){
         $object = Object::find($id);
+        if($object->active == true)
+        {
+            $object->dateofdelivery = $request->dateofdelivery;
+            $object->save();
+        }
+        else{
         $object->active = true;
         $object->dateofactivate = Carbon::now();
+        $object->dateofdelivery = $request->dateofdelivery;
         $object->reporttime = $request->reporttime;
-
             $report = new Report();
             $report->object_id = $object->id;
             $report->dateofreport = Carbon::now()->addDays($request->reporttime);
             $report->save();
-
         $object->save();
-
+        }
         Session::flash('success', 'Object status was changed.');
         return back();
     }

@@ -23,6 +23,30 @@
 @endsection
 @section('content')
     <div class="container">
+        <div class="row m-t-20 m-b-20">
+            <div class="col-md-12">
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/calc/history/show/{{$object->id}}">
+                            <i class="fa fa-history fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                История расчетов
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/report/{{$object->id}}">
+                            <i class="fa fa-flag fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Отчеты
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 Компания/Менеджер:
@@ -39,13 +63,12 @@
                 <strong>Дата Регистрации:</strong>
                 {!! Form::label('Create Date', Carbon\Carbon::parse($object->created_at)->format('d.m.Y')) !!}
                 <br>
-                <div class="form-inline">
-                    {!! Form::label('Дата поставки товара: ', null, ['class' => 'm-t-10']) !!}
-                    {!! Form::text('dateofdelivery',null, ['class' => 'form-control', 'placeholder' => 'DD/MM/YYYY', 'id' => 'datepicker']) !!}
-                </div>
-                <br>
                 {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
                 <div class="form-inline">
+                    {!! Form::label('Дата поставки товара: ', null, ['class' => 'm-t-10']) !!}
+                    {!! Form::text('dateofdelivery',null, ['class' => 'form-control', 'placeholder' => 'DD/MM/YYYY','required', 'id' => 'datepicker']) !!}
+                </div>
+                <div class="form-inline m-t-10">
                     {!! Form::label('Переодичнось отчетов: каждые', null) !!}
                     @if($object->active == false)
                     {!! Form::select('reporttime', [
@@ -61,16 +84,16 @@
                 <strong> Дата Активации: </strong>
                 {!! Form::label('Activate Date', empty($object->dateofactivate) ? " " : Carbon\Carbon::parse($object->dateofactivate)->format('d.m.Y')) !!}
                 <br>
-                <p>
                     <strong>До следующего отчета: </strong>
                     {{ $object->daystoreport ? $object->daystoreport." дней" : ""}}
-                </p>
-                <p>
+                <br>
                     <strong>Дата следующего отчета:</strong>
                     {!! Form::label('Date Report', empty($object->dateofreport) ? " " : Carbon\Carbon::parse($object->dateofreport)->format('d.m.Y')) !!}
-                </p>
+                <br>
                 @if($object->active == false)
                 {!! Form::submit("Активировать", ['class' => 'btn btn-primary pull-right']) !!}
+                @else
+                {!! Form::submit("Обновить", ['class' => 'btn btn-primary pull-right']) !!}
                 @endif
                 {!! Form::close() !!}
             </div>
@@ -180,11 +203,7 @@
                 @endif
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="/report/{{$object->id}}" class="btn btn-primary">Отчеты</a>
-            </div>
-        </div>
+        <br>
     </div>
 @endsection
 

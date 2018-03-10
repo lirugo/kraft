@@ -24,6 +24,8 @@
         <!-- Top nav -->
     @include('_includes.nav.adminmain')
     @yield('breadcrumbs')
+    <!-- Breads -->
+    @yield('breads')
     @include('_includes.messages')
         <!--Content-->
     @yield('content')

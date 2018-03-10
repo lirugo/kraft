@@ -173,12 +173,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-
-        //
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -188,6 +182,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
+        //Set Variable from controller to JavaScript
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
     ],
 
     /*

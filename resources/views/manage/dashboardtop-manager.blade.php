@@ -24,14 +24,16 @@
                                 </a>
                             </div>
                         </div>
-                        {{--<div class="col-md-2 text-center">--}}
-                            {{--<div class="card">--}}
-                                {{--<i class="fa fa-list fa-5x" aria-hidden="true"></i>--}}
-                                {{--<div class="description m-t-10">--}}
-                                    {{--{{ trans('app.distributors') }}--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/distributors">
+                                <i class="fa fa-list fa-5x" aria-hidden="true"></i>
+                                <div class="description m-t-10">
+                                    {{ trans('app.distributors') }}
+                                </div>
+                                </a>
+                            </div>
+                        </div>
                         {{--<div class="col-md-2 text-center">--}}
                             {{--<div class="card">--}}
                                 {{--<i class="fa fa-university fa-5x" aria-hidden="true"></i>--}}
