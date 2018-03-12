@@ -24,8 +24,8 @@
                 <br>
                 <br>
                 {!! Form::label('label', "Конфигурация помещения:") !!}
-                {{ Form::radio('difficult', '3', false,  ['id' => 'easy']) }} Простая
-                {{ Form::radio('difficult', '7', false,  ['id' => 'hard']) }} Сложная
+                {{ Form::radio('difficult', $data['constants']->easy, false,  ['id' => 'easy']) }} Простая
+                {{ Form::radio('difficult', $data['constants']->hard, false,  ['id' => 'hard']) }} Сложная
                 <br>
                 <br>
                 {!! Form::label('label', "Модель профиля:") !!}

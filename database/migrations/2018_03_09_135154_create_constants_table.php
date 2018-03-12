@@ -27,6 +27,16 @@ class CreateConstantsTable extends Migration
             $table->float('tp600');
             $table->float('L3000');
             $table->float('susp');
+            $table->float('tp3600_price');
+            $table->float('tp1200_price');
+            $table->float('tp600_price');
+            $table->float('L3000_price');
+            $table->float('susp_price');
+            $table->float('tp3600_pack');
+            $table->float('tp1200_pack');
+            $table->float('tp600_pack');
+            $table->float('L3000_pack');
+            $table->float('susp_pack');
             //EndTProfile
             //Grilyato
             //GrilyatoBefore100mm
@@ -55,12 +65,6 @@ class CreateConstantsTable extends Migration
             $table->float('stringer');
             //EndKraftCube
             //Package
-            $table->integer('3600_pack');
-            $table->integer('2400_pack');
-            $table->integer('1200_pack');
-            $table->integer('600_pack');
-            $table->integer('L3000_pack');
-            $table->integer('susp_pack');
             //EndPackage
             $table->timestamps();
         });

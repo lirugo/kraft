@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-1 text-center">
+                        <div class="col-md-2 col-md-offset-2 text-center">
                             <div class="card">
                                 <a href="/calc/tprofile/{{$object->id}}">
                                     <img src="\img\icon\calc\tprofile.png" width="150px"/>
@@ -41,6 +41,16 @@
                                     <img src="\img\icon\calc\cube.png" width="150px"/>
                                     <div class="description m-t-10">
                                         Рейка
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/calc/led/{{$object->id}}">
+                                    <img src="\img\icon\calc\led.png" width="150px"/>
+                                    <div class="description m-t-10">
+                                        KRAFT LED
                                     </div>
                                 </a>
                             </div>

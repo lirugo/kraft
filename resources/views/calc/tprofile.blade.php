@@ -251,26 +251,38 @@
             document.getElementById("table-susp").innerHTML = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+"), шт";
             //PriceTable
             var price;
-            if(document.getElementById('colors').value === "other") price = 45;
-            else price = 30;
-            document.getElementById("table-price-tp3600").innerHTML = price+" грн";
-            document.getElementById("table-price-tp1200").innerHTML = price+" грн";
-            document.getElementById("table-price-tp600").innerHTML = price+" грн";
-            document.getElementById("table-price-angles").innerHTML = price+" грн";
-            document.getElementById("table-price-susp").innerHTML = price+" грн";
+            if(document.getElementById('colors').value === "other") price = 1.5;
+            else price = 1;
+            //SetPrice
+            var tp3600_price = tp3600c_price * price;
+            var tp1200_price = tp1200c_price * price;
+            var tp600_price = tp600c_price * price;
+            var L3000_price = L3000c_price * price;
+            var susp_price = suspc_price * price;
+            document.getElementById("table-price-tp3600").innerHTML = tp3600_price+" грн";
+            document.getElementById("table-price-tp1200").innerHTML =  tp1200_price+" грн";
+            document.getElementById("table-price-tp600").innerHTML =  tp600_price+" грн";
+            document.getElementById("table-price-angles").innerHTML =  L3000_price+" грн";
+            document.getElementById("table-price-susp").innerHTML =  susp_price+" грн";
             //PackTable
-            document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
-            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
-            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
-            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
-            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
+            document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/tp3600c_pack)+" уп";
+            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/tp1200c_pack)+" уп";
+            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/tp600c_pack)+" уп";
+            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/L3000c_pack)+" уп";
+            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/suspc_pack)+" уп";
             //SummTable
-            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
-            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
-            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
-            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/50)*price*50+" грн";
-            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/100)*price*100+" грн";
-            document.getElementById("table-summ").innerHTML = Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100+" грн";
+            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/tp3600c_pack)*tp3600_price*tp3600c_pack+" грн";
+            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/tp1200c_pack)*tp1200_price*tp1200c_pack+" грн";
+            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/tp600c_pack)*tp600_price*tp600c_pack+" грн";
+            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/L3000c_pack)*L3000_price*L3000c_pack+" грн";
+            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/suspc_pack)*susp_price*suspc_pack+" грн";
+            document.getElementById("table-summ").innerHTML =
+                Math.ceil(tp3600/tp3600c_pack)*tp3600_price*tp3600c_pack+
+                Math.ceil(tp1200/tp1200c_pack)*tp1200_price*tp1200c_pack+
+                Math.ceil(tp600/tp600c_pack)*tp600_price*tp600c_pack+
+                Math.ceil(angles/L3000c_pack)*L3000_price*L3000c_pack+
+                Math.ceil(susp/suspc_pack)*susp_price*suspc_pack
+                +" грн";
             //ShowTable
             $("#table").show();
             //EndSetDataInTable

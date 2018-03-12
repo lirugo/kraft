@@ -38,7 +38,17 @@ class CalcController extends Controller
             'tp1200c' => $constants->tp1200,
             'tp600c' => $constants->tp600,
             'L3000c' => $constants->L3000,
-            'suspc' => $constants->susp
+            'suspc' => $constants->susp,
+            'tp3600c_price' => $constants->tp3600_price,
+            'tp1200c_price' => $constants->tp1200_price,
+            'tp600c_price' => $constants->tp600_price,
+            'L3000c_price' => $constants->L3000_price,
+            'suspc_price' => $constants->susp_price,
+            'tp3600c_pack' => $constants->tp3600_pack,
+            'tp1200c_pack' => $constants->tp1200_pack,
+            'tp600c_pack' => $constants->tp600_pack,
+            'L3000c_pack' => $constants->L3000_pack,
+            'suspc_pack' => $constants->susp_pack
         ]);
         return view('calc.tprofile')->with('data', $data);
     }
@@ -77,7 +87,31 @@ class CalcController extends Controller
 
     public function grilyato($id){
         $object = Object::find($id);
-        return view('calc.grilyato')->with('object', $object);
+        $constants = Constants::get()->last();
+        $data = new Collection;
+        $data->put('object' , $object);
+        $data->put('constants' , $constants);
+        Javascript::put([
+            'id' => $id,
+            'easy' => $constants->easy,
+            'hard' => $constants->hard,
+            'tp3600c' => $constants->tp3600,
+            'tp1200c' => $constants->tp1200,
+            'tp600c' => $constants->tp600,
+            'L3000c' => $constants->L3000,
+            'suspc' => $constants->susp,
+            'tp3600c_price' => $constants->tp3600_price,
+            'tp1200c_price' => $constants->tp1200_price,
+            'tp600c_price' => $constants->tp600_price,
+            'L3000c_price' => $constants->L3000_price,
+            'suspc_price' => $constants->susp_price,
+            'tp3600c_pack' => $constants->tp3600_pack,
+            'tp1200c_pack' => $constants->tp1200_pack,
+            'tp600c_pack' => $constants->tp600_pack,
+            'L3000c_pack' => $constants->L3000_pack,
+            'suspc_pack' => $constants->susp_pack
+        ]);
+        return view('calc.grilyato')->with('data', $data);
     }
 
     public function cube($id){
@@ -92,5 +126,10 @@ class CalcController extends Controller
             return back();
         }
         return view('calc.history')->with('calcs', $calcs);
+    }
+
+    public function led($id){
+        $object = Object::find($id);
+        return view('calc.led')->with('object', $object);
     }
 }

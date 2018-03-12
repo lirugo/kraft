@@ -183,6 +183,7 @@ Route::get('calc/tprofile/{id}', 'Calc\CalcController@tprofile');
 Route::post('calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
 Route::get('calc/grilyato/{id}', 'Calc\CalcController@grilyato');
 Route::get('calc/cube/{id}', 'Calc\CalcController@cube');
+Route::get('calc/led/{id}', 'Calc\CalcController@led');
 //EndCalcRoute
 
 //Message route

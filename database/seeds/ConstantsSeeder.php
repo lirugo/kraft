@@ -16,11 +16,23 @@ class ConstantsSeeder extends Seeder
             'hard' => 7,
             'dollar' => 27,
             'euro' => 32,
+            //TProfile
             'tp3600' => 0.234,
             'tp1200' => 1.4,
             'tp600' => 1.4,
             'L3000' => 3,
             'susp' => 0.7,
+            'tp3600_price' => 30,
+            'tp1200_price' => 30,
+            'tp600_price' => 30,
+            'L3000_price' => 30,
+            'susp_price' => 30,
+            'tp3600_pack' => 25,
+            'tp1200_pack' => 50,
+            'tp600_pack' => 75,
+            'L3000_pack' => 50,
+            'susp_pack' => 100,
+            //EndTProfile
             'g2400_a' => 0.696,
             'g1200_a' => 0,
             'g600_a' => 2.78,
@@ -40,12 +52,6 @@ class ConstantsSeeder extends Seeder
             'g600tc' => 11.12,
             'count' => 1000,
             'stringer' => 0.32,
-            '3600_pack' => 25,
-            '2400_pack' => 25,
-            '1200_pack' => 50,
-            '600_pack' => 75,
-            'L3000_pack' => 50,
-            'susp_pack' => 100,
         ]);
     }
 }
