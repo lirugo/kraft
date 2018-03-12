@@ -16,53 +16,77 @@ class CreateConstantsTable extends Migration
         Schema::create('constants', function (Blueprint $table) {
             $table->increments('id');
             //Common
-            $table->float('easy');
-            $table->float('hard');
-            $table->float('dollar');
-            $table->float('euro');
+            $table->double('easy');
+            $table->double('hard');
+            $table->double('dollar');
+            $table->double('euro');
             //EndCommon
             //TProfile
-            $table->float('tp3600');
-            $table->float('tp1200');
-            $table->float('tp600');
-            $table->float('L3000');
-            $table->float('susp');
-            $table->float('tp3600_price');
-            $table->float('tp1200_price');
-            $table->float('tp600_price');
-            $table->float('L3000_price');
-            $table->float('susp_price');
-            $table->float('tp3600_pack');
-            $table->float('tp1200_pack');
-            $table->float('tp600_pack');
-            $table->float('L3000_pack');
-            $table->float('susp_pack');
+            $table->double('tp3600');
+            $table->double('tp1200');
+            $table->double('tp600');
+            $table->double('L3000');
+            $table->double('susp');
+            $table->double('tp3600_price');
+            $table->double('tp1200_price');
+            $table->double('tp600_price');
+            $table->double('L3000_price');
+            $table->double('susp_price');
+            $table->double('tp3600_pack');
+            $table->double('tp1200_pack');
+            $table->double('tp600_pack');
+            $table->double('L3000_pack');
+            $table->double('susp_pack');
             //EndTProfile
             //Grilyato
             //GrilyatoBefore100mm
-            $table->float('g2400_a');
-            $table->float('g1200_a');
-            $table->float('g600_a');
-            $table->float('g600f_a');
-            $table->float('g600m_a');
-            $table->float('susp_a');
-            $table->float('L3000_a');
-            $table->float('suspass_a');
+            $table->double('g2400_a');
+            $table->double('g1200_a');
+            $table->double('g600_a');
+            $table->double('g600f_a');
+            $table->double('g600m_a');
+            $table->double('susp_a');
+            $table->double('L3000_a');
+            $table->double('suspass_a');
             //Grilyato120-200mm
-            $table->float('g2400_b');
-            $table->float('g1200_b');
-            $table->float('g600_b');
-            $table->float('g600f_b');
-            $table->float('g600m_b');
-            $table->float('susp_b');
-            $table->float('L3000_b');
-            $table->float('suspass_b');
+            $table->double('g2400_b');
+            $table->double('g1200_b');
+            $table->double('g600_b');
+            $table->double('g600f_b');
+            $table->double('g600m_b');
+            $table->double('susp_b');
+            $table->double('L3000_b');
+            $table->double('suspass_b');
+            //Price
+            $table->double('g2400_price');
+            $table->double('g1200_price');
+            $table->double('g600_price');
+            $table->double('g600f_price');
+            $table->double('g600m_price');
+            $table->double('gsusp_price');
+            $table->double('gL3000_price');
+            $table->double('gsuspass_price');
+            $table->double('dowel1_price');
+            $table->double('dowel2_price');
+            $table->double('g600tc_price');
+            //Pack
+            $table->double('g2400_pack');
+            $table->double('g1200_pack');
+            $table->double('g600_pack');
+            $table->double('g600f_pack');
+            $table->double('g600m_pack');
+            $table->double('g600tc_pack');
+            $table->double('gsusp_pack');
+            $table->double('gL3000_pack');
+            $table->double('gsuspass_pack');
+            $table->double('dowel1_pack');
+            $table->double('dowel2_pack');
             //GrilyatoGLK
-            $table->float('g600tc');
+            $table->double('g600tc');
             //EndGrilyato
             //KraftCube
-            $table->float('count');
-            $table->float('stringer');
+            $table->double('count');
+            $table->double('stringer');
             //EndKraftCube
             //Package
             //EndPackage

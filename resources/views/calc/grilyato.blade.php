@@ -234,9 +234,9 @@
                 var k2400;
                 if (document.getElementById("model").value === 'classical' || document.getElementById("model").value === 'pyramidal') {
                     if (document.getElementById("sizecells").value <= 100)
-                        k2400 = 0.696;
+                        k2400 = g2400c_a;
                     else
-                        k2400 = 0.348;
+                        k2400 = g2400c_b;
                 }
                 var tp2400 = k2400 * s + ((k2400 * s) / 100) * difficult;
                 var tp3600 = 0;
@@ -246,21 +246,21 @@
                 if (document.getElementById("sizecells").value <= 100)
                     tp1200 = 0;
                 else
-                    tp1200 = 1.392 * s + ((1.392 * s) / 100) * difficult;
+                    tp1200 = g1200c_b * s + ((g1200c_b * s) / 100) * difficult;
 
                 if (document.getElementById("sizecells").value <= 100)
-                    tp600 = 2.783 * s + ((2.783 * s) / 100) * difficult;
+                    tp600 = g600c_a * s + ((g600c_a * s) / 100) * difficult;
                 else
-                    tp600 = 1.392 * s + ((1.392 * s) / 100) * difficult;
+                    tp600 = g600c_b * s + ((g600c_b * s) / 100) * difficult;
 
-                tp600f = (600 / (sizecells - 1)) * 2.78 * p;
+                tp600f = (600 / (sizecells - 1)) * g600fc_a * p;
                 tp600f = tp600f + (tp600f / 100) * (difficult / 10);
                 tp600m = tp600f;
 
-                var susp = tp2400 * 0.9;
-                var angles = p / 3;
+                var susp = tp2400 * suspc_a;
+                var angles = p / L3000c_a;
                 angles = angles + ((angles / 100) * difficult) * 2;
-                var suspass = tp2400 * 3;
+                var suspass = tp2400 * suspass_a;
                 var dowel1, dowel2;
 
                 dowel1 = suspass;
@@ -272,13 +272,13 @@
                 var suspass = 0;
                 var tp2400 = 0;
                 var dowel1 = 0, dowel2 = 0;
-                var tp3600 = 0.324*s+((0.324*s)/100)*difficult;
-                tp1200 = 1.4*s+((1.4*s)/100)*difficult;
-                tp600 = 1.4*s+((1.4*s)/100)*difficult;
-                tp600f = (600 / (sizecells - 1)) * 2.78 * p;
+                var tp3600 = tp3600c*s+((tp3600c*s)/100)*difficult;
+                tp1200 = tp1200c*s+((tp1200c*s)/100)*difficult;
+                tp600 = tp600c*s+((tp600c*s)/100)*difficult;
+                tp600f = (600 / (sizecells - 1)) * g600fc_a * p;
                 tp600f = tp600f + (tp600f / 100) * (difficult / 10);
                 tp600m = tp600f;
-                var tp600tc = 11.12*s+((11.12*s)/100)*difficult;
+                var tp600tc = g600tc*s+((g600tc*s)/100)*difficult;
             }
             //EndDataProcessing
 
@@ -298,59 +298,69 @@
             document.getElementById("table-dowel2").innerHTML = Math.ceil(dowel2)+" ("+Math.ceil(dowel2*100)/100+"), шт";
             // PriceTable
             var price;
-            if(document.getElementById('color').value === "other") price = 45;
-            else price = 30;
-            document.getElementById("table-price-tp3600").innerHTML = price+" грн";
-            document.getElementById("table-price-tp2400").innerHTML = price+" грн";
-            document.getElementById("table-price-tp1200").innerHTML = price+" грн";
-            document.getElementById("table-price-tp600").innerHTML = price+" грн";
-            document.getElementById("table-price-tp600f").innerHTML = price+" грн";
-            document.getElementById("table-price-tp600m").innerHTML = price+" грн";
-            document.getElementById("table-price-tp600tc").innerHTML = price+" грн";
-            document.getElementById("table-price-susp").innerHTML = price+" грн";
-            document.getElementById("table-price-angles").innerHTML = price+" грн";
-            document.getElementById("table-price-suspass").innerHTML = price+" грн";
-            document.getElementById("table-price-dowel1").innerHTML = price+" грн";
-            document.getElementById("table-price-dowel2").innerHTML = price+" грн";
+            if(document.getElementById('color').value === "other") price = 1.5;
+            else price = 1;
+            var tp3600_price = 0;
+            var tp2400_price = g2400c_price*price;
+            var tp1200_price = g1200c_price*price;
+            var tp600_price = g600c_price*price;
+            var tp600f_price = g600fc_price*price;
+            var tp600tc_price = g600tc_price*price;
+            var L3000_price = L3000c_price*price;
+            var susp_price = gsusp_price*price;
+            var dowel1c_price = dowel1_price*price;
+            var dowel2c_price = dowel2_price*price;
+            document.getElementById("table-price-tp3600").innerHTML = tp3600_price+" грн";
+            document.getElementById("table-price-tp2400").innerHTML = tp2400_price+" грн";
+            document.getElementById("table-price-tp1200").innerHTML = tp1200_price+" грн";
+            document.getElementById("table-price-tp600").innerHTML = tp600_price+" грн";
+            document.getElementById("table-price-tp600f").innerHTML = tp600f_price+" грн";
+            document.getElementById("table-price-tp600m").innerHTML = tp600f_price+" грн";
+            document.getElementById("table-price-tp600tc").innerHTML = tp600tc_price+" грн";
+            document.getElementById("table-price-susp").innerHTML = susp_price+" грн";
+            document.getElementById("table-price-angles").innerHTML = L3000_price+" грн";
+            document.getElementById("table-price-suspass").innerHTML = gsuspass_price+" грн";
+            document.getElementById("table-price-dowel1").innerHTML = dowel1c_price+" грн";
+            document.getElementById("table-price-dowel2").innerHTML = dowel2c_price+" грн";
             //PackTable
             document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
-            document.getElementById("table-pack-tp2400").innerHTML = Math.ceil(tp2400/25)+" уп";
-            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/50)+" уп";
-            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/75)+" уп";
-            document.getElementById("table-pack-tp600f").innerHTML = Math.ceil(tp600f/75)+" уп";
-            document.getElementById("table-pack-tp600m").innerHTML = Math.ceil(tp600m/75)+" уп";
-            document.getElementById("table-pack-tp600tc").innerHTML = Math.ceil(tp600tc/75)+" уп";
-            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/100)+" уп";
-            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/50)+" уп";
-            document.getElementById("table-pack-suspass").innerHTML = Math.ceil(suspass/50)+" уп";
-            document.getElementById("table-pack-dowel1").innerHTML = Math.ceil(dowel1/100)+" уп";
-            document.getElementById("table-pack-dowel2").innerHTML = Math.ceil(dowel2/100)+" уп";
+            document.getElementById("table-pack-tp2400").innerHTML = Math.ceil(tp2400/g2400_pack)+" уп";
+            document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/g1200_pack)+" уп";
+            document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/g600_pack)+" уп";
+            document.getElementById("table-pack-tp600f").innerHTML = Math.ceil(tp600f/g600f_pack)+" уп";
+            document.getElementById("table-pack-tp600m").innerHTML = Math.ceil(tp600m/g600f_pack)+" уп";
+            document.getElementById("table-pack-tp600tc").innerHTML = Math.ceil(tp600tc/g600tc_pack)+" уп";
+            document.getElementById("table-pack-susp").innerHTML = Math.ceil(susp/gsusp_pack)+" уп";
+            document.getElementById("table-pack-angles").innerHTML = Math.ceil(angles/gL3000_pack)+" уп";
+            document.getElementById("table-pack-suspass").innerHTML = Math.ceil(suspass/gsuspass_pack)+" уп";
+            document.getElementById("table-pack-dowel1").innerHTML = Math.ceil(dowel1/dowel1_pack)+" уп";
+            document.getElementById("table-pack-dowel2").innerHTML = Math.ceil(dowel2/dowel2_pack)+" уп";
             //SummTable
-            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*price*25+" грн";
-            document.getElementById("table-summ-tp2400").innerHTML = Math.ceil(tp2400/25)*price*25+" грн";
-            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/50)*price*50+" грн";
-            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/75)*price*75+" грн";
-            document.getElementById("table-summ-tp600f").innerHTML = Math.ceil(tp600f/75)*price*75+" грн";
-            document.getElementById("table-summ-tp600m").innerHTML = Math.ceil(tp600m/75)*price*75+" грн";
-            document.getElementById("table-summ-tp600tc").innerHTML = Math.ceil(tp600tc/75)*price*75+" грн";
-            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/50)*price*50+" грн";
-            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/100)*price*100+" грн";
-            document.getElementById("table-summ-suspass").innerHTML = Math.ceil(suspass/100)*price*100+" грн";
-            document.getElementById("table-summ-dowel1").innerHTML = Math.ceil(dowel1/100)*price*100+" грн";
-            document.getElementById("table-summ-dowel2").innerHTML = Math.ceil(dowel2/100)*price*100+" грн";
+            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*tp3600_price*25+" грн";
+            document.getElementById("table-summ-tp2400").innerHTML = Math.ceil(tp2400/g2400_pack)*tp2400_price*g2400_pack+" грн";
+            document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/g1200_pack)*tp1200_price*g1200_pack+" грн";
+            document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/g600_pack)*tp600_price*g600_pack+" грн";
+            document.getElementById("table-summ-tp600f").innerHTML = Math.ceil(tp600f/g600f_pack)*tp600f_price*g600f_pack+" грн";
+            document.getElementById("table-summ-tp600m").innerHTML = Math.ceil(tp600m/g600f_pack)*tp600f_price*g600f_pack+" грн";
+            document.getElementById("table-summ-tp600tc").innerHTML = Math.ceil(tp600tc/g600tc_pack)*tp600tc_price*g600tc_pack+" грн";
+            document.getElementById("table-summ-susp").innerHTML = Math.ceil(susp/gsusp_pack)*susp_price*gsusp_pack+" грн";
+            document.getElementById("table-summ-angles").innerHTML = Math.ceil(angles/gL3000_pack)*L3000_price*gL3000_pack+" грн";
+            document.getElementById("table-summ-suspass").innerHTML = Math.ceil(suspass/gsuspass_pack)*gsuspass_price*gsuspass_pack+" грн";
+            document.getElementById("table-summ-dowel1").innerHTML = Math.ceil(dowel1/dowel1_pack)*dowel1c_price*dowel1_pack+" грн";
+            document.getElementById("table-summ-dowel2").innerHTML = Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack+" грн";
             document.getElementById("table-summ").innerHTML =
-                Math.ceil(tp3600/25)*price*25+
-                Math.ceil(tp2400/25)*price*25+
-                Math.ceil(tp1200/50)*price*50+
-                Math.ceil(tp600/75)*price*75+
-                Math.ceil(tp600f/75)*price*75+
-                Math.ceil(tp600m/75)*price*75+
-                Math.ceil(tp600tc/75)*price*75+
-                Math.ceil(susp/50)*price*50+
-                Math.ceil(angles/100)*price*100+
-                Math.ceil(suspass/100)*price*100+
-                Math.ceil(dowel1/100)*price*100+
-                Math.ceil(dowel2/100)*price*100+
+                Math.ceil(tp3600/25)*tp3600_price*25+
+                Math.ceil(tp2400/g2400_pack)*tp2400_price*g2400_pack+
+                Math.ceil(tp1200/g1200_pack)*tp1200_price*g1200_pack+
+                Math.ceil(tp600/g600_pack)*tp600_price*g600_pack+
+                Math.ceil(tp600f/g600f_pack)*tp600f_price*g600f_pack+
+                Math.ceil(tp600f/g600f_pack)*tp600f_price*g600f_pack+
+                Math.ceil(tp600tc/g600tc_pack)*tp600tc_price*g600tc_pack+
+                Math.ceil(susp/gsusp_pack)*susp_price*gsusp_pack+
+                Math.ceil(angles/gL3000_pack)*L3000_price*gL3000_pack+
+                Math.ceil(suspass/gsuspass_pack)*gsuspass_price*gsuspass_pack+
+                Math.ceil(dowel1/dowel1_pack)*dowel1c_price*dowel1_pack+
+                Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack+
                 " грн";
             //ShowTable
             $("#table").show();
