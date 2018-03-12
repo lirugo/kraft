@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/calc/">Калькулятор</a>
+                <a class="link-bread" href="/calc/{{$data['object']->id}}">Калькулятор</a>
                 <a class="link-bread" href="#">Грильято</a>
             </div>
         </div>
