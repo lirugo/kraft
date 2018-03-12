@@ -121,7 +121,9 @@ Route::group(['prefix' => 'admin'],
         //Calc
         Route::get('calc', 'Admin\CalcController@index');
         Route::get('calc/tprofile', 'Admin\CalcController@tprofile');
+        Route::get('calc/grilyato', 'Admin\CalcController@grilyato');
         Route::post('calc/tprofile/update', 'Admin\CalcController@tprofileupdate')->name('admin.calc.tprofile.update');
+        Route::post('calc/grilyato/update', 'Admin\CalcController@grilyatoupdate')->name('admin.calc.grilyato.update');
         //EndCalc
 
         Route::post('users/activate/{id}', 'Admin\AdminController@activateuser')->name('admin.users.activate');
