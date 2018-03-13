@@ -292,39 +292,38 @@
             // on our site that will update the database
             // pass in our lat/lng as parameters
             $.post('/calc/tprofile/history/'+id, {
-                    _token: $('meta[name=csrf-token]').attr('content'),
-                    id: id,
-                    type: "T-Profile",
-                    tp3600: tp3600,
-                    tp1200: tp1200,
-                    tp600: tp600,
-                    L3000: angles,
-                    susp: susp,
+                _token: $('meta[name=csrf-token]').attr('content'),
+                id: id,
+                type: "T-Profile",
+                difficult: difficult,
+                tp3600: tp3600,
+                tp1200: tp1200,
+                tp600: tp600,
+                L3000: angles,
+                susp: susp,
 
-                    //PriceByOne
-                    tp3600_priceByOne: price,
-                    tp1200_priceByOne: price,
-                    tp600_priceByOne: price,
-                    L3000_priceByOne: price,
-                    susp_priceByOne: price,
+                //PriceByOne
+                tp3600_priceByOne: tp3600_price,
+                tp1200_priceByOne: tp1200_price,
+                tp600_priceByOne: tp600_price,
+                L3000_priceByOne: L3000_price,
+                susp_priceByOne: susp_price,
 
-                    //CountPackage
-                    tp3600_package:Math.ceil(tp3600/25),
-                    tp1200_package:Math.ceil(tp1200/50),
-                    tp600_package:Math.ceil(tp600/75),
-                    L3000_package:Math.ceil(angles/50),
-                    susp_package:Math.ceil(susp/100),
+                //CountPackage
+                tp3600_package:Math.ceil(tp3600/25),
+                tp1200_package:Math.ceil(tp1200/50),
+                tp600_package:Math.ceil(tp600/75),
+                L3000_package:Math.ceil(angles/50),
+                susp_package:Math.ceil(susp/100),
 
-                    //CommonPrice
-                    tp3600_price:Math.ceil(tp3600/25)*price*25,
-                    tp1200_price:Math.ceil(tp1200/50)*price*50,
-                    tp600_price:Math.ceil(tp600/75)*price*75,
-                    L3000_price:Math.ceil(angles/50)*price*50,
-                    susp_price:Math.ceil(susp/100)*price*100,
-                    sum: Math.ceil(tp3600/25)*price*25+Math.ceil(tp1200/50)*price*50+Math.ceil(tp600/75)*price*75+Math.ceil(angles/50)*price*50+Math.ceil(susp/100)*price*100
-
-
-        }
+                //CommonPrice
+                tp3600_price:Math.ceil(tp3600/25)*tp3600_price*25,
+                tp1200_price:Math.ceil(tp1200/50)*tp1200_price*50,
+                tp600_price:Math.ceil(tp600/75)*tp600_price*75,
+                L3000_price:Math.ceil(angles/50)*L3000_price*50,
+                susp_price:Math.ceil(susp/100)*susp_price*100,
+                sum: Math.ceil(tp3600/25)*tp3600_price*25+Math.ceil(tp1200/50)*tp1200_price*50+Math.ceil(tp600/75)*tp600_price*75+Math.ceil(angles/50)*L3000_price*50+Math.ceil(susp/100)*susp_price*100
+                }
             )
                 .done(function(data) {
                     //alert(data);

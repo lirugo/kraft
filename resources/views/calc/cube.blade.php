@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/calc/{{$object->id}}">Калькулятор</a>
+                <a class="link-bread" href="/calc/{{$data['object']->id}}">Калькулятор</a>
                 <a class="link-bread" href="#">Рейка</a>
             </div>
         </div>
@@ -23,8 +23,8 @@
                 <br>
                 <br>
                 {!! Form::label('label', "Конфигурация помещения:") !!}
-                {{ Form::radio('difficult', '3', false,  ['id' => 'easy']) }} Простая
-                {{ Form::radio('difficult', '7', false,  ['id' => 'hard']) }} Сложная
+                {{ Form::radio('difficult', $data['constants']->easy, false,  ['id' => 'easy']) }} Простая
+                {{ Form::radio('difficult', $data['constants']->hard, false,  ['id' => 'hard']) }} Сложная
                 <br>
                 <br>
                 {!! Form::label('label', "Ширина рейки:") !!}
@@ -184,9 +184,9 @@
             //EndInitialData
 
             //DataProcessing
-            var count = s * (1000/sizecells);
+            var count = s * (countc/sizecells);
             count = count + (count/100)*difficult;
-            var stringer = s * 0.32;
+            var stringer = s * stringerc;
             stringer = stringer + (stringer/100)*difficult;
             var podves = 0;
             //EndDataProcessing
@@ -198,24 +198,67 @@
             document.getElementById("table-podves").innerHTML = Math.ceil(podves)+" ("+Math.ceil(podves*100)/100+"), шт";
             // PriceTable
             var price;
-            if(document.getElementById('colors').value === "other") price = 45;
-            else price = 30;
-            document.getElementById("table-price-count").innerHTML = price+" грн";
-            document.getElementById("table-price-stringer").innerHTML = price+" грн";
-            document.getElementById("table-price-podves").innerHTML = price+" грн";
+            if(document.getElementById('colors').value === "other") price = 1.5;
+            else price = 1;
+            var count_price = countc_price * price;
+            var stringer_price = stringerc_price * price;
+            var susp_price = suspc_price * price;
+            document.getElementById("table-price-count").innerHTML = count_price+" грн";
+            document.getElementById("table-price-stringer").innerHTML = stringer_price+" грн";
+            document.getElementById("table-price-podves").innerHTML = susp_price+" грн";
             // PackTable
-            document.getElementById("table-pack-count").innerHTML = Math.ceil(count/25)+" уп";
-            document.getElementById("table-pack-stringer").innerHTML = Math.ceil(stringer/50)+" уп";
-            document.getElementById("table-pack-podves").innerHTML = Math.ceil(podves/75)+" уп";
+            document.getElementById("table-pack-count").innerHTML = Math.ceil(count/countc_pack)+" уп";
+            document.getElementById("table-pack-stringer").innerHTML = Math.ceil(stringer/stringerc_pack)+" уп";
+            document.getElementById("table-pack-podves").innerHTML = Math.ceil(podves/csuspc_pack)+" уп";
             // SummTable
-            document.getElementById("table-summ-count").innerHTML = Math.ceil(count/25)*price*25+" грн";
-            document.getElementById("table-summ-stringer").innerHTML = Math.ceil(stringer/50)*price*50+" грн";
-            document.getElementById("table-summ-podves").innerHTML = Math.ceil(podves/75)*price*75+" грн";
-            document.getElementById("table-summ").innerHTML =  Math.ceil(count/25)*price*25+Math.ceil(stringer/50)*price*50+Math.ceil(podves/75)*price*75+" грн";
+            document.getElementById("table-summ-count").innerHTML = Math.ceil(count/countc_pack)*count_price*countc_pack+" грн";
+            document.getElementById("table-summ-stringer").innerHTML = Math.ceil(stringer/stringerc_pack)*stringer_price*stringerc_pack+" грн";
+            document.getElementById("table-summ-podves").innerHTML = Math.ceil(podves/csuspc_pack)*susp_price*csuspc_pack+" грн";
+            document.getElementById("table-summ").innerHTML =  Math.ceil(count/countc_pack)*count_price*countc_pack+
+                Math.ceil(stringer/stringerc_pack)*stringer_price*stringerc_pack+
+                Math.ceil(podves/csuspc_pack)*susp_price*csuspc_pack+" грн";
             //ShowTable
             $("#table").show();
             // EndSetDataInTable
 
+            //Send Ajax Post to Controller save in database
+            // make an ajax request to a PHP file
+            // on our site that will update the database
+            // pass in our lat/lng as parameters
+            $.post('/calc/cube/history/'+id, {
+                _token: $('meta[name=csrf-token]').attr('content'),
+                id: id,
+                type: "Cube",
+                difficult: difficult,
+                count: count,
+                stringer: stringer,
+                podves: podves,
+
+                //PriceByOne
+                count_price: count_price,
+                stringer_price: stringer_price,
+                susp_price: susp_price,
+
+                //CountPackage
+                countc_pack:Math.ceil(count/countc_pack),
+                stringerc_pack:Math.ceil(stringer/stringerc_pack),
+                csuspc_pack:Math.ceil(podves/csuspc_pack),
+
+                //CommonPrice
+                countc_price:Math.ceil(count/countc_pack)*count_price*countc_pack,
+                stringerc_price:Math.ceil(stringer/stringerc_pack)*stringer_price*stringerc_pack,
+                suspc_price:Math.ceil(podves/csuspc_pack)*susp_price*csuspc_pack,
+                sum:Math.ceil(count/countc_pack)*count_price*countc_pack+
+                    Math.ceil(stringer/stringerc_pack)*stringer_price*stringerc_pack+
+                    Math.ceil(podves/csuspc_pack)*susp_price*csuspc_pack
+                }
+            )
+                .done(function(data) {
+                    //alert(data);
+                })
+                .fail(function() {
+                    alert( "error" );
+                });
         }
     </script>
 @endsection

@@ -87,9 +87,16 @@ class CreateConstantsTable extends Migration
             //KraftCube
             $table->double('count');
             $table->double('stringer');
+            $table->double('count_price');
+            $table->double('stringer_price');
+            $table->double('csusp_price');
+            $table->double('count_pack');
+            $table->double('stringer_pack');
+            $table->double('csusp_pack');
             //EndKraftCube
-            //Package
-            //EndPackage
+            //Led
+            $table->double('coefficient_led');
+            $table->double('price_led');
             $table->timestamps();
         });
     }

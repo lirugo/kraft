@@ -122,8 +122,12 @@ Route::group(['prefix' => 'admin'],
         Route::get('calc', 'Admin\CalcController@index');
         Route::get('calc/tprofile', 'Admin\CalcController@tprofile');
         Route::get('calc/grilyato', 'Admin\CalcController@grilyato');
+        Route::get('calc/cube', 'Admin\CalcController@cube');
+        Route::get('calc/led', 'Admin\CalcController@led');
         Route::post('calc/tprofile/update', 'Admin\CalcController@tprofileupdate')->name('admin.calc.tprofile.update');
         Route::post('calc/grilyato/update', 'Admin\CalcController@grilyatoupdate')->name('admin.calc.grilyato.update');
+        Route::post('calc/cube/update', 'Admin\CalcController@cubeupdate')->name('admin.calc.cube.update');
+        Route::post('calc/led/update', 'Admin\CalcController@ledupdate')->name('admin.calc.led.update');
         //EndCalc
 
         Route::post('users/activate/{id}', 'Admin\AdminController@activateuser')->name('admin.users.activate');
@@ -182,10 +186,13 @@ Route::get('routes/console', function()
 Route::get('/calc/history/show/{id}', 'Calc\CalcController@history');
 Route::get('/calc/{id}', 'Calc\CalcController@index');
 Route::get('calc/tprofile/{id}', 'Calc\CalcController@tprofile');
-Route::post('calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
-Route::get('calc/grilyato/{id}', 'Calc\CalcController@grilyato');
-Route::get('calc/cube/{id}', 'Calc\CalcController@cube');
-Route::get('calc/led/{id}', 'Calc\CalcController@led');
+Route::post('/calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
+Route::post('/calc/grilyato/history/{id}', 'Calc\CalcController@grilyatohistory')->name('calc.grilyato.history');
+Route::post('/calc/cube/history/{id}', 'Calc\CalcController@cubehistory')->name('calc.cube.history');
+Route::post('/calc/led/history/{id}', 'Calc\CalcController@ledhistory')->name('calc.led.history');
+Route::get('/calc/grilyato/{id}', 'Calc\CalcController@grilyato');
+Route::get('/calc/cube/{id}', 'Calc\CalcController@cube');
+Route::get('/calc/led/{id}', 'Calc\CalcController@led');
 //EndCalcRoute
 
 //Message route

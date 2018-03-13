@@ -57,6 +57,7 @@ class CalcController extends Controller
         $calcHistory = new CalcHistory();
             $calcHistory->object_id = $request->id;
             $calcHistory->type = $request->type;
+            $calcHistory->difficult = $request->difficult;
             $calcHistory->tp3600 = $request->tp3600;
             $calcHistory->tp1200 = $request->tp1200;
             $calcHistory->tp600 = $request->tp600;
@@ -82,6 +83,94 @@ class CalcController extends Controller
             $calcHistory->susp_price = $request->susp_price;
             $calcHistory->sum = $request->sum;
 
+        $calcHistory->save();
+    }
+
+    public function grilyatohistory(Request $request){
+        $calcHistory = new CalcHistory();
+        $calcHistory->object_id = $request->id;
+        $calcHistory->type = $request->type;
+        $calcHistory->difficult = $request->difficult;
+
+        $calcHistory->tp2400_grilyato = $request->tp2400_grilyato;
+        $calcHistory->tp1200_grilyato = $request->tp1200_grilyato;
+        $calcHistory->tp600_grilyato = $request->tp600_grilyato;
+        $calcHistory->tp600f_grilyato = $request->tp600f_grilyato;
+        $calcHistory->tp600tc_grilyato = $request->tp600tc_grilyato;
+        $calcHistory->susp_grilyato = $request->susp_grilyato;
+        $calcHistory->angles_grilyato = $request->angles_grilyato;
+        $calcHistory->suspass_grilyato = $request->suspass_grilyato;
+        $calcHistory->dowel1_grilyato = $request->dowel1_grilyato;
+        $calcHistory->dowel2_grilyato = $request->dowel2_grilyato;
+
+        $calcHistory->tp2400_priceByOne_grilyato = $request->tp2400_priceByOne_grilyato;
+        $calcHistory->tp1200_priceByOne_grilyato = $request->tp1200_priceByOne_grilyato;
+        $calcHistory->tp600_priceByOne_grilyato = $request->tp600_priceByOne_grilyato;
+        $calcHistory->tp600f_priceByOne_grilyato = $request->tp600f_priceByOne_grilyato;
+        $calcHistory->tp600tc_priceByOne_grilyato = $request->tp600tc_priceByOne_grilyato;
+        $calcHistory->susp_price_priceByOne_grilyato = $request->susp_price_priceByOne_grilyato;
+        $calcHistory->angles_price_priceByOne_grilyato = $request->angles_price_priceByOne_grilyato;
+        $calcHistory->gsuspass_price_priceByOne_grilyato = $request->gsuspass_price_priceByOne_grilyato;
+        $calcHistory->dowel1c_price_priceByOne_grilyato = $request->dowel1c_price_priceByOne_grilyato;
+        $calcHistory->dowel2c_price_priceByOne_grilyato = $request->dowel2c_price_priceByOne_grilyato;
+
+        $calcHistory->tp2400_package_grilyato = $request->tp2400_package_grilyato;
+        $calcHistory->tp1200_package_grilyato = $request->tp1200_package_grilyato;
+        $calcHistory->tp600_package_grilyato = $request->tp600_package_grilyato;
+        $calcHistory->tp600f_package_grilyato = $request->tp600f_package_grilyato;
+        $calcHistory->tp600tc_package_grilyato = $request->tp600tc_package_grilyato;
+        $calcHistory->susp_package_grilyato = $request->susp_package_grilyato;
+        $calcHistory->angles_package_grilyato = $request->angles_package_grilyato;
+        $calcHistory->suspass_package_grilyato = $request->suspass_package_grilyato;
+        $calcHistory->dowel1_package_grilyato = $request->dowel1_package_grilyato;
+        $calcHistory->dowel2_package_grilyato = $request->dowel2_package_grilyato;
+
+        $calcHistory->tp2400_price_grilyato = $request->tp2400_price_grilyato;
+        $calcHistory->tp1200_price_grilyato = $request->tp1200_price_grilyato;
+        $calcHistory->tp600_price_grilyato = $request->tp600_price_grilyato;
+        $calcHistory->tp600f_price_grilyato = $request->tp600f_price_grilyato;
+        $calcHistory->tp600tc_price_grilyato = $request->tp600tc_price_grilyato;
+        $calcHistory->susp_price_grilyato = $request->susp_price_grilyato;
+        $calcHistory->angles_price_grilyato = $request->angles_price_grilyato;
+        $calcHistory->suspass_price_grilyato = $request->suspass_price_grilyato;
+        $calcHistory->dowel1_price_grilyato = $request->dowel1_price_grilyato;
+        $calcHistory->dowel2_price_grilyato = $request->dowel2_price_grilyato;
+        $calcHistory->sum_grilyato = $request->sum_grilyato;
+
+        $calcHistory->save();
+    }
+
+    public function cubehistory(Request $request){
+        $calcHistory = new CalcHistory();
+        $calcHistory->object_id = $request->id;
+        $calcHistory->type = $request->type;
+        $calcHistory->difficult = $request->difficult;
+        $calcHistory->count_cube = $request->count;
+        $calcHistory->stringer_cube = $request->stringer;
+        $calcHistory->podves_cube = $request->podves;
+
+        $calcHistory->count_price_cube = $request->count_price;
+        $calcHistory->stringer_price_cube = $request->stringer_price;
+        $calcHistory->susp_price_cube = $request->susp_price;
+
+        $calcHistory->countc_pack_cube = $request->countc_pack;
+        $calcHistory->stringerc_pack_cube = $request->stringerc_pack;
+        $calcHistory->csuspc_pack_cube = $request->csuspc_pack;
+
+        $calcHistory->countc_price_cube = $request->countc_price;
+        $calcHistory->stringerc_price_cube = $request->stringerc_price;
+        $calcHistory->suspc_price_cube = $request->suspc_price;
+        $calcHistory->sum_cube = $request->sum;
+
+        $calcHistory->save();
+    }
+
+    public function ledhistory(Request $request){
+        $calcHistory = new CalcHistory();
+            $calcHistory->object_id = $request->id;
+            $calcHistory->type = $request->type;
+            $calcHistory->count_led = $request->count_led;
+            $calcHistory->sum_led = $request->sum_led;
         $calcHistory->save();
     }
 
@@ -141,11 +230,30 @@ class CalcController extends Controller
 
     public function cube($id){
         $object = Object::find($id);
-        return view('calc.cube')->with('object', $object);
+        $constants = Constants::get()->last();
+        $data = new Collection;
+        $data->put('object' , $object);
+        $data->put('constants' , $constants);
+        Javascript::put([
+            'id' => $id,
+            'easy' => $constants->easy,
+            'hard' => $constants->hard,
+            'countc' => $constants->count,
+            'stringerc' => $constants->stringer,
+            //Price
+            'countc_price' => $constants->count_price,
+            'stringerc_price' => $constants->stringer_price,
+            'suspc_price' => $constants->csusp_price,
+            //pack
+            'countc_pack' => $constants->count_pack,
+            'stringerc_pack' => $constants->stringer_pack,
+            'csuspc_pack' => $constants->csusp_pack
+        ]);
+        return view('calc.cube')->with('data', $data);
     }
 
     public function history($id){
-        $calcs = CalcHistory::where('object_id', $id)->paginate(5);
+        $calcs = CalcHistory::where('object_id', $id)->orderBy('id', 'DESC')->paginate(5);
         if($calcs->count() == 0){
             Session::flash('warning', 'Для начала сделайте свой первый расчет');
             return back();
@@ -155,6 +263,18 @@ class CalcController extends Controller
 
     public function led($id){
         $object = Object::find($id);
-        return view('calc.led')->with('object', $object);
+        $constants = Constants::get()->last();
+        $data = new Collection;
+        $data->put('object' , $object);
+        $data->put('constants' , $constants);
+        Javascript::put([
+            'id' => $id,
+            'easy' => $constants->easy,
+            'hard' => $constants->hard,
+            'coefficient_led' => $constants->coefficient_led,
+            //Price
+            'price_led' => $constants->price_led,
+        ]);
+        return view('calc.led')->with('data', $data);
     }
 }

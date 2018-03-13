@@ -27,22 +27,22 @@
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
-                            <!--                            <a href="/calc/grilyato">-->
+                                <a href="/admin/calc/grilyato">
                                 <img src="\img\icon\calc\grilyato.png" width="150px"/>
                                 <div class="description m-t-10">
                                     Грильято
                                 </div>
-                                <!--                            </a>-->
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
-                            <!--                            <a href="/calc/cube">-->
+                                <a href="/admin/calc/cube">
                                 <img src="\img\icon\calc\cube.png" width="150px"/>
                                 <div class="description m-t-10">
                                     Рейка
                                 </div>
-                                <!--                            </a>-->
+                                </a>
                             </div>
                         </div>
                     </div>

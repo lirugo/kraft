@@ -78,6 +78,17 @@ class ConstantsSeeder extends Seeder
             'dowel1_pack' => 100,
             'dowel2_pack' => 100,
             //Grilyato
+            //Cube
+            'count_price' => 30,
+            'stringer_price' => 30,
+            'csusp_price' => 30,
+            'count_pack' => 25,
+            'stringer_pack' => 50,
+            'csusp_pack' => 75,
+            //Led
+            'coefficient_led' => 0.5,
+            'price_led' => 30,
+
         ]);
     }
 }

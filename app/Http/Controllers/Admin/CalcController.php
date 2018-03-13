@@ -23,6 +23,16 @@ class CalcController extends Controller
         return view('admin.calc.grilyato')->with('constants', $constants);
     }
 
+    public function cube(){
+        $constants = Constants::get()->last();
+        return view('admin.calc.cube')->with('constants', $constants);
+    }
+
+    public function led(){
+        $constants = Constants::get()->last();
+        return view('admin.calc.led')->with('constants', $constants);
+    }
+
     public function tprofileupdate(Request $request){
         //Validate
         $this->validate($request,[
@@ -138,6 +148,54 @@ class CalcController extends Controller
         $constants->gsusp_pack = $request->gsusp_pack;
         $constants->gsuspass_pack = $request->gsuspass_pack;
         $constants->dowel1_pack = $request->dowel1_pack;
+        $constants->save();
+        //GetMessageAndRedirect
+        Session::flash('success', 'Data was Updated');
+        return back();
+    }
+
+    public function cubeupdate(Request $request){
+        //Validate
+        $this->validate($request,[
+            //Validate company profile
+            'count' => 'required',
+            'stringer' => 'required',
+            'count_price' => 'required',
+            'stringer_price' => 'required',
+            'csusp_price' => 'required',
+            'count_pack' => 'required',
+            'stringer_pack' => 'required',
+            'csusp_pack' => 'required',
+        ]);
+        //SetData
+        $constants = Constants::get()->last();
+        $constants->count = $request->count;
+        $constants->stringer = $request->stringer;
+        //Price
+        $constants->count_price = $request->count_price;
+        $constants->stringer_price = $request->stringer_price;
+        $constants->csusp_price = $request->csusp_price;
+        //Pack
+        $constants->count_pack = $request->count_pack;
+        $constants->stringer_pack = $request->stringer_pack;
+        $constants->csusp_pack = $request->csusp_pack;
+        $constants->save();
+        //GetMessageAndRedirect
+        Session::flash('success', 'Data was Updated');
+        return back();
+    }
+
+    public function ledupdate(Request $request){
+        //Validate
+        $this->validate($request,[
+            //Validate company profile
+            'coefficient_led' => 'required',
+            'price_led' => 'required',
+        ]);
+        //SetData
+        $constants = Constants::get()->last();
+        $constants->coefficient_led = $request->coefficient_led;
+        $constants->price_led = $request->price_led;
         $constants->save();
         //GetMessageAndRedirect
         Session::flash('success', 'Data was Updated');

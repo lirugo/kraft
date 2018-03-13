@@ -5,7 +5,7 @@
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
                 <a class="link-bread" href="#">Объект</a>
-                <a class="link-bread" href="/calc/{{$object->id}}">Калькулятор</a>
+                <a class="link-bread" href="/calc/{{$data['object']->id}}">Калькулятор</a>
                 <a class="link-bread" href="#">KRAFT LED</a>
             </div>
         </div>
@@ -176,7 +176,7 @@
                 </div>
                 <div class="row">
                     {!! Form::label('label', "Коэффициент:", ['class' => 'm-t-10']) !!}
-                    {!! Form::text('k', 0.5, ['class' => 'form-control', 'readonly', 'id' => 'k']) !!}
+                    {!! Form::text('k', $data['constants']->coefficient_led, ['class' => 'form-control', 'readonly', 'id' => 'k']) !!}
                 </div>
                 <div class="row">
                     {!! Form::submit('Расчитать',['class' => 'botton botton-default pull-right', 'id' => 'calc']) !!}
@@ -215,10 +215,9 @@
         });
        //Submit BTN
        document.getElementById("calc").addEventListener("click", calcFunction);
-
        function calcFunction() {
            //Validate
-           var numbers = /^[+-]?\d+(\.\d+)?$/;
+           var numbers = /^[+-]?\d+([\.]\d+)?$/;
            if(!document.getElementById('a').validity.valid || !document.getElementById('a').value.match(numbers))
            {
                document.getElementById("a").focus();
@@ -271,7 +270,7 @@
            var h3 = h1-h2;
            var index = s/((Number(a) + Number(b))*h3);
            var index2 = index/2;
-           var k = 0.5;
+           var k = coefficient_led;
            var k2 = +index2 + +k;
            var lk;
            if(document.getElementById('type').value === "other")
@@ -281,7 +280,26 @@
 
            var lk2 = k2*(1583/s);
            var count = lk/lk2;
-           document.getElementById("count").value = Math.floor(count);
+           document.getElementById("count").value = Math.floor(count)+" шт. ("+Math.floor(count)*price_led+" грн)";
+
+           //Send Ajax Post to Controller save in database
+           // make an ajax request to a PHP file
+           // on our site that will update the database
+           // pass in our lat/lng as parameters
+           $.post('/calc/led/history/'+id, {
+               _token: $('meta[name=csrf-token]').attr('content'),
+               id: id,
+               type: "Led",
+               count_led: Math.floor(count),
+               sum_led: Math.floor(count)*price_led
+               }
+           )
+               .done(function(data) {
+                   // alert(data);
+               })
+               .fail(function() {
+                   alert( "error" );
+               });
        }
     </script>
 @endsection

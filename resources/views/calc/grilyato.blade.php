@@ -80,7 +80,6 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Профиль 3600 мм</th>
                         <th scope="col">Профиль 2400 мм</th>
                         <th scope="col">Профиль 1200 мм</th>
                         <th scope="col">Профиль 600 мм</th>
@@ -98,7 +97,6 @@
                     <tbody>
                     <tr>
                         <th scope="row">Кол-во</th>
-                        <td id="table-tp3600"></td>
                         <td id="table-tp2400"></td>
                         <td id="table-tp1200"></td>
                         <td id="table-tp600"></td>
@@ -113,7 +111,6 @@
                     </tr>
                     <tr>
                         <th scope="row">Цена за шт</th>
-                        <td id="table-price-tp3600"></td>
                         <td id="table-price-tp2400"></td>
                         <td id="table-price-tp1200"></td>
                         <td id="table-price-tp600"></td>
@@ -128,7 +125,6 @@
                     </tr>
                     <tr>
                         <th scope="row">Кол-во упаковок</th>
-                        <td id="table-pack-tp3600"></td>
                         <td id="table-pack-tp2400"></td>
                         <td id="table-pack-tp1200"></td>
                         <td id="table-pack-tp600"></td>
@@ -143,7 +139,6 @@
                     </tr>
                     <tr>
                         <th scope="row">Стоимость</th>
-                        <td id="table-summ-tp3600"></td>
                         <td id="table-summ-tp2400"></td>
                         <td id="table-summ-tp1200"></td>
                         <td id="table-summ-tp600"></td>
@@ -284,7 +279,6 @@
 
             //SetDataInTable
             //CountTable
-            document.getElementById("table-tp3600").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+"), шт";
             document.getElementById("table-tp2400").innerHTML = Math.ceil(tp2400)+" ("+Math.ceil(tp2400*100)/100+"), шт";
             document.getElementById("table-tp1200").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+"), шт";
             document.getElementById("table-tp600").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+"), шт";
@@ -310,7 +304,6 @@
             var susp_price = gsusp_price*price;
             var dowel1c_price = dowel1_price*price;
             var dowel2c_price = dowel2_price*price;
-            document.getElementById("table-price-tp3600").innerHTML = tp3600_price+" грн";
             document.getElementById("table-price-tp2400").innerHTML = tp2400_price+" грн";
             document.getElementById("table-price-tp1200").innerHTML = tp1200_price+" грн";
             document.getElementById("table-price-tp600").innerHTML = tp600_price+" грн";
@@ -323,7 +316,6 @@
             document.getElementById("table-price-dowel1").innerHTML = dowel1c_price+" грн";
             document.getElementById("table-price-dowel2").innerHTML = dowel2c_price+" грн";
             //PackTable
-            document.getElementById("table-pack-tp3600").innerHTML = Math.ceil(tp3600/25)+" уп";
             document.getElementById("table-pack-tp2400").innerHTML = Math.ceil(tp2400/g2400_pack)+" уп";
             document.getElementById("table-pack-tp1200").innerHTML = Math.ceil(tp1200/g1200_pack)+" уп";
             document.getElementById("table-pack-tp600").innerHTML = Math.ceil(tp600/g600_pack)+" уп";
@@ -336,7 +328,6 @@
             document.getElementById("table-pack-dowel1").innerHTML = Math.ceil(dowel1/dowel1_pack)+" уп";
             document.getElementById("table-pack-dowel2").innerHTML = Math.ceil(dowel2/dowel2_pack)+" уп";
             //SummTable
-            document.getElementById("table-summ-tp3600").innerHTML = Math.ceil(tp3600/25)*tp3600_price*25+" грн";
             document.getElementById("table-summ-tp2400").innerHTML = Math.ceil(tp2400/g2400_pack)*tp2400_price*g2400_pack+" грн";
             document.getElementById("table-summ-tp1200").innerHTML = Math.ceil(tp1200/g1200_pack)*tp1200_price*g1200_pack+" грн";
             document.getElementById("table-summ-tp600").innerHTML = Math.ceil(tp600/g600_pack)*tp600_price*g600_pack+" грн";
@@ -348,7 +339,7 @@
             document.getElementById("table-summ-suspass").innerHTML = Math.ceil(suspass/gsuspass_pack)*gsuspass_price*gsuspass_pack+" грн";
             document.getElementById("table-summ-dowel1").innerHTML = Math.ceil(dowel1/dowel1_pack)*dowel1c_price*dowel1_pack+" грн";
             document.getElementById("table-summ-dowel2").innerHTML = Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack+" грн";
-            document.getElementById("table-summ").innerHTML =
+            var summ_grilyato =
                 Math.ceil(tp3600/25)*tp3600_price*25+
                 Math.ceil(tp2400/g2400_pack)*tp2400_price*g2400_pack+
                 Math.ceil(tp1200/g1200_pack)*tp1200_price*g1200_pack+
@@ -360,12 +351,77 @@
                 Math.ceil(angles/gL3000_pack)*L3000_price*gL3000_pack+
                 Math.ceil(suspass/gsuspass_pack)*gsuspass_price*gsuspass_pack+
                 Math.ceil(dowel1/dowel1_pack)*dowel1c_price*dowel1_pack+
-                Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack+
-                " грн";
+                Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack;
+            document.getElementById("table-summ").innerHTML = summ_grilyato+" грн";
             //ShowTable
             $("#table").show();
             //EndSetDataInTable
 
+            //Send Ajax Post to Controller save in database
+            // make an ajax request to a PHP file
+            // on our site that will update the database
+            // pass in our lat/lng as parameters
+            $.post('/calc/grilyato/history/'+id, {
+                _token: $('meta[name=csrf-token]').attr('content'),
+                id: id,
+                type: "Grilyato",
+                difficult: difficult,
+                tp2400_grilyato: tp2400,
+                tp1200_grilyato: tp1200,
+                tp600_grilyato: tp600,
+                tp600f_grilyato: tp600f,
+                tp600tc_grilyato: tp600tc,
+                susp_grilyato: susp,
+                angles_grilyato: angles,
+                suspass_grilyato: suspass,
+                dowel1_grilyato: dowel1,
+                dowel2_grilyato: dowel2,
+
+                //PriceByOne
+                tp2400_priceByOne_grilyato: tp2400_price,
+                tp1200_priceByOne_grilyato: tp1200_price,
+                tp600_priceByOne_grilyato: tp600_price,
+                tp600f_priceByOne_grilyato: tp600f_price,
+                tp600tc_priceByOne_grilyato: tp600tc_price,
+                susp_price_priceByOne_grilyato: susp_price,
+                angles_price_priceByOne_grilyato: L3000_price,
+                gsuspass_price_priceByOne_grilyato: gsuspass_price,
+                dowel1c_price_priceByOne_grilyato: dowel1c_price,
+                dowel2c_price_priceByOne_grilyato: dowel2c_price,
+
+                //CountPackage
+                tp2400_package_grilyato:Math.ceil(tp2400/g2400_pack),
+                tp1200_package_grilyato:Math.ceil(tp1200/g1200_pack),
+                tp600_package_grilyato:Math.ceil(tp600/g600_pack),
+                tp600f_package_grilyato:Math.ceil(tp600f/g600f_pack),
+                tp600tc_package_grilyato:Math.ceil(tp600tc/g600tc_pack),
+                susp_package_grilyato:Math.ceil(susp/gsusp_pack),
+                angles_package_grilyato:Math.ceil(angles/gL3000_pack),
+                suspass_package_grilyato:Math.ceil(suspass/gsuspass_pack),
+                dowel1_package_grilyato:Math.ceil(dowel1/dowel1_pack),
+                dowel2_package_grilyato:Math.ceil(dowel2/dowel2_pack),
+
+                //CommonPrice
+                tp2400_price_grilyato: Math.ceil(tp2400/g2400_pack)*tp2400_price*g2400_pack,
+                tp1200_price_grilyato: Math.ceil(tp1200/g1200_pack)*tp1200_price*g1200_pack,
+                tp600_price_grilyato: Math.ceil(tp600/g600_pack)*tp600_price*g600_pack,
+                tp600f_price_grilyato: Math.ceil(tp600f/g600f_pack)*tp600f_price*g600f_pack,
+                tp600tc_price_grilyato: Math.ceil(tp600tc/g600tc_pack)*tp600tc_price*g600tc_pack,
+                susp_price_grilyato: Math.ceil(susp/gsusp_pack)*susp_price*gsusp_pack,
+                angles_price_grilyato: Math.ceil(angles/gL3000_pack)*L3000_price*gL3000_pack,
+                suspass_price_grilyato: Math.ceil(suspass/gsuspass_pack)*gsuspass_price*gsuspass_pack,
+                dowel1_price_grilyato: Math.ceil(dowel1/dowel1_pack)*dowel1c_price*dowel1_pack,
+                dowel2_price_grilyato: Math.ceil(dowel2/dowel2_pack)*dowel2c_price*dowel2_pack,
+                sum_grilyato:summ_grilyato
+
+                }
+            )
+                .done(function(data) {
+                    //alert(data);
+                })
+                .fail(function() {
+                    alert( "error" );
+                });
         }
     </script>
 @endsection
