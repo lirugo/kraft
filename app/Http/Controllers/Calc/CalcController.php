@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Calc;
 use App\CalcHistory;
 use App\Constants;
 use App\Object;
+use App\VendorCodeTProfile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use JavaScript;
 use Session;
 
@@ -51,6 +53,16 @@ class CalcController extends Controller
             'suspc_pack' => $constants->susp_pack
         ]);
         return view('calc.tprofile')->with('data', $data);
+    }
+
+    public function tprofilevendor(Request $request){
+        $vendor = DB::table('vendor_code_t_profiles')->where([
+            ['model', $request->model],
+            ['profile_thickness', $request->profile_thickness],
+            ['color', $request->color]
+        ])->get();
+        if($vendor->count() === 3)
+            return $vendor;
     }
 
     public function tprofilehistory(Request $request){

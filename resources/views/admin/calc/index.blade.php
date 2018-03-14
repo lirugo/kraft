@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('breads')
     <div class="container-fluid">
         <div class="row">
@@ -45,11 +45,19 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/admin/calc/led">
+                                    <img src="\img\icon\calc\led.png" width="150px"/>
+                                    <div class="description m-t-10">
+                                        Рейка
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('scripts')
 @endsection

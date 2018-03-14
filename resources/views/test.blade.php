@@ -4,61 +4,124 @@
 @endsection
 @section('content')
 
-    <div class="row">
-        <div id="locationField" class="col-md-4">
-            <select required name="region" class="form-control m-b-10">
-                <option value="" disabled selected>Выберите область</option>
-                <option value="12">Киевская область</option>
-                <option value="11">Житомирская область</option>
-                <option value="13">Черниговская область</option>
-
-                <option value="21">Днепропетровская область</option>
-                <option value="22">Донецкая область</option>
-                <option value="23">Запорожская область</option>
-                <option value="24">Луганская область</option>
-                <option value="25">Полтавская область</option>
-                <option value="26">Сумская область</option>
-                <option value="27">Харьковская область</option>
-
-                <option value="31">Винницкая область</option>
-                <option value="32">Кропивницкая область</option>
-                <option value="33">Николаевская область</option>
-                <option value="34">Одесская область</option>
-                <option value="35">Херсонская область</option>
-                <option value="36">Черкасская область</option>
-
-                <option value="41">Волынская область</option>
-                <option value="42">Закарпатская область</option>
-                <option value="43">Ивано-Франковская область</option>
-                <option value="44">Львовская область</option>
-                <option value="45">Ровненская область</option>
-                <option value="46">Тернопольская область</option>
-                <option value="47">Хмельницкая область</option>
-                <option value="48">Черновицкая область</option>
-            </select>
-            <input id="autocomplete" placeholder="Enter your address" class="form-control" onFocus="geolocate()" type="text"/>
-            <h5 class="">Номер дома</h5>
-            <input class="field form-control" id="street_number" disabled="true" />
-
-            <h5 class="">Улица</h5>
-            <input class="field form-control" id="route" disabled="true"/>
-
-            <h5 class="">Город</h5>
-            <input class="field form-control" id="locality" disabled="true"/>
-
-            <input class="field form-control" id="administrative_area_level_1" disabled="true" hidden/>
-
-            <h5 class="">Индекс</h5>
-            <input class="field form-control" id="postal_code" disabled="true"/>
-
-            <h5 class="">Страна</h5>
-            <input class="field form-control" id="country" disabled="true"/>
-        </div>
-    </div>
+    <table class="table table-striped table-borderless">
+        <thead>
+        <tr>
+            <th scope="col" style="color: #f78421;">#</th>
+            <th scope="col" style="color: #f78421;">Артикул</th>
+            <th scope="col" style="color: #f78421;">Модель</th>
+            <th scope="col" style="color: #f78421;">Наименование</th>
+            <th scope="col" style="color: #f78421;">Ширина, мм.</th>
+            <th scope="col" style="color: #f78421;">Длина, мм.</th>
+            <th scope="col" style="color: #f78421;">Цвет RAL</th>
+            <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
+            <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
+            <th scope="col" style="color: #f78421;">Стоимость</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td id="table-tp3600"></td>
+            <td id="table-tp1200"></td>
+            <td id="table-tp600"></td>
+            <td id="table-angles"></td>
+            <td id="table-susp"></td>
+        </tr>
+        <tr>
+            <td id="table-price-tp3600"></td>
+            <td id="table-price-tp1200"></td>
+            <td id="table-price-tp600"></td>
+            <td id="table-price-angles"></td>
+            <td id="table-price-susp"></td>
+        </tr>
+        <tr>
+            <td id="table-pack-tp3600"></td>
+            <td id="table-pack-tp1200"></td>
+            <td id="table-pack-tp600"></td>
+            <td id="table-pack-angles"></td>
+            <td id="table-pack-susp"></td>
+        </tr>
+        <tr>
+            <td id="table-summ-tp3600"></td>
+            <td id="table-summ-tp1200"></td>
+            <td id="table-summ-tp600"></td>
+            <td id="table-summ-angles"></td>
+            <td id="table-summ-susp"></td>
+            <td id="table-summ"></td>
+        </tr>
+        {{--BottomRightSide--}}
+        <tr>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">Стоимость</td>
+            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center">81 500.00</td>
+        </tr>
+        <tr>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">Скидка 5%</td>
+            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center"> 4 087.00</td>
+        </tr>
+        <tr>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">НДС 20%</td>
+            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center">15 532.00</td>
+        </tr>
+        <tr>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td style="background-color: white"></td>
+            <td id="table-summ-susp" style="background-color: white; color: #f78421;" class="text-center"><strong>ИТОГО</strong></td>
+            <td id="table-summ" style="background-color: white; color: #f78421;" class="text-center"><strong>93 195.00</strong></td>
+        </tr>
+        </tbody>
+    </table>
 
 @endsection
 @section('scripts')
-    <script src="/js/googlemapapiaddressform.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initAutocomplete"
-            async defer></script>
+   <script>
+       var vendor;
+           //отправляю POST запрос и получаю ответ
+           $.ajax
+           ({
+               type: "POST",
+               url: "/calc/tprofile/vendor",
+               response:'json',//тип возвращаемого ответа text либо xml
+               data:{
+                   '_token': $('meta[name=csrf-token]').attr('content'),
+                   'model':'FORTIS',
+                   'profile_thickness':'15',
+                   'color':'5015'
+               },
+               async: false,
+               success: function(data){
+                   vendor = data;
+               }
+           });
+           alert(vendor[0].vendor_code);
+   </script>
 @endsection

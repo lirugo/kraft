@@ -187,6 +187,7 @@ Route::get('/calc/history/show/{id}', 'Calc\CalcController@history');
 Route::get('/calc/{id}', 'Calc\CalcController@index');
 Route::get('calc/tprofile/{id}', 'Calc\CalcController@tprofile');
 Route::post('/calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
+Route::post('/calc/tprofile/vendor', 'Calc\CalcController@tprofilevendor')->name('calc.tprofile.vendor');
 Route::post('/calc/grilyato/history/{id}', 'Calc\CalcController@grilyatohistory')->name('calc.grilyato.history');
 Route::post('/calc/cube/history/{id}', 'Calc\CalcController@cubehistory')->name('calc.cube.history');
 Route::post('/calc/led/history/{id}', 'Calc\CalcController@ledhistory')->name('calc.led.history');
