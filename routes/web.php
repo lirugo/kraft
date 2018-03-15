@@ -126,6 +126,8 @@ Route::group(['prefix' => 'admin'],
         Route::get('calc/led', 'Admin\CalcController@led');
         Route::post('calc/tprofile/update', 'Admin\CalcController@tprofileupdate')->name('admin.calc.tprofile.update');
         Route::post('calc/grilyato/update', 'Admin\CalcController@grilyatoupdate')->name('admin.calc.grilyato.update');
+        Route::post('calc/tprofile/upload', 'Admin\CalcController@tprofileuploadpost')->name('admin.calc.tprofile.upload');
+        Route::get('calc/tprofile/upload', 'Admin\CalcController@tprofileupload');
         Route::post('calc/cube/update', 'Admin\CalcController@cubeupdate')->name('admin.calc.cube.update');
         Route::post('calc/led/update', 'Admin\CalcController@ledupdate')->name('admin.calc.led.update');
         //EndCalc

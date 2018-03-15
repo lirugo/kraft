@@ -21,6 +21,7 @@ class CreateVendorCodeTProfilesTable extends Migration
             $table->integer('profile');
             $table->integer('color');
             $table->text('description');
+            $table->timestamps();
         });
     }
 

@@ -138,42 +138,6 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">Стоимость</td>
-                        <td id="table-summ-all" style="background-color: #f9f9f9; color: #f78421;"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">Скидка</td>
-                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">НДС</td>
-                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
                         <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
                         <td id="table-total" style="background-color: white; color: #f78421;"></td>
                     </tr>
@@ -547,7 +511,6 @@
                 document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
                 document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');;
 
-                document.getElementById("table-summ-all").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
                 document.getElementById("table-total").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
 
                 // Send Ajax Post to Controller save in database

@@ -101,42 +101,6 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">Стоимость</td>
-                        <td id="table-summ-all" style="background-color: #f9f9f9; color: #f78421;">{{number_format($calc->tprofile_sum_total,2)}}</td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">Скидка</td>
-                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: #f9f9f9; color: #f78421;">НДС</td>
-                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
                         <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
                         <td id="table-total" style="background-color: white; color: #f78421;"><strong>{{number_format($calc->tprofile_sum_total,2)}}</strong></td>
                     </tr>

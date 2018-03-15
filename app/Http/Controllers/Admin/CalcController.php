@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constants;
+use App\VendorCodeTProfile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
@@ -77,6 +78,39 @@ class CalcController extends Controller
         $constants->save();
         //GetMessageAndRedirect
         Session::flash('success', 'Data was Updated');
+        return back();
+    }
+
+    public function tprofileupload(){
+        $vendors = VendorCodeTProfile::orderBy('id', 'desc')->paginate(10);
+        return view('admin.calc.upload.tprofile')->with('vendors', $vendors);
+    }
+
+    public function tprofileuploadpost(Request $request){
+        $file = $request->file('mock_data');
+        $extension = $file->getClientOriginalExtension();
+        if($extension != "csv")
+        {
+            Session::flash('warning', 'File extension only .csv');
+            return back();
+        }
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $file->move('uploads/products/upload/',$filename);
+
+        if (($handle = fopen ( public_path () . '/uploads/products/upload/'.$filename, 'r' )) !== FALSE) {
+            while ( ($data = fgetcsv ( $handle, 1000, ';' )) !== FALSE ) {
+                $vendor = new VendorCodeTProfile();
+                $vendor->vendor_code = $data [1];
+                $vendor->model = $data [2];
+                $vendor->profile_thickness = $data [3];
+                $vendor->profile = $data [4];
+                $vendor->color = $data [5];
+                $vendor->description = $data [6];
+                $vendor->save ();
+            }
+            fclose ( $handle );
+        }
+        Session::flash('success', 'Data was be uploaded.');
         return back();
     }
 
