@@ -4,16 +4,16 @@
 @endsection
 @section('content')
 
-    <table class="table table-striped table-borderless">
+    <table class="table table-striped table-borderless text-center">
         <thead>
         <tr>
-            <th scope="col" style="color: #f78421;">#</th>
             <th scope="col" style="color: #f78421;">Артикул</th>
             <th scope="col" style="color: #f78421;">Модель</th>
             <th scope="col" style="color: #f78421;">Наименование</th>
             <th scope="col" style="color: #f78421;">Ширина, мм.</th>
             <th scope="col" style="color: #f78421;">Длина, мм.</th>
             <th scope="col" style="color: #f78421;">Цвет RAL</th>
+            <th scope="col" style="color: #f78421;">Кол-во шт.</th>
             <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
             <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
             <th scope="col" style="color: #f78421;">Стоимость</th>
@@ -21,107 +21,48 @@
         </thead>
         <tbody>
         <tr>
-            <td id="table-tp3600"></td>
-            <td id="table-tp1200"></td>
-            <td id="table-tp600"></td>
-            <td id="table-angles"></td>
-            <td id="table-susp"></td>
-        </tr>
-        <tr>
-            <td id="table-price-tp3600"></td>
-            <td id="table-price-tp1200"></td>
-            <td id="table-price-tp600"></td>
-            <td id="table-price-angles"></td>
-            <td id="table-price-susp"></td>
-        </tr>
-        <tr>
-            <td id="table-pack-tp3600"></td>
-            <td id="table-pack-tp1200"></td>
-            <td id="table-pack-tp600"></td>
-            <td id="table-pack-angles"></td>
-            <td id="table-pack-susp"></td>
-        </tr>
-        <tr>
-            <td id="table-summ-tp3600"></td>
-            <td id="table-summ-tp1200"></td>
-            <td id="table-summ-tp600"></td>
-            <td id="table-summ-angles"></td>
-            <td id="table-summ-susp"></td>
-            <td id="table-summ"></td>
-        </tr>
-        {{--BottomRightSide--}}
-        <tr>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">Стоимость</td>
-            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center">81 500.00</td>
-        </tr>
-        <tr>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">Скидка 5%</td>
-            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center"> 4 087.00</td>
-        </tr>
-        <tr>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td id="table-summ-susp" style="background-color: #f9f9f9; color: #f78421;" class="text-center">НДС 20%</td>
-            <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;" class="text-center">15 532.00</td>
-        </tr>
-        <tr>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td style="background-color: white"></td>
-            <td id="table-summ-susp" style="background-color: white; color: #f78421;" class="text-center"><strong>ИТОГО</strong></td>
-            <td id="table-summ" style="background-color: white; color: #f78421;" class="text-center"><strong>93 195.00</strong></td>
+            <td id="table-3600-vendor"></td>
+            <td id="table-3600-model"></td>
+            <td id="table-3600-name"></td>
+            <td id="table-3600-width"></td>
+            <td id="table-3600-lenght"></td>
+            <td id="table-3600-color"></td>
+            <td id="table-3600-count"></td>
+            <td id="table-3600-price"></td>
+            <td id="table-3600-pack"></td>
+            <td id="table-3600-price-all"></td>
         </tr>
         </tbody>
     </table>
-
 @endsection
 @section('scripts')
    <script>
        var vendor;
            //отправляю POST запрос и получаю ответ
-           $.ajax
-           ({
-               type: "POST",
-               url: "/calc/tprofile/vendor",
-               response:'json',//тип возвращаемого ответа text либо xml
-               data:{
-                   '_token': $('meta[name=csrf-token]').attr('content'),
-                   'model':'FORTIS',
-                   'profile_thickness':'15',
-                   'color':'5015'
-               },
-               async: false,
-               success: function(data){
-                   vendor = data;
-               }
-           });
-           alert(vendor[0].vendor_code);
+       $.ajax
+       ({
+           type: "POST",
+           url: "/calc/tprofile/vendor",
+           response:'json',//тип возвращаемого ответа text либо xml
+           data:{
+               '_token': $('meta[name=csrf-token]').attr('content'),
+               'model':"FORTIS",
+               'profile_thickness':15,
+               'color':5015
+           },
+           async:true,
+           success: function(data) {
+              alert(data[0].id);
+               document.getElementById("table-3600-vendor").innerHTML = data[0].vendor_code;
+               document.getElementById("table-3600-model").innerHTML = data[0].model;
+               document.getElementById("table-3600-name").innerHTML = data[0].description;
+               document.getElementById("table-3600-width").innerHTML = data[0].profile_thickness;
+               document.getElementById("table-3600-lenght").innerHTML = data[0].profile;
+           },
+           error: function(request,error) {
+               alert('An error occurred attempting to get new e-number');
+               // console.log(request, error);
+           }
+       });
    </script>
 @endsection

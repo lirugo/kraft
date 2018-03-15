@@ -313,192 +313,305 @@
             //GetVenodorCode
             var vendor="";
             //отправляю POST запрос и получаю ответ
-            $.ajax
-            ({
-                type: "POST",
-                url: "/calc/tprofile/vendor",
-                response:'json',//тип возвращаемого ответа text либо xml
-                data:{
-                    '_token': $('meta[name=csrf-token]').attr('content'),
-                    'model':model,
-                    'profile_thickness':width,
-                    'color':color
-                },
-                async: false,
-                success: function(data){
-                    vendor = data;
-                }
-            });
-            //SetVariableFromVendorIfExist
 
-            //EndGetVenodreCode
-            var tp3600 = tp3600c*s + ((tp3600c*s)/100)*difficult;
-            var tp1200 = tp1200c*s + ((tp1200c*s)/100)*difficult;
-            var tp600 = tp600c*s + ((tp600c*s)/100)*difficult;
-            var angles = p/L3000c;
-            var susp = suspc*s + ((suspc*s)/100)*difficult;
-
-            var price;
-            if(document.getElementById('colors').value === "other") price = 1.5;
-            else price = 1;
-            //SetPrice
-            var tp3600_price = tp3600c_price * price;
-            var tp1200_price = tp1200c_price * price;
-            var tp600_price = tp600c_price * price;
-            var L3000_price = L3000c_price * price;
-            var susp_price = suspc_price;
-
-            //Pack
-            var pack3600 = Math.ceil(tp3600/tp3600c_pack);
-            var pack1200 = Math.ceil(tp1200/tp1200c_pack);
-            var pack600 = Math.ceil(tp600/tp600c_pack);
-            var packSusp = Math.ceil(susp/suspc_pack);
-            //Summ
-            var sum3600 = Math.ceil(tp3600/tp3600c_pack)*tp3600_price*tp3600c_pack;
-            var sum1200 = Math.ceil(tp1200/tp1200c_pack)*tp1200_price*tp1200c_pack;
-            var sum600 = Math.ceil(tp600/tp600c_pack)*tp600_price*tp600c_pack;
-            var sumSusp = Math.ceil(susp/suspc_pack)*susp_price*suspc_pack;
-            //EndDataProcessing
-
-            // //SetDataInTable
-            if(vendor !== "")
-            {
-                vendor.forEach(function(v){
-                    if(v.profile === 3600)
-                    {
-                        document.getElementById("table-3600-vendor").innerHTML = v.vendor_code;
-                        document.getElementById("table-3600-model").innerHTML = v.model;
-                        document.getElementById("table-3600-name").innerHTML = v.description;
-                        document.getElementById("table-3600-width").innerHTML = v.profile_thickness;
-                        document.getElementById("table-3600-lenght").innerHTML = v.profile;
-                        document.getElementById("table-3600-color").innerHTML = v.color;
-                        document.getElementById("table-3600-count").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+")";
-                        document.getElementById("table-3600-price").innerHTML = tp3600_price;
-                        document.getElementById("table-3600-pack").innerHTML = pack3600;
-                        document.getElementById("table-3600-price-all").innerHTML = sum3600;
-                    }else if(v.profile === 1200)
-                    {
-                        document.getElementById("table-1200-vendor").innerHTML = v.vendor_code;
-                        document.getElementById("table-1200-model").innerHTML = v.model;
-                        document.getElementById("table-1200-name").innerHTML = v.description;
-                        document.getElementById("table-1200-width").innerHTML = v.profile_thickness;
-                        document.getElementById("table-1200-lenght").innerHTML = v.profile;
-                        document.getElementById("table-1200-color").innerHTML = v.color;
-                        document.getElementById("table-1200-count").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+")";
-                        document.getElementById("table-1200-price").innerHTML = tp1200_price;
-                        document.getElementById("table-1200-pack").innerHTML = pack1200;
-                        document.getElementById("table-1200-price-all").innerHTML = sum1200;
-                    }else if(v.profile === 600)
-                    {
-                        document.getElementById("table-600-vendor").innerHTML = v.vendor_code;
-                        document.getElementById("table-600-model").innerHTML = v.model;
-                        document.getElementById("table-600-name").innerHTML = v.description;
-                        document.getElementById("table-600-width").innerHTML = v.profile_thickness;
-                        document.getElementById("table-600-lenght").innerHTML = v.profile;
-                        document.getElementById("table-600-color").innerHTML = v.color;
-                        document.getElementById("table-600-count").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+")";
-                        document.getElementById("table-600-price").innerHTML = tp600_price;
-                        document.getElementById("table-600-pack").innerHTML = pack600;
-                        document.getElementById("table-600-price-all").innerHTML = sum600;
+            function getNewENumber(cb_func){
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "/calc/tprofile/vendor",
+                    response:'json',//тип возвращаемого ответа text либо xml
+                    data:{
+                        '_token': $('meta[name=csrf-token]').attr('content'),
+                        'model':model,
+                        'profile_thickness':width,
+                        'color':color
+                    },
+                    async:true,
+                    success: cb_func,
+                    error: function(request,error) {
+                        alert('An error occurred attempting to get new e-number');
+                        // console.log(request, error);
                     }
                 });
-            }else
-            {
-                document.getElementById("table-3600-vendor").innerHTML = null;
-                document.getElementById("table-3600-model").innerHTML = model;
-                document.getElementById("table-3600-name").innerHTML = null;
-                document.getElementById("table-3600-width").innerHTML = width;
-                document.getElementById("table-3600-lenght").innerHTML = "3600";
-                document.getElementById("table-3600-color").innerHTML = color;
-                document.getElementById("table-3600-count").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+")";
-                document.getElementById("table-3600-price").innerHTML = tp3600_price;
-                document.getElementById("table-3600-pack").innerHTML = pack3600;
-                document.getElementById("table-3600-price-all").innerHTML = sum3600;
-
-                document.getElementById("table-1200-vendor").innerHTML = null;
-                document.getElementById("table-1200-model").innerHTML = model;
-                document.getElementById("table-1200-name").innerHTML = null;
-                document.getElementById("table-1200-width").innerHTML = width;
-                document.getElementById("table-1200-lenght").innerHTML = "1200";
-                document.getElementById("table-1200-color").innerHTML = color;
-                document.getElementById("table-1200-count").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+")";
-                document.getElementById("table-1200-price").innerHTML = tp1200_price;
-                document.getElementById("table-1200-pack").innerHTML = pack1200;
-                document.getElementById("table-1200-price-all").innerHTML = sum1200;
-
-                document.getElementById("table-600-vendor").innerHTML = null;
-                document.getElementById("table-600-model").innerHTML = model;
-                document.getElementById("table-600-name").innerHTML = null;
-                document.getElementById("table-600-width").innerHTML = width;
-                document.getElementById("table-600-lenght").innerHTML = "600";
-                document.getElementById("table-600-color").innerHTML = color;
-                document.getElementById("table-600-count").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+")";
-                document.getElementById("table-600-price").innerHTML = tp600_price;
-                document.getElementById("table-600-pack").innerHTML = pack600;
-                document.getElementById("table-600-price-all").innerHTML = sum600;
             }
-            //SetSuspension
-            document.getElementById("table-susp-vendor").innerHTML = null;
-            document.getElementById("table-susp-model").innerHTML = model;
-            document.getElementById("table-susp-name").innerHTML = "Подвес";
-            document.getElementById("table-susp-width").innerHTML = width;
-            document.getElementById("table-susp-lenght").innerHTML = null;
-            document.getElementById("table-susp-color").innerHTML = null;
-            document.getElementById("table-susp-count").innerHTML = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+")";
-            document.getElementById("table-susp-price").innerHTML = susp_price;
-            document.getElementById("table-susp-pack").innerHTML = packSusp;
-            document.getElementById("table-susp-price-all").innerHTML = sumSusp;
-            //TotalTable
-            document.getElementById("table-summ-all").innerHTML = sum600+sum1200+sum3600+sumSusp;
-            document.getElementById("table-total").innerHTML = sum600+sum1200+sum3600+sumSusp;
+            getNewENumber(function( vendor ){
+                //SetVariableFromVendorIfExist
+                //EndGetVenodreCode
+                var tp3600 = tp3600c*s + ((tp3600c*s)/100)*difficult;
+                var tp1200 = tp1200c*s + ((tp1200c*s)/100)*difficult;
+                var tp600 = tp600c*s + ((tp600c*s)/100)*difficult;
+                var angles = p/L3000c;
+                var susp = suspc*s + ((suspc*s)/100)*difficult;
+
+                var price;
+                if(document.getElementById('colors').value === "other") price = 1.5;
+                else price = 1;
+                //SetPrice
+                var tp3600_price = tp3600c_price * price;
+                var tp1200_price = tp1200c_price * price;
+                var tp600_price = tp600c_price * price;
+                var L3000_price = L3000c_price * price;
+                var susp_price = suspc_price;
+
+                //Pack
+                var pack3600 = Math.ceil(tp3600/tp3600c_pack);
+                var pack1200 = Math.ceil(tp1200/tp1200c_pack);
+                var pack600 = Math.ceil(tp600/tp600c_pack);
+                var packSusp = Math.ceil(susp/suspc_pack);
+                //Summ
+                var sum3600 = Math.ceil(tp3600/tp3600c_pack)*tp3600_price*tp3600c_pack;
+                var sum1200 = Math.ceil(tp1200/tp1200c_pack)*tp1200_price*tp1200c_pack;
+                var sum600 = Math.ceil(tp600/tp600c_pack)*tp600_price*tp600c_pack;
+                var sumSusp = Math.ceil(susp/suspc_pack)*susp_price*suspc_pack;
+
+                var sumTotal = sum600+sum1200+sum3600+sumSusp;
+
+                //var
+                var v3600_vendor;
+                var v3600_model;
+                var v3600_name;
+                var v3600_width;
+                var v3600_lenght;
+                var v3600_color;
+                var v3600_count;
+                var v3600_price;
+                var v3600_pack;
+                var v3600_price_all;
+
+                var v1200_vendor;
+                var v1200_model;
+                var v1200_name;
+                var v1200_width;
+                var v1200_lenght;
+                var v1200_color;
+                var v1200_count;
+                var v1200_price;
+                var v1200_pack;
+                var v1200_price_all;
+
+                var v600_vendor;
+                var v600_model;
+                var v600_name;
+                var v600_width;
+                var v600_lenght;
+                var v600_color;
+                var v600_count;
+                var v600_price;
+                var v600_pack;
+                var v600_price_all;
+
+                var vSusp_vendor;
+                var vSusp_model;
+                var vSusp_name;
+                var vSusp_width;
+                var vSusp_lenght;
+                var vSusp_color;
+                var vSusp_count;
+                var vSusp_price;
+                var vSusp_pack;
+                var vSusp_price_all;
+
+                var vSumTotal;
+
+                //EndDataProcessing
+                //SetDataInTable
+                if(vendor !== "")
+                {
+                    v3600_vendor = vendor[0].vendor_code;
+                    v3600_model = vendor[0].model;
+                    v3600_name = vendor[0].description;
+                    v3600_width = vendor[0].profile_thickness;
+                    v3600_lenght = vendor[0].profile;
+                    v3600_color = vendor[0].color;
+                    v3600_count = Math.ceil(tp3600);
+                    v3600_price = tp3600_price;
+                    v3600_pack = pack3600;
+                    v3600_price_all = sum3600;
+
+                    v1200_vendor = vendor[1].vendor_code;
+                    v1200_model = vendor[1].model;
+                    v1200_name = vendor[1].description;
+                    v1200_width = vendor[1].profile_thickness;
+                    v1200_lenght = vendor[1].profile;
+                    v1200_color = vendor[1].color;
+                    v1200_count = Math.ceil(tp1200);
+                    v1200_price = tp1200_price;
+                    v1200_pack = pack1200;
+                    v1200_price_all = sum1200;
+
+                    v600_vendor = vendor[2].vendor_code;
+                    v600_model = vendor[2].model;
+                    v600_name = vendor[2].description;
+                    v600_width = vendor[2].profile_thickness;
+                    v600_lenght = vendor[2].profile;
+                    v600_color = vendor[2].color;
+                    v600_count = Math.ceil(tp600);
+                    v600_price = tp600_price;
+                    v600_pack = pack600;
+                    v600_price_all = sum600;
+                }else
+                {
+                    v3600_vendor = null;
+                    v3600_model = model;
+                    v3600_name = null;
+                    v3600_width = width;
+                    v3600_lenght = "3600";
+                    v3600_color = color;
+                    v3600_count = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+")";
+                    v3600_price = tp3600_price;
+                    v3600_pack = pack3600;
+                    v3600_price_all = sum3600;
+
+                    v1200_vendor = null;
+                    v1200_model = model;
+                    v1200_name = null;
+                    v1200_width = width;
+                    v1200_lenght = "1200";
+                    v1200_color = color;
+                    v1200_count = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+")";
+                    v1200_price = tp1200_price;
+                    v1200_pack = pack1200;
+                    v1200_price_all = sum1200;
+
+                    v600_vendor = null;
+                    v600_model = model;
+                    v600_name = null;
+                    v600_width = width;
+                    v600_lenght = "600";
+                    v600_color = color;
+                    v600_count = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+")";
+                    v600_price = tp600_price;
+                    v600_pack = pack600;
+                    v600_price_all = sum600;
+                }
+
+                //SetSuspension
+                vSusp_vendor = null;
+                vSusp_model = model;
+                vSusp_name = "Подвес";
+                vSusp_width = width;
+                vSusp_lenght = null;
+                vSusp_color = null;
+                vSusp_count = Math.ceil(susp)+" ("+Math.ceil(susp*100)/100+")";
+                vSusp_price = susp_price;
+                vSusp_pack = packSusp;
+                vSusp_price_all = sumSusp;
+                //TotalTable
+                vSumTotal = sumTotal;
+
+                //Display
+                document.getElementById("table-3600-vendor").innerHTML =v3600_vendor;
+                document.getElementById("table-3600-model").innerHTML =v3600_model;
+                document.getElementById("table-3600-name").innerHTML =v3600_name;
+                document.getElementById("table-3600-width").innerHTML =v3600_width;
+                document.getElementById("table-3600-lenght").innerHTML =v3600_lenght;
+                document.getElementById("table-3600-color").innerHTML = v3600_color;
+                document.getElementById("table-3600-count").innerHTML = v3600_count;
+                document.getElementById("table-3600-price").innerHTML = v3600_price;
+                document.getElementById("table-3600-pack").innerHTML = v3600_pack;
+                document.getElementById("table-3600-price-all").innerHTML = v3600_price_all;
+
+                document.getElementById("table-1200-vendor").innerHTML = v1200_vendor;
+                document.getElementById("table-1200-model").innerHTML = v1200_model;
+                document.getElementById("table-1200-name").innerHTML = v1200_name;
+                document.getElementById("table-1200-width").innerHTML = v1200_width;
+                document.getElementById("table-1200-lenght").innerHTML = v1200_lenght;
+                document.getElementById("table-1200-color").innerHTML = v1200_color;
+                document.getElementById("table-1200-count").innerHTML = v1200_count;
+                document.getElementById("table-1200-price").innerHTML = v1200_price;
+                document.getElementById("table-1200-pack").innerHTML = v1200_pack;
+                document.getElementById("table-1200-price-all").innerHTML = v1200_price_all;
+
+                document.getElementById("table-600-vendor").innerHTML = v600_vendor;
+                document.getElementById("table-600-model").innerHTML = v600_model;
+                document.getElementById("table-600-name").innerHTML = v600_name;
+                document.getElementById("table-600-width").innerHTML = v600_width;
+                document.getElementById("table-600-lenght").innerHTML = v600_lenght;
+                document.getElementById("table-600-color").innerHTML = v600_color;
+                document.getElementById("table-600-count").innerHTML = v600_count;
+                document.getElementById("table-600-price").innerHTML = v600_price;
+                document.getElementById("table-600-pack").innerHTML = v600_pack;
+                document.getElementById("table-600-price-all").innerHTML = v600_price_all;
+
+                document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
+                document.getElementById("table-susp-model").innerHTML = vSusp_model;
+                document.getElementById("table-susp-name").innerHTML = vSusp_name;
+                document.getElementById("table-susp-width").innerHTML = vSusp_width;
+                document.getElementById("table-susp-lenght").innerHTML = vSusp_lenght;
+                document.getElementById("table-susp-color").innerHTML = vSusp_color;
+                document.getElementById("table-susp-count").innerHTML = vSusp_count;
+                document.getElementById("table-susp-price").innerHTML = vSusp_price;
+                document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
+                document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all;
+
+                document.getElementById("table-summ-all").innerHTML = vSumTotal;
+                document.getElementById("table-total").innerHTML = vSumTotal;
+
+                // Send Ajax Post to Controller save in database
+                $.post('/calc/tprofile/history/'+id, {
+                    _token: $('meta[name=csrf-token]').attr('content'),
+                    id: id,
+                    type: "T-Profile",
+                    difficult: difficult,
+
+                    s3600_vendor:v3600_vendor,
+                    s3600_model:v3600_model,
+                    s3600_name:v3600_name,
+                    s3600_width:v3600_width,
+                    s3600_lenght:v3600_lenght,
+                    s3600_color:v3600_color,
+                    s3600_count:v3600_count,
+                    s3600_price:v3600_price,
+                    s3600_pack:v3600_pack,
+                    s3600_price_all:v3600_price_all,
+
+                    s1200_vendor:v1200_vendor,
+                    s1200_model:v1200_model,
+                    s1200_name:v1200_name,
+                    s1200_width:v1200_width,
+                    s1200_lenght:v1200_lenght,
+                    s1200_color:v1200_color,
+                    s1200_count:v1200_count,
+                    s1200_price:v1200_price,
+                    s1200_pack:v1200_pack,
+                    s1200_price_all:v1200_price_all,
+
+                    s600_vendor:v600_vendor,
+                    s600_model:v600_model,
+                    s600_name:v600_name,
+                    s600_width:v600_width,
+                    s600_lenght:v600_lenght,
+                    s600_color:v600_color,
+                    s600_count:v600_count,
+                    s600_price:v600_price,
+                    s600_pack:v600_pack,
+                    s600_price_all:v600_price_all,
+
+                    sSusp_vendor:vSusp_vendor,
+                    sSusp_model:vSusp_model,
+                    sSusp_name:vSusp_name,
+                    sSusp_width:vSusp_width,
+                    sSusp_lenght:vSusp_lenght,
+                    sSusp_color:vSusp_color,
+                    sSusp_count:vSusp_count,
+                    sSusp_price:vSusp_price,
+                    sSusp_pack:vSusp_pack,
+                    sSusp_price_all:vSusp_price_all,
+
+                    sSumTotal:vSumTotal
+
+                    }
+                )
+                    .done(function(data) {
+                        //alert(data);
+                    })
+                    .fail(function() {
+                        alert( "error" );
+                    });
+            });
             // //ShowTable
             $("#table").show();
             //EndSetDataInTable
-
-            //Send Ajax Post to Controller save in database
-            // make an ajax request to a PHP file
-            // on our site that will update the database
-            // pass in our lat/lng as parameters
-            // $.post('/calc/tprofile/history/'+id, {
-            //     _token: $('meta[name=csrf-token]').attr('content'),
-            //     id: id,
-            //     type: "T-Profile",
-            //     difficult: difficult,
-            //     tp3600: tp3600,
-            //     tp1200: tp1200,
-            //     tp600: tp600,
-            //     L3000: angles,
-            //     susp: susp,
-            //
-            //     //PriceByOne
-            //     tp3600_priceByOne: tp3600_price,
-            //     tp1200_priceByOne: tp1200_price,
-            //     tp600_priceByOne: tp600_price,
-            //     L3000_priceByOne: L3000_price,
-            //     susp_priceByOne: susp_price,
-            //
-            //     //CountPackage
-            //     tp3600_package:Math.ceil(tp3600/25),
-            //     tp1200_package:Math.ceil(tp1200/50),
-            //     tp600_package:Math.ceil(tp600/75),
-            //     L3000_package:Math.ceil(angles/50),
-            //     susp_package:Math.ceil(susp/100),
-            //
-            //     //CommonPrice
-            //     tp3600_price:Math.ceil(tp3600/25)*tp3600_price*25,
-            //     tp1200_price:Math.ceil(tp1200/50)*tp1200_price*50,
-            //     tp600_price:Math.ceil(tp600/75)*tp600_price*75,
-            //     L3000_price:Math.ceil(angles/50)*L3000_price*50,
-            //     susp_price:Math.ceil(susp/100)*susp_price*100,
-            //     sum: Math.ceil(tp3600/25)*tp3600_price*25+Math.ceil(tp1200/50)*tp1200_price*50+Math.ceil(tp600/75)*tp600_price*75+Math.ceil(angles/50)*L3000_price*50+Math.ceil(susp/100)*susp_price*100
-            //     }
-            // )
-            //     .done(function(data) {
-            //         //alert(data);
-            //     })
-            //     .fail(function() {
-            //         alert( "error" );
-            //     });
         }
     </script>
 @endsection

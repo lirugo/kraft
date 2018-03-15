@@ -70,31 +70,52 @@ class CalcController extends Controller
             $calcHistory->object_id = $request->id;
             $calcHistory->type = $request->type;
             $calcHistory->difficult = $request->difficult;
-            $calcHistory->tp3600 = $request->tp3600;
-            $calcHistory->tp1200 = $request->tp1200;
-            $calcHistory->tp600 = $request->tp600;
-            $calcHistory->L3000 = $request->L3000;
-            $calcHistory->susp = $request->susp;
 
-            $calcHistory->tp3600_priceByOne = $request->tp3600_priceByOne;
-            $calcHistory->tp1200_priceByOne = $request->tp1200_priceByOne;
-            $calcHistory->tp600_priceByOne = $request->tp600_priceByOne;
-            $calcHistory->L3000_priceByOne = $request->L3000_priceByOne;
-            $calcHistory->susp_priceByOne = $request->susp_priceByOne;
+            $calcHistory->tprofile_3600_vendor = $request->s3600_vendor;
+            $calcHistory->tprofile_3600_model = $request->s3600_model;
+            $calcHistory->tprofile_3600_name = $request->s3600_name;
+            $calcHistory->tprofile_3600_width = $request->s3600_width;
+            $calcHistory->tprofile_3600_lenght = $request->s3600_lenght;
+            $calcHistory->tprofile_3600_color = $request->s3600_color;
+            $calcHistory->tprofile_3600_count = $request->s3600_count;
+            $calcHistory->tprofile_3600_price = $request->s3600_price;
+            $calcHistory->tprofile_3600_pack = $request->s3600_pack;
+            $calcHistory->tprofile_3600_price_all = $request->s3600_price_all;
 
-            $calcHistory->tp3600_package = $request->tp3600_package;
-            $calcHistory->tp1200_package = $request->tp1200_package;
-            $calcHistory->tp600_package = $request->tp600_package;
-            $calcHistory->L3000_package = $request->L3000_package;
-            $calcHistory->susp_package = $request->susp_package;
+            $calcHistory->tprofile_1200_vendor = $request->s1200_vendor;
+            $calcHistory->tprofile_1200_model = $request->s1200_model;
+            $calcHistory->tprofile_1200_name = $request->s1200_name;
+            $calcHistory->tprofile_1200_width = $request->s1200_width;
+            $calcHistory->tprofile_1200_lenght = $request->s1200_lenght;
+            $calcHistory->tprofile_1200_color = $request->s1200_color;
+            $calcHistory->tprofile_1200_count = $request->s1200_count;
+            $calcHistory->tprofile_1200_price = $request->s1200_price;
+            $calcHistory->tprofile_1200_pack = $request->s1200_pack;
+            $calcHistory->tprofile_1200_price_all = $request->s1200_price_all;
 
-            $calcHistory->tp3600_price = $request->tp3600_price;
-            $calcHistory->tp1200_price = $request->tp1200_price;
-            $calcHistory->tp600_price = $request->tp600_price;
-            $calcHistory->L3000_price = $request->L3000_price;
-            $calcHistory->susp_price = $request->susp_price;
-            $calcHistory->sum = $request->sum;
+            $calcHistory->tprofile_600_vendor = $request->s600_vendor;
+            $calcHistory->tprofile_600_model = $request->s600_model;
+            $calcHistory->tprofile_600_name = $request->s600_name;
+            $calcHistory->tprofile_600_width = $request->s600_width;
+            $calcHistory->tprofile_600_lenght = $request->s600_lenght;
+            $calcHistory->tprofile_600_color = $request->s600_color;
+            $calcHistory->tprofile_600_count = $request->s600_count;
+            $calcHistory->tprofile_600_price = $request->s600_price;
+            $calcHistory->tprofile_600_pack = $request->s600_pack;
+            $calcHistory->tprofile_600_price_all = $request->s600_price_all;
 
+            $calcHistory->tprofile_susp_vendor = $request->sSusp_vendor;
+            $calcHistory->tprofile_susp_model = $request->sSusp_model;
+            $calcHistory->tprofile_susp_name = $request->sSusp_name;
+            $calcHistory->tprofile_susp_width = $request->sSusp_width;
+            $calcHistory->tprofile_susp_lenght = $request->sSusp_lenght;
+            $calcHistory->tprofile_susp_color = $request->sSusp_color;
+            $calcHistory->tprofile_susp_count = $request->sSusp_count;
+            $calcHistory->tprofile_susp_price = $request->sSusp_price;
+            $calcHistory->tprofile_susp_pack = $request->sSusp_pack;
+            $calcHistory->tprofile_susp_price_all = $request->sSusp_price_all;
+
+            $calcHistory->tprofile_sum_total = $request->sSumTotal;
         $calcHistory->save();
     }
 
@@ -289,4 +310,5 @@ class CalcController extends Controller
         ]);
         return view('calc.led')->with('data', $data);
     }
+
 }

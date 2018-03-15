@@ -19,6 +19,56 @@ class CreateCalcHistoriesTable extends Migration
             $table->foreign('object_id')->references('id')->on('objects');
             $table->string('type');
             $table->string('difficult')->nullable();
+            //NEW
+            //TProfile
+            $table->string('tprofile_3600_vendor')->nullable();
+            $table->string('tprofile_3600_model')->nullable();
+            $table->string('tprofile_3600_name')->nullable();
+            $table->string('tprofile_3600_width')->nullable();
+            $table->string('tprofile_3600_lenght')->nullable();
+            $table->string('tprofile_3600_color')->nullable();
+            $table->string('tprofile_3600_count')->nullable();
+            $table->string('tprofile_3600_price')->nullable();
+            $table->string('tprofile_3600_pack')->nullable();
+            $table->string('tprofile_3600_price_all')->nullable();
+
+            $table->string('tprofile_1200_vendor')->nullable();
+            $table->string('tprofile_1200_model')->nullable();
+            $table->string('tprofile_1200_name')->nullable();
+            $table->string('tprofile_1200_width')->nullable();
+            $table->string('tprofile_1200_lenght')->nullable();
+            $table->string('tprofile_1200_color')->nullable();
+            $table->string('tprofile_1200_count')->nullable();
+            $table->string('tprofile_1200_price')->nullable();
+            $table->string('tprofile_1200_pack')->nullable();
+            $table->string('tprofile_1200_price_all')->nullable();
+
+            $table->string('tprofile_600_vendor')->nullable();
+            $table->string('tprofile_600_model')->nullable();
+            $table->string('tprofile_600_name')->nullable();
+            $table->string('tprofile_600_width')->nullable();
+            $table->string('tprofile_600_lenght')->nullable();
+            $table->string('tprofile_600_color')->nullable();
+            $table->string('tprofile_600_count')->nullable();
+            $table->string('tprofile_600_price')->nullable();
+            $table->string('tprofile_600_pack')->nullable();
+            $table->string('tprofile_600_price_all')->nullable();
+
+            $table->string('tprofile_susp_vendor')->nullable();
+            $table->string('tprofile_susp_model')->nullable();
+            $table->string('tprofile_susp_name')->nullable();
+            $table->string('tprofile_susp_width')->nullable();
+            $table->string('tprofile_susp_lenght')->nullable();
+            $table->string('tprofile_susp_color')->nullable();
+            $table->string('tprofile_susp_count')->nullable();
+            $table->string('tprofile_susp_price')->nullable();
+            $table->string('tprofile_susp_pack')->nullable();
+            $table->string('tprofile_susp_price_all')->nullable();
+
+            $table->string('tprofile_sum_total')->nullable();
+            //EndTProfile
+            //ENDNEWOTHERDELETE
+
             //TProfile
             $table->float('tp3600')->nullable();
             $table->float('tp1200')->nullable();

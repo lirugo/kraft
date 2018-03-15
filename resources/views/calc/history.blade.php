@@ -26,67 +26,124 @@
                     {{$calcs->links()}}
                     <h4>T-Profile</h4>
                 </div>
-                <table class="table">
+                @foreach($calcs as $calc)
+                <table class="table table-striped table-borderless text-center">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">T-Profile 3600мм</th>
-                        <th scope="col">T-Profile 1200мм</th>
-                        <th scope="col">T-Profile 600мм</th>
-                        <th scope="col">Уголок L 3000мм</th>
-                        <th scope="col">Подвес</th>
-                        <th scope="col">Итого</th>
+                        <th scope="col" style="color: #f78421;">Артикул</th>
+                        <th scope="col" style="color: #f78421;">Модель</th>
+                        <th scope="col" style="color: #f78421;">Наименование</th>
+                        <th scope="col" style="color: #f78421;">Ширина, мм.</th>
+                        <th scope="col" style="color: #f78421;">Длина, мм.</th>
+                        <th scope="col" style="color: #f78421;">Цвет RAL</th>
+                        <th scope="col" style="color: #f78421;">Кол-во шт.</th>
+                        <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
+                        <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
+                        <th scope="col" style="color: #f78421;">Стоимость</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($calcs as $calc)
-                        @if($calc->type === "T-Profile")
-                            <tr>
-                                <th scope="row">Кол-во</th>
-                                <td id="table-tp3600">{{$calc->tp3600}}</td>
-                                <td id="table-tp1200">{{$calc->tp1200}}</td>
-                                <td id="table-tp600">{{$calc->tp600}}</td>
-                                <td id="table-angles">{{$calc->L3000}}</td>
-                                <td id="table-susp">{{$calc->susp}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Цена за шт</th>
-                                <td id="table-price-tp3600">{{$calc->tp3600_priceByOne}}</td>
-                                <td id="table-price-tp1200">{{$calc->tp1200_priceByOne}}</td>
-                                <td id="table-price-tp600">{{$calc->tp600_priceByOne}}</td>
-                                <td id="table-price-angles">{{$calc->L3000_priceByOne}}</td>
-                                <td id="table-price-susp">{{$calc->susp_priceByOne}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Кол-во упаковок</th>
-                                <td id="table-pack-tp3600">{{$calc->tp3600_package}}</td>
-                                <td id="table-pack-tp1200">{{$calc->tp1200_package}}</td>
-                                <td id="table-pack-tp600">{{$calc->tp600_package}}</td>
-                                <td id="table-pack-angles">{{$calc->L3000_package}}</td>
-                                <td id="table-pack-susp">{{$calc->susp_package}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Стоимость</th>
-                                <td id="table-summ-tp3600">{{$calc->tp3600_price}}</td>
-                                <td id="table-summ-tp1200">{{$calc->tp1200_price}}</td>
-                                <td id="table-summ-tp600">{{$calc->tp600_price}}</td>
-                                <td id="table-summ-angles">{{$calc->L3000_price}}</td>
-                                <td id="table-summ-susp">{{$calc->susp_price}}</td>
-                                <td id="table-summ"><strong>{{$calc->sum}} грн</strong></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><hr style="border-color:#dddddd"></th>
-                                <td><hr style="border-color:#dddddd"></td>
-                                <td><hr style="border-color:#dddddd"></td>
-                                <td><hr style="border-color:#dddddd"></td>
-                                <td><hr style="border-color:#dddddd"></td>
-                                <td><hr style="border-color:#dddddd"></td>
-                                <td><hr style="border-color:#dddddd"></td>
-                            </tr>
-                        @endif
-                    @endforeach
+                    <tr>
+                        <td id="table-3600-vendor">{{$calc->tprofile_3600_vendor}}</td>
+                        <td id="table-3600-model">{{$calc->tprofile_3600_model}}</td>
+                        <td id="table-3600-name">{{$calc->tprofile_3600_name}}</td>
+                        <td id="table-3600-width">{{$calc->tprofile_3600_width}}</td>
+                        <td id="table-3600-lenght">{{$calc->tprofile_3600_lenght}}</td>
+                        <td id="table-3600-color">{{$calc->tprofile_3600_color}}</td>
+                        <td id="table-3600-count">{{$calc->tprofile_3600_count}}</td>
+                        <td id="table-3600-price">{{$calc->tprofile_3600_price}}</td>
+                        <td id="table-3600-pack">{{$calc->tprofile_3600_pack}}</td>
+                        <td id="table-3600-price-all">{{$calc->tprofile_3600_price_all}}</td>
+                    </tr>
+                    <tr>
+                        <td id="table-1200-vendor">{{$calc->tprofile_1200_vendor}}</td>
+                        <td id="table-1200-model">{{$calc->tprofile_1200_model}}</td>
+                        <td id="table-1200-name">{{$calc->tprofile_1200_name}}</td>
+                        <td id="table-1200-width">{{$calc->tprofile_1200_width}}</td>
+                        <td id="table-1200-lenght">{{$calc->tprofile_1200_lenght}}</td>
+                        <td id="table-1200-color">{{$calc->tprofile_1200_color}}</td>
+                        <td id="table-1200-count">{{$calc->tprofile_1200_count}}</td>
+                        <td id="table-1200-price">{{$calc->tprofile_1200_price}}</td>
+                        <td id="table-1200-pack">{{$calc->tprofile_1200_pack}}</td>
+                        <td id="table-1200-price-all">{{$calc->tprofile_1200_price_all}}</td>
+                    </tr>
+                    <tr>
+                        <td id="table-600-vendor">{{$calc->tprofile_600_vendor}}</td>
+                        <td id="table-600-model">{{$calc->tprofile_600_model}}</td>
+                        <td id="table-600-name">{{$calc->tprofile_600_name}}</td>
+                        <td id="table-600-width">{{$calc->tprofile_600_width}}</td>
+                        <td id="table-600-lenght">{{$calc->tprofile_600_lenght}}</td>
+                        <td id="table-600-color">{{$calc->tprofile_600_color}}</td>
+                        <td id="table-600-count">{{$calc->tprofile_600_count}}</td>
+                        <td id="table-600-price">{{$calc->tprofile_600_price}}</td>
+                        <td id="table-600-pack">{{$calc->tprofile_600_pack}}</td>
+                        <td id="table-600-price-all">{{$calc->tprofile_600_price_all}}</td>
+                    </tr>
+                    <tr>
+                        <td id="table-susp-vendor">{{$calc->tprofile_susp_vendor}}</td>
+                        <td id="table-susp-model">{{$calc->tprofile_susp_model}}</td>
+                        <td id="table-susp-name">{{$calc->tprofile_susp_name}}</td>
+                        <td id="table-susp-width">{{$calc->tprofile_susp_width}}</td>
+                        <td id="table-susp-lenght">{{$calc->tprofile_susp_lenght}}</td>
+                        <td id="table-susp-color">{{$calc->tprofile_susp_color}}</td>
+                        <td id="table-susp-count">{{$calc->tprofile_susp_count}}</td>
+                        <td id="table-susp-price">{{$calc->tprofile_susp_price}}</td>
+                        <td id="table-susp-pack">{{$calc->tprofile_susp_pack}}</td>
+                        <td id="table-susp-price-all">{{$calc->tprofile_susp_price_all}}</td>
+                    </tr>
+                    {{--BottomRightSide--}}
+                    <tr>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: #f9f9f9; color: #f78421;">Стоимость</td>
+                        <td id="table-summ-all" style="background-color: #f9f9f9; color: #f78421;">{{$calc->tprofile_sum_total}}</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: #f9f9f9; color: #f78421;">Скидка</td>
+                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: #f9f9f9; color: #f78421;">НДС</td>
+                        <td id="table-summ" style="background-color: #f9f9f9; color: #f78421;"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white"></td>
+                        <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
+                        <td id="table-total" style="background-color: white; color: #f78421;"><strong>{{$calc->tprofile_sum_total}}</strong></td>
+                    </tr>
                     </tbody>
                 </table>
+                    <hr>
+                @endforeach
             </div>
         </div>
         {{--Grilyato--}}
