@@ -175,7 +175,7 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
-                        <td id="table-total" style="background-color: white; color: #f78421;"><strong></strong></td>
+                        <td id="table-total" style="background-color: white; color: #f78421;"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -190,6 +190,9 @@
         $(function() {
             $("#table").hide();
             $("#model").change(function() {
+                document.getElementById("colors").selectedIndex = 0;
+                $("#othercolor").hide();
+                $("#color").hide();
                 for (var i=document.getElementById('colors').options.length; i-->2;)
                     document.getElementById('colors').options[i] = null;
                 var colors = document.getElementById("colors");
@@ -229,7 +232,7 @@
                     colors.add(option2);
                     $("#color").show();
                 } else {
-                    document.getElementById("color").selectedIndex = "0";
+                    document.getElementById("colors").selectedIndex = 0;
                     $("#othercolor").hide();
                     $("#color").hide();
                 }
@@ -509,7 +512,7 @@
                 document.getElementById("table-3600-count").innerHTML = v3600_count;
                 document.getElementById("table-3600-price").innerHTML = v3600_price;
                 document.getElementById("table-3600-pack").innerHTML = v3600_pack;
-                document.getElementById("table-3600-price-all").innerHTML = v3600_price_all;
+                document.getElementById("table-3600-price-all").innerHTML = v3600_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
                 document.getElementById("table-1200-vendor").innerHTML = v1200_vendor;
                 document.getElementById("table-1200-model").innerHTML = v1200_model;
@@ -520,7 +523,7 @@
                 document.getElementById("table-1200-count").innerHTML = v1200_count;
                 document.getElementById("table-1200-price").innerHTML = v1200_price;
                 document.getElementById("table-1200-pack").innerHTML = v1200_pack;
-                document.getElementById("table-1200-price-all").innerHTML = v1200_price_all;
+                document.getElementById("table-1200-price-all").innerHTML = v1200_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
                 document.getElementById("table-600-vendor").innerHTML = v600_vendor;
                 document.getElementById("table-600-model").innerHTML = v600_model;
@@ -531,7 +534,7 @@
                 document.getElementById("table-600-count").innerHTML = v600_count;
                 document.getElementById("table-600-price").innerHTML = v600_price;
                 document.getElementById("table-600-pack").innerHTML = v600_pack;
-                document.getElementById("table-600-price-all").innerHTML = v600_price_all;
+                document.getElementById("table-600-price-all").innerHTML = v600_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
                 document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
                 document.getElementById("table-susp-model").innerHTML = vSusp_model;
@@ -542,10 +545,10 @@
                 document.getElementById("table-susp-count").innerHTML = vSusp_count;
                 document.getElementById("table-susp-price").innerHTML = vSusp_price;
                 document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
-                document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all;
+                document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');;
 
-                document.getElementById("table-summ-all").innerHTML = vSumTotal;
-                document.getElementById("table-total").innerHTML = vSumTotal;
+                document.getElementById("table-summ-all").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+                document.getElementById("table-total").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
 
                 // Send Ajax Post to Controller save in database
                 $.post('/calc/tprofile/history/'+id, {

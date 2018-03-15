@@ -53,7 +53,7 @@
                         <td id="table-3600-count">{{$calc->tprofile_3600_count}}</td>
                         <td id="table-3600-price">{{$calc->tprofile_3600_price}}</td>
                         <td id="table-3600-pack">{{$calc->tprofile_3600_pack}}</td>
-                        <td id="table-3600-price-all">{{$calc->tprofile_3600_price_all}}</td>
+                        <td id="table-3600-price-all">{{number_format($calc->tprofile_3600_price_all,2)}}</td>
                     </tr>
                     <tr>
                         <td id="table-1200-vendor">{{$calc->tprofile_1200_vendor}}</td>
@@ -65,7 +65,7 @@
                         <td id="table-1200-count">{{$calc->tprofile_1200_count}}</td>
                         <td id="table-1200-price">{{$calc->tprofile_1200_price}}</td>
                         <td id="table-1200-pack">{{$calc->tprofile_1200_pack}}</td>
-                        <td id="table-1200-price-all">{{$calc->tprofile_1200_price_all}}</td>
+                        <td id="table-1200-price-all">{{number_format($calc->tprofile_1200_price_all,2)}}</td>
                     </tr>
                     <tr>
                         <td id="table-600-vendor">{{$calc->tprofile_600_vendor}}</td>
@@ -77,7 +77,7 @@
                         <td id="table-600-count">{{$calc->tprofile_600_count}}</td>
                         <td id="table-600-price">{{$calc->tprofile_600_price}}</td>
                         <td id="table-600-pack">{{$calc->tprofile_600_pack}}</td>
-                        <td id="table-600-price-all">{{$calc->tprofile_600_price_all}}</td>
+                        <td id="table-600-price-all">{{number_format($calc->tprofile_600_price_all,2)}}</td>
                     </tr>
                     <tr>
                         <td id="table-susp-vendor">{{$calc->tprofile_susp_vendor}}</td>
@@ -89,7 +89,7 @@
                         <td id="table-susp-count">{{$calc->tprofile_susp_count}}</td>
                         <td id="table-susp-price">{{$calc->tprofile_susp_price}}</td>
                         <td id="table-susp-pack">{{$calc->tprofile_susp_pack}}</td>
-                        <td id="table-susp-price-all">{{$calc->tprofile_susp_price_all}}</td>
+                        <td id="table-susp-price-all">{{number_format($calc->tprofile_susp_price_all,2)}}</td>
                     </tr>
                     {{--BottomRightSide--}}
                     <tr>
@@ -102,7 +102,7 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: #f9f9f9; color: #f78421;">Стоимость</td>
-                        <td id="table-summ-all" style="background-color: #f9f9f9; color: #f78421;">{{$calc->tprofile_sum_total}}</td>
+                        <td id="table-summ-all" style="background-color: #f9f9f9; color: #f78421;">{{number_format($calc->tprofile_sum_total,2)}}</td>
                     </tr>
                     <tr>
                         <td style="background-color: white"></td>
@@ -138,7 +138,7 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
-                        <td id="table-total" style="background-color: white; color: #f78421;"><strong>{{$calc->tprofile_sum_total}}</strong></td>
+                        <td id="table-total" style="background-color: white; color: #f78421;"><strong>{{number_format($calc->tprofile_sum_total,2)}}</strong></td>
                     </tr>
                     </tbody>
                 </table>

@@ -28,7 +28,7 @@
                 <tr>
                     {!! Form::open(['route' => 'admin.calc.tprofile.update', 'method' => 'POST']) !!}
                     <th scope="row">#</th>
-                    <td>{{ Form::number('tp3600',$constants->tp3600, ['class' => 'form-control','required','step' => '0.01', 'min' => '0.00']) }}</td>
+                    <td>{{ Form::number('tp3600',$constants->tp3600, ['class' => 'form-control','required','step' => '0.001', 'min' => '0.000']) }}</td>
                     <td>{{ Form::number('tp1200',$constants->tp1200, ['class' => 'form-control','required','step' => '0.1', 'min' => '0.00']) }}</td>
                     <td>{{ Form::number('tp600',$constants->tp600, ['class' => 'form-control','required','step' => '0.1', 'min' => '0.00']) }}</td>
                     <td>{{ Form::number('L3000',$constants->L3000, ['class' => 'form-control','required','step' => '1', 'min' => '0.00']) }}</td>
