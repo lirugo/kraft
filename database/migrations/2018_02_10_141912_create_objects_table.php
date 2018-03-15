@@ -88,6 +88,7 @@ class CreateObjectsTable extends Migration
             //Verify
             $table->boolean('verify')->default(false);
             $table->boolean('active')->default(false);
+            $table->integer('viewed')->default(0)->unsigned();
             //Timestamps
             $table->timestamps();
         });

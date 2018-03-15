@@ -9,6 +9,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
@@ -59,13 +60,17 @@ class ManagerController extends Controller
     public function objects(){
         $user = Auth::user();
         $objects = Object::all()->where('regionname', '=' , $user->regionname);
+        $viewed = Object::all()->where('viewed' , '=', 0)->count();
         foreach ($objects as $object)
         {
             $creator = User::find($object->creatorid);
             $object->creatorname = $creator->name;
         }
+        $data = new Collection();
+        $data->put('objects',$objects);
+        $data->put('viewed',$viewed);
 
-        return view('manager.objects')->with('objects', $objects);
+        return view('manager.objects')->with('data', $data);
     }
 
     public function arch(){
@@ -129,6 +134,8 @@ class ManagerController extends Controller
 
     public function showobject($id){
         $object = Object::find($id);
+            $object->viewed = $object->viewed + 1;
+        $object->save();
         $company = Company::find($object->companyid);
         $rm = User::find($object->rmid);
         $creator = User::find($object->creatorid);
@@ -151,8 +158,6 @@ class ManagerController extends Controller
             }
         }
         //Days to report
-
-
         return view('manager.objects.show')->with('object', $object);
     }
 

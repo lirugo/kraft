@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($objects as $object)
+                    @foreach($data['objects'] as $object)
                         @if($object->active == true)
                             @php
                                 $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
@@ -80,7 +80,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($objects as $object)
+                    @foreach($data['objects'] as $object)
                         @if($object->active == false)
                             <tr>
                                 <th scope="row">{{$object->id}}</th>
@@ -91,7 +91,12 @@
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>{{$object->dateofreport}}</td>
                                 <td>
-                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть
+                                        @if($object->viewed == 0)
+                                        <span class="badge badge-secondary" style="position: relative">New</span>
+                                        @endif
+                                        <br></a>
+
                                 </td>
                             </tr>
                         @endif

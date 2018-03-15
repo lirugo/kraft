@@ -18,6 +18,9 @@
                             <div class="card">
                                 <a href="/manager/users">
                                 <i class="fa fa-list fa-5x" aria-hidden="true"></i>
+                                    @if($data['clients'] != 0)
+                                        <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['clients'] }}</span>
+                                    @endif
                                 <div class="description m-t-10">
                                     Список клиентов
                                 </div>
@@ -28,6 +31,9 @@
                             <div class="card">
                                 <a href="/manager/objects">
                                 <i class="fa fa-university fa-5x" aria-hidden="true"></i>
+                                    @if($data['objects'] != 0)
+                                        <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['objects'] }}</span>
+                                    @endif
                                 <div class="description m-t-10 m-t-10">
                                     {{ trans('app.objects') }}
                                 </div>
@@ -38,6 +44,9 @@
                             <div class="card">
                                 <a href="/manager/moderation">
                                     <i class="fa fa-check fa-5x" aria-hidden="true"></i>
+                                    @if($data['ch'] != 0)
+                                        <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['ch'] }}</span>
+                                    @endif
                                     <div class="description m-t-10">
                                        Модерация
                                     </div>
