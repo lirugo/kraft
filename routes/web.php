@@ -214,6 +214,11 @@ Route::get('/managers/{id}', 'TopManager\ManagersController@show');
 Route::get('/distributors', 'TopManager\DistributorsController@index');
 //EndTopManager
 
+//ContactController
+Route::post('/contact/send', 'ContactController@send')->name('contact.send');
+//EndContactController
+
+
 // Dont forget delete
 Route::get('/complete', function () {
     return view('auth.complete');
