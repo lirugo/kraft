@@ -145,7 +145,6 @@
 @endsection
 
 @section('scripts')
-    <script src="/js/jquery-3.3.1.js"></script>
     <script src="/js/jquery.steps.js"></script>
     <script src="/js/jquery.validate.js"></script>
     <script src="/js/script.js"></script>

@@ -9,7 +9,8 @@
     </div>
 @endsection
 @section('stylesheets')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css"
+          rel="stylesheet">
 @endsection
 
 @section('content')
@@ -21,9 +22,11 @@
                         <img src="/uploads/avatars/{{ $user->avatar }}" class="avatar"/>
                         {!! Form::open(['method' => 'POST', 'route' =>['profile.update'], 'files' => true]) !!}
                         <h2>Profile</h2>
-                            {!! Form::label('avatar', 'Update profile Image') !!}
-                            {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
-                        <div class="row"> <div class="col-md-12"> </div> </div>
+                        {!! Form::label('avatar', 'Update profile Image') !!}
+                        {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
+                        <div class="row">
+                            <div class="col-md-12"></div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-4">
@@ -63,7 +66,6 @@
 @endsection
 
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
 @endsection

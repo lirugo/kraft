@@ -34,7 +34,6 @@
 @endsection
 
 @section('scripts')
-    <script src="/js/jquery-3.3.1.js"></script>
     <script src="/js/dropzone.js"></script>
     <script type="text/javascript">
         Dropzone.autoDiscover = false;
