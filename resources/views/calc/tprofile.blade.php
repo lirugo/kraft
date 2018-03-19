@@ -28,8 +28,10 @@
                 <br>
                 <br>
                 {!! Form::label('label', "Толщина профиля:") !!}
-                {{ Form::radio('thickness', '15', false,  ['id' => '15mm']) }} 15 мм
-                {{ Form::radio('thickness', '24', false,  ['id' => '24mm']) }} 24 мм
+                {{ Form::radio('thickness', '15', false,  ['id' => '15mm']) }}
+                {!! Form::label('15mmlbl', "15 мм") !!}
+                {{ Form::radio('thickness', '24', false,  ['id' => '24mm']) }}
+                {!! Form::label('24mmlbl', "24 мм") !!}
                 <br>
                 <br>
                 {!! Form::label('label', "Модель профиля:") !!}
@@ -154,6 +156,7 @@
         $(function() {
             $("#table").hide();
             $("#model").change(function() {
+                document.getElementById("15mm").disabled = false;
                 document.getElementById("colors").selectedIndex = 0;
                 $("#othercolor").hide();
                 $("#color").hide();
@@ -167,6 +170,8 @@
                 var option4 = document.createElement("option");
                 if ($("#NOVA").is(":selected"))
                 {
+                    document.getElementById('15mm').checked = false;
+                    document.getElementById("15mm").disabled = true;
                     option.text = "RAL 9003 (белый)";
                     option.value = "9003";
                     colors.add(option);
