@@ -4,15 +4,32 @@ namespace App\Http\Controllers\Manager;
 
 use App\Company;
 use App\CompanyChange;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class ModerationController extends Controller
 {
     public function index(){
+        //GetCompanyChange
         $ch = CompanyChange::all()->where('done', '=', false);
-        $data = array('company' => count($ch));
+
+        //GetUsersCompanyWhatNotActive
+        $users = User::with(['roles' => function($q){
+            $q->where('name', 'Worker');
+        }])->get();
+        foreach ($users as $key => $user)
+            if($user->active == true || $user->regionname != Auth::user()->regionname)
+                unset($users[$key]);
+
+        //Set data
+        $data = [
+            'company' => count($ch),
+            'users' => count($users)
+        ];
+        //Send to view
         return view('manager/moderation/index')->with('data', $data);
     }
 
@@ -21,6 +38,26 @@ class ModerationController extends Controller
         foreach($companychanges as $ch)
             $ch->company = Company::find($ch->company_id);
         return view('manager/moderation/company/index')->with('chs', $companychanges);
+    }
+
+    public function activate($id){
+        $user = User::find($id);
+        $user->active = true;
+        $user->save();
+        return back();
+    }
+
+    public function companyusers(){
+        $users = User::with(['roles' => function($q){
+            $q->where('name', 'Worker');
+        }])->get();
+
+        foreach ($users as $key => $user)
+        {
+            if($user->active == true || $user->regionname != Auth::user()->regionname)
+                unset($users[$key]);
+        }
+        return view('manager.moderation.company.users')->with('users', $users);
     }
 
     public function companypost($id){

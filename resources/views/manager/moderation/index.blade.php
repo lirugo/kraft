@@ -23,12 +23,24 @@
                                         <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['company'] }}</span>
                                         @endif
                                     <div class="description m-t-10">
-                                        Компания
+                                        Профиль компаний
                                     </div>
                                 </a>
                             </div>
                         </div>
-
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/manager/moderation/company/users">
+                                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+                                    @if($data['users'] != 0)
+                                        <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['users'] }}</span>
+                                    @endif
+                                    <div class="description m-t-10">
+                                        Пользователи компаний
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

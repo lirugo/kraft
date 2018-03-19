@@ -69,6 +69,7 @@
                             {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => "Дополнительная информация о месте положения объекта", 'id' => 'street_number']) !!}
                             <hr>
                             {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks').' *']) !!}
+                            {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
                             <br>
                             <br>
                             <div class="[ form-group-checkbox  m-t-20 ]">
