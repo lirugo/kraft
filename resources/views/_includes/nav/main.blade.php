@@ -19,6 +19,11 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                @if(!Auth::guest())
+                    @if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('designer') || Auth::user()->hasRole('worker'))
+                        <li><a id="contact-form" href="#" class="contact-menu">Связь с KRAFT</a></li>
+                    @endif
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -28,9 +33,6 @@
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
                 @else
-                @if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('designer') || Auth::user()->hasRole('worker'))
-                    <li><a id="contact-form" href="#">Написать нам</a></li>
-                @endif
                     <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
                     <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>

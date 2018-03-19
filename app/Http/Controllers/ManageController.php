@@ -35,10 +35,20 @@ class ManageController extends Controller
             if($designer->active == true)
                 unset($designers[$key]);
         //DistributorAndDesigner
+        //GetUsersCompanyWhatNotActive
+        $users = User::with(['roles' => function($q){
+            $q->where('name', 'Worker');
+        }])->get();
+
+        foreach ($users as $key => $us)
+        {
+            if($us->active == true || $us->regionname != Auth::user()->regionname)
+                unset($users[$key]);
+        }
 
         $data = new Collection();
         $data->put('objects',$object);
-        $data->put('ch',$ch);
+        $data->put('ch',count($users)+count($ch));
         $data->put('clients',count($designers)+count($distributors));
 
 

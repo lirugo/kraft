@@ -84,7 +84,7 @@ $(function () {
 
     dialog = $("#dialog-form").dialog({
         autoOpen: false,
-        height: 400,
+        height: 460,
         width: 600,
         show: {
             effect: "explode",

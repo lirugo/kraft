@@ -39,8 +39,9 @@
         @yield('content')
         {{--ContactForm--}}
         @if(Auth::user())
-            <div id="dialog-form" title="Написать нам">
-                <p class="validateTips">Запроните форму связи</p>
+            <div id="dialog-form" title="Связь с KRAFT">
+                <p class="validateTips">Эта форма предназначена для связи с руководством компании-производителя.
+                    Если у вас есть какие-либо предложения, пожелания или возникли проблемы при работе с нами - напишите нам, и мы рассмотрим Ваше обращение в ближайшее время.</p>
                 {!! Form::open(['route' =>['contact.send'], 'method' => 'POST', 'id' => 'contact']) !!}
                 <fieldset>
                 {!! Form::text('theme',null, ['class' => 'form-control', 'id' => 'theme','placeholder' => 'Тема']) !!}

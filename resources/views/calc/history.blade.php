@@ -30,6 +30,7 @@
                 <table class="table table-striped table-borderless text-center">
                     <thead>
                     <tr>
+                        <th scope="col" style="color: #f78421;">Дата</th>
                         <th scope="col" style="color: #f78421;">Артикул</th>
                         <th scope="col" style="color: #f78421;">Модель</th>
                         <th scope="col" style="color: #f78421;">Наименование</th>
@@ -44,6 +45,7 @@
                     </thead>
                     <tbody>
                     <tr>
+                        <td id="table-3600-vendor">{{ Carbon\Carbon::parse($calc->created_at)->format('d-m-Y') }}</td>
                         <td id="table-3600-vendor">{{$calc->tprofile_3600_vendor}}</td>
                         <td id="table-3600-model">{{$calc->tprofile_3600_model}}</td>
                         <td id="table-3600-name">{{$calc->tprofile_3600_name}}</td>
@@ -56,6 +58,7 @@
                         <td id="table-3600-price-all">{{number_format($calc->tprofile_3600_price_all,2)}}</td>
                     </tr>
                     <tr>
+                        <td id="table-3600-vendor">{{ Carbon\Carbon::parse($calc->created_at)->format('H:i') }}</td>
                         <td id="table-1200-vendor">{{$calc->tprofile_1200_vendor}}</td>
                         <td id="table-1200-model">{{$calc->tprofile_1200_model}}</td>
                         <td id="table-1200-name">{{$calc->tprofile_1200_name}}</td>

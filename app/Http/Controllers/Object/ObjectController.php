@@ -59,7 +59,7 @@ class ObjectController extends Controller
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
             'customersurname' => 'required|max:255',
-            'customerpatronymic' => 'required|max:255',
+//            'customerpatronymic' => 'required|max:255',
             'customerphone' => 'required|max:255',
            /* 'delegatebuildername' => 'required|max:255',
             'delegatebuildersurname' => 'required|max:255',

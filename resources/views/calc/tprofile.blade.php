@@ -184,8 +184,8 @@
                     option1.text = "RAL 9005 (черынй)";
                     option1.value = "9005";
                     colors.add(option1);
-                    option2.text = "RAL 9007 (серый)";
-                    option2.value = "9007";
+                    option2.text = "RAL 9006 (серый)";
+                    option2.value = "9006";
                     colors.add(option2);
                     $("#color").show();
                 } else  if ($("#HD").is(":selected") || $("#RH1000").is(":selected"))

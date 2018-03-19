@@ -42,7 +42,7 @@
                     <option value="other" id="other">Другой</option>
                     <option value="9003" name="9003">RAL 9003 (белый)</option>
                     <option value="9005" name="9005">RAL 9005 (черный)</option>
-                    <option value="9007" name="9007">RAL 9007 (серый)</option>
+                    <option value="9006" name="9006">RAL 9006 (серый)</option>
                 </select>
                     <input class="form-control" placeholder="4 цифры RAL" required id="othercolorinput">
                 <br>
