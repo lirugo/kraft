@@ -16,9 +16,9 @@ class CreateVendorCodeTProfilesTable extends Migration
         Schema::create('vendor_code_t_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('vendor_code');
-            $table->string('model');
-            $table->integer('profile_thickness');
-            $table->integer('profile');
+            $table->string('model')->nullable();
+            $table->integer('profile_thickness')->nullable();
+            $table->string('profile');
             $table->integer('color');
             $table->text('description');
             $table->timestamps();

@@ -27,10 +27,10 @@
             <div class="col-md-12">
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="/calc/{{$object->id}}">
+                        <a href="/order/{{$object->id}}">
                             <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Калькулятор
+                                Order
                             </div>
                         </a>
                     </div>

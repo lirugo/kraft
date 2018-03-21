@@ -186,19 +186,12 @@ Route::get('routes/console', function()
 });
 //EndCron
 
-//CalcRoute
-Route::get('/calc/history/show/{id}', 'Calc\CalcController@history');
-Route::get('/calc/{id}', 'Calc\CalcController@index');
-Route::get('calc/tprofile/{id}', 'Calc\CalcController@tprofile');
-Route::post('/calc/tprofile/history/{id}', 'Calc\CalcController@tprofilehistory')->name('calc.tprofile.history');
-Route::post('/calc/tprofile/vendor', 'Calc\CalcController@tprofilevendor')->name('calc.tprofile.vendor');
-Route::post('/calc/grilyato/history/{id}', 'Calc\CalcController@grilyatohistory')->name('calc.grilyato.history');
-Route::post('/calc/cube/history/{id}', 'Calc\CalcController@cubehistory')->name('calc.cube.history');
-Route::post('/calc/led/history/{id}', 'Calc\CalcController@ledhistory')->name('calc.led.history');
-Route::get('/calc/grilyato/{id}', 'Calc\CalcController@grilyato');
-Route::get('/calc/cube/{id}', 'Calc\CalcController@cube');
-Route::get('/calc/led/{id}', 'Calc\CalcController@led');
-//EndCalcRoute
+//OrderCalc
+Route::get('/order/{id}', 'Order\OrderController@index');
+
+Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
+
+//EndOrderCalc
 
 //Message route
 Route::group(['prefix' => 'messages'], function () {
