@@ -76,6 +76,8 @@ function calcFunction() {
     //Validate
     var numbers = /^[0-9]+$/;
     if (!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers)) {
+
+
         document.getElementById("areaceiling").focus();
         alert('S is empty or not digit');
         return;
@@ -120,7 +122,10 @@ function calcFunction() {
     var s = document.getElementById("areaceiling").value;
     var p = document.getElementById("pceiling").value;
     var model = document.getElementById('model').value;
+    var wire_with_ear = document.getElementById('wire_with_ear').value;
+    var wire_with_hook = document.getElementById('wire_with_hook').value;
     var width;
+
     if (document.getElementById('15mm').checked)
         width = document.getElementById('15mm').value;
     else
@@ -150,7 +155,9 @@ function calcFunction() {
                 'model':model,
                 'profile_thickness':width,
                 'color':color,
-                'wall_profile':wall_profile
+                'wall_profile':wall_profile,
+                'wire_with_ear':wire_with_ear,
+                'wire_with_hook':wire_with_hook
             },
             async:true,
             success: cb_func,
@@ -164,6 +171,9 @@ function calcFunction() {
     getNewENumber(function( vendor ) {
         //SetVariableFromVendorIfExist
         //EndGetVenodreCode
+        if(document.getElementById('wall_profile_L').checked === true)
+            wall_profile = "L";
+        else wall_profile = "W";
         var tp3600 = tp3600c * s + ((tp3600c * s) / 100) * difficult;
         var tp1200 = tp1200c * s + ((tp1200c * s) / 100) * difficult;
         var tp600 = tp600c * s + ((tp600c * s) / 100) * difficult;
@@ -250,7 +260,7 @@ function calcFunction() {
         else {
             v3600_vendor = null;
             v3600_model = model;
-            v3600_name = null;
+            v3600_name = "Т-Профіль";
             v3600_width = width;
             v3600_lenght = "3600";
             v3600_color = color;
@@ -276,7 +286,7 @@ function calcFunction() {
         else{
             v1200_vendor = null;
             v1200_model = model;
-            v1200_name = null;
+            v1200_name = "Т-Профіль";
             v1200_width = width;
             v1200_lenght = "1200";
             v1200_color = color;
@@ -303,7 +313,7 @@ function calcFunction() {
         {
             v600_vendor = null;
             v600_model = model;
-            v600_name = null;
+            v600_name = "Т-Профіль";
             v600_width = width;
             v600_lenght = "600";
             v600_color = color;
@@ -320,9 +330,43 @@ function calcFunction() {
         }
         else {
             wall_profile_vendor = null;
-            wall_profile_model = null;
-            wall_profile_description = null;
+            wall_profile_model = model;
+            wall_profile_description = "Профіль пристінний, "+wall_profile;
             wall_profile_color = color;
+        }
+        if (typeof vendor['wire_with_ear'] !== 'undefined') {
+            wire_with_ear_vendor = vendor['wire_with_ear'].vendor_code;
+            wire_with_ear_model = vendor['wire_with_ear'].model;
+            wire_with_ear_profile = vendor['wire_with_ear'].profile;
+            wire_with_ear_description = vendor['wire_with_ear'].description;
+        }
+        else {
+            wire_with_ear_vendor = null;
+            wire_with_ear_model = "Дріт з вушком";
+            wire_with_ear_profile = wire_with_ear;
+            wire_with_ear_description = null;
+        }
+        if (typeof vendor['wire_with_hook'] !== 'undefined') {
+            wire_with_hook_vendor = vendor['wire_with_hook'].vendor_code;
+            wire_with_hook_model = vendor['wire_with_hook'].model;
+            wire_with_hook_profile = vendor['wire_with_hook'].profile;
+            wire_with_hook_description = vendor['wire_with_hook'].description;
+        }
+        else {
+            wire_with_hook_vendor = null;
+            wire_with_hook_model = "Дріт з гаком";
+            wire_with_hook_profile = wire_with_hook;
+            wire_with_hook_description = null;
+        }
+        if (typeof vendor['spring_susp'] !== 'undefined') {
+            susp_spring_vendor = vendor['spring_susp'].vendor_code;
+            susp_spring_model = vendor['spring_susp'].model;
+            susp_spring_description = vendor['spring_susp'].description;
+        }
+        else {
+            susp_spring_vendor = null;
+            susp_spring_model = "Пружинный подвес";
+            susp_spring_description = null;
         }
 
         //SetSuspension
@@ -383,10 +427,36 @@ function calcFunction() {
         document.getElementById("table-wall-profile-price-all").innerHTML =  sumAngle.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndAngle
 
+        //SuspWithEar
+        document.getElementById("table-wireWithEar-vendor").innerHTML = wire_with_ear_vendor;
+        document.getElementById("table-wireWithEar-model").innerHTML = wire_with_ear_model;
+        document.getElementById("table-wireWithEar-description").innerHTML = wire_with_ear_description;
+        document.getElementById("table-wireWithEar-lenght").innerHTML = wire_with_ear_profile;
+        document.getElementById("table-wireWithEar-color").innerHTML = "9005";
+        document.getElementById("table-wireWithEar-count").innerHTML = vSusp_count;
+        //EndSuspWithEar
+
+        //SuspWithHook
+        document.getElementById("table-wireWithHook-vendor").innerHTML = wire_with_hook_vendor;
+        document.getElementById("table-wireWithHook-model").innerHTML = wire_with_hook_model;
+        document.getElementById("table-wireWithHook-description").innerHTML = wire_with_hook_description;
+        document.getElementById("table-wireWithHook-lenght").innerHTML = wire_with_hook_profile;
+        document.getElementById("table-wireWithHook-color").innerHTML = "9005";
+        document.getElementById("table-wireWithHook-count").innerHTML = vSusp_count;
+        //EndSuspWithHook
+
+        //SuspSpring
+        document.getElementById("table-springSusp-vendor").innerHTML = susp_spring_vendor;
+        document.getElementById("table-springSusp-model").innerHTML = susp_spring_model;
+        document.getElementById("table-springSusp-description").innerHTML = susp_spring_description;
+        document.getElementById("table-springSusp-color").innerHTML = "9005";
+        document.getElementById("table-springSusp-count").innerHTML = vSusp_count;
+        //EndSuspSpring
+
         document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
-        document.getElementById("table-susp-model").innerHTML = vSusp_model;
-        document.getElementById("table-susp-name").innerHTML = vSusp_name;
-        document.getElementById("table-susp-width").innerHTML = vSusp_width;
+        document.getElementById("table-susp-model").innerHTML = null;
+        document.getElementById("table-susp-name").innerHTML = "Итого по подвесу";
+        document.getElementById("table-susp-width").innerHTML = null;
         document.getElementById("table-susp-lenght").innerHTML = vSusp_lenght;
         document.getElementById("table-susp-color").innerHTML = vSusp_color;
         document.getElementById("table-susp-count").innerHTML = vSusp_count;

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVendorCodeTProfilesTable extends Migration
+class CreateVendorCodeTProfileSuspsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVendorCodeTProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vendor_code_t_profiles', function (Blueprint $table) {
+        Schema::create('vendor_code_t_profile_susps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('vendor_code')->unique();
             $table->string('model')->nullable();
@@ -32,6 +32,6 @@ class CreateVendorCodeTProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendor_code_t_profiles');
+        Schema::dropIfExists('vendor_code_t_profile_susps');
     }
 }

@@ -29,6 +29,30 @@
             {!! Form::label('label', "W") !!}
             <br>
             <br>
+            {!! Form::label('label', "Проволка с ушком:") !!}
+            <select id="wire_with_ear" name="wire_with_ear" class="form-control" required>
+                <option value="" selected disabled>Выберите длину</option>
+                <option value="250">250 мм</option>
+                <option value="500">500 мм</option>
+                <option value="750">750 мм</option>
+                <option value="1000">1000 мм</option>
+                <option value="1500">1500 мм</option>
+                <option value="2000">2000 мм</option>
+            </select>
+            <br>
+            <br>
+            {!! Form::label('label', "Проволока с крючком:") !!}
+            <select id="wire_with_hook" name="wire_with_hook" class="form-control" required>
+                <option value="" selected disabled>Выберите длину</option>
+                <option value="125">125 мм</option>
+                <option value="250">250 мм</option>
+                <option value="500">500 мм</option>
+                <option value="1000">1000 мм</option>
+                <option value="1500">1500 мм</option>
+                <option value="2000">2000 мм</option>
+            </select>
+            <br>
+            <br>
             {!! Form::label('label', "Модель профиля:") !!}
             <select id="model" name="model" class="form-control" required>
                 <option value="" selected disabled>Выберите модель профиля</option>
@@ -37,6 +61,9 @@
                 <option id="HD" value="HD">HD</option>
                 <option id="RH1000" value="RH1000">RH1000</option>
             </select>
+        </div>
+        <div class="col-md-4">
+            <img src="/img/icon/calc/tprofile.png">
         </div>
     </div>
 
@@ -129,6 +156,53 @@
                 <td id="table-wall-profile-pack"></td>
                 <td id="table-wall-profile-price-all"></td>
             </tr>
+            <tr style="
+            border-top: 1px solid #f78620;
+            border-left: 1px solid #f78620;
+            border-right: 1px solid #f78620;
+            ">
+                <td id="table-wireWithEar-vendor"></td>
+                <td id="table-wireWithEar-model"></td>
+                <td id="table-wireWithEar-description"></td>
+                <td id="table-wireWithEar-width"></td>
+                <td id="table-wireWithEar-lenght"></td>
+                <td id="table-wireWithEar-color"></td>
+                <td id="table-wireWithEar-count"></td>
+                <td id="table-wireWithEar-price"></td>
+                <td id="table-wireWithEar-pack"></td>
+                <td id="table-wireWithEar-price-all"></td>
+            </tr>
+            <tr style="
+            border-left: 1px solid #f78620;
+            border-right: 1px solid #f78620;
+            ">
+                <td id="table-wireWithHook-vendor"></td>
+                <td id="table-wireWithHook-model"></td>
+                <td id="table-wireWithHook-description"></td>
+                <td id="table-wireWithHook-width"></td>
+                <td id="table-wireWithHook-lenght"></td>
+                <td id="table-wireWithHook-color"></td>
+                <td id="table-wireWithHook-count"></td>
+                <td id="table-wireWithHook-price"></td>
+                <td id="table-wireWithHook-pack"></td>
+                <td id="table-wireWithHook-price-all"></td>
+            </tr>
+            <tr style="
+            border-bottom: 1px solid #f78620;
+            border-left: 1px solid #f78620;
+            border-right: 1px solid #f78620;
+            ">
+                <td id="table-springSusp-vendor"></td>
+                <td id="table-springSusp-model"></td>
+                <td id="table-springSusp-description"></td>
+                <td id="table-springSusp-width"></td>
+                <td id="table-springSusp-lenght"></td>
+                <td id="table-springSusp-color"></td>
+                <td id="table-springSusp-count"></td>
+                <td id="table-springSusp-price"></td>
+                <td id="table-springSusp-pack"></td>
+                <td id="table-springSusp-price-all"></td>
+            </tr>
             <tr>
                 <td id="table-susp-vendor"></td>
                 <td id="table-susp-model"></td>
@@ -151,8 +225,8 @@
                 <td style="background-color: white"></td>
                 <td style="background-color: white"></td>
                 <td style="background-color: white"></td>
-                <td style="background-color: white; color: #f78421;"><strong>ИТОГО</strong></td>
-                <td id="table-total" style="background-color: white; color: #f78421;"></td>
+                <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
+                <td id="table-total" style="background-color: #eeeeee; color: #f78421;"></td>
             </tr>
             </tbody>
         </table>
