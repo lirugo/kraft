@@ -3,30 +3,38 @@
     <div class="row">
         <div class="col-md-4 form-inline">
             {!! Form::label('label', "Площадь потолка:") !!}
-            {!! Form::text('areaceiling', null, ['class' => 'form-control', 'id' => 'areaceiling', 'required']) !!} м<sup>2</sup>
+            {!! Form::number('areaceiling', null, ['class' => 'form-control', 'id' => 'areaceiling', 'required','step' => '1', 'min' => '1']) !!} м<sup>2</sup>
             <br>
             <br>
             {!! Form::label('label', "Периметр потолка:") !!}
-            {!! Form::text('pceiling', null, ['class' => 'form-control', 'id' => 'pceiling', 'required']) !!} м
+            {!! Form::number('pceiling', null, ['class' => 'form-control', 'id' => 'pceiling', 'required','step' => '1', 'min' => '1']) !!} м
             <br>
             <br>
             {!! Form::label('label', "Конфигурация помещения:") !!}
-            {{ Form::radio('difficult', 3, false,  ['id' => 'easy']) }} Простая
-            {{ Form::radio('difficult', 7, false,  ['id' => 'hard']) }} Сложная
+            <label class="toggle">
+                <input type="radio" name="difficult" value="{{$data['constants']->easy}}" id="easy"> <span class="label-text">Простая</span>
+            </label>
+            <label class="toggle">
+                <input type="radio" name="difficult" value="{{$data['constants']->hard}}" id="hard"> <span class="label-text">Сложная</span>
+            </label>
             <br>
             <br>
             {!! Form::label('label', "Толщина профиля:") !!}
-            {{ Form::radio('thickness', '15', false,  ['id' => '15mm']) }}
-            {!! Form::label('15mmlbl', "15 мм") !!}
-            {{ Form::radio('thickness', '24', false,  ['id' => '24mm']) }}
-            {!! Form::label('24mmlbl', "24 мм") !!}
+            <label class="toggle">
+                <input type="radio" name="thickness" value="15" id="15mm"> <span class="label-text">15 мм</span>
+            </label>
+            <label class="toggle">
+                <input type="radio" name="thickness" value="24" id="24mm"> <span class="label-text">24 мм</span>
+            </label>
             <br>
             <br>
             {!! Form::label('label', "Выбор пристенного профиля:") !!}
-            {{ Form::radio('wall_profile', 'L', false,  ['id' => 'wall_profile_L']) }}
-            {!! Form::label('label', "L") !!}
-            {{ Form::radio('wall_profile', 'W', false,  ['id' => 'wall_profile_W']) }}
-            {!! Form::label('label', "W") !!}
+            <label class="toggle">
+                <input type="radio" name="wall_profile" value="L" id="wall_profile_L"> <span class="label-text">L</span>
+            </label>
+            <label class="toggle">
+                <input type="radio" name="wall_profile" value="W" id="wall_profile_W"> <span class="label-text">W</span>
+            </label>
             <br>
             <br>
             {!! Form::label('label', "Проволка с ушком:") !!}
@@ -83,13 +91,13 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            {!! Form::submit('Расчитать',['class' => 'btn btn-primary m-t-20 pull-left', 'id' => 'calc']) !!}
+            {!! Form::submit('Расчитать',['class' => 'btn btn-primary m-t-20 pull-left m-b-20', 'id' => 'calc']) !!}
         </div>
     </div>
 </div>
 
 
-<div class="row">
+<div class="row" id="calc_t_profile_table">
     <div class="col-md-12" id="table">
         <hr>
         <table class="table table-striped table-borderless text-center">

@@ -1,14 +1,4 @@
 $(function() {
-    $("#calculator").change(function() {
-        if ($("#t_profile").is(":selected")) {
-            $("#calc_t_profile").show();
-        } else {
-            $("#calc_t_profile").hide();
-        }
-    }).trigger('change');
-});
-
-$(function() {
     $("#table").hide();
     $("#model").change(function() {
         document.getElementById("15mm").disabled = false;
@@ -77,44 +67,54 @@ function calcFunction() {
     var numbers = /^[0-9]+$/;
     if (!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers)) {
 
-
+        document.getElementById("areaceiling").style.borderColor = "red";
         document.getElementById("areaceiling").focus();
-        alert('S is empty or not digit');
         return;
     }
     if (!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers)) {
+        document.getElementById("pceiling").style.borderColor = "red";
         document.getElementById("pceiling").focus();
-        alert('P is empty or not digit');
         return;
     }
     if (!document.getElementById('easy').checked && !document.getElementById('hard').checked) {
+        document.getElementById("easy").style.borderColor = "red";
         document.getElementById("easy").focus();
-        alert('Выберите конфигурацию помещения.');
         return;
     }
     if (!document.getElementById('15mm').checked && !document.getElementById('24mm').checked) {
-        document.getElementById("15mm").focus();
-        alert('Выберите толщину профиля.');
+        document.getElementById("15mm").style.borderColor = "red";
+        document.getElementById("24mm").focus();
         return;
     }
     if (!document.getElementById('wall_profile_L').checked && !document.getElementById('wall_profile_W').checked) {
+        document.getElementById("wall_profile_L").style.borderColor = "red";
         document.getElementById("wall_profile_L").focus();
-        alert('Выберите пристенный профиль.');
+        return;
+    }
+    if (!document.getElementById('wire_with_ear').validity.valid) {
+        document.getElementById("wire_with_ear").style.borderColor = "red";
+        document.getElementById("wire_with_ear").focus();
+        alert('wire_with_ear is empty');
+        return;
+    }
+    if (!document.getElementById('wire_with_hook').validity.valid) {
+        document.getElementById("wire_with_hook").style.borderColor = "red";
+        document.getElementById("wire_with_hook").focus();
         return;
     }
     if (!document.getElementById('model').validity.valid) {
+        document.getElementById("model").style.borderColor = "red";
         document.getElementById("model").focus();
-        alert('Model is empty');
         return;
     }
     if (document.getElementById('colors').value === "default") {
+        document.getElementById("colors").style.borderColor = "red";
         document.getElementById("colors").focus();
-        alert('Color is empty');
         return;
     }
     if (document.getElementById('colors').value === "other" && document.getElementById('othercolorinput').value === "") {
+        document.getElementById("othercolorinput").style.borderColor = "red";
         document.getElementById("othercolorinput").focus();
-        alert('Введите 4 цифры цвета RAL');
         return;
     }
     //EndValidate

@@ -38,7 +38,7 @@ class OrderController extends Controller
             'L3000c_pack' => $constants->L3000_pack,
             'suspc_pack' => $constants->susp_pack
         ]);
-        return view('order.index');
+        return view('order.index')->with('data', $data);
     }
 
     public function tprofilevendor(Request $request){
