@@ -12,12 +12,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="select_calc" class="botton botton-primary">Добавить продукт</button>
+                <button id="select_calc" class="botton botton-primary" style="margin:0;">Добавить продукт</button>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+            <h4 style="float: right;">Заказ № {{$data['object']->id.\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i')}}</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <hr style="margin: 0; margin-bottom: 10px;">
+                <hr style="margin:10px 0 10px 0;">
             </div>
         </div>
 

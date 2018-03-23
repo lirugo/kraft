@@ -43,7 +43,7 @@
                 'other' => 'Другой'
                 ], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
                 {!! Form::number('othercolor', null, ['class' => 'form-control', 'id' => 'othercolor', 'required', 'placeholder' => 'Введите цвет RAL - 4 цифры','step' => '1', 'min' => '1000', 'max' => '9999']) !!}
-                {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10']) !!}
+                {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
         <div class="col-md-4 text-center">
@@ -195,6 +195,10 @@
                 </tr>
                 </tbody>
             </table>
+            {!! Form::button('Добавить в спецификацию', ['class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
+            <br>
+            <br>
+            <br>
             <hr>
         </div>
     </div>
