@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="select_calc" class="botton botton-primary">Выберите продукт</button>
+                <button id="select_calc" class="botton botton-primary">Добавить продукт</button>
             </div>
         </div>
         <div class="row">
@@ -20,11 +20,12 @@
                 <hr style="margin: 0; margin-bottom: 10px;">
             </div>
         </div>
+
         @include('order.calc.includes.tprofile')
+
     </div>
     {{--JQuery--}}
-    <div id="dialog_select_cal" title="Выберите калькулятор">
-        <div class="row text-center">
+    <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
             <div class="col-md-3">
                 <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
                 <h4 onclick="showTProfile()">T-Profile</h4>
@@ -41,17 +42,19 @@
                 <img src="/img/icon/calc/led.png" width="150px"/>
                 <h4>Led</h4>
             </div>
-        </div>
     </div>
 @endsection
 
 @section('scripts')
+    <script src="/js/order/calc/tprofile.js"></script>
     <script>
         $("#calc_t_profile").hide();
+        //Dialog select Calc
         $( function() {
             $( "#dialog_select_cal" ).dialog({
                 autoOpen: false,
                 width:800,
+                dialogClass: 'arbeitsauftrag_hilfe',
                 show: {
                     effect: "drop",
                     duration: 1000
@@ -67,6 +70,7 @@
             });
         });
 
+        //Show calc
         function showTProfile() {
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
@@ -74,19 +78,8 @@
             if($( "#calc_t_profile" ).is( ":visible" ))
             {
                 $("#calc_t_profile").hide();
-                $("#calc_t_profile_table").hide();
             }
             else $("#calc_t_profile").show();
         }
-        $(function() {
-            $("#calculator").change(function() {
-                if ($("#t_profile").is(":selected")) {
-                    $("#calc_t_profile").show();
-                } else {
-                    $("#calc_t_profile").hide();
-                }
-            }).trigger('change');
-        });
     </script>
-    <script src="/js/order/calc/tprofile.js"></script>
 @endsection

@@ -1,149 +1,98 @@
-$(function() {
-    $("#table").hide();
-    $("#model").change(function() {
-        document.getElementById("15mm").disabled = false;
-        document.getElementById("colors").selectedIndex = 0;
-        $("#othercolor").hide();
-        $("#color").hide();
-        for (var i=document.getElementById('colors').options.length; i-->2;)
-            document.getElementById('colors').options[i] = null;
-        var colors = document.getElementById("colors");
-        var option = document.createElement("option");
-        var option1 = document.createElement("option");
-        var option2 = document.createElement("option");
-        var option3 = document.createElement("option");
-        var option4 = document.createElement("option");
-        if ($("#NOVA").is(":selected"))
-        {
-            document.getElementById('15mm').checked = false;
-            document.getElementById("15mm").disabled = true;
-            option.text = "RAL 9003 (белый)";
-            option.value = "9003";
-            colors.add(option);
-            $("#color").show();
-        } else  if ($("#FORTIS").is(":selected"))
-        {
-            option.text = "RAL 9003 (белый)";
-            option.value = "9003";
-            colors.add(option);
-            option1.text = "RAL 9005 (черынй)";
-            option1.value = "9005";
-            colors.add(option1);
-            option2.text = "RAL 9006 (серый)";
-            option2.value = "9006";
-            colors.add(option2);
-            $("#color").show();
-        } else  if ($("#HD").is(":selected") || $("#RH1000").is(":selected"))
-        {
-            option.text = "RAL 9003 (белый)";
-            option.value = "9003";
-            colors.add(option);
-            option1.text = "RAL 9005 (черынй)";
-            option1.value = "9005";
-            colors.add(option1);
-            option2.text = "RAL 9006 (серый)";
-            option2.value = "9006";
-            colors.add(option2);
-            $("#color").show();
-        } else {
-            document.getElementById("colors").selectedIndex = 0;
-            $("#othercolor").hide();
-            $("#color").hide();
-        }
-    }).trigger('change');
-    $("#color").change(function() {
-        if ($("#other").is(":selected")) {
-            $("#othercolor").show();
-        } else {
-            $("#othercolor").hide();
-        }
-    }).trigger('change');
+//default hidden object
+document.getElementById("othercolor").disabled = true;
+document.getElementById("othercolor").style.display = "none";
+document.getElementById("colors").disabled = true;
+document.getElementById("colors").style.display = "none";
+document.getElementById("calc_t_profile_table").style.display = "none";
+
+//TICKNESS
+//Select MODEL LIKE NOVA,FORTIS...
+$("#model").change(function() {
+    //Hide
+    document.getElementById("othercolor").disabled = true;
+    document.getElementById("colors").disabled = true;
+    document.getElementById("thickness").options[1].disabled = false;
+    //SET VARIABLE
+    var colors = document.getElementById("colors");
+    var option = document.createElement("option");
+    var option1 = document.createElement("option");
+    var option2 = document.createElement("option");
+    var option3 = document.createElement("option");
+    var option4 = document.createElement("option");
+    //Clear Color
+    for (var i=document.getElementById('colors').options.length; i-->2;)
+        document.getElementById('colors').options[i] = null;
+    //Set COLOR
+    if($('#model').find(":selected").text() === "NOVA")
+    {
+        //NOVA cant been 15mm
+        if(document.getElementById('thickness').value === "15")
+            document.getElementById("thickness").selectedIndex = "0";
+        document.getElementById("thickness").options[1].disabled = true;
+        option.text = "RAL 9003 (белый)";
+        option.value = "9003";
+        colors.add(option);
+        document.getElementById("colors").disabled = false;
+        document.getElementById("colors").style.display = "initial";
+    }else if($('#model').find(":selected").text() === "FORTIS")
+    {
+        option.text = "RAL 9003 (белый)";
+        option.value = "9003";
+        colors.add(option);
+        option1.text = "RAL 9005 (черынй)";
+        option1.value = "9005";
+        colors.add(option1);
+        option2.text = "RAL 9006 (серый)";
+        option2.value = "9006";
+        colors.add(option2);
+        document.getElementById("colors").disabled = false;
+        document.getElementById("colors").style.display = "initial";
+    } else  if ($('#model').find(":selected").text() === 'HD' || $('#model').find(":selected").text() === 'RH1000') {
+        option.text = "RAL 9003 (белый)";
+        option.value = "9003";
+        colors.add(option);
+        option1.text = "RAL 9005 (черынй)";
+        option1.value = "9005";
+        colors.add(option1);
+        option2.text = "RAL 9006 (серый)";
+        option2.value = "9006";
+        colors.add(option2);
+        document.getElementById("colors").disabled = false;
+        document.getElementById("colors").style.display = "initial";
+    }
 });
 
-//Submit BTN
-document.getElementById("calc").addEventListener("click", calcFunction);
-function calcFunction() {
-    //Validate
-    var numbers = /^[0-9]+$/;
-    if (!document.getElementById('areaceiling').validity.valid || !document.getElementById('areaceiling').value.match(numbers)) {
+//Select COLOR
+$("#colors").change(function() {
+    if ($('#colors').find(":selected").text() === "Другой") {
+        document.getElementById("othercolor").disabled = false;
+        document.getElementById("othercolor").style.display = "initial";
+    } else {
+        document.getElementById("othercolor").disabled = true;
+        document.getElementById("othercolor").style.display = "none";
+    }
+});
 
-        document.getElementById("areaceiling").style.borderColor = "red";
-        document.getElementById("areaceiling").focus();
-        return;
-    }
-    if (!document.getElementById('pceiling').validity.valid || !document.getElementById('pceiling').value.match(numbers)) {
-        document.getElementById("pceiling").style.borderColor = "red";
-        document.getElementById("pceiling").focus();
-        return;
-    }
-    if (!document.getElementById('easy').checked && !document.getElementById('hard').checked) {
-        document.getElementById("easy").style.borderColor = "red";
-        document.getElementById("easy").focus();
-        return;
-    }
-    if (!document.getElementById('15mm').checked && !document.getElementById('24mm').checked) {
-        document.getElementById("15mm").style.borderColor = "red";
-        document.getElementById("24mm").focus();
-        return;
-    }
-    if (!document.getElementById('wall_profile_L').checked && !document.getElementById('wall_profile_W').checked) {
-        document.getElementById("wall_profile_L").style.borderColor = "red";
-        document.getElementById("wall_profile_L").focus();
-        return;
-    }
-    if (!document.getElementById('wire_with_ear').validity.valid) {
-        document.getElementById("wire_with_ear").style.borderColor = "red";
-        document.getElementById("wire_with_ear").focus();
-        alert('wire_with_ear is empty');
-        return;
-    }
-    if (!document.getElementById('wire_with_hook').validity.valid) {
-        document.getElementById("wire_with_hook").style.borderColor = "red";
-        document.getElementById("wire_with_hook").focus();
-        return;
-    }
-    if (!document.getElementById('model').validity.valid) {
-        document.getElementById("model").style.borderColor = "red";
-        document.getElementById("model").focus();
-        return;
-    }
-    if (document.getElementById('colors').value === "default") {
-        document.getElementById("colors").style.borderColor = "red";
-        document.getElementById("colors").focus();
-        return;
-    }
-    if (document.getElementById('colors').value === "other" && document.getElementById('othercolorinput').value === "") {
-        document.getElementById("othercolorinput").style.borderColor = "red";
-        document.getElementById("othercolorinput").focus();
-        return;
-    }
-    //EndValidate
-    //InitialData
+//Submitting form
+function formTProfile() {
+    //SET VARIABLE
     var s = document.getElementById("areaceiling").value;
     var p = document.getElementById("pceiling").value;
     var model = document.getElementById('model').value;
     var wire_with_ear = document.getElementById('wire_with_ear').value;
     var wire_with_hook = document.getElementById('wire_with_hook').value;
-    var width;
-
-    if (document.getElementById('15mm').checked)
-        width = document.getElementById('15mm').value;
-    else
-        width = document.getElementById('24mm').value;
+    var width = document.getElementById('thickness').value;
     var color = null;
     if (document.getElementById('colors').value === "other")
-        color = document.getElementById('othercolorinput').value;
+        color = document.getElementById('othercolor').value;
     else color = document.getElementById('colors').value;
-    var difficult = $('input[name=difficult]:checked').val();
-
-    //EndInitialData
-    //DataProcessing
-    //GetVenodorCode
-    var vendor = "";
+    var difficult = document.getElementById('difficult').value;
     var wall_profile = null;
-    if(document.getElementById('wall_profile_L').checked === true)
+    if(document.getElementById('wall_profile').value === 'L')
         wall_profile = "L";
     else wall_profile = "W";
+
+    //AJAX REQUEST TO SERVER
     function getNewENumber(cb_func){
         $.ajax
         ({
@@ -167,11 +116,10 @@ function calcFunction() {
             }
         });
     }
+
     //отправляю wall_profile запрос и получаю ответ
     getNewENumber(function( vendor ) {
-        //SetVariableFromVendorIfExist
-        //EndGetVenodreCode
-        if(document.getElementById('wall_profile_L').checked === true)
+        if(document.getElementById('wall_profile').value === 'L')
             wall_profile = "L";
         else wall_profile = "W";
         var tp3600 = tp3600c * s + ((tp3600c * s) / 100) * difficult;
@@ -243,7 +191,7 @@ function calcFunction() {
         var vSusp_pack;
         var vSusp_price_all;
         var vSumTotal;
-        //EndDataProcessing
+
         //SetDataInTable
         if (typeof vendor[3600] !== 'undefined') {
             v3600_vendor = vendor[3600].vendor_code;
@@ -466,5 +414,9 @@ function calcFunction() {
         document.getElementById("table-total").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
         // //ShowTable
     });
-    $("#table").show();
+
+    document.getElementById("calc_t_profile_table").style.display = "initial";
+    //RETURN FALSE SUBMIT FORM
+    return false;
 }
+
