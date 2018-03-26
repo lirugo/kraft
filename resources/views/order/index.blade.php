@@ -12,11 +12,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="select_calc" class="botton botton-primary" style="margin:0;">Добавить продукт</button>
+                <button id="select_calc" class="btn btn-primary" style="border-radius:0; margin:0;">Добавить продукт</button>
+                <button id="save_order" class="btn btn-primary" onclick="common_save()" style="border-radius:0; margin:0;">Сохранить заказ</button>
             </div>
             <div class="col-md-4"></div>
-            <div class="col-md-4">
-            <h4 style="float: right;">Заказ № {{$data['object']->id.\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i')}}</h4>
+            <div class="col-md-4 text-right">
+                <label>Заказ №</label> <label id="order_code">{{$data['object']->id.\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')}}</label>
             </div>
         </div>
         <div class="row">
@@ -27,6 +28,10 @@
 
         @include('order.calc.includes.tprofile')
 
+        @include('order.calc.includes.grilyato')
+
+        @include('order.calc.includes.common')
+
     </div>
     {{--JQuery--}}
     <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
@@ -35,12 +40,12 @@
                 <h4 onclick="showTProfile()">T-Profile</h4>
             </div>
             <div class="col-md-3">
-                <img src="/img/icon/calc/cube.png" width="150px"/>
-                <h4>Cube</h4>
+                <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
+                <h4 onclick="showGrilyato()">Grilyato</h4>
             </div>
             <div class="col-md-3">
-                <img src="/img/icon/calc/grilyato.png" width="150px"/>
-                <h4>Grilyato</h4>
+                <img src="/img/icon/calc/cube.png" width="150px"/>
+                <h4>Cube</h4>
             </div>
             <div class="col-md-3">
                 <img src="/img/icon/calc/led.png" width="150px"/>
@@ -51,8 +56,13 @@
 
 @section('scripts')
     <script src="/js/order/calc/tprofile.js"></script>
+    <script src="/js/order/calc/grilyato.js"></script>
+    <script src="/js/order/calc/common.js"></script>
     <script>
         $("#calc_t_profile").hide();
+        $("#calc_grilyato").hide();
+        $("#common_div").hide();
+        $("#save_order").hide();
         //Dialog select Calc
         $( function() {
             $( "#dialog_select_cal" ).dialog({
@@ -78,12 +88,24 @@
         function showTProfile() {
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
+            $("#calc_grilyato").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_t_profile" ).is( ":visible" ))
             {
                 $("#calc_t_profile").hide();
             }
             else $("#calc_t_profile").show();
+        }
+        function showGrilyato() {
+            //Hide  Dialog Window
+            $("#dialog_select_cal").dialog( "close" );
+            $("#calc_t_profile").hide();
+            //Show or Hide Calc TProfile
+            if($( "#calc_grilyato" ).is( ":visible" ))
+            {
+                $("#calc_grilyato").hide();
+            }
+            else $("#calc_grilyato").show();
         }
     </script>
 @endsection

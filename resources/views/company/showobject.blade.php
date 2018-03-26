@@ -30,17 +30,17 @@
                         <a href="/order/{{$object->id}}">
                             <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Order
+                                Заказ
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="/calc/history/show/{{$object->id}}">
+                        <a href="/order/{{$object->id}}/select">
                             <i class="fa fa-history fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                История расчетов
+                                Мои заказы
                             </div>
                         </a>
                     </div>

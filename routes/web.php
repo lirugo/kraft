@@ -187,10 +187,14 @@ Route::get('routes/console', function()
 //EndCron
 
 //OrderCalc
+Route::get('/order/{id}/select/', 'Order\OrderController@select');
+Route::get('/order/{id}/select/{order_id}', 'Order\OrderController@selectorder');
+Route::delete('/order/{id}/select/{order_id}/delete', 'Order\OrderController@deleteorder')->name('order.select.delete');
 Route::get('/order/{id}', 'Order\OrderController@index');
+Route::get('/order/show/{id}', 'Order\OrderController@show');
 
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
-
+Route::post('/order/common/save/{id}', 'Order\OrderController@common_save')->name('order.common.save');
 //EndOrderCalc
 
 //Message route
@@ -211,6 +215,7 @@ Route::get('/distributors', 'TopManager\DistributorsController@index');
 
 //ContactController
 Route::post('/contact/send', 'ContactController@send')->name('contact.send');
+Route::post('/order/send/{order_id}', 'ContactController@order')->name('order.send');
 //EndContactController
 
 

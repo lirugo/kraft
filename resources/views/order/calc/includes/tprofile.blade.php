@@ -5,14 +5,20 @@
             {!! Form::open(['onsubmit' => 'return formTProfile();']) !!}
                 {!! Form::number('areaceiling', null, ['class' => 'form-control', 'id' => 'areaceiling', 'placeholder' => 'Введите площадь помещения', 'required','step' => '1', 'min' => '1']) !!}
                 {!! Form::number('pceiling', null, ['class' => 'form-control', 'id' => 'pceiling', 'placeholder' => 'Введите периметр помещения', 'required','step' => '1', 'min' => '1']) !!}
+                {!! Form::select('model',[
+                   'NOVA' => 'NOVA',
+                   'FORTIS' => 'FORTIS',
+                   'HD' => 'HD',
+                   'RH1000' => 'RH1000'
+                   ], null, ['class' => 'form-control', 'placeholder' => 'Выберите модель профиля', 'id' => 'model', 'required']) !!}
                 {!! Form::select('difficult',[
                 $data['constants']->easy => 'Простая',
                 $data['constants']->hard => 'Сложная'
                 ], null, ['class' => 'form-control', 'id' => 'difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
-                {!! Form::select('thickness',[
-                '15' => '15 мм',
-                '24' => '24 мм'
-                ], null, ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите толщину профиля', 'required']) !!}
+               {!! Form::select('thickness',[
+                    '15' => '15 мм',
+                    '24' => '24 мм'
+                    ], null, ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите толщину профиля', 'required']) !!}
                 {!! Form::select('wall_profile',[
                 'L' => 'L',
                 'W' => 'W'
@@ -33,12 +39,6 @@
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
                 ], null, ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
-                {!! Form::select('model',[
-                'NOVA' => 'NOVA',
-                'FORTIS' => 'FORTIS',
-                'HD' => 'HD',
-                'RH1000' => 'RH1000'
-                ], null, ['class' => 'form-control', 'placeholder' => 'Выберите модель профиля', 'id' => 'model', 'required']) !!}
                 {!! Form::select('colors',[
                 'other' => 'Другой'
                 ], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
@@ -195,7 +195,7 @@
                 </tr>
                 </tbody>
             </table>
-            {!! Form::button('Добавить в спецификацию', ['class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
+            {!! Form::button('Добавить в спецификацию', ['onclick' => 'tprofile_add()', 'class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
             <br>
             <br>
             <br>

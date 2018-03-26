@@ -64,7 +64,7 @@ $("#model").change(function() {
 
 //Select COLOR
 $("#colors").change(function() {
-    if ($('#colors').find(":selected").text() === "Другой") {
+    if ($('#colors').find(":selected").attr("value") === "other") {
         document.getElementById("othercolor").disabled = false;
         document.getElementById("othercolor").style.display = "initial";
     } else {
@@ -344,6 +344,7 @@ function formTProfile() {
         document.getElementById("table-3600-price").innerHTML = v3600_price;
         document.getElementById("table-3600-pack").innerHTML = v3600_pack;
         document.getElementById("table-3600-price-all").innerHTML = v3600_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
         document.getElementById("table-1200-vendor").innerHTML = v1200_vendor;
         document.getElementById("table-1200-model").innerHTML = v1200_model;
         document.getElementById("table-1200-name").innerHTML = v1200_name;
@@ -354,6 +355,7 @@ function formTProfile() {
         document.getElementById("table-1200-price").innerHTML = v1200_price;
         document.getElementById("table-1200-pack").innerHTML = v1200_pack;
         document.getElementById("table-1200-price-all").innerHTML = v1200_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
         document.getElementById("table-600-vendor").innerHTML = v600_vendor;
         document.getElementById("table-600-model").innerHTML = v600_model;
         document.getElementById("table-600-name").innerHTML = v600_name;
@@ -411,6 +413,7 @@ function formTProfile() {
         document.getElementById("table-susp-price").innerHTML = vSusp_price;
         document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
         document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
         document.getElementById("table-total").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
         // //ShowTable
     });
