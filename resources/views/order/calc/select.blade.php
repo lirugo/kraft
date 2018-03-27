@@ -11,7 +11,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <hr>
                 <table class="table table-striped table-borderless">
                     <thead>
@@ -24,10 +24,16 @@
                     </thead>
                     <tbody>
                     @foreach($data['orders'] as $order)
+                        @php
+                            $total = 0;
+                            $or = \App\CalcHistory::all()->where('order_id', $order->order_id);
+                            foreach($or as $o)
+                                $total += $o->sum;
+                        @endphp
                         <tr>
                             <td>{{$order->order_id}}</td>
                             <td>{{$order->created_at}}</td>
-                            <td></td>
+                            <td>{{$total}} грн</td>
                             <td>
                                 {!! Form::open(['route' => ['order.select.delete',$data['id'],$order->order_id], 'method' => 'DELETE']) !!}
                                 <a href="/order/{{$data['id']}}/select/{{$order->order_id}}" class="btn btn-primary">Подробнее</a>

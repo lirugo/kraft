@@ -91,7 +91,6 @@ class OrderController extends Controller
         $data = new Collection();
         $data->put('orders', $orders);
         $data->put('id', $id);
-
         //BAck if empty
         if(count($orders) === 0 )
         {
