@@ -25,13 +25,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($reports as $report)
+                    @foreach($data['reports'] as $report)
                         <tr>
                             <td>{{$report->dateofreport}}</td>
                             <td>{{strlen($report->comments) > 60 ? substr($report->comments, 0, 60)."...": $report->comments}}</td>
                             <td>{{$report->done == false ? "Отчет не сдан" : "Сдан"}}</td>
                             <td>
-                                @if($report->done == false) <a href="/report/submit/{{$report->id}}" class="btn btn-primary">Подать отчет</a>
+                                @if($report->done == false && Auth::user()->id == $data['user']->id) <a href="/report/submit/{{$report->id}}" class="btn btn-primary">Подать отчет</a>
                                 @else <a href="/report/show/{{$report->id}}" class="btn btn-primary">Посмотреть</a>
                                 @endif
                             </td>

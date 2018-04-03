@@ -212,6 +212,8 @@ Route::group(['prefix' => 'messages'], function () {
 //EndMessage route
 
 //TopManager
+Route::get('/topmanager/objects', 'TopManager\ObjectsController@index');
+
 Route::get('/managers', 'TopManager\ManagersController@index');
 Route::get('/managers/{id}', 'TopManager\ManagersController@show');
 Route::get('/distributors', 'TopManager\DistributorsController@index');

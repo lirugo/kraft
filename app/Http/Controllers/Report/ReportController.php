@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Report;
 use App\Object;
 use App\Report;
 use App\ReportPhoto;
+use App\User;
+use Illuminate\Support\Collection;
 use Session;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,13 +22,16 @@ class ReportController extends Controller
 
     public function index($id){
         $object = object::find($id);
-        $user = Auth::user();
+        $user = User::find($object->creatorid);
         $reports = Report::all()->where('object_id', '=', $id);
         if($reports->count() == 0){
             Session::flash('warning', 'У Вас еще нет отчетов, или объект не активирован. Ваш РМ - '.$object->rmuser->name.' '.$object->rmuser->surname.', тел:'.$object->rmuser->phone);
             return back();
         }
-        return view('report.index')->with('reports', $reports);
+        $data = new Collection();
+        $data->put('reports', $reports);
+        $data->put('user', $user);
+        return view('report.index')->with('data', $data);
     }
 
     public function show($id){

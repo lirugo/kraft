@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@section('stylesheets')
+    <style>
+        .complete {
+            display: none;
+        }
+    </style>
+@endsection
 @section('breads')
     <div class="container-fluid">
         <div class="row">
@@ -12,22 +20,44 @@
     <div class="container">
         @foreach($news as $new)
         <div class="row">
-            <div class="col-md-8 col-lg-offset-2">
-                <div class="panel panel-default" style="border: 2px solid #f78620">
-                    <h3 class="text-center text-info">
-                        {{$new->title}}
-                        <hr style="margin-bottom:0; ">
-                    </h3>
-                    <div class="panel-body  border border-primary" style="margin-bottom:0; ">
-                        {{$new->body}}
-                        <hr style="margin: 0;">
-                        <h6 class="pull-right" style="margin:0; margin-top: 5px;">
-                            <i>Дата создания: {{$new->created_at->format('Y-m-d h:i')}}</i>
-                        </h6>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <h4 class="">
+                    {{$new->title}}
+                    <hr style="margin:0;margin-top:10px; ">
+                </h4>
+                <p class="teaser">{!! strlen($new->body) > 300 ? substr($new->body, 0 ,1000)."... " : $new->body  !!}</p>
+                <p class="complete">{{ $new->body }}</p>
+                {!! strlen($new->body) > 300 ? '<a class="more pull-right">Развернуть</a>' : ''  !!}
+                <br>
+                <br>
             </div>
         </div>
         @endforeach
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    $.fn.clicktoggle = function(a, b) {
+        return this.each(function() {
+            var clicked = false;
+            $(this).click(function() {
+                if (clicked) {
+                    clicked = false;
+                    return b.apply(this, arguments);
+                }
+                clicked = true;
+                return a.apply(this, arguments);
+            });
+        });
+    };
+
+    $(".more").clicktoggle(function() {
+        $(this).text("Развернуть").siblings(".teaser").hide();
+        $(this).text("Свернуть").siblings(".complete").show();
+    }, function() {
+        $(this).text("Свернуть").siblings(".complete").hide();
+        $(this).text("Развернуть").siblings(".teaser").show();
+    });
+</script>
 @endsection
