@@ -28,20 +28,20 @@
             <div class="col-md-12">
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="/calc/{{$object->id}}">
+                        <a href="/order/{{$object->id}}">
                             <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Калькулятор
+                                Заказ
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="/calc/history/show/{{$object->id}}">
+                        <a href="/order/{{$object->id}}/select">
                             <i class="fa fa-history fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                История расчетов
+                                Мои заказы
                             </div>
                         </a>
                     </div>
@@ -59,6 +59,21 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h2 class="text-center">{{$object->name}} - {{$object->type}}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Область:</strong> {{$object->getregion->regionname_ru}}<br>
+                <strong>Город:</strong> {{$object->city}}<br>
+                <strong>Улица:</strong> {{$object->street}}<br>
+                <strong>Дом:</strong> {{$object->house}}<br>
+                {{ !empty($object->housing) ? "Корпус: ".$object->housing : "" }}<br>
+                {{ !empty($object->locationinformation) ? "Доп. информация: ".$object->locationinformation : "" }}<br>
+            </div>
             <div class="col-md-4">
                 Компания/Менеджер:
                 {!! !empty($object->company) ? Form::label('Company Name', $object->company->companyname).", " : "" !!}
@@ -128,6 +143,15 @@
                 <p>
                     <strong>Комментарий:</strong> {{ $object->comments }}<br>
                 </p>
+            </div>
+            <div class="col-md-4">
+                <hr>
+                <h4 class="text-center">Предполагаемая продукция</h4>
+                <p>Т-Профиль - {{ $object->product1 === 0 ? "Нет" : "Да" }}</p>
+                <p>Грильято - {{ $object->product2 === 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт КУБ - {{ $object->product3 === 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт LED - {{ $object->product4 === 0 ? "Нет" : "Да" }}</p>
+                <p>Плиты OWA - {{ $object->product5 === 0 ? "Нет" : "Да" }}</p>
             </div>
         </div>
         <div class="row">
@@ -219,5 +243,4 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
-
 @endsection

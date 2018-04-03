@@ -64,14 +64,15 @@
                             </select>
                             {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city').' *', 'id' => 'city']) !!}
                             {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street').' *', 'id' => 'street']) !!}
-                            {!! Form::text('house',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.house').' *', 'id' => 'street_number']) !!}
+                            {!! Form::number('house',null , ['class' => 'form-control m-b-10', 'required', 'min' => '1', 'placeholder' => trans('app.house').' *', 'id' => 'street_number']) !!}
                             {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => "Корпус", 'id' => 'street_number']) !!}
                             {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => "Дополнительная информация о месте положения объекта", 'id' => 'street_number']) !!}
                             <hr>
-                            {!! Form::text('sworks', null , ['class' => 'form-control','required', 'placeholder' => trans('app.sworks').' *']) !!}
+                            {!! Form::number('sworks', null , ['class' => 'form-control','required', 'min' => '10', 'placeholder' => trans('app.sworks').' *']) !!}
                             {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
                             <br>
                             <br>
+
                             <div class="[ form-group-checkbox  m-t-20 ]">
                                 <input type="checkbox" name="product1" id="product1" value="1"/>
                                 <div class="[ btn-group ]">
@@ -204,11 +205,15 @@
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-    <script src="/js/datepicker.js"></script>
+    {{--<script src="/js/datepicker.js"></script>--}}
     <script src="/js/dropzone.js"></script>
-    <script src="/js/googlemapapi.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initMap">
+    <script>
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            todayHighlight: true,
+            autoclose:true,
+            startDate: "today"
+        });
     </script>
     <script type="text/javascript">
         Dropzone.autoDiscover = false;

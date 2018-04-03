@@ -48,7 +48,7 @@ class ManageController extends Controller
 
         $data = new Collection();
         $data->put('objects',$object);
-        $data->put('ch',count($users)+count($ch));
+        $data->put('ch',count($users)+$ch);
         $data->put('clients',count($designers)+count($distributors));
 
 

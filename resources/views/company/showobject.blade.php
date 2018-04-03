@@ -58,16 +58,31 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h2 class="text-center">{{$object->name}} - {{$object->type}}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
-                Компания/Менеджер:
-                {!! !empty($object->company) ? Form::label('Company Name', $object->company->companyname).", " : "" !!}
-                {!! Form::label('Manager',$object->user->patronymic." ".$object->user->name) !!}
+                <strong>Область:</strong> {{$object->getregion->regionname_ru}}<br>
+                <strong>Город:</strong> {{$object->city}}<br>
+                <strong>Улица:</strong> {{$object->street}}<br>
+                <strong>Дом:</strong> {{$object->house}}<br>
+                {{ !empty($object->housing) ? "Корпус: ".$object->housing : "" }}<br>
+                {{ !empty($object->locationinformation) ? "Доп. информация: ".$object->locationinformation : "" }}<br>
+            </div>
+            <div class="col-md-4">
+                <strong>Компания/Менеджер:</strong>
+                {!! !empty($object->company) ? 'Company Name '.$object->company->companyname.", " : "" !!}
+                {{$object->user->patronymic." ".$object->user->name}}
                 <br>
-                Региональный менеджер:
-                {!! Form::label('RM',$object->rmuser->patronymic." ".$object->rmuser->name) !!}
+                <strong>Региональный менеджер:</strong>
+                {{$object->rmuser->patronymic." ".$object->rmuser->name}}
                 <br>
-                Телефон РМ:
-                {!! Form::label('RMPhone',$object->rmuser->phone) !!}
+                <strong>Телефон РМ:</strong>
+                {{$object->rmuser->phone}}
             </div>
             <div class="col-md-4">
                 <strong>Дата Регистрации:</strong>
@@ -128,9 +143,18 @@
                     <strong>Комментарий:</strong> {{ $object->comments }}<br>
                 </p>
             </div>
+            <div class="col-md-4">
+                <hr>
+                <h4 class="text-center">Предполагаемая продукция</h4>
+                <p>Т-Профиль - {{ $object->product1 === 0 ? "Нет" : "Да" }}</p>
+                <p>Грильято - {{ $object->product2 === 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт КУБ - {{ $object->product3 === 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт LED - {{ $object->product4 === 0 ? "Нет" : "Да" }}</p>
+                <p>Плиты OWA - {{ $object->product5 === 0 ? "Нет" : "Да" }}</p>
+            </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 text-center">
                 <hr>
                 @if($object->photo1 != null)
                     <a data-toggle="lightbox" href="#demoLightbox1">
@@ -207,6 +231,8 @@
                         </div>
                     </div>
                 @endif
+                <br>
+                <br>
             </div>
         </div>
     </div>
@@ -217,5 +243,4 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
-
 @endsection

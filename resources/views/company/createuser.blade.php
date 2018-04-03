@@ -50,8 +50,17 @@
 @section('scripts')
     <script src="/js/dropzone.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
-    <script src="/js/datepicker.js"></script>
-
+    <script>
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose:true,
+            defaultViewDate: {
+                year: 1980,
+                month: 0,
+                day: 1
+            }
+        });
+    </script>
     <script type="text/javascript">
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone("div#iamgeUpload", {
