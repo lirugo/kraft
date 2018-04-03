@@ -49,21 +49,21 @@
                                 <option value="48">Черновицкая область</option>
                             </select>
 
-                            {!! Form::text('city', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.city')." *"]) !!}
-                            {!! Form::text('street', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.street')." *"]) !!}
+                            {!! Form::text('city', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.city')." *"]) !!}
+                            {!! Form::text('street', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.street')." *"]) !!}
 
                             <div class="col-md-4">
-                                {!! Form::text('house', null , ['class' => 'form-control form-inline m-b-10 required', 'placeholder' => trans('app.house')." *"]) !!}
+                                {!! Form::text('house', null , ['class' => 'form-control form-inline m-b-10 number required', 'placeholder' => trans('app.house')." *"]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('housing', null , ['class' => 'form-control form-inline m-b-10', 'placeholder' => trans('app.housing')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('office', null , ['class' => 'form-control m-b-10', 'placeholder ' => trans('app.office')]) !!}
+                                {!! Form::text('office', null , ['class' => 'form-control m-b-10 number', 'placeholder ' => trans('app.office')]) !!}
                             </div>
                             {!! Form::label('label',trans('app.communications'),['class' => 'm-b-10']) !!}
                             {!! Form::text('phonecompany', null , ['class' => 'form-control m-b-10 phone required', 'placeholder' => trans('app.phone')." *"]) !!}
-                            {!! Form::text('fax', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.fax')]) !!}
+                            {!! Form::text('fax', null , ['class' => 'form-control m-b-10 number', 'placeholder' => trans('app.fax')]) !!}
                             {!! Form::text('smartphone', null , ['class' => 'form-control m-b-10 phone', 'placeholder' => trans('app.smartphone').""]) !!}
                         </div>
                         <div class="col-md-4">
@@ -74,16 +74,16 @@
                             {!! Form::text('okpo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.okpo')." *"]) !!}
 
                             {!! Form::label('label', trans('app.lawaddress'), ['class' => 'm-b-10']) !!}
-                            {!! Form::text('lawcity', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawcity')." *"]) !!}
-                            {!! Form::text('lawstreet', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawstreet')." *"]) !!}
+                            {!! Form::text('lawcity', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.lawcity')." *"]) !!}
+                            {!! Form::text('lawstreet', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.lawstreet')." *"]) !!}
                             <div class="col-md-4">
-                                {!! Form::text('lawhouse', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.lawhouse')." *"]) !!}
+                                {!! Form::text('lawhouse', null , ['class' => 'form-control m-b-10 number required', 'placeholder' => trans('app.lawhouse')." *"]) !!}
                             </div>
                             <div class="col-md-4">
                                 {!! Form::text('lawhousing', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.lawhousing')]) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::text('lawoffice', null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.lawoffice')]) !!}
+                                {!! Form::text('lawoffice', null , ['class' => 'form-control m-b-10 number', 'placeholder' => trans('app.lawoffice')]) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -110,9 +110,9 @@
                     <section>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.profileuser')) !!}
-                            {!! Form::text('surname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.surname')." *"]) !!}
-                            {!! Form::text('name', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.name')." *"]) !!}
-                            {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.patronymic')." *"]) !!}
+                            {!! Form::text('surname', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.surname')." *"]) !!}
+                            {!! Form::text('name', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.name')." *"]) !!}
+                            {!! Form::text('patronymic', null , ['class' => 'form-control m-b-10 lettersonly required', 'placeholder' => trans('app.patronymic')." *"]) !!}
                             {!! Form::text('dateofbirth',null , ['class' => 'form-control m-b-10 required', 'id' => 'datepicker', 'placeholder' => trans('app.date')." *"]) !!}
                             {!! Form::select('sex', ['X' => 'Man', 'Y' => 'Woman'], null, ['class' => 'form-control m-b-10 required']); !!}
                             {!! Form::text('phone', null , ['class' => 'form-control m-b-10 required phone', 'placeholder' => trans('app.phone')." *"]) !!}
@@ -120,8 +120,8 @@
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label', trans('app.password')) !!}
-                            {!! Form::password('password', ['class' => 'form-control m-b-10 required' , 'placeholder' => trans('app.password')." *"]) !!}
-                            {!! Form::password('password_confirmation', ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.confirmpassword')." *"]) !!}
+                            {!! Form::password('password', ['class' => 'form-control m-b-10 password required', 'id' => 'password', 'placeholder' => trans('app.password')." *"]) !!}
+                            {!! Form::password('password_confirmation', ['class' => 'form-control m-b-10 password_confirmation required', 'id' => 'password_confirmation', 'placeholder' => trans('app.confirmpassword')." *"]) !!}
 
                             <br>
                             <h5> You must upload your photo. </h5>
@@ -163,10 +163,35 @@
         });
     </script>
     <script type="text/javascript">
+        //Errors message for JQuery validate
+        {{--window.translations = {--}}
+            {{--required: '{{ trans('app.home') }}',--}}
+            {{--number: '{{ trans('get.your.other.translation.here') }}',--}}
+            {{--phone: '{{ trans('get.your.other.translation.here') }}',--}}
+            {{--lettersonly: '{{ trans('get.your.other.translation.here') }}'--}}
+        {{--};--}}
+        {{--jQuery.extend(jQuery.validator.messages, {--}}
+            {{--required:  window.translations.required,--}}
+            {{--number: window.translations.number--}}
+        {{--});--}}
+        jQuery.validator.addMethod("password", function(value, element) {
+            if(value !== $("#password_confirmation").val())
+                return this.optional( element )
+            else
+                return /.{6,}/.test( value );
+        }, 'Min lenght 6 or passwords do not match');
+        jQuery.validator.addMethod("password_confirmation", function(value, element) {
+            if(value !== $("#password").val())
+                return this.optional( element )
+            else
+                return /.{6,}/.test( value );
+        }, 'Min lenght 6 or passwords do not match');
         jQuery.validator.addMethod("phone", function(value, element) {
-
             return this.optional( element ) || /(\+38)[ 0-9]{10}/.test( value );
         }, 'Format phone +38 XXX XXX XXXX.');
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[а-яА-ЯёЁіІїЇa-zA-Z]+$/i.test(value);
+        }, "Letters only please");
 
         Dropzone.autoDiscover = false;
         var myDropzone = new Dropzone("div#iamgeUpload", {
