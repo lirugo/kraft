@@ -34,7 +34,7 @@ class ModerationController extends Controller
     }
 
     public function company(){
-        $companychanges = CompanyChange::all()->where('done' , '=', 'false');
+        $companychanges = CompanyChange::all()->where('done' , '=', false);
         foreach($companychanges as $ch)
             $ch->company = Company::find($ch->company_id);
         return view('manager/moderation/company/index')->with('chs', $companychanges);

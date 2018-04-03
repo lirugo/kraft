@@ -25,9 +25,9 @@
                     {{$new->title}}
                     <hr style="margin:0;margin-top:10px; ">
                 </h4>
-                <p class="teaser">{!! strlen($new->body) > 300 ? substr($new->body, 0 ,1000)."... " : $new->body  !!}</p>
+                <p class="teaser">{!! strlen($new->body) > 970 ? substr($new->body, 0 ,970)."... " : $new->body  !!}</p>
                 <p class="complete">{{ $new->body }}</p>
-                {!! strlen($new->body) > 300 ? '<a class="more pull-right">Развернуть</a>' : ''  !!}
+                {!! strlen($new->body) > 970 ? '<a class="more pull-right">Развернуть</a>' : ''  !!}
                 <br>
                 <br>
             </div>

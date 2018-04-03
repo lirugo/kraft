@@ -18,13 +18,7 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                @if(!Auth::guest())
-                    @if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('designer') || Auth::user()->hasRole('worker'))
-                        <li><a id="contact-form" href="#" class="contact-menu">Связь с KRAFT</a></li>
-                    @endif
-                @endif
-            </ul>
+            <ul class="nav navbar-nav"></ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
