@@ -120,6 +120,10 @@ Route::group(['prefix' => 'admin'],
             Route::post('product/upload', 'Product\ProductController@uploadpost')->name('admin.product.upload');
         //Product
 
+        //News
+            Route::get('news/create', 'Admin\NewsController@create');
+            Route::post('news/create', 'Admin\NewsController@createpost')->name('admin.news.create');
+        //News
         //Calc
         Route::get('calc', 'Admin\CalcController@index');
         Route::get('calc/tprofile', 'Admin\CalcController@tprofile');
@@ -218,6 +222,9 @@ Route::post('/contact/send', 'ContactController@send')->name('contact.send');
 Route::post('/order/send/{order_id}', 'ContactController@order')->name('order.send');
 //EndContactController
 
+//News
+Route::get('/news', 'News\NewsController@index');
+//End News
 
 // Dont forget delete
 Route::get('/complete', function () {

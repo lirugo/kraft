@@ -65,6 +65,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row m-t-20">
+                        <div class="col-md-2 col-md-offset-1 text-center">
+                            <div class="card">
+                                <a href="/admin/news/create">
+                                    <i class="fa fa-newspaper-o fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Create News
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -33,8 +33,8 @@
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
                 @else
-                    <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
-                    <li><a href="{{ url('/home') }}">{{trans('app.main')}}</a></li>
+                    {{--<li><a href="/messages">Messages @include('messenger.unread-count')</a></li>--}}
+                    <li><a href="{{ url('/news') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
                     <li>
                         <a href="{{ url('/logout') }}"
