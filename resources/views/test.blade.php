@@ -1,47 +1,39 @@
-@extends('layouts.app')
-@section('stylesheets')
+<div id="locationField">
+    {{ csrf_field() }}
+    <input id="autocomplete_city" placeholder="Enter your city" type="text"/>
+    <input id="autocomplete_street" placeholder="Enter your street" type="text"/>
+</div>
 
-    <style>
+<script>
 
+    function initAutocomplete() {
+        //City
+        var input_city = document.getElementById('autocomplete_city');
+        var options_city = {
+            types: ['(cities)']
+        };
+        var autocomplete_city = new google.maps.places.Autocomplete(input_city, options_city);
+        var place_city = autocomplete_city.getPlace();
+        google.maps.event.addListener(autocomplete_city, 'place_changed', function () {
+            var place = autocomplete_city.getPlace();
+            // console.log(place.address_components[0].long_name);
+            document.getElementById("autocomplete_city").value = place.address_components[0].long_name;
+        });
 
+        //Street
+        var input_street = document.getElementById('autocomplete_street');
+        var options_street = {
+            types: ['geocode']
+        };
+        var autocomplete_street = new google.maps.places.Autocomplete(input_street, options_street);
+        var place_street = autocomplete_street.getPlace();
+        google.maps.event.addListener(autocomplete_street, 'place_changed', function () {
+            var place = autocomplete_street.getPlace();
+             // console.log(place.address_components[0].long_name);
+            document.getElementById("autocomplete_street").value = place.address_components[0].long_name;
+        });
+    }
 
-
-    </style>
-@endsection
-@section('content')
-
-    <p>Decked out with options
-        <select class="selectpicker show-menu-arrow"
-                multiple="true"
-                title="Choose one of the following..."
-                data-selected-text-format="count>3"
-                data-size="10"
-                data-width="auto"
-                data-hide-disabled="false"
-                data-dropup-auto="false"
-                data-style="btn-inverse"
-                data-mobile="false"
-                data-show-subtext="true"
-                data-max-options=7>
-
-            <option>Nissan</option>
-            <option>Altima</option>
-            <option>Gallant</option>
-            <option>Pathfinder</option>
-            <option>Pathfinder</option>
-
-        </select>
-    </p>
-@endsection
-
-@section('scripts')
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-
-    <script>
-
-    </script>
-@endsection
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g&libraries=places&callback=initAutocomplete"
+        async defer></script>
