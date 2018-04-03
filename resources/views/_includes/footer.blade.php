@@ -9,9 +9,11 @@
                 background-color: #f78620;
                 padding: 10px;
                 margin-right: 30px;
+                margin-left: 30px;
                 margin-top: -10px;
-                position: relative;
-                ">Написать нам</a>
+                position: fixed;
+                text-transform: uppercase;
+                ">Связь Kraft</a>
                 @endif
                 @endif
             </p>
