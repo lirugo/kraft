@@ -12,8 +12,9 @@
                 margin-left: 30px;
                 margin-top: -10px;
                 position: fixed;
+                text-decoration: none;
                 text-transform: uppercase;
-                ">Связь Kraft</a>
+                ">Написать в Kraft</a>
                 @endif
                 @endif
             </p>
