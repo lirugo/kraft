@@ -4,17 +4,7 @@
                 © {{ date('Y')}} {{ trans('app.footertext') }}
                 @if(!Auth::guest())
                 @if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('designer') || Auth::user()->hasRole('worker'))
-                <a id="contact-form" href="#" class="contact-menu pull-right" style="
-                color: #ffffff;
-                background-color: #f78620;
-                padding: 10px;
-                margin-right: 30px;
-                margin-left: 30px;
-                margin-top: -10px;
-                position: fixed;
-                text-decoration: none;
-                text-transform: uppercase;
-                ">Написать в Kraft</a>
+                <a id="contact-form" href="#" class="contact-menu pull-right bnam" style="">Написать в Kraft</a>
                 @endif
                 @endif
             </p>

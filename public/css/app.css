@@ -4909,3 +4909,27 @@ button.close{
         display:none!important;
     }
 }
+
+.bnam {
+    color: #ffffff;
+    background-color: #f78620;
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: -10px;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.bnam:hover {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: -10px;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+}
