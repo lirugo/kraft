@@ -456,8 +456,8 @@ a{
     text-decoration:none;
 }
 a:focus,a:hover{
-    color:#216a94;
-    text-decoration:underline;
+    color:#000000;
+    text-decoration:none;
 }
 a:focus{
     outline:-webkit-focus-ring-color auto 5px;
