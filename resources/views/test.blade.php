@@ -10,10 +10,41 @@
         <input id="autocomplete_street" placeholder="Enter your street" class="form-control" type="text"/>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input id="city" placeholder="City" class="form-control" onchange="city()" type="text"/>
+        </div>
+    </div>
 </div>
 @endsection
 @section('scripts')
 <script>
+    function city(){
+        // $.getJSON('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Киев&types=(cities)&key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g',function(data){
+        //     console.log(data);
+        // });
+        alert('as');
+        $.ajax({
+            dataType: "json",
+            type: "post",
+            url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Киев&types=(cities)&key=AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g',
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{{ csrf_token() }}}");
+            },
+            {{--jsonp: false,--}}
+            {{--jsonpCallback: "callback",--}}
+            {{--data: {--}}
+                {{--'input':'Киев',--}}
+                {{--'types':'(cities)',--}}
+                {{--'key':'AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g',--}}
+                {{--'callback':"{{{ csrf_token() }}}"--}}
+                {{--},--}}
+            success: function (data) { console.log(data);
+
+            }
+        });
+    }
+
     var input_street;
     function initAutocomplete() {
         //City
@@ -32,9 +63,8 @@
 
         //Street
         input_street = document.getElementById('autocomplete_street');
-        // input_street = place.address_components[0].long_name+", "+input_street;
         var options_street = {
-            types: ['geocode'],
+            types: ['address'],
             componentRestrictions: {country: "ua"}
         };
         var autocomplete_street = new google.maps.places.Autocomplete(input_street, options_street);
