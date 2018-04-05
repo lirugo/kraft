@@ -47,9 +47,20 @@
                     @foreach($objects as $object)
                         @if($object->active == true)
                             @php
-                                $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
+                                if(!empty($object->reports->last()))
+                                    $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
                             @endphp
-                            <tr bgcolor="@if($reportdiff->days <= 3 && $reportdiff->invert == 1) #ffff81 @elseif($reportdiff->days > 3 && $reportdiff->invert == 1) white @else #fe8081 @endif">
+                            <tr bgcolor="
+                                @if(!empty($object->reports->last()))
+                            @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
+                                #ffff81
+                                @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
+                                    white
+@else #fe8081
+                                @endif
+                            @else
+                                    white
+@endif">
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
@@ -58,14 +69,18 @@
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
                                     @php
-                                        if($reportdiff->invert == 0 && $reportdiff->days == 0)
-                                            echo "Отчет нужно сдать сегодня!";
-                                        else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
-                                            echo "Отчет нужно сдать завтра!";
-                                        else  if($reportdiff->invert == 1)
-                                            echo "Дней осталось: ".$reportdiff->days;
-                                        else  if($reportdiff->invert == 0)
-                                            echo "Дней просрочено: ".$reportdiff->days;
+                                        if(empty($object->reports->last()))
+                                               echo "Без отчетов";
+                                        else{
+                                           if($reportdiff->invert == 0 && $reportdiff->days == 0)
+                                               echo "Отчет нужно сдать сегодня!";
+                                           else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
+                                               echo "Отчет нужно сдать завтра!";
+                                           else  if($reportdiff->invert == 1)
+                                               echo "Дней осталось: ".$reportdiff->days;
+                                           else  if($reportdiff->invert == 0)
+                                               echo "Дней просрочено: ".$reportdiff->days;
+                                        }
                                     @endphp
                                 </td>
                                 <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>

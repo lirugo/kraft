@@ -112,11 +112,15 @@ class ManagerController extends Controller
         $object->active = true;
         $object->dateofactivate = Carbon::now();
         $object->dateofdelivery = $request->dateofdelivery;
-        $object->reporttime = $request->reporttime;
-            $report = new Report();
-            $report->object_id = $object->id;
-            $report->dateofreport = Carbon::now()->addDays($request->reporttime);
-            $report->save();
+            if($request->reporttime == 0)
+                $object->reporttime = 0;
+            else{
+                $object->reporttime = $request->reporttime;
+                $report = new Report();
+                $report->object_id = $object->id;
+                $report->dateofreport = Carbon::now()->addDays($request->reporttime);
+                $report->save();
+            }
         $object->save();
         }
         Session::flash('success', 'Object status was changed.');

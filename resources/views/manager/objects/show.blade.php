@@ -88,10 +88,11 @@
                     @if($object->active == false)
                     {!! Form::select('reporttime', [
                     '' => 'Выберите период',
+                    '0' => 'Без отчета',
                     '7' => '7 Дней',
                     '14' => '14 Дней',
                     '30' => '30 Дней'
-                    ],null, ['class' => 'form-control', 'required']) !!}
+                    ],'', ['class' => 'form-control', 'required']) !!}
                     @else
                          {{$object->reporttime}} дней
                     @endif

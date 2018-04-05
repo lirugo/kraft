@@ -100,17 +100,17 @@
                 <br>
                 <p>
                     @php
-                        if($object->active == true){
+                        if($object->active == true && !empty($object->reports->last())){
                         $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
-                            if($reportdiff->invert == 0 && $reportdiff->days == 0)
-                                echo "<strong>Отчет нужно сдать сегодня!</strong>";
-                            else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
-                                echo "<strong>Отчет нужно сдать завтра!</strong>";
-                            else  if($reportdiff->invert == 1)
-                                echo "<strong>Дней осталось: </strong>".$reportdiff->days;
-                            else  if($reportdiff->invert == 0)
-                                echo "<strong>Дней просрочено: </strong>".$reportdiff->days;
-                        }
+                           if($reportdiff->invert == 0 && $reportdiff->days == 0)
+                               echo "<strong>Отчет нужно сдать сегодня!</strong>";
+                           else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
+                               echo "<strong>Отчет нужно сдать завтра!</strong>";
+                           else  if($reportdiff->invert == 1)
+                               echo "<strong>Дней осталось: </strong>".$reportdiff->days;
+                           else  if($reportdiff->invert == 0)
+                               echo "<strong>Дней просрочено: </strong>".$reportdiff->days;
+                       }
                     @endphp
                 </p>
                 <p>
