@@ -1,33 +1,23 @@
 @extends('layouts.app')
+@section('stylesheets')
+
+
+@endsection
 @section('content')
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-1">
+            <div class="form-inline">
+                {!! Form::select('hrp',[
+                    '+38',
+                    '+7',
+                ], null, ['class' => 'form-control']) !!}
+                {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'XXX XX XX']) !!}
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('scripts')
-    <script>
-        $.ajax({
-            dataType: "json",
-            url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-            // data: {
-            //     'address': document.getElementById('city').value+", улица"+document.getElementById('street').value,
-            //     'components': 'country:UA|language:ru',
-            //     'key':'AIzaSyB1EJ_8xa3bXVsGdAzmMOna5DRDJUM9s6g'
-            // },
-            success: function (data) {
-                // console.log(data.results[0].address_components[0].long_name);
-                console.log(data.results[0]);
-                console.log(data);
-                for(var i=0; i<data.results.length; i++){
-                    if(data.results[i].address_components[0].types[0] === "route")
-                    {
-                        if(streetTags.indexOf(data.results[i].address_components[0].long_name) === -1)
-                            streetTags.unshift(data.results[i].address_components[0].long_name);
-                        // streetTags.push('a');
-                        console.log('a');
-                        // $(this).data("uiAutocomplete").search($(this).val());
-                    }
-                }
-                console.log(streetTags);
 
-            }
-        });
-</script>
 @endsection
