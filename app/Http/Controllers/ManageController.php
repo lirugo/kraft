@@ -29,10 +29,10 @@ class ManageController extends Controller
             $query->where('name', '=', 'designer');
         })->get();
         foreach ($distributors as $key => $distributor)
-            if($distributor->active == true)
+            if($distributor->active == true || $distributor->regionname != $user->regionname)
                 unset($distributors[$key]);
         foreach ($designers as $key => $designer)
-            if($designer->active == true)
+            if($designer->active == true || $designer->regionname != $user->regionname)
                 unset($designers[$key]);
         //DistributorAndDesigner
         //GetUsersCompanyWhatNotActive

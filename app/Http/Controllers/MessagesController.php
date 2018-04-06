@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
 use Cmgmyr\Messenger\Models\Thread;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -62,8 +64,38 @@ class MessagesController extends Controller
      */
     public function create()
     {
+        $data = new Collection();
+        if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('worker'))
+        {
+            $mUsers = User::whereHas('roles', function($q)
+            {
+                $q->where('name', 'manager');
+            })->get();
+            foreach($mUsers as $key => $mUser)
+            {
+                if($mUser->regionname != Auth::user()->regionname)
+                    unset($mUsers[$key]);
+            }
+            $data->put('mUser', $mUsers);
+        }else if(Auth::user()->hasRole('manager'))
+        {
+            $dUsers = User::whereHas('roles', function($q)
+            {
+                $q->where('name', 'distributor');
+            })->get();
+            foreach($dUsers as $key => $dUser)
+            {
+                if($dUser->regionname != Auth::user()->regionname)
+                    unset($dUsers[$key]);
+            }
+            $data->put('dUsers', $dUsers);
+        }
         $users = User::where('id', '!=', Auth::id())->get();
-        return view('messenger.create', compact('users'));
+
+        $data->put('users', $users);
+
+
+        return view('messenger.create')->with('data', $data);
     }
     /**
      * Stores a new message thread.

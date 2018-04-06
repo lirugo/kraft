@@ -55,6 +55,16 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="#" onclick="chat()">
+                            <i class="fa fa-comments fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Задать вопрос
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -243,4 +253,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/datepicker.js"></script>
+
+    <script>
+        function chat() {
+
+        }
+    </script>
 @endsection

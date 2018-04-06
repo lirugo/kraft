@@ -26,15 +26,33 @@
                             <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
                         </div>
 
-                        @if($users->count() > 0)
+                        @if($data['users']->count() > 0)
+                            @if(Auth::user()->hasRole('distributor') || Auth::user()->hasRole('worker'))
+                                <div class="checkbox">
+                                    <select name="recipients[]" hidden class="form-control">
+                                            <option selected value="{{$data['mUser']->last()->id}}">{{$data['mUser']->last()->name." ".$data['mUser']->last()->patronymic." ".$data['mUser']->last()->surname}}</option>
+                                    </select>
+                                    <p> Ваше сообщение будет доставлено: {{$data['mUser']->last()->name." ".$data['mUser']->last()->surname}}</p>
+                                </div>
+                            @elseif(Auth::user()->hasRole('manager'))
+                                <div class="checkbox">
+                                    <select name="recipients[]" class="form-control" required>
+                                        <option value="">Выберите пользователя</option>
+                                        @foreach($data['dUsers'] as $user)
+                                            <option value="{{$user->id}}">{{$user->name." ".$user->patronymic." ".$user->surname}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            @else
                             <div class="checkbox">
                                 <select name="recipients[]" class="form-control" required>
                                     <option value="">Выберите пользователя</option>
-                                    @foreach($users as $user)
+                                    @foreach($data['users'] as $user)
                                         <option value="{{$user->id}}">{{$user->name." ".$user->patronymic." ".$user->surname}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            @endif
                         @endif
 
                         <!-- Submit Form Input -->
