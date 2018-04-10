@@ -148,11 +148,16 @@ class ObjectController extends Controller
         $object->photo3 = $request->scandoc3;
         $object->comments = $request->comments;
 
-        if(isset($request->product1))$object->product1 = $request->product1;
-        if(isset($request->product2))$object->product2 = $request->product2;
-        if(isset($request->product3))$object->product3 = $request->product3;
-        if(isset($request->product4))$object->product4 = $request->product4;
-        if(isset($request->product5))$object->product5 = $request->product5;
+        if(in_array('product1', $request->products))
+            $object->product1 = true;
+        if(in_array('product2', $request->products))
+            $object->product2 = true;
+        if(in_array('product3', $request->products))
+            $object->product3 = true;
+        if(in_array('product4', $request->products))
+            $object->product4 = true;
+        if(in_array('product5', $request->products))
+            $object->product5 = true;
 
         // IF have scan docs then save
         if(isset($request->photos[0]))$object->photo1 = $request->photos[0];

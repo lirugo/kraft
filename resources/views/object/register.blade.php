@@ -70,69 +70,75 @@
                             <hr>
                             {!! Form::number('sworks', null , ['class' => 'form-control','required', 'min' => '10', 'placeholder' => trans('app.sworks').' *']) !!}
                             {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
-                            <br>
-                            <br>
 
-                            <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product1" id="product1" value="1"/>
-                                <div class="[ btn-group ]">
-                                    <label for="product1" class="[ btn btn-default ]">
-                                        <span class="[ fa fa-plus ]"></span>
-                                        <span class="[ fa fa-minus ]"></span>
-                                    </label>
-                                    <label for="product1" class="[ btn btn-default active ]">
-                                        T-Профиль
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product2" id="product2" value="1" />
-                                <div class="[ btn-group ]">
-                                    <label for="product2" class="[ btn btn-default ]">
-                                        <span class="[ fa fa-plus ]"></span>
-                                        <span class="[ fa fa-minus ]"></span>
-                                    </label>
-                                    <label for="product2" class="[ btn btn-default active ]">
-                                        Грильято
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product3" id="product3" value="1" />
-                                <div class="[ btn-group ]">
-                                    <label for="product3" class="[ btn btn-default ]">
-                                        <span class="[ fa fa-plus ]"></span>
-                                        <span class="[ fa fa-minus ]"></span>
-                                    </label>
-                                    <label for="product3" class="[ btn btn-default active ]">
-                                        Крафт Куб
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product4" id="product4" value="1" />
-                                <div class="[ btn-group ]">
-                                    <label for="product4" class="[ btn btn-default ]">
-                                        <span class="[ fa fa-plus ]"></span>
-                                        <span class="[ fa fa-minus ]"></span>
-                                    </label>
-                                    <label for="product4" class="[ btn btn-default active btn-block]">
-                                        KRAFT LED
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group-checkbox  m-t-20 ]">
-                                <input type="checkbox" name="product5" id="product5" value="1" />
-                                <div class="[ btn-group ]">
-                                    <label for="product5" class="[ btn btn-default ]">
-                                        <span class="[ fa fa-plus ]"></span>
-                                        <span class="[ fa fa-minus ]"></span>
-                                    </label>
-                                    <label for="product5" class="[ btn btn-default active ]">
-                                        Плиты OWA
-                                    </label>
-                                </div>
-                            </div>
+                            {!! Form::label('label',"Выберите предполагаемые продукты на объекте", ['class' => 'm-t-20 text-center']) !!}
+                            <select multiple class="form-control" name="products[]" style="height:110px;" required>
+                                <option name="product1" value="product1">T-Профиль</option>
+                                <option name="product2" value="product2">Грильято</option>
+                                <option name="product3" value="product3">value</option>
+                                <option name="product4" value="product4">KRAFT LED</option>
+                                <option name="product5" value="product5">Плиты OWA</option>
+                            </select>
+                            {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
+                                {{--<input type="checkbox"  name="product1" id="product1" value="1"/>--}}
+                                {{--<div class="[ btn-group ]">--}}
+                                    {{--<label for="product1" class="[ btn btn-default ]">--}}
+                                        {{--<span class="[ fa fa-plus ]"></span>--}}
+                                        {{--<span class="[ fa fa-minus ]"></span>--}}
+                                    {{--</label>--}}
+                                    {{--<label for="product1" class="[ btn btn-default active ]">--}}
+                                        {{--T-Профиль--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
+                                {{--<input type="checkbox" name="product2" id="product2" value="1" />--}}
+                                {{--<div class="[ btn-group ]">--}}
+                                    {{--<label for="product2" class="[ btn btn-default ]">--}}
+                                        {{--<span class="[ fa fa-plus ]"></span>--}}
+                                        {{--<span class="[ fa fa-minus ]"></span>--}}
+                                    {{--</label>--}}
+                                    {{--<label for="product2" class="[ btn btn-default active ]">--}}
+                                        {{--Грильято--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
+                                {{--<input type="checkbox" name="product3" id="product3" value="1" />--}}
+                                {{--<div class="[ btn-group ]">--}}
+                                    {{--<label for="product3" class="[ btn btn-default ]">--}}
+                                        {{--<span class="[ fa fa-plus ]"></span>--}}
+                                        {{--<span class="[ fa fa-minus ]"></span>--}}
+                                    {{--</label>--}}
+                                    {{--<label for="product3" class="[ btn btn-default active ]">--}}
+                                        {{--Крафт Куб--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
+                                {{--<input type="checkbox" name="product4" id="product4" value="1" />--}}
+                                {{--<div class="[ btn-group ]">--}}
+                                    {{--<label for="product4" class="[ btn btn-default ]">--}}
+                                        {{--<span class="[ fa fa-plus ]"></span>--}}
+                                        {{--<span class="[ fa fa-minus ]"></span>--}}
+                                    {{--</label>--}}
+                                    {{--<label for="product4" class="[ btn btn-default active btn-block]">--}}
+                                        {{--KRAFT LED--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
+                                {{--<input type="checkbox" name="product5" id="product5" value="1" />--}}
+                                {{--<div class="[ btn-group ]">--}}
+                                    {{--<label for="product5" class="[ btn btn-default ]">--}}
+                                        {{--<span class="[ fa fa-plus ]"></span>--}}
+                                        {{--<span class="[ fa fa-minus ]"></span>--}}
+                                    {{--</label>--}}
+                                    {{--<label for="product5" class="[ btn btn-default active ]">--}}
+                                        {{--Плиты OWA--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.customer'), ['class' => 'm-t-20']) !!}
