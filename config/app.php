@@ -185,6 +185,7 @@ return [
         //Set Variable from controller to JavaScript
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
     ],
 
     /*
