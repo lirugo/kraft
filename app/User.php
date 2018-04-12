@@ -44,4 +44,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Object', 'creatorid');
     }
+
+    public function msgs(){
+        return $this->hasMany(Msg::class);
+    }
 }

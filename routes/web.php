@@ -11,6 +11,8 @@
 |
 */
 
+use App\Events\MsgPosted;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -236,3 +238,23 @@ Route::get('/test', function () {
     return view('test');
 });
 Route::get('dropzone', 'HomeController@dropzone');
+
+//Chat
+Route::get('/chat', function(){
+    return view('chat');
+})->middleware('auth');
+Route::get('/messages',  function (){
+    return App\Msg::with('user')->get();
+})->middleware('auth');
+Route::post('/messages',  function (){
+    // Store the new msg
+    $user = Auth::user();
+
+    $message = $user->msgs()->create([
+        'message' => request()->get('message')
+    ]);
+    // Announce that a new message has been posted
+    broadcast(new MsgPosted($message, $user))->toOthers();
+    return ['status' => 'OK'];
+})->middleware('auth');
+

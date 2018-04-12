@@ -177,7 +177,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
@@ -244,7 +244,8 @@ return [
         // Image intevention
         'Image' => Intervention\Image\Facades\Image::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-
+        'Pusher' => Pusher\Pusher::class,
+        'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
     ],
 
 ];
