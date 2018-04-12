@@ -258,3 +258,8 @@ Route::post('/messages',  function (){
     return ['status' => 'OK'];
 })->middleware('auth');
 
+//Chat for object
+Route::get('/object/chat', 'Chat\ObjectController@chat');
+Route::get('/object/messages', 'Chat\ObjectController@messages');
+Route::post('/object/messages', 'Chat\ObjectController@postmessages');
+

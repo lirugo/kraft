@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function msgs(){
         return $this->hasMany(Msg::class);
     }
+
+    public function msgsobject(){
+        return $this->hasMany(MsgObject::class);
+    }
 }

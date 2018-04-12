@@ -18,10 +18,16 @@ Vue.component('chat-message', require('./components/ChatMessage.vue'));
 Vue.component('chat-log', require('./components/ChatLog.vue'));
 Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 
+//Chat object
+Vue.component('chat-object-message', require('./components/chat/object/Message.vue'));
+Vue.component('chat-object-log', require('./components/chat/object/Log.vue'));
+Vue.component('chat-object-composer', require('./components/chat/object/Composer.vue'));
+
 const app = new Vue({
     el: '#app',
     data:{
         messages:[],
+        msgsobject:[],
         usersInRoom: []
     },
     methods:{
@@ -33,11 +39,25 @@ const app = new Vue({
 
             });
             console.log(message);
+        },
+        addObjectMessage(message){
+            // Add to existing messages
+            this.msgsobject.push(message);
+            // Persist to the database etc
+            axios.post('/object/messages', message).then(response => {
+
+            });
+            console.log(message);
         }
     },
     created(){
         axios.get('/messages').then(response => {
             this.messages = response.data;
+        });
+
+        axios.get('/object/messages').then(response => {
+            this.msgsobject = response.data;
+            console.log(response);
         });
 
         Echo.join('chatroom')
@@ -58,5 +78,16 @@ const app = new Vue({
                    user: e.user
                 });
             });
+
+        Echo.join('chatobject')
+            .listen('MsgObjectPosted', (e) => {
+                // Handle event
+                //  console.log(e);
+                this.msgsobject.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
+
     }
 });

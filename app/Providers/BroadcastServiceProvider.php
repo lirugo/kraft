@@ -25,5 +25,8 @@ class BroadcastServiceProvider extends ServiceProvider
         Broadcast::channel('chatroom', function ($user) {
             return $user;
         });
+        Broadcast::channel('chatobject', function ($user) {
+            return $user;
+        });
     }
 }
