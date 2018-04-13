@@ -45,6 +45,18 @@
                         </a>
                     </div>
                 </div>
+                @if(Auth::user()->id === $object->rmid)
+                    <div class="col-md-2 text-center">
+                        <div class="card">
+                            <a href="/object/{{ $object->id }}/chat" onclick="chat()">
+                                <i class="fa fa-comments fa-5x" aria-hidden="true"></i>
+                                <div class="description m-t-10">
+                                    Чат с клиентом
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="row">

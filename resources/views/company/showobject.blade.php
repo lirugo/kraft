@@ -55,9 +55,10 @@
                         </a>
                     </div>
                 </div>
+                @if(Auth::user()->id === $object->creatorid)
                 <div class="col-md-2 text-center">
                     <div class="card">
-                        <a href="#" onclick="chat()">
+                        <a href="/object/{{ $object->id }}/chat" onclick="chat()">
                             <i class="fa fa-comments fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
                                 Задать вопрос
@@ -65,6 +66,7 @@
                         </a>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
         <div class="row">
