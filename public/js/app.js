@@ -1318,6 +1318,8 @@ Vue.component('chat-object-message', __webpack_require__(71));
 Vue.component('chat-object-log', __webpack_require__(76));
 Vue.component('chat-object-composer', __webpack_require__(81));
 
+if (document.getElementById('object_id')) var objectId = document.getElementById('object_id').value;
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -1337,8 +1339,8 @@ var app = new Vue({
             // Add to existing messages
             this.msgsobject.push(message);
             // Persist to the database etc
-            axios.post('/object/messages', message).then(function (response) {});
-            console.log(message);
+            axios.post('/object/' + objectId + '/messages', message, objectId).then(function (response) {});
+            // console.log(/object/:objectId/messages);
         }
     },
     created: function created() {
@@ -1348,9 +1350,9 @@ var app = new Vue({
             _this.messages = response.data;
         });
 
-        axios.get('/object/messages').then(function (response) {
+        axios.get('/object/' + objectId + '/messages').then(function (response) {
             _this.msgsobject = response.data;
-            console.log(response);
+            // console.log(response);
         });
 
         Echo.join('chatroom').here(function (users) {
@@ -1370,9 +1372,9 @@ var app = new Vue({
             });
         });
 
-        Echo.join('chatobject').listen('MsgObjectPosted', function (e) {
+        Echo.private('chatobject.' + objectId).listen('MsgObjectPosted', function (e) {
             // Handle event
-            //  console.log(e);
+            console.log(e);
             _this.msgsobject.push({
                 message: e.message.message,
                 user: e.user
@@ -49155,6 +49157,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['curr_name', 'curr_surname'],
@@ -49173,7 +49176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     surname: this.curr_surname
                 }
             });
-            console.log(this.messageText);
+            // console.log(this.messageText);
             this.messageText = '';
         }
     }

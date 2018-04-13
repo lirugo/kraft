@@ -259,7 +259,7 @@ Route::post('/messages',  function (){
 })->middleware('auth');
 
 //Chat for object
-Route::get('/object/chat', 'Chat\ObjectController@chat');
-Route::get('/object/messages', 'Chat\ObjectController@messages');
-Route::post('/object/messages', 'Chat\ObjectController@postmessages');
+Route::get('/object/{objectId}/chat', 'Chat\ObjectController@chat');
+Route::get('/object/{objectId}/messages', 'Chat\ObjectController@messages');
+Route::post('/object/{objectId}/messages', 'Chat\ObjectController@postmessages');
 

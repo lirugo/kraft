@@ -2,6 +2,7 @@
     <div class="chat-composer">
         <input type="text" placeholder="Start typing a new message..." v-model="messageText" v-on:keyup.enter="sendMessage"/>
         <button class="btn btn-primary" @click="sendMessage">Send</button>
+
     </div>
 </template>
 
@@ -22,7 +23,7 @@
                         surname:this.curr_surname
                     }
                 });
-                console.log(this.messageText);
+                // console.log(this.messageText);
                 this.messageText = '';
             }
         }

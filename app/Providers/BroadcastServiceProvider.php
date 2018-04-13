@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Object;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 
@@ -25,8 +26,9 @@ class BroadcastServiceProvider extends ServiceProvider
         Broadcast::channel('chatroom', function ($user) {
             return $user;
         });
-        Broadcast::channel('chatobject', function ($user) {
-            return $user;
+        Broadcast::channel('chatobject.{objectId}', function ($user, $objectId) {
+            $object = Object::find($objectId);
+            return $user->id === $object->rmid || $user->id === $object->creatorid;
         });
     }
 }

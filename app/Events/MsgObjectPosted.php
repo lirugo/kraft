@@ -18,16 +18,20 @@ class MsgObjectPosted implements ShouldBroadcast
 
     public $message;
     public $user;
+    public $objectId;
+
     /**
      * Create a new event instance.
      *
      * @param MsgObject $message
      * @param User $user
+     * @param int $objectId
      */
-    public function __construct(MsgObject $message, User $user)
+    public function __construct(MsgObject $message, User $user, $objectId)
     {
         $this->message = $message;
         $this->user = $user;
+        $this->objectId = $objectId;
     }
 
     /**
@@ -37,6 +41,6 @@ class MsgObjectPosted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('chatobject');
+        return new PrivateChannel('chatobject.'.$this->objectId);
     }
 }

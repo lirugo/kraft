@@ -23,12 +23,15 @@ Vue.component('chat-object-message', require('./components/chat/object/Message.v
 Vue.component('chat-object-log', require('./components/chat/object/Log.vue'));
 Vue.component('chat-object-composer', require('./components/chat/object/Composer.vue'));
 
+if(document.getElementById('object_id'))
+    var objectId = document.getElementById('object_id').value;
+
 const app = new Vue({
     el: '#app',
     data:{
         messages:[],
         msgsobject:[],
-        usersInRoom: []
+        usersInRoom: [],
     },
     methods:{
         addMessage(message){
@@ -44,10 +47,10 @@ const app = new Vue({
             // Add to existing messages
             this.msgsobject.push(message);
             // Persist to the database etc
-            axios.post('/object/messages', message).then(response => {
+            axios.post('/object/'+objectId+'/messages', message, objectId).then(response => {
 
             });
-            console.log(message);
+            // console.log(/object/:objectId/messages);
         }
     },
     created(){
@@ -55,9 +58,9 @@ const app = new Vue({
             this.messages = response.data;
         });
 
-        axios.get('/object/messages').then(response => {
+        axios.get('/object/'+objectId+'/messages').then(response => {
             this.msgsobject = response.data;
-            console.log(response);
+            // console.log(response);
         });
 
         Echo.join('chatroom')
@@ -79,10 +82,10 @@ const app = new Vue({
                 });
             });
 
-        Echo.join('chatobject')
+        Echo.private('chatobject.'+objectId)
             .listen('MsgObjectPosted', (e) => {
                 // Handle event
-                //  console.log(e);
+                 console.log(e);
                 this.msgsobject.push({
                     message: e.message.message,
                     user: e.user
