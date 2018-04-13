@@ -28,7 +28,7 @@ class BroadcastServiceProvider extends ServiceProvider
         });
         Broadcast::channel('chatobject.{objectId}', function ($user, $objectId) {
             $object = Object::find($objectId);
-            return $user->id === $object->rmid || $user->id === $object->creatorid;
+            return $user->id == $object->rmid || $user->id == $object->creatorid;
         });
     }
 }

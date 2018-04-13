@@ -86,10 +86,10 @@ const app = new Vue({
             .listen('MsgObjectPosted', (e) => {
                 // Handle event
                  console.log(e);
-                this.msgsobject.push({
-                    message: e.message.message,
-                    user: e.user
-                });
+                // this.msgsobject.push({
+                //     message: e.message.message,
+                //     user: e.user
+                // });
             });
 
     }

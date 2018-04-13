@@ -45,7 +45,7 @@
                         </a>
                     </div>
                 </div>
-                @if(Auth::user()->id === $object->rmid)
+{{--                @if(Auth::user()->id == $object->rmid)--}}
                     <div class="col-md-2 text-center">
                         <div class="card">
                             <a href="/object/{{ $object->id }}/chat" onclick="chat()">
@@ -56,7 +56,7 @@
                             </a>
                         </div>
                     </div>
-                @endif
+                {{--@endif--}}
             </div>
         </div>
         <div class="row">
