@@ -147,11 +147,11 @@
             <div class="col-md-4">
                 <hr>
                 <h4 class="text-center">Предполагаемая продукция</h4>
-                <p>Т-Профиль - {{ $object->product1 === 0 ? "Нет" : "Да" }}</p>
-                <p>Грильято - {{ $object->product2 === 0 ? "Нет" : "Да" }}</p>
-                <p>Крафт КУБ - {{ $object->product3 === 0 ? "Нет" : "Да" }}</p>
-                <p>Крафт LED - {{ $object->product4 === 0 ? "Нет" : "Да" }}</p>
-                <p>Плиты OWA - {{ $object->product5 === 0 ? "Нет" : "Да" }}</p>
+                <p>Т-Профиль - {{ $object->product1 == 0 ? "Нет" : "Да" }}</p>
+                <p>Грильято - {{ $object->product2 == 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт КУБ - {{ $object->product3 == 0 ? "Нет" : "Да" }}</p>
+                <p>Крафт LED - {{ $object->product4 == 0 ? "Нет" : "Да" }}</p>
+                <p>Плиты OWA - {{ $object->product5 == 0 ? "Нет" : "Да" }}</p>
             </div>
         </div>
         <div class="row">
