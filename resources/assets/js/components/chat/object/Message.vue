@@ -1,7 +1,10 @@
 <template lang="html">
     <div class="chat-message">
         <p>{{ message.message }}</p>
-        <small>{{ message.user.surname }} {{ message.user.name }}</small>
+        <small>
+            {{ message.user.surname }} {{ message.user.name }}
+            <small class="pull-right">{{ message.created_at}}</small>
+        </small>
     </div>
 </template>
 
