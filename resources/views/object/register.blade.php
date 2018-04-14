@@ -75,7 +75,7 @@
                             <select multiple class="form-control" name="products[]" style="height:110px;" required>
                                 <option name="product1" value="product1">T-Профиль</option>
                                 <option name="product2" value="product2">Грильято</option>
-                                <option name="product3" value="product3">value</option>
+                                <option name="product3" value="product3">Kraft Cube</option>
                                 <option name="product4" value="product4">KRAFT LED</option>
                                 <option name="product5" value="product5">Плиты OWA</option>
                             </select>
