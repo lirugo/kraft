@@ -34,6 +34,16 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-2 text-center">
+                <div class="card">
+                    <a href="/manager/distributor/discount/{{$distributors->id}}">
+                        <i class="fa fa-percent fa-5x" aria-hidden="true"></i>
+                        <div class="description m-t-10">
+                           Скидки
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- ShowRegistred objects-->

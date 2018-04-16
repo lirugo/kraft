@@ -89,6 +89,11 @@ Route::group(['prefix' => 'manager',
         Route::post('user/verified/{id}', 'Manager\ManagerController@verifieduser')->name('manager.user.verified');
         Route::post('object/activate/{id}', 'Manager\ManagerController@activateobject')->name('manager.object.activate');
         Route::post('object/verified/{id}', 'Manager\ManagerController@verifiedobject')->name('manager.object.verified');
+
+//Discount
+        Route::get('distributor/discount/{id}', 'Manager\DiscountController@index');
+        Route::post('distributor/discount/update{id}', 'Manager\DiscountController@update')->name('manager.distributor.discount.update');
+//EndDiscount
     });
 //manager route
 
@@ -225,6 +230,7 @@ Route::get('/distributors', 'TopManager\DistributorsController@index');
 Route::post('/contact/send', 'ContactController@send')->name('contact.send');
 Route::post('/order/send/{order_id}', 'ContactController@order')->name('order.send');
 //EndContactController
+
 
 //News
 Route::get('/news', 'News\NewsController@index');
