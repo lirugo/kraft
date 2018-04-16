@@ -30,5 +30,9 @@ class BroadcastServiceProvider extends ServiceProvider
             $object = Object::find($objectId);
             return $user->id == $object->rmid || $user->id == $object->creatorid;
         });
+
+        Broadcast::channel('notification-arrived', function () {
+           return false;
+        });
     }
 }

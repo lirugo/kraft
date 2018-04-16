@@ -263,3 +263,9 @@ Route::get('/object/{objectId}/chat', 'Chat\ObjectController@chat');
 Route::get('/object/{objectId}/messages', 'Chat\ObjectController@messages');
 Route::post('/object/{objectId}/messages', 'Chat\ObjectController@postmessages');
 
+//Notification Route
+Route::get('/getNotif', 'Notification\NotificationController@getNotif');
+
+Route::get('testNotif', 'Notification\NotificationController@index');
+
+

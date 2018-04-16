@@ -26,8 +26,8 @@ Vue.component('chat-object-composer', require('./components/chat/object/Composer
 if(document.getElementById('object_id'))
     var objectId = document.getElementById('object_id').value;
 else
-    console.log('Error with broadcast becouse dont know what channel must listen');
-
+    // console.log('Error with broadcast becouse dont know what channel must listen');
+    var objectId = 1;
 const app = new Vue({
     el: '#app',
     data:{

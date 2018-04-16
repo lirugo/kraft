@@ -27,7 +27,26 @@
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
                 @else
-                    <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
+                    {{--<li><a href="/messages">Messages @include('messenger.unread-count')</a></li>--}}
+                    {{--Notification --}}
+                    <li class="dropdown dropdown-notifications">
+                        <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
+                            <i data-count="0" id="notification_counter" class="fa fa-bell notification-icon"></i>
+                        </a>
+                        <div class="dropdown-container">
+                            <div class="dropdown-toolbar">
+                                <div class="dropdown-toolbar-actions">
+                                    <a href="#" onclick="markAllAsRead()">Mark all as read</a>
+                                </div>
+                                <h3 class="dropdown-toolbar-title">Notifications (<span class="notif-count">0</span>)</h3>
+                            </div>
+                            <ul class="dropdown-menu" id="notifications_list">
+                            </ul>
+                            {{--<div class="dropdown-footer text-center">--}}
+                            {{--<a href="#">View All</a>--}}
+                            {{--</div>--}}
+                        </div>
+                    </li>
                     <li><a href="{{ url('/news') }}">{{trans('app.main')}}</a></li>
                     <li><a href="{{ url('/manage/dashboard') }}">{{trans('app.manage')}}</a></li>
                     <li>

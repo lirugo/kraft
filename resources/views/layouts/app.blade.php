@@ -14,13 +14,16 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/font-awesome.css" rel="stylesheet">
+    {{--Notification--}}
+    <link href="/css/bootstrap-notifications.min.css" rel="stylesheet">
     {{--ContactForm--}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     @yield('stylesheets')
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel =
+        <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -66,6 +69,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>
+    <script src="/js/notifications.js"></script>
     @include('_includes.scripts')
 </body>
 </html>
