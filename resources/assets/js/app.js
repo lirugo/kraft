@@ -25,6 +25,8 @@ Vue.component('chat-object-composer', require('./components/chat/object/Composer
 
 if(document.getElementById('object_id'))
     var objectId = document.getElementById('object_id').value;
+else
+    console.log('Error with broadcast becouse dont know what channel must listen');
 
 const app = new Vue({
     el: '#app',
@@ -81,7 +83,6 @@ const app = new Vue({
                    user: e.user
                 });
             });
-
         Echo.private('chatobject.'+objectId)
             .listen('MsgObjectPosted', (e) => {
                 // Handle event

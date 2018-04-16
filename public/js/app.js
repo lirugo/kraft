@@ -1318,7 +1318,7 @@ Vue.component('chat-object-message', __webpack_require__(59));
 Vue.component('chat-object-log', __webpack_require__(58));
 Vue.component('chat-object-composer', __webpack_require__(57));
 
-if (document.getElementById('object_id')) var objectId = document.getElementById('object_id').value;
+if (document.getElementById('object_id')) var objectId = document.getElementById('object_id').value;else console.log('Error with broadcast becouse dont know what channel must listen');
 
 var app = new Vue({
     el: '#app',
@@ -1371,7 +1371,6 @@ var app = new Vue({
                 user: e.user
             });
         });
-
         Echo.private('chatobject.' + objectId).listen('MsgObjectPosted', function (e) {
             // Handle event
             console.log(e);
