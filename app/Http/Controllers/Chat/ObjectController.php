@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Chat;
 
 use App\Events\MsgObjectPosted;
 use App\MsgObject;
+use App\Notification;
 use App\Object;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,16 +47,26 @@ class ObjectController extends Controller
         $object = Object::find($objectId);
         $manager_id = $object->rmid;
 
-        //Persist data in db
+        //Persist data in db history message
         $message = $user->msgsobject()->create([
             'message' => $request->message,
             'object_id' => $objectId,
             'manager_id' => $manager_id
         ]);
 
+        //Persist data in notification table
+        $notif = new Notification();
+        $notif->user_id_from = Auth::user()->id;
+        $notif->user_id_to = $manager_id;
+        $notif->object_id = $objectId;
+        $notif->title = Auth::user()->surname." ".Auth::user()->name." Sent mew message.";
+        $notif->body = $request->message;
+        $notif->save();
+
         //Announce that a new message has been posted
         broadcast(new MsgObjectPosted($message, $user, $objectId))->toOthers();
 
         return ['status' => 'OK'];
+//        return $request;
     }
 }

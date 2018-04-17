@@ -23,6 +23,7 @@ $(function(){
         dataType: 'json',
         success: function(data)
         {
+            console.log(data);
             allNotif = data;
             notificationsCount = data.data.length;
             notificationsCountElem.attr('data-count', notificationsCount);
@@ -38,14 +39,14 @@ $(function(){
                           <div class="media">
                             <div class="media-left">
                               <div class="media-object">
-                               <img src="https://static.comicvine.com/uploads/original/14/145290/3252787-untitled-1.jpg" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                                 <img src="/uploads/avatars/`+data.data[i].user_from_avatar+`" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
                               </div>
                             </div>
                             <div class="media-body">
                               <strong class="notification-title">`+data.data[i].title+`</strong>
                               `+description+`
                               <div class="notification-meta">
-                                <small class="timestamp">`+data.data[i].created_at+`</small>
+                                <small class="timestamp pull-right">`+data.data[i].created_at+`</small>
                               </div>
                             </div>
                           </div>
@@ -62,6 +63,38 @@ $(function(){
 function markAllAsRead() {
 
 }
+
+Echo.private('notification-arrived')
+    .listen('NotificationArrived', (data) => {
+        // Handle event
+        console.log(data);
+        var existingNotifications = notifications.html();
+        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
+        var newNotificationHtml = `
+              <li class="notification active">
+                  <div class="media">
+                    <div class="media-left">
+                      <div class="media-object">
+                        <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                      </div>
+                    </div>
+                    <div class="media-body">
+                      <strong class="notification-title">`+data.data.notif.title+`</strong>
+                      <p class="notification-desc">`+data.data.notif.body+`</p>
+                      <div class="notification-meta">
+                        <small class="timestamp">`+data.data.notif.created_at+`</small>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+            `;
+        notifications.html(newNotificationHtml + existingNotifications);
+
+        notificationsCount += 1;
+        notificationsCountElem.attr('data-count', notificationsCount);
+        notificationsWrapper.find('.notif-count').text(notificationsCount);
+        notificationsWrapper.show();
+    });
 // Bind a function to a Event (the full Laravel class)
 channel.bind('App\\Events\\NotificationArrived', function(data) {
     // this is called when the event notification is received...

@@ -35,7 +35,20 @@ class NotificationController extends Controller
     }
 
     public function getNotif(){
-        return ['status' => 'OK', 'data' => Notification::where('read', false)->where('user_id_to', Auth::user()->id)->get()];
+        //Set collection
+        $data = new Collection();
+        $notifs = Notification::where('read', false)->where('user_id_to', Auth::user()->id)->get();
+        foreach ($notifs as $notif)
+        {
+            $notif->user_from_avatar = User::find($notif->user_id_from)->avatar;
+        }
+        //Send data to view
+        return ['status' => 'OK', 'data' => $notifs];
     }
 
+    public function delNotif(Request $request){
+
+
+        return ['status' => 'OK'];
+    }
 }

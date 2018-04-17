@@ -32,7 +32,7 @@ class BroadcastServiceProvider extends ServiceProvider
         });
 
         Broadcast::channel('notification-arrived', function () {
-           return false;
+            return true;
         });
     }
 }

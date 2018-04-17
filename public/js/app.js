@@ -1379,6 +1379,22 @@ var app = new Vue({
                 message: e.message.message,
                 user: e.user
             });
+            //Variable
+            var notificationsWrapper = $('.dropdown-notifications');
+            var notificationsToggle = notificationsWrapper.find('a[data-toggle]');
+            var notificationsCountElem = notificationsToggle.find('i[data-count]');
+            var notificationsCount = parseInt(notificationsCountElem.data('count'));
+            var notifications = notificationsWrapper.find('ul.dropdown-menu');
+
+            var allNotif;
+            var existingNotifications = notifications.html();
+            var newNotificationHtml = '\n              <li class="notification active">\n                  <div class="media">\n                    <div class="media-left">\n                      <div class="media-object">\n                        <img src="/uploads/avatars/' + e.user.avatar + '" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">\n                      </div>\n                    </div>\n                    <div class="media-body">\n                        <strong class="notification-title">' + e.user.surname + ' ' + e.user.name + ' sent new message.</strong>\n                        <p class="notification-desc">' + e.message.message + '</p>\n                      <div class="notification-meta">\n                        <small class="timestamp pull-right">' + e.message.created_at + '</small>\n                      </div>\n                    </div>\n                  </div>\n              </li>\n            ';
+            notifications.html(newNotificationHtml + existingNotifications);
+
+            notificationsCount += 1;
+            notificationsCountElem.attr('data-count', "new");
+            notificationsWrapper.find('.notif-count').text("new");
+            notificationsWrapper.show();
         });
     }
 });

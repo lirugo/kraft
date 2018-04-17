@@ -91,7 +91,39 @@ const app = new Vue({
                     message: e.message.message,
                     user: e.user
                 });
-            });
+                //Variable
+                var notificationsWrapper   = $('.dropdown-notifications');
+                var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
+                var notificationsCountElem = notificationsToggle.find('i[data-count]');
+                var notificationsCount     = parseInt(notificationsCountElem.data('count'));
+                var notifications          = notificationsWrapper.find('ul.dropdown-menu');
 
+                var allNotif;
+                var existingNotifications = notifications.html();
+                var newNotificationHtml = `
+              <li class="notification active">
+                  <div class="media">
+                    <div class="media-left">
+                      <div class="media-object">
+                        <img src="/uploads/avatars/`+e.user.avatar+`" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                      </div>
+                    </div>
+                    <div class="media-body">
+                        <strong class="notification-title">`+e.user.surname+` `+e.user.name+` sent new message.</strong>
+                        <p class="notification-desc">`+e.message.message+`</p>
+                      <div class="notification-meta">
+                        <small class="timestamp pull-right">`+e.message.created_at+`</small>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+            `;
+                notifications.html(newNotificationHtml + existingNotifications);
+
+                notificationsCount += 1;
+                notificationsCountElem.attr('data-count', "new");
+                notificationsWrapper.find('.notif-count').text("new");
+                notificationsWrapper.show();
+            });
     }
 });

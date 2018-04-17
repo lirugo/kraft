@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\MsgObject;
+use App\Object;
 use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -18,6 +19,7 @@ class MsgObjectPosted implements ShouldBroadcast
 
     public $message;
     public $user;
+    public $object;
     public $objectId;
 
     /**
@@ -31,6 +33,7 @@ class MsgObjectPosted implements ShouldBroadcast
     {
         $this->message = $message;
         $this->user = $user;
+        $this->object = Object::find($objectId);
         $this->objectId = $objectId;
     }
 

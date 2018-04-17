@@ -17,6 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->increments('id');
                 $table->integer('user_id_from')->unsigned();
                 $table->integer('user_id_to')->unsigned();
+                $table->integer('object_id')->unsigned()->nullable();
                 $table->string('title');
                 $table->string('body');
                 $table->boolean('read')->default(false);
