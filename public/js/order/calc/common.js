@@ -31,6 +31,26 @@ function common_save(){
     window.location.replace("/distributor/object/show/"+id);
 }
 
+function update_pack(e) {
+    e = e || window.event;
+    var data = [];
+    var target = e.srcElement || e.target;
+    while (target && target.nodeName !== "TR") {
+        target = target.parentNode;
+    }
+    if (target) {
+        var cells = target.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            data.push(cells[i].innerHTML);
+            if(i == 7)
+            {
+                var count = cells[6].children[0].value;
+                cells[8].innerHTML = (count * cells[7].innerHTML * cells[9].innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
+            }
+        }
+    }
+
+}
 //ADding to common table
 function grilyato_add(){
     $("#save_order").show();
@@ -224,6 +244,7 @@ function tprofile_add() {
     newinput.setAttribute("type", "number");
     newinput.setAttribute("min", "1");
     newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-3600-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-3600-model").innerHTML;
     row.insertCell(2).innerHTML =  document.getElementById("table-3600-name").innerHTML ;
@@ -232,7 +253,11 @@ function tprofile_add() {
     row.insertCell(5).innerHTML =  document.getElementById("table-3600-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-3600-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  document.getElementById("table-3600-price-all").innerHTML;
+    row.insertCell(7).innerHTML =  tp3600c_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-3600-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  tp3600_price;
+    row.cells[9].setAttribute('style', 'display:none;');
+    row.cells[6].setAttribute('style', 'width:100px;');
     //tprofile 1200
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
@@ -241,6 +266,7 @@ function tprofile_add() {
     newinput.setAttribute("type", "number");
     newinput.setAttribute("min", "1");
     newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-1200-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-1200-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-1200-name").innerHTML;
@@ -249,7 +275,10 @@ function tprofile_add() {
     row.insertCell(5).innerHTML = document.getElementById("table-1200-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-1200-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  document.getElementById("table-1200-price-all").innerHTML;
+    row.insertCell(7).innerHTML =  tp1200c_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-1200-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  tp1200_price;
+    row.cells[9].setAttribute('style', 'display:none;');
     //tprofile 600
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
@@ -258,6 +287,7 @@ function tprofile_add() {
     newinput.setAttribute("type", "number");
     newinput.setAttribute("min", "1");
     newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-600-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-600-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-600-name").innerHTML;
@@ -266,7 +296,10 @@ function tprofile_add() {
     row.insertCell(5).innerHTML = document.getElementById("table-600-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-600-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  document.getElementById("table-600-price-all").innerHTML;
+    row.insertCell(7).innerHTML =  tp600c_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-600-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  tp600_price;
+    row.cells[9].setAttribute('style', 'display:none;');
     //angle
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
@@ -275,6 +308,7 @@ function tprofile_add() {
     newinput.setAttribute("type", "number");
     newinput.setAttribute("min", "1");
     newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-wall-profile-vendor").innerHTML ;
     row.insertCell(1).innerHTML = document.getElementById("table-wall-profile-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-wall-profile-description").innerHTML;
@@ -283,55 +317,75 @@ function tprofile_add() {
     row.insertCell(5).innerHTML = document.getElementById("table-wall-profile-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-wall-profile-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  document.getElementById("table-wall-profile-price-all").innerHTML;
+    row.insertCell(7).innerHTML =  L3000c_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-wall-profile-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  angle_price;
+    row.cells[9].setAttribute('style', 'display:none;');
 
     //SuspWithEar
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
         row.style.borderRight = "1px solid #f78620";
-        row.style.borderTop = "1px solid #f78620";
     newinput = document.createElement("INPUT");
-    newinput.setAttribute("type", "hidden");
+    newinput.setAttribute("type", "number");
+    newinput.setAttribute("min", "1");
+    newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-wireWithEar-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-wireWithEar-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-wireWithEar-description").innerHTML ;
     row.insertCell(3);
     row.insertCell(4).innerHTML = document.getElementById("table-wireWithEar-lenght").innerHTML;
     row.insertCell(5).innerHTML = "9005";
-    newinput.setAttribute("value", document.getElementById("table-susp-pack").innerHTML);
+    newinput.setAttribute("value", document.getElementById("table-wireWithEar-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7);
+    row.insertCell(7).innerHTML =  suspc_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-wireWithEar-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  wire_with_ear_price;
+    row.cells[9].setAttribute('style', 'display:none;');
     //SuspWithHOOK
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
         row.style.borderRight = "1px solid #f78620";
     newinput = document.createElement("INPUT");
-    newinput.setAttribute("type", "hidden");
+    newinput.setAttribute("type", "number");
+    newinput.setAttribute("min", "1");
+    newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-wireWithHook-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-wireWithHook-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-wireWithHook-description").innerHTML;
     row.insertCell(3);
     row.insertCell(4).innerHTML = document.getElementById("table-wireWithHook-lenght").innerHTML;
     row.insertCell(5).innerHTML = "9005";
-    newinput.setAttribute("value", document.getElementById("table-susp-pack").innerHTML);
+    newinput.setAttribute("value", document.getElementById("table-wireWithHook-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7);
+    row.insertCell(7).innerHTML =  suspc_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-wireWithHook-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  wire_with_hook_price;
+    row.cells[9].setAttribute('style', 'display:none;');
     //SUSPSPRING
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
         row.style.borderRight = "1px solid #f78620";
         row.style.borderBottom = "1px solid #f78620";
     newinput = document.createElement("INPUT");
-    newinput.setAttribute("type", "hidden");
+    newinput.setAttribute("type", "number");
+    newinput.setAttribute("min", "1");
+    newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
     row.insertCell(0).innerHTML = document.getElementById("table-springSusp-vendor").innerHTML;
     row.insertCell(1).innerHTML = document.getElementById("table-springSusp-model").innerHTML;
     row.insertCell(2).innerHTML = document.getElementById("table-springSusp-description").innerHTML;
     row.insertCell(3);
     row.insertCell(4);
     row.insertCell(5).innerHTML = "9005";
-    newinput.setAttribute("value", document.getElementById("table-susp-pack").innerHTML);
+    newinput.setAttribute("value", document.getElementById("table-springSusp-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  document.getElementById("table-susp-price-all").innerHTML;
+    row.insertCell(7).innerHTML =  suspc_pack;
+    row.insertCell(8).innerHTML =  document.getElementById("table-springSusp-price-all").innerHTML;
+    row.insertCell(9).innerHTML =  spring_susp_price;
+    row.cells[9].setAttribute('style', 'display:none;');
     // //SUSP;
     // row = table.insertRow(-1);
     //     row.style.borderBottom = "1px solid #f78620";

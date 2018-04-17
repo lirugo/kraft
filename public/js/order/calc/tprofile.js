@@ -1,6 +1,4 @@
 //default hidden object
-document.getElementById("othercolor").disabled = true;
-document.getElementById("othercolor").style.display = "none";
 document.getElementById("colors").disabled = true;
 document.getElementById("colors").style.display = "none";
 document.getElementById("calc_t_profile_table").style.display = "none";
@@ -9,7 +7,6 @@ document.getElementById("calc_t_profile_table").style.display = "none";
 //Select MODEL LIKE NOVA,FORTIS...
 $("#model").change(function() {
     //Hide
-    document.getElementById("othercolor").disabled = true;
     document.getElementById("colors").disabled = true;
     document.getElementById("thickness").options[1].disabled = false;
     //SET VARIABLE
@@ -62,17 +59,14 @@ $("#model").change(function() {
     }
 });
 
-//Select COLOR
-$("#colors").change(function() {
-    if ($('#colors').find(":selected").attr("value") === "other") {
-        document.getElementById("othercolor").disabled = false;
-        document.getElementById("othercolor").style.display = "initial";
-    } else {
-        document.getElementById("othercolor").disabled = true;
-        document.getElementById("othercolor").style.display = "none";
-    }
-});
-
+//variable of price product
+var tp3600_price;
+var tp1200_price;
+var tp600_price;
+var angle_price;
+var wire_with_ear_price;
+var wire_with_hook_price;
+var spring_susp_price;
 //Submitting form
 function formTProfile() {
     //SET VARIABLE
@@ -83,9 +77,7 @@ function formTProfile() {
     var wire_with_hook = document.getElementById('wire_with_hook').value;
     var width = document.getElementById('thickness').value;
     var color = null;
-    if (document.getElementById('colors').value === "other")
-        color = document.getElementById('othercolor').value;
-    else color = document.getElementById('colors').value;
+    color = document.getElementById('colors').value;
     var difficult = document.getElementById('difficult').value;
     var wall_profile = null;
     if(document.getElementById('wall_profile').value === 'L')
@@ -119,6 +111,7 @@ function formTProfile() {
 
     //отправляю wall_profile запрос и получаю ответ
     getNewENumber(function( vendor ) {
+        console.log(vendor);
         if(document.getElementById('wall_profile').value === 'L')
             wall_profile = "L";
         else wall_profile = "W";
@@ -131,11 +124,13 @@ function formTProfile() {
         if (document.getElementById('colors').value === "other") price = 1.5;
         else price = 1;
         //SetPrice
-        var tp3600_price = tp3600c_price * price;
-        var tp1200_price = tp1200c_price * price;
-        var tp600_price = tp600c_price * price;
-        var angle_price = L3000c_price * price;
-        var susp_price = suspc_price;
+        tp3600_price = vendor[3600].price * price;
+        tp1200_price = vendor[1200].price * price;
+        tp600_price = vendor[600].price * price;
+        angle_price = vendor['angle'].price * price;
+        wire_with_ear_price = vendor['wire_with_ear'].price;
+        wire_with_hook_price = vendor['wire_with_hook'].price;
+        spring_susp_price = vendor['spring_susp'].price;
         //Pack
         var pack3600 = Math.ceil(tp3600 / tp3600c_pack);
         var pack1200 = Math.ceil(tp1200 / tp1200c_pack);
@@ -146,9 +141,11 @@ function formTProfile() {
         var sum3600 = Math.ceil(tp3600 / tp3600c_pack) * tp3600_price * tp3600c_pack;
         var sum1200 = Math.ceil(tp1200 / tp1200c_pack) * tp1200_price * tp1200c_pack;
         var sum600 = Math.ceil(tp600 / tp600c_pack) * tp600_price * tp600c_pack;
-        var sumSusp = Math.ceil(susp / suspc_pack) * susp_price * suspc_pack;
+        var sumWire_with_ear_price = Math.ceil(susp / suspc_pack) * wire_with_ear_price * suspc_pack;
+        var sumWire_with_hook_price = Math.ceil(susp / suspc_pack) * wire_with_hook_price * suspc_pack;
+        var sumSusp = Math.ceil(susp / suspc_pack) * spring_susp_price * suspc_pack;
         var sumAngle = Math.ceil(angles / angle_pack) * angle_price * L3000c_pack;
-        var sumTotal = sum600 + sum1200 + sum3600 + sumSusp + sumAngle;
+        var sumTotal = sum600 + sum1200 + sum3600 + sumSusp + sumAngle + sumWire_with_ear_price + sumWire_with_hook_price;
         //var
         var v3600_vendor;
         var v3600_model;
@@ -287,6 +284,7 @@ function formTProfile() {
             wire_with_ear_model = vendor['wire_with_ear'].model;
             wire_with_ear_profile = vendor['wire_with_ear'].profile;
             wire_with_ear_description = vendor['wire_with_ear'].description;
+            wire_with_ear_price = vendor['wire_with_ear'].price;
         }
         else {
             wire_with_ear_vendor = null;
@@ -299,6 +297,7 @@ function formTProfile() {
             wire_with_hook_model = vendor['wire_with_hook'].model;
             wire_with_hook_profile = vendor['wire_with_hook'].profile;
             wire_with_hook_description = vendor['wire_with_hook'].description;
+            wire_with_hook_price = vendor['wire_with_hook'].price;
         }
         else {
             wire_with_hook_vendor = null;
@@ -310,6 +309,7 @@ function formTProfile() {
             susp_spring_vendor = vendor['spring_susp'].vendor_code;
             susp_spring_model = vendor['spring_susp'].model;
             susp_spring_description = vendor['spring_susp'].description;
+            susp_spring_price = vendor['spring_susp'].price;
         }
         else {
             susp_spring_vendor = null;
@@ -325,7 +325,7 @@ function formTProfile() {
         vSusp_lenght = null;
         vSusp_color = null;
         vSusp_count = Math.ceil(susp) + " (" + Math.ceil(susp * 100) / 100 + ")";
-        vSusp_price = susp_price;
+        vSusp_price = spring_susp_price;
         vSusp_pack = packSusp;
         vSusp_price_all = sumSusp;
         //TotalTable
@@ -384,6 +384,9 @@ function formTProfile() {
         document.getElementById("table-wireWithEar-lenght").innerHTML = wire_with_ear_profile;
         document.getElementById("table-wireWithEar-color").innerHTML = "9005";
         document.getElementById("table-wireWithEar-count").innerHTML = vSusp_count;
+        document.getElementById("table-wireWithEar-price").innerHTML = wire_with_ear_price;
+        document.getElementById("table-wireWithEar-pack").innerHTML = vSusp_pack;
+        document.getElementById("table-wireWithEar-price-all").innerHTML = sumWire_with_ear_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspWithEar
 
         //SuspWithHook
@@ -393,6 +396,9 @@ function formTProfile() {
         document.getElementById("table-wireWithHook-lenght").innerHTML = wire_with_hook_profile;
         document.getElementById("table-wireWithHook-color").innerHTML = "9005";
         document.getElementById("table-wireWithHook-count").innerHTML = vSusp_count;
+        document.getElementById("table-wireWithHook-price").innerHTML = wire_with_hook_price;
+        document.getElementById("table-wireWithHook-pack").innerHTML = vSusp_pack;
+        document.getElementById("table-wireWithHook-price-all").innerHTML = sumWire_with_hook_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspWithHook
 
         //SuspSpring
@@ -401,18 +407,21 @@ function formTProfile() {
         document.getElementById("table-springSusp-description").innerHTML = susp_spring_description;
         document.getElementById("table-springSusp-color").innerHTML = "9005";
         document.getElementById("table-springSusp-count").innerHTML = vSusp_count;
+        document.getElementById("table-springSusp-price").innerHTML = susp_spring_price;
+        document.getElementById("table-springSusp-pack").innerHTML = vSusp_pack;
+        document.getElementById("table-springSusp-price-all").innerHTML = sumSusp.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspSpring
 
-        document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
-        document.getElementById("table-susp-model").innerHTML = null;
-        document.getElementById("table-susp-name").innerHTML = "Итого по подвесу";
-        document.getElementById("table-susp-width").innerHTML = null;
-        document.getElementById("table-susp-lenght").innerHTML = vSusp_lenght;
-        document.getElementById("table-susp-color").innerHTML = vSusp_color;
-        document.getElementById("table-susp-count").innerHTML = vSusp_count;
-        document.getElementById("table-susp-price").innerHTML = vSusp_price;
-        document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
-        document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
+        // document.getElementById("table-susp-model").innerHTML = null;
+        // document.getElementById("table-susp-name").innerHTML = "Итого по подвесу";
+        // document.getElementById("table-susp-width").innerHTML = null;
+        // document.getElementById("table-susp-lenght").innerHTML = vSusp_lenght;
+        // document.getElementById("table-susp-color").innerHTML = vSusp_color;
+        // document.getElementById("table-susp-count").innerHTML = vSusp_count;
+        // document.getElementById("table-susp-price").innerHTML = vSusp_price;
+        // document.getElementById("table-susp-pack").innerHTML = vSusp_pack;
+        // document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         document.getElementById("table-total").innerHTML = vSumTotal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
         // //ShowTable

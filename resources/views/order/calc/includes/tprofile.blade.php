@@ -42,7 +42,6 @@
                 {!! Form::select('colors',[
                 'other' => 'Другой'
                 ], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
-                {!! Form::number('othercolor', null, ['class' => 'form-control', 'id' => 'othercolor', 'required', 'placeholder' => 'Введите цвет RAL - 4 цифры','step' => '1', 'min' => '1000', 'max' => '9999']) !!}
                 {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
@@ -121,11 +120,7 @@
                     <td id="table-wall-profile-pack"></td>
                     <td id="table-wall-profile-price-all"></td>
                 </tr>
-                <tr style="
-            border-top: 1px solid #f78620;
-            border-left: 1px solid #f78620;
-            border-right: 1px solid #f78620;
-            ">
+                <tr>
                     <td id="table-wireWithEar-vendor"></td>
                     <td id="table-wireWithEar-model"></td>
                     <td id="table-wireWithEar-description"></td>
@@ -137,10 +132,7 @@
                     <td id="table-wireWithEar-pack"></td>
                     <td id="table-wireWithEar-price-all"></td>
                 </tr>
-                <tr style="
-            border-left: 1px solid #f78620;
-            border-right: 1px solid #f78620;
-            ">
+                <tr>
                     <td id="table-wireWithHook-vendor"></td>
                     <td id="table-wireWithHook-model"></td>
                     <td id="table-wireWithHook-description"></td>
@@ -152,11 +144,7 @@
                     <td id="table-wireWithHook-pack"></td>
                     <td id="table-wireWithHook-price-all"></td>
                 </tr>
-                <tr style="
-            border-bottom: 1px solid #f78620;
-            border-left: 1px solid #f78620;
-            border-right: 1px solid #f78620;
-            ">
+                <tr>
                     <td id="table-springSusp-vendor"></td>
                     <td id="table-springSusp-model"></td>
                     <td id="table-springSusp-description"></td>
@@ -168,18 +156,18 @@
                     <td id="table-springSusp-pack"></td>
                     <td id="table-springSusp-price-all"></td>
                 </tr>
-                <tr>
-                    <td id="table-susp-vendor"></td>
-                    <td id="table-susp-model"></td>
-                    <td id="table-susp-name"></td>
-                    <td id="table-susp-width"></td>
-                    <td id="table-susp-lenght"></td>
-                    <td id="table-susp-color"></td>
-                    <td id="table-susp-count"></td>
-                    <td id="table-susp-price"></td>
-                    <td id="table-susp-pack"></td>
-                    <td id="table-susp-price-all"></td>
-                </tr>
+                {{--<tr>--}}
+                    {{--<td id="table-susp-vendor"></td>--}}
+                    {{--<td id="table-susp-model"></td>--}}
+                    {{--<td id="table-susp-name"></td>--}}
+                    {{--<td id="table-susp-width"></td>--}}
+                    {{--<td id="table-susp-lenght"></td>--}}
+                    {{--<td id="table-susp-color"></td>--}}
+                    {{--<td id="table-susp-count"></td>--}}
+                    {{--<td id="table-susp-price"></td>--}}
+                    {{--<td id="table-susp-pack"></td>--}}
+                    {{--<td id="table-susp-price-all"></td>--}}
+                {{--</tr>--}}
                 {{--BottomRightSide--}}
                 <tr>
                     <td style="background-color: white"></td>
