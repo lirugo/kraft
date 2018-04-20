@@ -29,10 +29,7 @@ class AddDiscountInCompany extends Migration
     public function down()
     {
         Schema::table('companies', function(Blueprint $table) {
-            $table->dropColumn('discount_tprofile')->default(0);
-            $table->dropColumn('discount_grilyato')->default(0);
-            $table->dropColumn('discount_cube')->default(0);
-            $table->dropColumn('discount_led')->default(0);
+            $table->dropColumn(['discount_tprofile','discount_grilyato','discount_cube','discount_led']);
         });
     }
 }
