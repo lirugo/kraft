@@ -15,9 +15,9 @@ class CreateReportPhotosTable extends Migration
     {
         Schema::create('report_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('object_id')->unsigned();
-            $table->foreign('object_id')->references('object_id')->on('reports');
-            $table->string('name');
+//            $table->integer('object_id')->unsigned();
+//            $table->foreign('object_id')->references('object_id')->on('reports');
+//            $table->string('name');
             $table->timestamps();
         });
     }
