@@ -69,7 +69,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>
-    <script src="/js/notifications.js"></script>
+    {{--<script src="/js/notifications.js"></script>--}}
     @include('_includes.scripts')
 </body>
 </html>

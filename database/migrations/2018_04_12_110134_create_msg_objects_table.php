@@ -15,8 +15,8 @@ class CreateMsgObjectsTable extends Migration
     {
         Schema::create('msg_objects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('manager_id')->unsigned()->default(0);
+            $table->integer('user_id_from')->unsigned();
+            $table->integer('user_id_to')->unsigned()->default(0);
             $table->integer('object_id')->unsigned()->default(0);
             $table->text('message');
             $table->timestamps();

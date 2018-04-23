@@ -25,9 +25,9 @@ Vue.component('chat-object-composer', require('./components/chat/object/Composer
 
 if(document.getElementById('object_id'))
     var objectId = document.getElementById('object_id').value;
-else
-    // console.log('Error with broadcast becouse dont know what channel must listen');
-    var objectId = 1;
+// else
+//     // console.log('Error with broadcast because dont know what channel must listen');
+//     var objectId = 1;
 const app = new Vue({
     el: '#app',
     data:{
@@ -59,7 +59,7 @@ const app = new Vue({
         axios.get('/messages').then(response => {
             this.messages = response.data;
         });
-
+        if(objectId)
         axios.get('/object/'+objectId+'/messages').then(response => {
             this.msgsobject = response.data;
             // console.log(response);
@@ -83,6 +83,8 @@ const app = new Vue({
                    user: e.user
                 });
             });
+        //Если мы находимя на странице с чатом
+        if(objectId)
         Echo.private('chatobject.'+objectId)
             .listen('MsgObjectPosted', (e) => {
                 // Handle event
@@ -100,6 +102,10 @@ const app = new Vue({
 
                 var allNotif;
                 var existingNotifications = notifications.html();
+                var link = "";
+                if(e.objectId)
+                    link = `<small class="timestamp pull-left"><a href="/object/`+e.objectId+`/chat">Перейти в чат</a></small>`;
+
                 var newNotificationHtml = `
               <li class="notification active">
                   <div class="media">
@@ -112,6 +118,7 @@ const app = new Vue({
                         <strong class="notification-title">`+e.user.surname+` `+e.user.name+` sent new message.</strong>
                         <p class="notification-desc">`+e.message.message+`</p>
                       <div class="notification-meta">
+                       `+link+`
                         <small class="timestamp pull-right">`+e.message.created_at+`</small>
                       </div>
                     </div>

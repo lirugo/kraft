@@ -271,6 +271,7 @@ Route::post('/object/{objectId}/messages', 'Chat\ObjectController@postmessages')
 
 //Notification Route
 Route::get('/getNotif', 'Notification\NotificationController@getNotif');
+Route::post('/delNotif', 'Notification\NotificationController@delNotif');
 
 Route::get('testNotif', 'Notification\NotificationController@index');
 

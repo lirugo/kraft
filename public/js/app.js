@@ -1318,9 +1318,10 @@ Vue.component('chat-object-message', __webpack_require__(59));
 Vue.component('chat-object-log', __webpack_require__(58));
 Vue.component('chat-object-composer', __webpack_require__(57));
 
-if (document.getElementById('object_id')) var objectId = document.getElementById('object_id').value;else
-    // console.log('Error with broadcast becouse dont know what channel must listen');
-    var objectId = 1;
+if (document.getElementById('object_id')) var objectId = document.getElementById('object_id').value;
+// else
+//     // console.log('Error with broadcast because dont know what channel must listen');
+//     var objectId = 1;
 var app = new Vue({
     el: '#app',
     data: {
@@ -1350,8 +1351,7 @@ var app = new Vue({
         axios.get('/messages').then(function (response) {
             _this.messages = response.data;
         });
-
-        axios.get('/object/' + objectId + '/messages').then(function (response) {
+        if (objectId) axios.get('/object/' + objectId + '/messages').then(function (response) {
             _this.msgsobject = response.data;
             // console.log(response);
         });
@@ -1372,7 +1372,8 @@ var app = new Vue({
                 user: e.user
             });
         });
-        Echo.private('chatobject.' + objectId).listen('MsgObjectPosted', function (e) {
+        //Если мы находимя на странице с чатом
+        if (objectId) Echo.private('chatobject.' + objectId).listen('MsgObjectPosted', function (e) {
             // Handle event
             console.log(e);
             _this.msgsobject.push({
@@ -1388,7 +1389,10 @@ var app = new Vue({
 
             var allNotif;
             var existingNotifications = notifications.html();
-            var newNotificationHtml = '\n              <li class="notification active">\n                  <div class="media">\n                    <div class="media-left">\n                      <div class="media-object">\n                        <img src="/uploads/avatars/' + e.user.avatar + '" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">\n                      </div>\n                    </div>\n                    <div class="media-body">\n                        <strong class="notification-title">' + e.user.surname + ' ' + e.user.name + ' sent new message.</strong>\n                        <p class="notification-desc">' + e.message.message + '</p>\n                      <div class="notification-meta">\n                        <small class="timestamp pull-right">' + e.message.created_at + '</small>\n                      </div>\n                    </div>\n                  </div>\n              </li>\n            ';
+            var link = "";
+            if (e.objectId) link = '<small class="timestamp pull-left"><a href="/object/' + e.objectId + '/chat">\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u0432 \u0447\u0430\u0442</a></small>';
+
+            var newNotificationHtml = '\n              <li class="notification active">\n                  <div class="media">\n                    <div class="media-left">\n                      <div class="media-object">\n                        <img src="/uploads/avatars/' + e.user.avatar + '" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">\n                      </div>\n                    </div>\n                    <div class="media-body">\n                        <strong class="notification-title">' + e.user.surname + ' ' + e.user.name + ' sent new message.</strong>\n                        <p class="notification-desc">' + e.message.message + '</p>\n                      <div class="notification-meta">\n                       ' + link + '\n                        <small class="timestamp pull-right">' + e.message.created_at + '</small>\n                      </div>\n                    </div>\n                  </div>\n              </li>\n            ';
             notifications.html(newNotificationHtml + existingNotifications);
 
             notificationsCount += 1;

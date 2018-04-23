@@ -46,8 +46,12 @@ class NotificationController extends Controller
         return ['status' => 'OK', 'data' => $notifs];
     }
 
-    public function delNotif(Request $request){
-
+    public function delNotif(){
+        $notifs = Notification::where('user_id_to', Auth::user()->id)->get();
+        foreach ($notifs as $notif) {
+            $notif->read = true;
+            $notif->save();
+        }
 
         return ['status' => 'OK'];
     }

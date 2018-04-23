@@ -45,19 +45,22 @@ class ObjectController extends Controller
 
         $user = Auth::user();
         $object = Object::find($objectId);
-        $manager_id = $object->rmid;
+        if(Auth::user()->id == $object->rmid)
+            $user_id_to = $object->creatorid;
+        else $user_id_to = $object->rmid;
 
         //Persist data in db history message
-        $message = $user->msgsobject()->create([
-            'message' => $request->message,
-            'object_id' => $objectId,
-            'manager_id' => $manager_id
-        ]);
+        $message = new MsgObject();
+            $message->message = $request->message;
+            $message->object_id = $objectId;
+            $message->user_id_from = $user->id;
+            $message->user_id_to = $user_id_to;
+        $message->save();
 
         //Persist data in notification table
         $notif = new Notification();
-        $notif->user_id_from = Auth::user()->id;
-        $notif->user_id_to = $manager_id;
+        $notif->user_id_from = $user->id;
+        $notif->user_id_to = $user_id_to;
         $notif->object_id = $objectId;
         $notif->title = Auth::user()->surname." ".Auth::user()->name." Sent mew message.";
         $notif->body = $request->message;
