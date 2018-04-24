@@ -2439,10 +2439,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pusher_js__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pusher_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_pusher_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chat_scroll__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chat_scroll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chat_scroll__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_laravel_echo__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_laravel_echo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pusher_js__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pusher_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_pusher_js__);
 
 window._ = __webpack_require__(49);
 
@@ -2462,6 +2464,8 @@ __webpack_require__(40);
  */
 
 window.Vue = __webpack_require__(74);
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_chat_scroll___default.a);
 // require('vue-resource');
 
 /**
@@ -2492,7 +2496,7 @@ window.axios.defaults.headers.common = {
 
 
 
-window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
+window.Echo = new __WEBPACK_IMPORTED_MODULE_1_laravel_echo___default.a({
   broadcaster: 'pusher',
   key: 'c704c07a87b11b822dfb',
   cluster: 'mt1',
@@ -49320,6 +49324,78 @@ module.exports = function(module) {
 
 __webpack_require__(12);
 module.exports = __webpack_require__(13);
+
+
+/***/ }),
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global['vue-chat-scroll'] = factory());
+}(this, (function () { 'use strict';
+
+/**
+ * @name VueJS vChatScroll (vue-chat-scroll)
+ * @description Monitors an element and scrolls to the bottom if a new child is added
+ * @author Theodore Messinezis <theo@theomessin.com>
+ * @file v-chat-scroll  directive definition
+ */
+
+var scrollToBottom = function scrollToBottom(el) {
+    el.scrollTop = el.scrollHeight;
+};
+
+var vChatScroll = {
+    bind: function bind(el, binding) {
+        var timeout = void 0;
+        var scrolled = false;
+
+        el.addEventListener('scroll', function (e) {
+            if (timeout) window.clearTimeout(timeout);
+            timeout = window.setTimeout(function () {
+                scrolled = el.scrollTop + el.clientHeight + 1 < el.scrollHeight;
+            }, 200);
+        });
+
+        new MutationObserver(function (e) {
+            var config = binding.value || {};
+            var pause = config.always === false && scrolled;
+            if (pause || e[e.length - 1].addedNodes.length != 1) return;
+            scrollToBottom(el);
+        }).observe(el, { childList: true, subtree: true });
+    },
+    inserted: scrollToBottom
+};
+
+/**
+ * @name VueJS vChatScroll (vue-chat-scroll)
+ * @description Monitors an element and scrolls to the bottom if a new child is added
+ * @author Theodore Messinezis <theo@theomessin.com>
+ * @file vue-chat-scroll plugin definition
+ */
+
+var VueChatScroll = {
+    install: function install(Vue, options) {
+        Vue.directive('chat-scroll', vChatScroll);
+    }
+};
+
+if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(VueChatScroll);
+}
+
+return VueChatScroll;
+
+})));
 
 
 /***/ })

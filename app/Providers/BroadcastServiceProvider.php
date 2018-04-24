@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Object;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 
@@ -31,8 +32,8 @@ class BroadcastServiceProvider extends ServiceProvider
             return $user->id == $object->rmid || $user->id == $object->creatorid;
         });
 
-        Broadcast::channel('notification-arrived', function () {
-            return true;
+        Broadcast::channel('notification-arrived.{userId}', function ($data, $userId) {
+            return Auth::user()->id == $userId;
         });
     }
 }

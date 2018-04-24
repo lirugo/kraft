@@ -24,9 +24,10 @@
 
 @section('scripts')
 <script>
-    window.setInterval(function() {
-        var elem = document.getElementById('chat_dialog');
-        elem.scrollTop = elem.scrollHeight;
-    });
+    function func() {
+        var messages = document.getElementById('chat_dialog');
+        messages.scrollTop = messages.scrollHeight;
+    }
+    setTimeout(func, 1000);
 </script>
 @endsection

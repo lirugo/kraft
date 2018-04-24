@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Chat;
 
 use App\Events\MsgObjectPosted;
+use App\Events\NotificationArrived;
 use App\MsgObject;
 use App\Notification;
 use App\Object;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -66,6 +69,14 @@ class ObjectController extends Controller
         $notif->body = $request->message;
         $notif->save();
 
+        //Set data for notif
+        $data = new Collection();
+        $data->put('notif', $notif);
+        $data->put('user_from', User::find($notif->user_id_from));
+        $data->put('user_to', User::find($notif->user_id_to));
+
+        //Announce about new notification
+        broadcast( new NotificationArrived($data, $notif->user_id_to))->toOthers();
         //Announce that a new message has been posted
         broadcast(new MsgObjectPosted($message, $user, $objectId))->toOthers();
 

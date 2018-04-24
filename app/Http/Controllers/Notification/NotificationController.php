@@ -16,7 +16,7 @@ class NotificationController extends Controller
         //Save notification in database
         $notif = new Notification();
         $notif->user_id_from = 1;
-        $notif->user_id_to = 1;
+        $notif->user_id_to = 5;
         $notif->title = "some small text for title";
         $notif->body = "Hi i send to u new message, some small text for body notification";
         $notif->save();
@@ -28,7 +28,7 @@ class NotificationController extends Controller
         $data->put('user_to', User::find($notif->user_id_to));
 
         //Announce about new event
-        event( new NotificationArrived($data));
+        event( new NotificationArrived($data, $notif->user_id_to));
 
         //Return status
         return ['status' => 'OK'];

@@ -17,6 +17,8 @@ require('bootstrap-sass');
  */
 
 window.Vue = require('vue');
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll);
 // require('vue-resource');
 
 /**

@@ -67,9 +67,13 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    {{--Set id user for js --}}
+    <script>
+        var authUserId = <?php echo Auth::user()->id; ?>;
+    </script>
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>
-    {{--<script src="/js/notifications.js"></script>--}}
+    <script src="/js/notifications.js"></script>
     @include('_includes.scripts')
 </body>
 </html>

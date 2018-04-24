@@ -17,15 +17,18 @@ class NotificationArrived implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $data;
+    public $userId;
 
     /**
      * Create a new event instance.
      *
      * @param Collection $data
+     * @param $userId
      */
-    public function __construct(Collection $data)
+    public function __construct(Collection $data, $userId)
     {
         $this->data = $data;
+        $this->userId = $userId;
     }
 
     /**
@@ -35,6 +38,6 @@ class NotificationArrived implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('notification-arrived');
+        return new PrivateChannel('notification-arrived.'.$this->userId);
     }
 }
