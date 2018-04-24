@@ -69,7 +69,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--Set id user for js --}}
     <script>
-        var authUserId = <?php echo Auth::user()->id; ?>;
+        var authUserId = <?php if(Auth::user()) echo Auth::user()->id; ?>;
     </script>
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>
