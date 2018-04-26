@@ -13,7 +13,7 @@ class LanguageController extends Controller
        if(!Session::has('locale')){
            Session::put('locale', Input::get('locale'));
        } else {
-           Session::set('locale', Input::get('locale'));
+           Session::put('locale', Input::get('locale'));
        }
 
        return redirect()->back();

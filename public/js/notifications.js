@@ -34,7 +34,7 @@ $(function(){
                     description = "<p class=\"notification-desc\">"+data.data[i].body+"</p>";
                 else
                     description = "";
-
+                if(data.data[i].object_id)
                 var link = `<small class="timestamp pull-left"><a href="/object/`+data.data[i].object_id+`/chat">Перейти в чат</a></small>`;
 
                 var newNotificationHtml = `
@@ -87,20 +87,22 @@ Echo.private('notification-arrived.'+authUserId)
         // Handle event
         console.log(data);
         var existingNotifications = notifications.html();
-        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
+        if(data.data.notif.object_id)
+            var link = `<small class="timestamp pull-left"><a href="/object/`+data.data.notif.object_id+`/chat">Перейти в чат</a></small>`;
         var newNotificationHtml = `
               <li class="notification active">
                   <div class="media">
                     <div class="media-left">
                       <div class="media-object">
-                        <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                        <img src="/uploads/avatars/`+data.data.user_from.avatar+`" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
                       </div>
                     </div>
                     <div class="media-body">
                       <strong class="notification-title">`+data.data.notif.title+`</strong>
                       <p class="notification-desc">`+data.data.notif.body+`</p>
                       <div class="notification-meta">
-                        <small class="timestamp">`+data.data.notif.created_at+`</small>
+                        `+link+`
+                        <small class="timestamp pull-right">`+data.data.notif.created_at+`</small>
                       </div>
                     </div>
                   </div>
