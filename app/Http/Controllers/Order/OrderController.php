@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Order;
 use App\CalcHistory;
 use App\Constants;
 use App\Object;
+use App\ProductKraft;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
@@ -115,6 +116,7 @@ class OrderController extends Controller
     }
 
     public function tprofilevendor(Request $request){
+
         $profiles = DB::table('vendor_code_t_profiles')->where([
             ['model', $request->model],
             ['profile_thickness', $request->profile_thickness],
@@ -142,16 +144,60 @@ class OrderController extends Controller
 
         $collection = new Collection();
         foreach ($profiles as $profile)
+        {
+            if(ProductKraft::getProduct($profile->vendor_code) == null)
+            {
+                $profile->status = 0;
+                $profile->price = 'Уточните цену у менеджера';
+            }
+            else
+               $profile->price = ProductKraft::getProduct($profile->vendor_code)->getPrice();
+            if(ProductKraft::getProduct($profile->vendor_code)->getPrice() == '.00')
+                $profile->price = '0';
+            $profile->status = 1;
             $collection->put($profile->profile, $profile);
-        foreach ($angles as $angle)
+        }
+        foreach ($angles as $angle) {
+            if(ProductKraft::getProduct($angle->vendor_code) == null){
+                $angle->status = 0;
+                $angle->price = 'Уточните цену у менеджера';
+            }
+            else
+                $angle->price = ProductKraft::getProduct($angle->vendor_code)->getPrice();
+            if(ProductKraft::getProduct($angle->vendor_code)->getPrice() == '.00')
+                $angle->price = '0';
+            $angle->status = 1;
             $collection->put('angle', $angle);
-        foreach ($wireWithEars as $wireWithEar)
+        }
+        foreach ($wireWithEars as $wireWithEar) {
+            if (ProductKraft::getProduct($wireWithEar->vendor_code) == null){
+                $wireWithEar->status = 0;
+                $wireWithEar->price = 'Уточните цену у менеджера';
+            }
+            else
+                $wireWithEar->price = ProductKraft::getProduct($wireWithEar->vendor_code)->getPrice();
+            if(ProductKraft::getProduct($wireWithEar->vendor_code)->getPrice() == '.00')
+                $wireWithEar->price = '0';
+            $wireWithEar->status = 0;
             $collection->put('wire_with_ear', $wireWithEar);
-        foreach ($wireWithHooks as $wireWithHook)
-            $collection->put('wire_with_hook', $wireWithHook);
-        foreach ($springSusps as $springSusp)
-            $collection->put('spring_susp', $springSusp);
+        }
+        foreach ($wireWithHooks as $wireWithHook) {
+            if (ProductKraft::getProduct($wireWithHook->vendor_code) == null){
+                $wireWithHook->status = 0;
+                $wireWithHook->price = 'Уточните цену у менеджера';
+            }
+            else
+                $wireWithHook->price = ProductKraft::getProduct($wireWithHook->vendor_code)->getPrice();
+            if(ProductKraft::getProduct($wireWithHook->vendor_code)->getPrice() == '.00')
+                $wireWithHook->price = '0';
 
+            $wireWithHook->status = 1;
+            $collection->put('wire_with_hook', $wireWithHook);
+        }
+        foreach ($springSusps as $springSusp) {
+            $wireWithHook->price = '0';
+            $collection->put('spring_susp', $springSusp);
+        }
         return $collection;
     }
 

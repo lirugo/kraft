@@ -25,12 +25,16 @@
                 <hr style="margin:10px 0 10px 0;">
             </div>
         </div>
-
         @include('order.calc.includes.tprofile')
 
         @include('order.calc.includes.grilyato')
 
         @include('order.calc.includes.common')
+
+        <div id="loader-message" title="Получение данных">
+            <div id="progressbar"class="m-t-20"></div>
+        </div>
+
 
     </div>
     {{--JQuery--}}
@@ -83,6 +87,8 @@
                 $("#dialog_select_cal").dialog( "open" );
             });
         });
+
+        $( "#dialog_select_cal" ).dialog.hide();
 
         //Show calc
         function showTProfile() {

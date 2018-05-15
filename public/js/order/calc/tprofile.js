@@ -100,9 +100,30 @@ function formTProfile() {
                 'wire_with_ear':wire_with_ear,
                 'wire_with_hook':wire_with_hook
             },
-            async:true,
+            beforeSend: function(){
+                $( function() {
+                    var progressbar = $( "#progressbar" ),
+                        progressLabel = $( ".progress-label" );
+
+                    progressbar.progressbar({
+                        value: false,
+                        change: function() {
+                            progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+                        },
+                        complete: function() {
+                            progressLabel.text( "Complete!" );
+                        }
+                    });
+                } );
+                $( function() {
+                    $( "#loader-message" ).dialog({
+                        modal: true,
+                    });
+                } );
+            },
             success: cb_func,
             error: function(request,error) {
+                $( "#loader-message" ).dialog('close');
                 alert('An error occurred attempting to get new e-number');
                 // console.log(request, error);
             }
@@ -111,6 +132,7 @@ function formTProfile() {
 
     //отправляю wall_profile запрос и получаю ответ
     getNewENumber(function( vendor ) {
+        $( "#loader-message" ).dialog('close');
         console.log(vendor);
         if(document.getElementById('wall_profile').value === 'L')
             wall_profile = "L";
