@@ -41,8 +41,9 @@
                         <h6>{{ $user->surname." ".$user->name." ".$user->patronymic }}</h6>
                         <h6>{{ $user->phone }}</h6>
                         <h6>
-                            {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
-                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post',  'class' => 'form-inline']) !!}
+                            {!! Form::text('vendor_code_1c',null, ['class' => 'form-control', 'style' => 'width:200px', 'placeholder' => 'Ведите ID компании из 1С', 'required']) !!}
+                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary ']) !!}
                             {!! Form::close() !!}
                         </h6>
                         <br>

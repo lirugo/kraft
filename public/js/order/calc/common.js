@@ -20,15 +20,16 @@ function common_save(){
                     length:table.rows[z].cells[4].innerHTML,
                     color:table.rows[z].cells[5].innerHTML,
                     pack:table.rows[z].cells[6].getElementsByTagName("input")[0].value,
-                    sum:table.rows[z].cells[7].innerHTML.replace(/,/g , '')
+                    sum:table.rows[z].cells[7].innerHTML.replace(/,/g , ''),
+                    count_pack:table.rows[z].cells[8].value
                     },
                 dataType:'json'
                 }
-            )
+            );
         }
     }
     console.log('sended');
-    window.location.replace("/distributor/object/show/"+id);
+    // window.location.replace("/distributor/object/show/"+id);
 }
 
 function update_pack(e) {
@@ -73,6 +74,7 @@ function grilyato_add(){
     newinput.setAttribute("value", document.getElementById("table-grilyato-3600-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
     row.insertCell(7).innerHTML =  (newinput.value*tp3600c_pack*tp3600c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(8).innerHTML = 15;
     //grilyato 2400
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";

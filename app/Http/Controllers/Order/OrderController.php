@@ -223,6 +223,7 @@ class OrderController extends Controller
             $calcHis->color = $request->color;
             $calcHis->pack = $request->pack;
             $calcHis->sum = $request->sum;
+            $calcHis->count_pack = $request->count_pack;
         $calcHis->save();
 
         Session::flash('success', 'Ваш заказ сохранен.');

@@ -28,6 +28,7 @@ class CreateCalcHistoriesTable extends Migration
             $table->string('pack')->nullable();
             $table->string('sum')->nullable();
             $table->string('total')->nullable();
+            $table->string('count_pack')->nullable();
 
             $table->timestamps();
         });

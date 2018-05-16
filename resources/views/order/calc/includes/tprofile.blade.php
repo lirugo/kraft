@@ -3,24 +3,24 @@
     <div class="row">
         <div class="col-md-4">
             {!! Form::open(['onsubmit' => 'return formTProfile();']) !!}
-                {!! Form::number('areaceiling', null, ['class' => 'form-control', 'id' => 'areaceiling', 'placeholder' => 'Введите площадь помещения', 'required','step' => '1', 'min' => '1']) !!}
-                {!! Form::number('pceiling', null, ['class' => 'form-control', 'id' => 'pceiling', 'placeholder' => 'Введите периметр помещения', 'required','step' => '1', 'min' => '1']) !!}
+                {!! Form::number('areaceiling', 25, ['class' => 'form-control', 'id' => 'areaceiling', 'placeholder' => 'Введите площадь помещения', 'required','step' => '1', 'min' => '1']) !!}
+                {!! Form::number('pceiling', 20, ['class' => 'form-control', 'id' => 'pceiling', 'placeholder' => 'Введите периметр помещения', 'required','step' => '1', 'min' => '1']) !!}
                 {!! Form::select('model',[
                    'NOVA' => 'NOVA',
                    'FORTIS' => 'FORTIS',
-                   ], null, ['class' => 'form-control', 'placeholder' => 'Выберите модель профиля', 'id' => 'model', 'required']) !!}
+                   ], 'NOVA', ['class' => 'form-control', 'placeholder' => 'Выберите модель профиля', 'id' => 'model', 'required']) !!}
                 {!! Form::select('difficult',[
                 $data['constants']->easy => 'Простая',
                 $data['constants']->hard => 'Сложная'
-                ], null, ['class' => 'form-control', 'id' => 'difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+                ], '3', ['class' => 'form-control', 'id' => 'difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
                {!! Form::select('thickness',[
                     '15' => '15 мм',
                     '24' => '24 мм'
-                    ], null, ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите толщину профиля', 'required']) !!}
+                    ], '24', ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите толщину профиля', 'required']) !!}
                 {!! Form::select('wall_profile',[
                 'L' => 'L',
                 'W' => 'W'
-                ], null, ['class' => 'form-control', 'id' => 'wall_profile', 'placeholder' => 'Выберите тип пристенного профиля', 'required']) !!}
+                ], 'L', ['class' => 'form-control', 'id' => 'wall_profile', 'placeholder' => 'Выберите тип пристенного профиля', 'required']) !!}
                 {!! Form::select('wire_with_ear',[
                 '250' => '250 мм',
                 '500' => '500 мм',
@@ -28,7 +28,7 @@
                 '1000' => '1000 мм',
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
-                ], null, ['class' => 'form-control', 'id' => 'wire_with_ear', 'placeholder' => 'Выберите длину проволки с ушком', 'required']) !!}
+                ], '250', ['class' => 'form-control', 'id' => 'wire_with_ear', 'placeholder' => 'Выберите длину проволки с ушком', 'required']) !!}
                 {!! Form::select('wire_with_hook',[
                 '125' => '125 мм',
                 '250' => '250 мм',
@@ -36,8 +36,8 @@
                 '1000' => '1000 мм',
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
-                ], null, ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
-                {!! Form::select('colors',[], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
+                ], '125', ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
+                {!! Form::select('colors',['9003' => '9003'], '9003', ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
                 {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>

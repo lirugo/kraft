@@ -70,7 +70,7 @@
         //Dialog select Calc
         $( function() {
             $( "#dialog_select_cal" ).dialog({
-                autoOpen: false,
+                autoOpen: true,
                 width:800,
                 dialogClass: 'arbeitsauftrag_hilfe',
                 show: {

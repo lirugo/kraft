@@ -86,7 +86,7 @@ class ManagerController extends Controller
     public function activateuser(Request $request, $id){
         $user = User::find($id);
         $user->active == true ? $user->active = false : $user->active = true;
-
+        $user->vendor_code_1c = $request->vendor_code_1c;
         $user->save();
         Session::flash('success', 'User status was changed.');
         return back();
