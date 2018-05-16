@@ -8,8 +8,6 @@
                 {!! Form::select('model',[
                    'NOVA' => 'NOVA',
                    'FORTIS' => 'FORTIS',
-                   'HD' => 'HD',
-                   'RH1000' => 'RH1000'
                    ], null, ['class' => 'form-control', 'placeholder' => 'Выберите модель профиля', 'id' => 'model', 'required']) !!}
                 {!! Form::select('difficult',[
                 $data['constants']->easy => 'Простая',
@@ -32,16 +30,14 @@
                 '2000' => '2000 мм'
                 ], null, ['class' => 'form-control', 'id' => 'wire_with_ear', 'placeholder' => 'Выберите длину проволки с ушком', 'required']) !!}
                 {!! Form::select('wire_with_hook',[
-                '125' => '250 мм',
+                '125' => '125 мм',
                 '250' => '250 мм',
                 '500' => '500 мм',
                 '1000' => '1000 мм',
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
                 ], null, ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
-                {!! Form::select('colors',[
-                'other' => 'Другой'
-                ], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
+                {!! Form::select('colors',[], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
                 {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>

@@ -101,18 +101,28 @@ class OrderController extends Controller
         return view('order.calc.select')->with('data', $data);
     }
 
-    public function selectorder($id){
-        $orders = CalcHistory::all()->where('object_id', $id);
-        $data = new Collection();
-        $data->put('orders', $orders);
-        $data->put('order_id', $orders[0]->order_id);
+    public function selectorder($id, $orderId){
+        $orders = CalcHistory::get()->where('order_id', '=', $orderId);
         $total = 0;
         foreach ($orders as $order)
+        {
+            if(ProductKraft::getProduct($order->vendor_code) == null)
+                $order->sum = 0;
+            else
+            {
+                $order->sum = ProductKraft::getProduct($order->vendor_code)->getPrice();
+//                if(ProductKraft::getProduct($order->vendor_code)->getPrice() == '.00')
+//                    $order->sum = '0';
+            }
             $total += $order->sum;
-        $data->put('id', $id);
-        $data->put('total', $total);
+            $order->save();
+            $orders->order_id = $order->order_id;
+        }
+        $orders->total = $total;
 
-        return view('order.show')->with('data',$data);
+
+
+        return view('order.show')->with('orders',$orders);
     }
 
     public function tprofilevendor(Request $request){

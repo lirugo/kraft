@@ -88,7 +88,6 @@
             });
         });
 
-        $( "#dialog_select_cal" ).dialog.hide();
 
         //Show calc
         function showTProfile() {

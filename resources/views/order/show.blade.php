@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <label class="pull-right"> Заказ № {{ $data['orders'][0]->order_id }}</label>
+                <label class="pull-right"> Заказ № {{ $orders->order_id }}</label>
                 <hr style="margin-top: 30px;">
                 <table class="table table-striped table-borderless text-center">
                     <thead>
@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($data['orders'] as $order)
+                    @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->vendor_code}}</td>
                                 <td>{{$order->model}}</td>
@@ -48,13 +48,13 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
-                        <td style="background-color: #eeeeee; color: #f78421;">{{$data['total']}} грн</td>
+                        <td style="background-color: #eeeeee; color: #f78421;">{{$orders->total}} грн</td>
                     </tr>
                     </tbody>
                 </table>
                 <hr>
 
-                {!! Form::model($data, ['route' => ['order.send',$data['order_id'],], 'method' => 'POST']) !!}
+                {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
                 {!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}
                 <br>
                 <br>

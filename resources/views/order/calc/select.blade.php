@@ -11,14 +11,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-6">
                 <hr>
                 <table class="table table-striped table-borderless">
                     <thead>
                     <tr>
                         <th scope="col" style="color: #f78421;">Номер заказа</th>
                         <th scope="col" style="color: #f78421;">Дата заказа</th>
-                        <th scope="col" style="color: #f78421;">Сумма заказа</th>
                         <th scope="col" style="color: #f78421;">Action</th>
                     </tr>
                     </thead>
@@ -33,7 +32,6 @@
                         <tr>
                             <td>{{$order->order_id}}</td>
                             <td>{{$order->created_at}}</td>
-                            <td>{{$total}} грн</td>
                             <td>
                                 {!! Form::open(['route' => ['order.select.delete',$data['id'],$order->order_id], 'method' => 'DELETE']) !!}
                                 <a href="/order/{{$data['id']}}/select/{{$order->order_id}}" class="btn btn-primary">Подробнее</a>
