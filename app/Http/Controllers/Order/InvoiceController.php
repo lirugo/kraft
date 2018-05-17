@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class InvoiceController extends Controller
 {
     public function send(){
-        //
+
     }
 }
