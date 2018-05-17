@@ -12,6 +12,7 @@
 */
 
 use App\Events\MsgPosted;
+use App\ProductKraft;
 
 Route::get('/', function () {
     return view('welcome');
@@ -245,9 +246,9 @@ Route::get('/news', 'News\NewsController@index');
 Route::get('/complete', function () {
     return view('auth.complete');
 });
-Route::get('/test', function () {
-    return view('test');
-});
+//Route::get('/test', function () {
+//    return view('test');
+//});
 Route::get('dropzone', 'HomeController@dropzone');
 
 //Chat
@@ -279,5 +280,10 @@ Route::get('/getNotif', 'Notification\NotificationController@getNotif');
 Route::post('/delNotif', 'Notification\NotificationController@delNotif');
 
 Route::get('testNotif', 'Notification\NotificationController@index');
+
+
+Route::get('test', function (){
+   return ProductKraft::all();
+});
 
 
