@@ -282,8 +282,6 @@ Route::post('/delNotif', 'Notification\NotificationController@delNotif');
 Route::get('testNotif', 'Notification\NotificationController@index');
 
 
-Route::get('test', function (){
-   return ProductKraft::all();
-});
+Route::get('test', 'TestController@index');
 
 
