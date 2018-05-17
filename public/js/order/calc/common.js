@@ -20,8 +20,7 @@ function common_save(){
                     length:table.rows[z].cells[4].innerHTML,
                     color:table.rows[z].cells[5].innerHTML,
                     pack:table.rows[z].cells[6].getElementsByTagName("input")[0].value,
-                    sum:table.rows[z].cells[7].innerHTML.replace(/,/g , ''),
-                    count_pack:table.rows[z].cells[8].value
+                    count_pack:table.rows[z].cells[7].innerHTML
                     },
                 dataType:'json'
                 }
@@ -29,7 +28,7 @@ function common_save(){
         }
     }
     console.log('sended');
-    // window.location.replace("/distributor/object/show/"+id);
+    window.location.replace("/distributor/object/show/"+id);
 }
 
 function update_pack(e) {

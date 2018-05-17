@@ -25,6 +25,7 @@ Route::post('/language', [
 ]);
 //EndLanguage route
 
+
 //Registration route
 Auth::routes();
 Route::get('register/user', 'Auth\RegisterController@getRegisterUser');
@@ -206,6 +207,10 @@ Route::get('/order/show/{id}', 'Order\OrderController@show');
 
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
 Route::post('/order/common/save/{id}', 'Order\OrderController@common_save')->name('order.common.save');
+
+//Invoice Route
+Route::post('/order/invoice/{order_id}/send', 'Order\InvoiceController@send')->name('order.invoice.send');
+//EndInvoice Route
 //EndOrderCalc
 
 //Message route

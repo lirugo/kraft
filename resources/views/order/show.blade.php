@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <label class="pull-right"> Заказ № {{ $orders->order_id }}</label>
                 <hr style="margin-top: 30px;">
-                <table class="table table-striped table-borderless text-center">
+                <table class="table table-striped table-borderless text-center" id="table">
                     <thead>
                     <tr>
                         <th scope="col" style="color: #f78421;">Артикул</th>
@@ -29,14 +29,14 @@
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
-                            <tr>
+                         <tr>
                                 <td>{{$order->vendor_code}}</td>
                                 <td>{{$order->model}}</td>
                                 <td>{{$order->description}}</td>
                                 <td>{{$order->width}}</td>
                                 <td>{{$order->length}}</td>
                                 <td>{{$order->color}}</td>
-                                <td>{{$order->pack}}</td>
+                                <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'onchange' => 'pack_change('.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.')']) !!}</td>
                                 <td>{{$order->sum}}</td>
                             </tr>
                     @endforeach
@@ -48,18 +48,42 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
-                        <td style="background-color: #eeeeee; color: #f78421;">{{$orders->total}} грн</td>
+                        <td style="background-color: #eeeeee; color: #f78421;" id="total-sum">{{$orders->total}}</td>
                     </tr>
                     </tbody>
                 </table>
                 <hr>
-
-                {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
-                {!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
+                @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                {!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}
+                @endif
                 <br>
                 <br>
                 {!! Form::close() !!}
+                {{--{!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}--}}
+                {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
+                {{--<br>--}}
+                {{--<br>--}}
+                {{--{!! Form::close() !!}--}}
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('scripts')
+    <script>
+        var table = document.getElementById("table");
+    function pack_change(id,sum_by_one,count_pack){
+        table.rows[id].cells[7].innerHTML = table.rows[id].cells[6].children[0].value * sum_by_one *count_pack;
+        total_sum = 0;
+        for(var i = 1; i<table.rows.length-1; i++)
+        {
+            total_sum = +total_sum + +table.rows[i].cells[7].innerHTML;
+        }
+
+        table.rows[table.rows.length-1].cells[7].innerHTML = total_sum;
+    }
+
+    </script>
 @endsection

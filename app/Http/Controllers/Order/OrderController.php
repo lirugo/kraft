@@ -104,22 +104,30 @@ class OrderController extends Controller
     public function selectorder($id, $orderId){
         $orders = CalcHistory::get()->where('order_id', '=', $orderId);
         $total = 0;
+        $i = 1;
         foreach ($orders as $order)
         {
             if(ProductKraft::getProduct($order->vendor_code) == null)
                 $order->sum = 0;
             else
             {
-                $order->sum = ProductKraft::getProduct($order->vendor_code)->getPrice();
-//                if(ProductKraft::getProduct($order->vendor_code)->getPrice() == '.00')
-//                    $order->sum = '0';
+                $sum_by_one = ProductKraft::getProduct($order->vendor_code)->getPrice();
+                $order->sum = ProductKraft::getProduct($order->vendor_code)->getPrice()*$order->pack*$order->count_pack;
+                if(ProductKraft::getProduct($order->vendor_code)->getPrice() == '.00')
+                {
+                    $order->sum = '0';
+                    $sum_by_one = '0';
+                }
             }
             $total += $order->sum;
             $order->save();
+            $order->id_row = $i;
+            $order->sum_by_one = $sum_by_one;
+            $i+=1;
             $orders->order_id = $order->order_id;
+            $orders->status = $order->status;
         }
         $orders->total = $total;
-
 
 
         return view('order.show')->with('orders',$orders);

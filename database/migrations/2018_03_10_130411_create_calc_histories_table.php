@@ -15,6 +15,7 @@ class CreateCalcHistoriesTable extends Migration
     {
         Schema::create('calc_histories', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('status')->default(false);
             $table->integer('object_id')->unsigned()->nullable();
             $table->foreign('object_id')->references('id')->on('objects');
 
