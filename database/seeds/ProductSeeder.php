@@ -1432,7 +1432,7 @@ class ProductSeeder extends Seeder
         ] );
          DB::table('vendor_code_t_profile_susps')->insert([
             'id'=>26,
-            'vendor_code'=>'123',
+            'vendor_code'=>'00-00000875',
             'price'=>NULL,
             'model'=>'Пружинный подвес',
             'profile_thickness'=>NULL,

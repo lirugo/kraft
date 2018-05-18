@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
     public function index(){
-        return ProductKraft::all();
+        dd(ProductKraft::getProduct('00-00000450')->getPrice());
     }
 }
