@@ -125,7 +125,7 @@ function formTProfile() {
             error: function(request,error) {
                 $( "#loader-message" ).dialog('close');
                 alert('An error occurred attempting to get new e-number');
-                // console.log(request, error);
+                console.log(request, error);
             }
         });
     }
