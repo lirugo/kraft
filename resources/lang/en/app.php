@@ -13,6 +13,8 @@ return [
     'logout' => 'Logout',
     'register' => 'Register',
     'registertext' => 'To access the system, you need to register',
+    'entity' => 'Legal person',
+    'individual' => 'Physical person',
     'company' => 'Company',
     'arch/design' => 'Architect/Designer',
     //End Login/Register Page
