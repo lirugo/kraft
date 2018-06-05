@@ -11,6 +11,21 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        <div class="row m-t-20 m-b-20">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-2 text-center">
+                    <div class="card">
+                        <a href="/manager/objects/create">
+                            <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
+                            <div class="description m-t-10">
+                                Создать
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {{--@endif--}}
+            </div>
+        </div>
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
                 <h5>Зарегестрированые объекты</h5>

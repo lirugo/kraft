@@ -81,6 +81,8 @@ Route::group(['prefix' => 'manager',
         Route::get('distributor/users/{id}', 'Manager\ManagerController@userscompany')->name('manager.distributor.users');
         Route::get('arch', 'Manager\ManagerController@arch')->name('manager.arch');
         Route::get('objects', 'Manager\ManagerController@objects')->name('manager.objects');
+        Route::get('objects/create', 'Manager\ManagerController@create');
+        Route::post('objects/create', 'Manager\ManagerController@postCreate')->name('manager.objects.create');
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
         Route::get('moderation', 'Manager\ModerationController@index');
         Route::get('moderation/company', 'Manager\ModerationController@company');
