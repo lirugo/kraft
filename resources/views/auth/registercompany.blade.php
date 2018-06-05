@@ -101,7 +101,9 @@
                             <div class="col-md-12 text-center">
                                 {!! Form::label('label',trans('app.uploaddocuments')) !!}
                                 <br>
-                                <div id="scanUpload" class="dropzone"></div>
+                                <div id="scanUpload" class="dropzone">
+                                    <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                                </div>
                                 <div id="boatAddForm"></div>
                             </div>
                         </div>
@@ -127,7 +129,9 @@
                             <h5> You must upload your photo. </h5>
                             <hr>
                             {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'hidden', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
-                            <div id="iamgeUpload" class="dropzone"></div>
+                            <div id="iamgeUpload" class="dropzone">
+                                <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                            </div>
                         </div>
 
                     </section>
@@ -198,9 +202,9 @@
             url:'/upload/avatar',
             type:'POST',
             maxFilesize:3,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
             maxFiles: 1,
-            addRemoveLinks: true,
+            // addRemoveLinks: true,
             sending: function(file, xhr, formData) {
                 formData.append("_token", "{{{ csrf_token() }}}");
             },
@@ -215,9 +219,9 @@
             url:'/upload/scan',
             type:'POST',
             maxFilesize:3,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
             maxFiles: 5,
-            addRemoveLinks: true,
+            // addRemoveLinks: true,
             sending: function(file, xhr, formData) {
                 formData.append("_token", "{{{ csrf_token() }}}");
             },

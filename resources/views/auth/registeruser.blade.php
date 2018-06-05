@@ -66,7 +66,9 @@
                 {!! Form::label('label',trans('app.uploadavatar')) !!}
                 <hr style="margin:0; margin-bottom: 10px">
                 {!! Form::hidden('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
-                <div id="iamgeUpload" class="dropzone text-center"></div>
+                <div id="iamgeUpload" class="dropzone text-center">
+                    <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                </div>
             </div>
             <div class="col-md-4">
                 {!! Form::label('label', "Текущее место работы") !!}
@@ -122,9 +124,9 @@
             url:'/upload/avatar',
             type:'POST',
             maxFilesize:3,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
             maxFiles: 1,
-            addRemoveLinks: true,
+            // addRemoveLinks: true,
             sending: function(file, xhr, formData) {
                 formData.append("_token", "{{{ csrf_token() }}}");
             },
