@@ -66,6 +66,14 @@ class RegisterCompanyController extends Controller
         $company->region = $request->region;
         $company->regionname = $regionname;
         //EndRegion
+        //Add manager id
+        $managers = User::whereHas('roles', function($q)            {
+            $q->where('name', 'manager');
+        })->get();
+        foreach ($managers as $manager){
+            if($manager->regionname == $company->regionname)
+                $company->rmid = $manager->id;
+        }
         $company->city = $request->city;
         $company->street = $request->street;
         $company->house = $request->house;

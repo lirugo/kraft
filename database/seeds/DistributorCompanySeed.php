@@ -13,6 +13,7 @@ class DistributorCompanySeed extends Seeder
     {
         DB::table('companies')->insert([
             'user_id' => '3',
+            'rmid' => '5',
             'companyname' => 'companynamecenter',
             'region' => '11',
             'regionname' => 'center',

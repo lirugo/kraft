@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Notification;
+use App\Object;
 use App\ProductKraft;
+use App\User;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
     public function index(){
-        dd(ProductKraft::getProduct('00-00000450')->getPrice());
+       $object = Object::find(3);
+       dd($object->getCompany->id);
     }
 }

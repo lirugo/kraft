@@ -35,7 +35,7 @@ $(function(){
                 else
                     description = "";
                 if(data.data[i].object_id)
-                var link = `<small class="timestamp pull-left"><a href="/object/`+data.data[i].object_id+`/chat">Перейти в чат</a></small>`;
+                // var link = `<small class="timestamp pull-left"><a href="/object/`+data.data[i].object_id+`">Перейти к объекту</a></small>`;
 
                 var newNotificationHtml = `
                       <li class="notification active">
@@ -49,7 +49,6 @@ $(function(){
                               <strong class="notification-title">`+data.data[i].title+`</strong>
                               `+description+`
                               <div class="notification-meta">
-                                `+link+`
                                 <small class="timestamp pull-right">`+data.data[i].created_at+`</small>
                               </div>
                             </div>

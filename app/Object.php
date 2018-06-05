@@ -22,4 +22,9 @@ class Object extends Model
     {
         return $this->hasOne('App\Region', 'region_id', 'region');
     }
+
+    public function getCompany()
+    {
+        return $this->hasOne('App\Company', 'id', 'companyid');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Object;
 
+use App\Notification;
 use App\Object;
 use App\Company;
 use App\User;
@@ -167,7 +168,27 @@ class ObjectController extends Controller
         if(isset($request->photos[4]))$object->photo5 = $request->photos[4];
         $object->specificationid = $request->specificationid;
 
-        $object->save();
+        if($object->save()){
+            $mngrsId =[];
+
+            $managers = User::whereHas('roles', function($q)            {
+                $q->where('name', 'manager');
+            })->get();
+            foreach ($managers as $manager){
+                if($manager->regionname == $object->regionname)
+                    array_push($mngrsId,$manager->id);
+            }
+            array_push($mngrsId,$object->getCompany->rmid);
+            for($i=0; $i<count(array_unique($mngrsId)); $i++){
+                $notif = new Notification();
+                    $notif->user_id_from = Auth::user()->id;
+                    $notif->user_id_to = $mngrsId[$i];
+                    $notif->object_id = $object->id;
+                    $notif->title = $user->name.' create new object.';
+                    $notif->body = $object->name;
+                $notif->save();
+            }
+        }
 
         //Set Flash message
         Session::flash('success', 'Object was successfully created.');
