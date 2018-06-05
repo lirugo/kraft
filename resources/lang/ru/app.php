@@ -13,6 +13,8 @@ return [
     'logout' => 'Выход',
     'register' => 'Регистрация',
     'registertext' => 'Для доступа к системе необходима регистрация',
+    'entity' => 'Юр. лицо',
+    'individual' => 'Физ. лицо',
     'company' => 'Компания',
     'arch/design' => 'Архитектор/Дизайнер',
     //End Login/Register Page
