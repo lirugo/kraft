@@ -11,11 +11,11 @@
 
 @section('content')
     <div class="container">
+        {!! Form::open(['method' => 'POST', 'route' =>['admin.users.create'], 'files' => true]) !!}
         <div class="row">
             <div class="col-md-4">
                 <h5> {{trans('app.userprofile')}} </h5>
                 <hr>
-                {!! Form::open(['method' => 'POST', 'route' =>['admin.users.create'], 'files' => true]) !!}
                 {!! Form::text('surname', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.surname')]) !!}
                 {!! Form::text('name', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.name')]) !!}
                 {!! Form::text('patronymic', null , ['class' => 'form-control m-t-20', 'required', 'placeholder' => trans('app.patronymic')]) !!}
@@ -53,9 +53,9 @@
         <div class="row">
             <div class="col-md-12">
                 {!! Form::submit(trans('app.registration'), ['class' => 'botton pull-right btn-sm botton-primary m-t-10']) !!}
-                {!! Form::close() !!}
             </div>
         </div>
+        {!! Form::close() !!}
     </div>
 @endsection
 
