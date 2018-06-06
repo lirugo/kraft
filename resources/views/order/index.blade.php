@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4 text-right">
-                <label>Заказ №</label> <label id="order_code">{{$data['object']->id.\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')}}</label>
+                <label>Заказ №</label> <label id="order_code">{{$data['objectId'].\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')}}</label>
             </div>
         </div>
         <div class="row">

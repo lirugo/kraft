@@ -65,6 +65,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row m-t-50">
+                            <div class="col-md-2 col-md-offset-1 text-center">
+                                <div class="card">
+                                    <a href="/order">
+                                        <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                                        <div class="description m-t-10">
+                                            Прсочет на склад
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

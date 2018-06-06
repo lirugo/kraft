@@ -28,7 +28,10 @@ function common_save(){
         }
     }
     console.log('sended');
-    window.location.replace("/distributor/object/show/"+id);
+    if(id == 0)
+        window.location.replace("/manage");
+    else
+        window.location.replace("/distributor/object/show/"+id);
 }
 
 function update_pack(e) {
