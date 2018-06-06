@@ -205,6 +205,7 @@ Route::get('routes/console', function()
 Route::get('/order/{id}/select/', 'Order\OrderController@select');
 Route::get('/order/{id}/select/{order_id}', 'Order\OrderController@selectorder');
 Route::delete('/order/{id}/select/{order_id}/delete', 'Order\OrderController@deleteorder')->name('order.select.delete');
+Route::get('/order/stock', 'Order\StockController@show');
 Route::get('/order/{id}', 'Order\OrderController@index');
 Route::get('/order', 'Order\OrderController@create');
 Route::get('/order/show/{id}', 'Order\OrderController@show');
