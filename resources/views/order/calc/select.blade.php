@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Главная</a>
+                <a class="link-bread" href="/manage">Главная</a>
             </div>
         </div>
     </div>

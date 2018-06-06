@@ -209,6 +209,7 @@ Route::get('/order/stock', 'Order\StockController@show');
 Route::get('/order/{id}', 'Order\OrderController@index');
 Route::get('/order', 'Order\OrderController@create');
 Route::get('/order/show/{id}', 'Order\OrderController@show');
+Route::post('/select/delete/{id}', 'Order\OrderController@deletePartOrder')->name('select.delete');
 
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
 Route::post('/order/common/save/{id}', 'Order\OrderController@common_save')->name('order.common.save');

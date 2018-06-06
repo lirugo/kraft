@@ -198,12 +198,18 @@ class OrderController extends Controller
             $order->sum_by_one = $sum_by_one;
             $i+=1;
             $orders->order_id = $order->order_id;
+            $orders->object_id = $order->object_id;
             $orders->status = $order->status;
         }
         $orders->total = $total;
 
-
         return view('order.show')->with('orders',$orders);
+    }
+
+    public function deletePartOrder($id){
+        $cH = CalcHistory::find($id);
+        $cH->delete();
+        return back();
     }
 
     public function tprofilevendor(Request $request){

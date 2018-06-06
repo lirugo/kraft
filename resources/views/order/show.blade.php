@@ -3,7 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Главная</a>
+                <a class="link-bread" href="/manage">Главная</a>
+                <a class="link-bread" href="/order/{{$orders->object_id}}/select">История заказов</a>
             </div>
         </div>
     </div>
@@ -25,6 +26,7 @@
                         <th scope="col" style="color: #f78421;">Цвет RAL</th>
                         <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
                         <th scope="col" style="color: #f78421;">Стоимость</th>
+                        <th scope="col" style="color: #f78421;">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,6 +40,11 @@
                                 <td>{{$order->color}}</td>
                                 <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'onchange' => 'pack_change('.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.')']) !!}</td>
                                 <td>{{$order->sum}}</td>
+                                <td>
+                                    {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-warning btn-sm']) !!}
+                                    {!! Form::close() !!}
+                                </td>
                             </tr>
                     @endforeach
                     <tr>
@@ -53,13 +60,14 @@
                     </tbody>
                 </table>
                 <hr>
-                {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-                @if(Auth::user()->vendor_code_1c && $orders->status == 0)
                 {!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}
-                @endif
-                <br>
-                <br>
-                {!! Form::close() !!}
+                {{--{!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}--}}
+                {{--@if(Auth::user()->vendor_code_1c && $orders->status == 0)--}}
+                {{--{!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}--}}
+                {{--@endif--}}
+                {{--<br>--}}
+                {{--<br>--}}
+                {{--{!! Form::close() !!}--}}
                 {{--{!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}--}}
                 {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
                 {{--<br>--}}
