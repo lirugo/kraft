@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Company;
+use App\Facades\Authy;
 use App\Role;
+use App\Services\Authy\Exceptions\RegistrationFailedException;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -134,6 +136,15 @@ class RegisterCompanyController extends Controller
         //AttachRole designer/arch for new user
         $distributor = Role::where('name', 'distributor')->first();
         $user->attachRole($distributor);
+
+        //Set authy ID
+        try{
+            $authyId = Authy::registerUser($user);
+            $user->authy_id = $authyId;
+            $user->save();
+        }catch (RegistrationFailedException $e){
+            return redirect()->back();
+        }
 
         //Set Flash message
         Session::flash('success', 'Company and distributor was successfully created.');

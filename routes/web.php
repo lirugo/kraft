@@ -290,3 +290,7 @@ Route::get('testNotif', 'Notification\NotificationController@index');
 Route::get('test', 'TestController@index');
 
 
+//AUTHY ROUTE
+Route::get('/auth/token', 'Auth\AuthTokenController@getToken');
+Route::post('/auth/token', 'Auth\AuthTokenController@postToken')->name('auth.token');
+Route::get('/auth/token/resend', 'Auth\AuthTokenController@getResend')->name('auth.token');

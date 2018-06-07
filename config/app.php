@@ -177,6 +177,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        App\Providers\AuthyServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
@@ -246,6 +247,8 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Pusher' => Pusher\Pusher::class,
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
+
+        'Authy' => App\Facades\Authy::class,
     ],
 
 ];

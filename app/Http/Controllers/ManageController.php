@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CompanyChange;
+use App\Facades\Authy;
 use App\Object;
 use App\Role;
 use App\User;

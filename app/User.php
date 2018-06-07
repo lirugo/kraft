@@ -52,4 +52,16 @@ class User extends Authenticatable
     public function msgsobject(){
         return $this->hasMany(MsgObject::class);
     }
+
+    public function hasTwoFactorAuthenticationEnabled(){
+        return $this->two_factor_type != 'off';
+    }
+
+    public function hasSmsTwoFactorAuthenticationEnabled(){
+        return $this->two_factor_type == 'sms';
+    }
+
+    public function hasTwoFactorType($type){
+        return $this->two_factor_type == $type;
+    }
 }
