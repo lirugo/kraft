@@ -2,6 +2,7 @@
 
 namespace App\Services\Authy;
 
+use App\Company;
 use App\User;
 use Authy\AuthyApi;
 use Authy\AuthyFormatException;
@@ -9,6 +10,7 @@ use Authy\AuthyFormatException;
 use App\Services\Authy\Exceptions\SmsRequestFailedException;
 use App\Services\Authy\Exceptions\RegistrationFailedException;
 use App\Services\Authy\Exceptions\InvalidTokenException;
+use Illuminate\Support\Facades\Session;
 
 
 class AuthyService {

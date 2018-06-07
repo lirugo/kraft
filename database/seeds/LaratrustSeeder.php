@@ -66,6 +66,7 @@ class LaratrustSeeder extends Seeder
                 'active' => true,
                 'company' => 'companynamecenter',
                 'regionname' => 'center',
+                'two_factor_type' => 'off',
                 'password' => bcrypt('password')
             ]);
 

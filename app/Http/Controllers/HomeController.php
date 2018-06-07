@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductKraft;
-use App\ProductPriceKraft;
-
 class HomeController extends Controller
 {
     /**

@@ -143,6 +143,9 @@ class RegisterCompanyController extends Controller
             $user->authy_id = $authyId;
             $user->save();
         }catch (RegistrationFailedException $e){
+            $user->delete();
+            $company->delete();
+            Session::flash('warning', 'Data was not valid');
             return redirect()->back();
         }
 
