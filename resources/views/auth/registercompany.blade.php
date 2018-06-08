@@ -244,8 +244,20 @@
                     $("#boatAddForm").append($('<input type="hidden" ' +
                         'name="scans[]" ' +
                         'value="' + response.success + '">'));
-                })
+
+                    //set icon for pdf
+                    var ext = file.name.split('.').pop();
+
+                    if (ext == "pdf") {
+                        $(file.previewElement).find(".dz-image img").attr("src", "/img/logo/dropzone/pdf.png");
+                    }
+                });
             }
         });
+        // Get file extension
+        function checkFileExt(filename){
+            filename = filename.toLowerCase();
+            return filename.split('.').pop();
+        }
     </script>
 @endsection
