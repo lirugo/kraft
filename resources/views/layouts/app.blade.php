@@ -68,7 +68,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--Set id user for js --}}
     <script>
+        {{--@if(!Auth::guest())--}}
         var authUserId = <?php if(Auth::user()) echo Auth::user()->id; ?>;
+        {{--@endif--}}
     </script>
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>

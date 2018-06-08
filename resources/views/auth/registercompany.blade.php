@@ -221,13 +221,26 @@
             maxFilesize:3,
             acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
             maxFiles: 5,
-            // addRemoveLinks: true,
+            addRemoveLinks: true,
+            removedfile: function(file) {
+                var fileName = JSON.parse(file.xhr.response).success;
+                $('input').each(function(){
+                    if ($(this).val() == fileName)
+                        $(this).remove();
+                });
+                if (file.previewElement != null && file.previewElement.parentNode != null) {
+                    file.previewElement.parentNode.removeChild(file.previewElement);
+                }
+                return this._updateMaxFilesReachedClass();
+            },
             sending: function(file, xhr, formData) {
                 formData.append("_token", "{{{ csrf_token() }}}");
             },
             init: function() {
                 var myDropzone = this;
                 this.on('success', function(file, response) {
+                    var fileName = JSON.parse(file.xhr.response).success;
+                    console.log(fileName);
                     $("#boatAddForm").append($('<input type="hidden" ' +
                         'name="scans[]" ' +
                         'value="' + response.success + '">'));
