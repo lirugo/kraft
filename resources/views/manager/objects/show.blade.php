@@ -59,8 +59,18 @@
                 {{--@endif--}}
                 <div class="col-md-2 text-center pull-right">
                     <div class="card">
+                        {!! Form::open(['route' => ['manager.object.show.transfer.distributor',$object->id]]) !!}
+                        {!! Form::label('Change distributor') !!}
+                        {!! Form::select('distributor', $distributors, null, ['class' => 'form-control','placeholder' => 'Select distributor', 'required']) !!}
+                        {!! Form::submit('Change', ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+                <div class="col-md-2 text-center pull-right">
+                    <div class="card">
                         {!! Form::open(['route' => ['manager.object.show.transfer',$object->id]]) !!}
-                            {!! Form::select('manager', $managers, null, ['class' => 'form-control']) !!}
+                            {!! Form::label('Change manager') !!}
+                            {!! Form::select('manager', $managers, null, ['class' => 'form-control','placeholder' => 'Select manager', 'required']) !!}
                             {!! Form::submit('Change', ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
                         {!! Form::close() !!}
                     </div>

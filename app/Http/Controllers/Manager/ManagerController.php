@@ -308,8 +308,14 @@ class ManagerController extends Controller
             $q->where('name', 'Manager');
         }
         )->get();
+        $distr = User::whereHas(
+            'roles', function($q){
+            $q->where('name', 'Distributor');
+        }
+        )->get();
+        $distr = $distr->pluck('name','id');
         $managers = $managers->pluck('name','id');
-        return view('manager.objects.show')->with('object', $object)->with('managers', $managers);
+        return view('manager.objects.show')->with('object', $object)->with('managers', $managers)->with('distributors', $distr);
     }
 
     public function transferTo(Request $request, $objectId){
@@ -322,4 +328,14 @@ class ManagerController extends Controller
 
     }
 
+    public function transferToDistributor(Request $request, $objectId){
+        $object = Object::find($objectId);
+        $object->creatorid = $request->distributor;
+        $object->companyid = User::find($request->distributor)->getcompany->id;
+        $object->save();
+
+        Session::flash('success', 'Object was transferred to another distributor.');
+        return redirect('/manager/objects');
+
+    }
 }

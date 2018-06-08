@@ -100,6 +100,7 @@ Route::group(['prefix' => 'manager',
 //EndDiscount
 
         //Change manger
+        Route::post('object/show/{id}/transfer/distributor', 'Manager\ManagerController@transferToDistributor')->name('manager.object.show.transfer.distributor');
         Route::post('object/show/{id}/transfer', 'Manager\ManagerController@transferTo')->name('manager.object.show.transfer');
     });
 //manager route
