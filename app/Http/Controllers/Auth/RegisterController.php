@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 
 
+use App\Facades\Authy;
 use App\Role;
+use App\Services\Authy\Exceptions\RegistrationFailedException;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -115,6 +117,17 @@ class RegisterController extends Controller
         //AttachRole designer/arch for new user
         $designer = Role::where('name', 'designer')->first();
         $user->attachRole($designer);
+
+        //Set authy ID
+        try{
+            $authyId = Authy::registerUser($user);
+            $user->authy_id = $authyId;
+            $user->save();
+        }catch (RegistrationFailedException $e){
+            $user->delete();
+            Session::flash('warning', 'Email or some data not valid');
+            return redirect()->back();
+        }
 
         //Flash message
         Session::flash('success', 'Architec/Designer was successfully created.');

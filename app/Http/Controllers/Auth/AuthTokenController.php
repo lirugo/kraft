@@ -51,12 +51,12 @@ class AuthTokenController extends Controller
     public function getResend(Request $request){
         $user = User::findOrFail($request->session()->get('authy.user_id'));
 
-        if(!$user->hasSmsTwoFactorAuthenticationEnabled()){
+        if(!$user->hasSmsTwoFactorAuthenticationEnabled() && !$user->hasTwoFactorType('firstTime')){
             return redirect()->back();
         }
 
         try{
-            Authy::requestSms($user,  array("force" => "true"));
+            Authy::requestSms($user);
         }catch (SmsRequestFailedException $e){
             return redirect()->back();
         }

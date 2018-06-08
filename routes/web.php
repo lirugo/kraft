@@ -98,6 +98,9 @@ Route::group(['prefix' => 'manager',
         Route::get('distributor/discount/{id}', 'Manager\DiscountController@index');
         Route::post('distributor/discount/update{id}', 'Manager\DiscountController@update')->name('manager.distributor.discount.update');
 //EndDiscount
+
+        //Change manger
+        Route::post('object/show/{id}/transfer', 'Manager\ManagerController@transferTo')->name('manager.object.show.transfer');
     });
 //manager route
 

@@ -5,9 +5,9 @@
 @endsection
 @section('content')
     <div class="container">
+        {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
         <div class="row">
             <div class="col-md-4">
-                {!! Form::open(['method' => 'POST', 'route' =>['register.user'], 'files' => true]) !!}
                 {!! Form::label('label',trans('app.userprofile')) !!}
                 <hr style="margin:0;">
                 {!! Form::text('surname', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.surname')." *"]) !!}
@@ -97,9 +97,9 @@
             <div class="col-md-12">
                 <hr>
                 {!! Form::submit(trans('app.registration'), ['class' => 'botton pull-right btn-sm botton-primary m-t-10']) !!}
-                {!! Form::close() !!}
             </div>
         </div>
+        {!! Form::close() !!}
     </div>
 @endsection
 

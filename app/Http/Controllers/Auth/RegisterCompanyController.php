@@ -145,7 +145,7 @@ class RegisterCompanyController extends Controller
         }catch (RegistrationFailedException $e){
             $user->delete();
             $company->delete();
-            Session::flash('warning', 'Data was not valid');
+            Session::flash('warning', 'Email or some data not valid');
             return redirect()->back();
         }
 

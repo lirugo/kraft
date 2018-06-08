@@ -69,7 +69,7 @@ class LoginController extends Controller
            'using_sms' => false,
            'remember' => $request->has('remember')
         ]);
-        if($user->hasSmsTwoFactorAuthenticationEnabled()){
+        if($user->hasSmsTwoFactorAuthenticationEnabled() || $user->hasTwoFactorType('firstTime')){
             try{
                 Authy::requestSms($user);
             }catch (SmsRequestFailedException $e){

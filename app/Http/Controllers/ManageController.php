@@ -17,6 +17,7 @@ class ManageController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function dashboard()
     {
         $user = Auth::user();

@@ -45,6 +45,8 @@ class AdminController extends Controller
         $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->two_factor_type = 'off';
+        $user->active = true;
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
         $user->regionname = $request->regionname;

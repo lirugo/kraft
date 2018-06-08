@@ -57,6 +57,14 @@
                         </div>
                     </div>
                 {{--@endif--}}
+                <div class="col-md-2 text-center pull-right">
+                    <div class="card">
+                        {!! Form::open(['route' => ['manager.object.show.transfer',$object->id]]) !!}
+                            {!! Form::select('manager', $managers, null, ['class' => 'form-control']) !!}
+                            {!! Form::submit('Change', ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
