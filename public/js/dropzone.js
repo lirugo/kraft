@@ -824,6 +824,17 @@ var Dropzone = function (_Emitter) {
           if (file.previewElement != null && file.previewElement.parentNode != null) {
             file.previewElement.parentNode.removeChild(file.previewElement);
           }
+
+          //added
+            var fileName = JSON.parse(file.xhr.response).success;
+            $('input').each(function(){
+                if ($(this).val() == fileName)
+                    $(this).remove();
+            });
+            if (file.previewElement != null && file.previewElement.parentNode != null) {
+                file.previewElement.parentNode.removeChild(file.previewElement);
+            }
+            //end added
           return this._updateMaxFilesReachedClass();
         },
 

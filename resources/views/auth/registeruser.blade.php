@@ -126,7 +126,7 @@
             maxFilesize:3,
             acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf",
             maxFiles: 1,
-            // addRemoveLinks: true,
+            addRemoveLinks: true,
             sending: function(file, xhr, formData) {
                 formData.append("_token", "{{{ csrf_token() }}}");
             },
