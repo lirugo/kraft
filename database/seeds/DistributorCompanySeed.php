@@ -56,8 +56,6 @@ class DistributorCompanySeed extends Seeder
             'sworks' => '21',
             'customer' => 'customer',
             'customername' => 'customername',
-            'customersurname' => 'customersurname',
-            'customerpatronymic' => 'customerpatronymic',
             'customerposition' => 'mstpresident',
             'customerphone' => 'customerphone',
             'generalbuilder' => 'generalbuilder',

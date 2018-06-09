@@ -41,33 +41,23 @@ class CreateObjectsTable extends Migration
             //Customer
             $table->string('customer');
             $table->string('customername');
-            $table->string('customersurname');
-            $table->string('customerpatronymic');
             $table->string('customerposition')->nullable();
             $table->string('customerphone');
             //GeneralBuilder
             $table->string('generalbuilder')->nullable();
             $table->string('delegatebuildername')->nullable();
-            $table->string('delegatebuildersurname')->nullable();
-            $table->string('delegatebuilderpatronymic')->nullable();
             $table->string('delegatebuilderphone')->nullable();
             //SubBuilder
             $table->string('subbuilder')->nullable();
             $table->string('subbuildername')->nullable();
-            $table->string('subbuildersurname')->nullable();
-            $table->string('subbuilderpatronymic')->nullable();
             $table->string('subbuilderphone')->nullable();
             //Arch
             $table->string('arch')->nullable();
             $table->string('archname')->nullable();
-            $table->string('archsurname')->nullable();
-            $table->string('archpatronymic')->nullable();
             $table->string('archphone')->nullable();
             //Design
             $table->string('design')->nullable();
             $table->string('designname')->nullable();
-            $table->string('designsurname')->nullable();
-            $table->string('designpatronymic')->nullable();
             $table->string('designphone')->nullable();
             //Photo
             $table->string('photo1')->nullable();

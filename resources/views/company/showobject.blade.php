@@ -142,14 +142,14 @@
                     <strong>Cумарная площадь планируемых работ:</strong> {{ $object->sworks }} м<sup>2</sup><br>
                 </p>
                 <p>
-                    <strong>Заказчик (представитель заказчика):</strong> {{ $object->customersurname." ".$object->customername." ".$object->customerpatronymic }}<br>
+                    <strong>Заказчик (представитель заказчика):</strong> {{ $object->customername }}<br>
                     <strong>Генеральный подрядчик:</strong> {{ $object->generalbuilder }}<br>
                     <strong>Представитель генерального подрядчика:</strong> {{ $object->delegatebuilderpatronymic." ".$object->delegatebuildername." тел.".$object->delegatebuilderphone }}<br>
                 </p>
                 <p>
-                    <strong>Субподрядчик:</strong> {{ $object->subbuildersurname." ".$object->subbuildername." ".$object->subbuilderpatronymic." тел.".$object->subbuilderphone  }}<br>
-                    <strong>Архитектура:</strong> {{ $object->archsurname." ".$object->archname." ".$object->archpatronymic." тел.".$object->archphone  }}<br>
-                    <strong>Дизайн:</strong> {{ $object->designsurname." ".$object->designname." ".$object->designpatronymic." тел.".$object->designphone  }}<br>
+                    <strong>Субподрядчик:</strong> {{ $object->subbuildername." тел.".$object->subbuilderphone  }}<br>
+                    <strong>Архитектура:</strong> {{$object->archname." тел.".$object->archphone  }}<br>
+                    <strong>Дизайн:</strong> {{ $object->designname." тел.".$object->designphone  }}<br>
                 </p>
                 <p>
                     <strong>Комментарий:</strong> {{ $object->comments }}<br>

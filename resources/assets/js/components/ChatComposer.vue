@@ -7,7 +7,7 @@
 
 <script>
     export default{
-        props:['curr_name','curr_surname'],
+        props:['curr_name'],
         data(){
             return {
                 messageText: ''
@@ -19,7 +19,6 @@
                     message: this.messageText,
                     user: {
                         name:this.curr_name,
-                        surname:this.curr_surname
                     }
                 });
                 this.messageText = '';
