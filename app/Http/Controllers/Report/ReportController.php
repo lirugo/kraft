@@ -25,7 +25,7 @@ class ReportController extends Controller
         $user = User::find($object->creatorid);
         $reports = Report::all()->where('object_id', '=', $id);
         if($reports->count() == 0){
-            Session::flash('warning', 'У Вас еще нет отчетов, или объект не активирован. Ваш РМ - '.$object->rmuser->name.' '.$object->rmuser->surname.', тел:'.$object->rmuser->phone);
+            Session::flash('warning', 'У Вас еще нет отчетов, или объект не активирован. Ваш РМ - '.$object->rmuser->name.' тел:'.$object->rmuser->phone);
             return back();
         }
         $data = new Collection();

@@ -19,7 +19,7 @@
                     <div class="col-md-6">
                         <hr>
                         <p>{{$user->email}}</p>
-                        <p>{{$user->surname." ".$user->name." ".$user->patronymic}}</p>
+                        <p>{{$user->name}}</p>
                         <p>{{$user->phone}}</p>
                     </div>
                     <div class="col-md-6">

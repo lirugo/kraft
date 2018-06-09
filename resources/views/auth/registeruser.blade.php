@@ -10,9 +10,7 @@
             <div class="col-md-4">
                 {!! Form::label('label',trans('app.userprofile')) !!}
                 <hr style="margin:0;">
-                {!! Form::text('surname', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.surname')." *"]) !!}
                 {!! Form::text('name', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.name')." *"]) !!}
-                {!! Form::text('patronymic', null , ['class' => 'form-control', 'required', 'placeholder' => trans('app.patronymic')." *"]) !!}
                 {!! Form::text('dateofbirth',null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')." *"]) !!}
                 {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control', 'required']); !!}
                 <select required name="region" class="form-control">

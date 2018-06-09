@@ -64,7 +64,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name." ".$object->user->surname}}</td>
+                                <td>{{$object->user->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -83,7 +83,7 @@
                                         }
                                     @endphp
                                 </td>
-                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
+                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
@@ -120,11 +120,11 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name." ".$object->user->surname}}</td>
+                                <td>{{$object->user->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
-                                <td>{{$object->rmuser->name." ".$object->rmuser->surname}}</td>
+                                <td>{{$object->rmuser->name}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>

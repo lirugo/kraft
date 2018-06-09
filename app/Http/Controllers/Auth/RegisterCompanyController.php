@@ -41,8 +41,6 @@ class RegisterCompanyController extends Controller
 
             //Validate user profile
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
             'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
@@ -114,8 +112,6 @@ class RegisterCompanyController extends Controller
 
         //Save user
         $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->patronymic = $request->patronymic;
         $user->dateofbirth = $request->dateofbirth;
         $user->sex = $request->sex;
         $user->phone = $request->phone;

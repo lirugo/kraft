@@ -8,7 +8,7 @@
                 </div>
                 <div class="panel-body">
                     <chat-log :messages="messages"></chat-log>
-                    <chat-composer v-on:messagesent="addMessage" curr_name="{{ Auth::user()->name }}" curr_surname="{{ Auth::user()->surname }}"></chat-composer>
+                    <chat-composer v-on:messagesent="addMessage" curr_name="{{ Auth::user()->name }}"></chat-composer>
                 </div>
             </div>
 

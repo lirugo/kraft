@@ -28,8 +28,6 @@
                                         <hr>
                                         <p>Role: {{!empty($user->roles->first()->name) ? $user->roles->first()->name : 'No role'}}</p>
                                         <p>{{trans('app.name')}}: {{$user->name}}</p>
-                                        <p>{{trans('app.surname')}}: {{$user->surname}}</p>
-                                        <p>{{trans('app.patronymic')}}: {{$user->patronymic}}</p>
                                         <p>{{trans('app.dateofbirth')}}: {{$user->dateofbirth}}</p>
                                         <p>{{trans('app.gender')}}: {{$user->sex == 'X' ? trans('app.male') : trans('app.femele')}}</p>
                                         <p>{{trans('app.email')}}: {{$user->email}}</p>

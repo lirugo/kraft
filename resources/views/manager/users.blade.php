@@ -23,7 +23,7 @@
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $region->regionname_ru." область" }}</h6>
                         <h6>{{ $user->getcompany->city }}</h6>
-                        <h6>{{ $user->surname." ".$user->name." ".$user->patronymic }}</h6>
+                        <h6>{{ $user->name }}</h6>
                         <h6>{{ $user->phone }}</h6>
                         <br>
                     @endif
@@ -38,7 +38,7 @@
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $region->regionname_ru." область" }}</h6>
                         <h6>{{ $user->getcompany->city }}</h6>
-                        <h6>{{ $user->surname." ".$user->name." ".$user->patronymic }}</h6>
+                        <h6>{{ $user->name }}</h6>
                         <h6>{{ $user->phone }}</h6>
                         <h6>
                             {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post',  'class' => 'form-inline']) !!}
@@ -57,7 +57,7 @@
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 1)
-                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->surname." ".$user->name." ".$user->patronymic }}</strong></a></h5>
+                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->name  }}</strong></a></h5>
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $user->phone }}</h6>
                         <br>
@@ -68,7 +68,7 @@
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 0)
-                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->surname." ".$user->name." ".$user->patronymic }}</strong></a></h5>
+                        <h5><a href="/manager/designer/{{ $user->id }}"><strong>{{ $user->name }}</strong></a></h5>
                         <hr style="margin:0; padding: 0;">
                         <h6>{{ $user->phone }}</h6>
                         <h6>

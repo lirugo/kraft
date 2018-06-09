@@ -16,7 +16,7 @@
                     <input type="hidden" id="object_id" value="{{$object_id}}" />
                     <chat-object-log :messages="msgsobject"></chat-object-log>
                 </div>
-                <chat-object-composer curr_name="{{ Auth::user()->name }}" curr_surname="{{ Auth::user()->surname }}" v-on:messagesent="addObjectMessage"></chat-object-composer>
+                <chat-object-composer curr_name="{{ Auth::user()->name }}" v-on:messagesent="addObjectMessage"></chat-object-composer>
             </div>
         </div>
     </div>

@@ -56,8 +56,6 @@ class RegisterController extends Controller
         //Validate
         $this->validate($request,[
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required',
             'region' => 'required',
@@ -72,8 +70,6 @@ class RegisterController extends Controller
         $user = new User;
 
         $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->patronymic = $request->patronymic;
         $user->dateofbirth = $request->dateofbirth;
         $user->sex = $request->sex;
         $user->phone = $request->phone;
@@ -144,8 +140,6 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'patronymic' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -161,8 +155,6 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'surname' => $data['surname'],
-            'patronymic' => $data['patronymic'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

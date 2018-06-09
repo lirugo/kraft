@@ -111,8 +111,6 @@ class CompanyController extends Controller
         //Validate
         $this->validate($request,[
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'patronymic' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
             'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
@@ -123,8 +121,6 @@ class CompanyController extends Controller
         // Save data to db
         $user = new User;
         $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->patronymic = $request->patronymic;
         $user->dateofbirth = $request->dateofbirth;
         $user->sex = $request->sex;
         $user->phone = $request->phone;

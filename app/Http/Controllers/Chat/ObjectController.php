@@ -44,8 +44,7 @@ class ObjectController extends Controller
         //Deny access for other user
         $object = Object::find($objectId);
         if($object->rmid != Auth::user()->id && $object->creatorid != Auth::user()->id)
-            return redirect()->to('news');
-
+        return redirect()->to('news');
         $user = Auth::user();
         $object = Object::find($objectId);
         if(Auth::user()->id == $object->rmid)
@@ -65,7 +64,7 @@ class ObjectController extends Controller
         $notif->user_id_from = $user->id;
         $notif->user_id_to = $user_id_to;
         $notif->object_id = $objectId;
-        $notif->title = Auth::user()->surname." ".Auth::user()->name." Sent mew message.";
+        $notif->title = Auth::user()->name." Sent mew message.";
         $notif->body = $request->message;
         $notif->save();
 

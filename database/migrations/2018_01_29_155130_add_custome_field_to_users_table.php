@@ -14,9 +14,7 @@ class AddCustomeFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('surname')->after('name');
-            $table->string('patronymic')->after('surname');
-            $table->string('region')->after('patronymic')->nullable();
+            $table->string('region')->nullable();
             $table->string('regionname')->after('region')->nullable();
             $table->string('site')->nullable();
             $table->string('city')->nullable();
@@ -42,8 +40,6 @@ class AddCustomeFieldToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropIfExists('username');
-            $table->dropIfExists('patronymic');
             $table->dropIfExists('region');
             $table->dropIfExists('regionname');
             $table->dropIfExists('site');

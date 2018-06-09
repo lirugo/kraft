@@ -25,8 +25,6 @@ class UserController extends Controller
         // Validate data
         $this->validate($request,[
             'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'patronymic' => 'required|max:255',
             'email' => 'required|email|max:255',
             'dateofbirth' => 'required|date:"yyyy-mm-dd"|date',
             'phone' => 'required|numeric',
@@ -36,8 +34,6 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
 
         $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->patronymic = $request->patronymic;
         $user->email = $request->email;
         $user->dateofbirth = $request->dateofbirth;
         $user->phone = $request->phone;

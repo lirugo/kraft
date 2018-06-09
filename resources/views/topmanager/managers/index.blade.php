@@ -21,7 +21,7 @@
             @foreach($users as $user)
                 @if($user->active == true)
                     <div class="col-md-4" style="padding-bottom: 20px;">
-                        <h5><strong>{{ $user->surname." ".$user->name." ".$user->patronymic }}</strong></h5>
+                        <h5><strong>{{ $user->name }}</strong></h5>
                         <hr style="margin: 0;">
                         <div class="col-md-4">
                             <img src="/uploads/avatars/{{$user->avatar}}" style="
@@ -59,7 +59,7 @@
             @foreach($users as $user)
                 @if($user->active == false)
                     <div class="col-md-4" style="padding-bottom: 20px;">
-                        <h5><strong>{{ $user->surname." ".$user->name." ".$user->patronymic }}</strong></h5>
+                        <h5><strong>{{  $user->name }}</strong></h5>
                         <hr style="margin: 0;">
                         <div class="col-md-4">
                             <img src="/uploads/avatars/{{$user->avatar}}" style="

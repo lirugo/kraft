@@ -5,7 +5,7 @@
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
                 <a class="link-bread" href="/managers">Менеджеры</a>
-                <a class="link-bread" href="#">{{$data['user']->name." ".$data['user']->surname}}</a>
+                <a class="link-bread" href="#">{{$data['user']->name}}</a>
             </div>
         </div>
     </div>
@@ -20,12 +20,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <hr>
-                        {!! Form::label('surname', 'Surname', ['class' => 'm-t-10']) !!}
-                        {!! Form::text('surname', $data['user']->surname, ['class' => 'form-control']) !!}
                         {!! Form::label('name', 'Name', ['class' => 'm-t-10']) !!}
                         {!! Form::text('name', $data['user']->name, ['class' => 'form-control']) !!}
-                        {!! Form::label('patronymic', 'Patronymic', ['class' => 'm-t-10']) !!}
-                        {!! Form::text('patronymic', $data['user']->patronymic, ['class' => 'form-control']) !!}
                         {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}
                         {!! Form::text('email', $data['user']->email, ['class' => 'form-control', 'readonly']) !!}
                         {!! Form::label('dateofbirth', 'Date of birth', ['class' => 'm-t-10']) !!}
@@ -47,7 +43,7 @@
                                 <hr style="margin:0; padding: 0;">
                                 <h6>{{ $region->regionname_ru." область" }}</h6>
                                 <h6>{{ $user->getcompany->city }}</h6>
-                                <h6>{{ $user->surname." ".$user->name." ".$user->patronymic }}</h6>
+                                <h6>{{  $user->name }}</h6>
                                 <h6>{{ $user->phone }}</h6>
                                 <h6>Region {{ $user->regionname }}</h6>
                                 <br>
@@ -63,7 +59,7 @@
                                 <hr style="margin:0; padding: 0;">
                                 <h6>{{ $region->regionname_ru." область" }}</h6>
                                 <h6>{{ $user->getcompany->city }}</h6>
-                                <h6>{{ $user->surname." ".$user->name." ".$user->patronymic }}</h6>
+                                <h6>{{  $user->name }}</h6>
                                 <h6>{{ $user->phone }}</h6>
                                 <h6>
                                     {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}

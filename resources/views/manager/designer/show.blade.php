@@ -61,7 +61,7 @@
                             <th scope="row">{{$object->id}}</th>
                             <td>{{$object->name}}</td>
                             <td>{{$object->getregion->regionname_ru}}</td>
-                            <td>{{$object->user->name." ".$object->user->surname}}</td>
+                            <td>{{$object->user->name}}</td>
                             <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                             <td>{{$object->dateofdelivery}}</td>
                             <td>
@@ -84,7 +84,6 @@
                                     <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
                                 </td>
                             </tr>
-                        @endif
                     @endforeach
                     </tbody>
                 </table>
@@ -115,7 +114,7 @@
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name." ".$object->user->surname}}</td>
+                                <td>{{$object->user->name}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
