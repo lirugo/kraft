@@ -57,7 +57,7 @@
                             <div class="col-md-2 text-center">
                                 <div class="card">
                                     <a href="/company/users/create">
-                                        <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                                        <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
                                            Create User
                                         </div>
