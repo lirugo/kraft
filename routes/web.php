@@ -206,6 +206,8 @@ Route::get('routes/console', function()
 //EndCron
 
 //OrderCalc
+Route::get('/order/history', 'Order\OrderController@historyStock');
+Route::get('/order/stock/{order_id}', 'Order\OrderController@showStock');
 Route::get('/order/{id}/select/', 'Order\OrderController@select');
 Route::get('/order/{id}/select/{order_id}', 'Order\OrderController@selectorder');
 Route::delete('/order/{id}/select/{order_id}/delete', 'Order\OrderController@deleteorder')->name('order.select.delete');

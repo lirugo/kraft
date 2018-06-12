@@ -6,6 +6,9 @@ use App\CalcHistory;
 use App\Constants;
 use App\Object;
 use App\ProductKraft;
+use App\VendorCodeTProfile;
+use App\VendorCodeTProfileAngle;
+use App\VendorCodeTProfileSusp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
@@ -174,24 +177,58 @@ class OrderController extends Controller
         return view('order.calc.select')->with('data', $data);
     }
 
+    public function showStock($orderId){
+        $orders = CalcHistory::get()->where('order_id', '=', $orderId);
+        $total = 0;
+        $i = 1;
+        foreach ($orders as $order)
+        {
+            if(!empty($buff = VendorCodeTProfile::where('vendor_code','=', $order->vendor_code)->first()))
+                $sum_by_one = $buff->price;
+            else  if(!empty($buff = VendorCodeTProfileAngle::where('vendor_code','=', $order->vendor_code)->first()))
+                $sum_by_one = $buff->price;
+            else  if(!empty($buff = VendorCodeTProfileSusp::where('vendor_code','=', $order->vendor_code)->first()))
+                $sum_by_one = $buff->price;
+            else $sum_by_one = 0;
+
+            $order->sum = $sum_by_one*$order->pack*$order->count_pack;
+            $total += $order->sum;
+            $order->save();
+            $order->id_row = $i;
+            $order->sum_by_one = $sum_by_one;
+            $i+=1;
+            $orders->order_id = $order->order_id;
+            $orders->object_id = $order->object_id;
+            $orders->status = $order->status;
+        }
+        $orders->total = $total;
+
+        return view('order.show')->with('orders',$orders);
+    }
+
+    public function historyStock(){
+        $orders = CalcHistory::all()->where('user_id', Auth::user()->id);
+        $orders = $orders->unique('user_id');
+        $data = new Collection();
+        $data->put('orders', $orders);
+        $data->put('user_id', Auth::user()->id);
+        //BAck if empty
+        if(count($orders) === 0 )
+        {
+            Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
+            return back();
+        }
+        return view('order.stock.history')->with('data', $data);
+    }
+
     public function selectorder($id, $orderId){
         $orders = CalcHistory::get()->where('order_id', '=', $orderId);
         $total = 0;
         $i = 1;
         foreach ($orders as $order)
         {
-//            if(ProductKraft::getProduct($order->vendor_code) == null)
-//                $order->sum = 0;
-//            else
-//            {
-                $sum_by_one = 10;
-                $order->sum = 10*$order->pack*$order->count_pack;
-//                if(ProductKraft::getProduct($order->vendor_code)->getPrice() == '.00')
-//                {
-//                    $order->sum = '0';
-//                    $sum_by_one = '0';
-//                }
-//            }
+            $sum_by_one = $order->price;
+            $order->sum = $sum_by_one*$order->pack*$order->count_pack;
             $total += $order->sum;
             $order->save();
             $order->id_row = $i;
@@ -242,23 +279,18 @@ class OrderController extends Controller
         $collection = new Collection();
         foreach ($profiles as $profile)
         {
-            $profile->price = 10;
             $collection->put($profile->profile, $profile);
         }
         foreach ($angles as $angle) {
-            $angle->price = 10;
             $collection->put('angle', $angle);
         }
         foreach ($wireWithEars as $wireWithEar) {
-            $wireWithEar->price = 10;
             $collection->put('wire_with_ear', $wireWithEar);
         }
         foreach ($wireWithHooks as $wireWithHook) {
-            $wireWithHook->price = 10;
             $collection->put('wire_with_hook', $wireWithHook);
         }
         foreach ($springSusps as $springSusp) {
-            $wireWithHook->price = 10;
             $collection->put('spring_susp', $springSusp);
         }
         return $collection;

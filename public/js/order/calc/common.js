@@ -22,12 +22,11 @@ function common_save(){
                     pack:table.rows[z].cells[6].getElementsByTagName("input")[0].value,
                     count_pack:table.rows[z].cells[7].innerHTML
                     },
-                dataType:'json'
+                dataType:'json',
                 }
             );
         }
     }
-    console.log('sended');
     if(id == 0)
         window.location.replace("/manage");
     else
