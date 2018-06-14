@@ -13,6 +13,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            @if(count($users) == 0)
+                <div class="col-md-12 text-center">
+                    <h1>Запросов на изменение профиля - нет.</h1>
+                </div>
+            @endif
             @foreach($users as $user)
                 <div class="col-md-4">
                     <h4 class="text-center">{{$user->company}}</h4>
