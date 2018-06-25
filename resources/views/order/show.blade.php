@@ -60,19 +60,18 @@
                     </tbody>
                 </table>
                 <hr>
+                {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
+                @if(Auth::user()->vendor_code_1c && $orders->status == 0)
                 {!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}
-                {{--{!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}--}}
-                {{--@if(Auth::user()->vendor_code_1c && $orders->status == 0)--}}
-                {{--{!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}--}}
-                {{--@endif--}}
-                {{--<br>--}}
-                {{--<br>--}}
-                {{--{!! Form::close() !!}--}}
-                {{--{!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}--}}
+                @endif
+                <br>
+                <br>
+                {!! Form::close() !!}
+                {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
                 {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
-                {{--<br>--}}
-                {{--<br>--}}
-                {{--{!! Form::close() !!}--}}
+                <br>
+                <br>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
