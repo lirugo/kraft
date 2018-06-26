@@ -138,10 +138,10 @@ class RegisterCompanyController extends Controller
             $authyId = Authy::registerUser($user);
             $user->authy_id = $authyId;
             $user->save();
-        }catch (RegistrationFailedException $e){
+        }catch (\Exception $e){
             $user->delete();
             $company->delete();
-            Session::flash('warning', 'Email or some data not valid');
+            Session::flash('warning', 'Email or phone exist or not valid');
             return redirect()->back();
         }
 

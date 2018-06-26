@@ -29,9 +29,9 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        {!! Form::model(['route' =>['company.change'], 'method' => 'POST', 'files' => true]) !!}
                         <div class="row">
                             <div class="col-md-4">
-                                {!! Form::model(['route' =>['company.change'], 'method' => 'POST', 'files' => true]) !!}
                                 {!! Form::label('label','Company profile') !!}
                                 <hr>
                                 {!! Form::label('id', 'Company id', ['class' => 'm-t-10']) !!}

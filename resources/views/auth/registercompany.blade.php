@@ -192,7 +192,7 @@
             return this.optional( element ) || /(\+38)[ 0-9]{10}/.test( value );
         }, 'Format phone +38 XXX XXX XXXX.');
         jQuery.validator.addMethod("lettersonly", function(value, element) {
-            return this.optional(element) || /^[а-яА-ЯёЁіІїЇa-zA-Z]+$/i.test(value);
+            return this.optional(element) || /^[а-яА-ЯёЁіІїЇa-zA-Z ]+$/i.test(value);
         }, "Letters only please");
 
         Dropzone.autoDiscover = false;
