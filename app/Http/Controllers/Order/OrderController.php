@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Order;
 use App\CalcHistory;
 use App\Constants;
 use App\Object;
+use App\OrdersKraft;
 use App\ProductKraft;
 use App\VendorCodeTProfile;
 use App\VendorCodeTProfileAngle;
@@ -239,6 +240,10 @@ class OrderController extends Controller
             $orders->status = $order->status;
         }
         $orders->total = $total;
+        $ord = OrdersKraft::where('_Fld53375', '=', $orders->order_id)->first();
+        if($ord->_Fld53374 == '1')
+            $orders->file = $orders->order_id.'.pdf';
+        else $orders->file = NULL;
 
         return view('order.show')->with('orders',$orders);
     }
