@@ -23,30 +23,31 @@ class InvoiceController extends Controller
         $orders = CalcHistory::where('order_id', '=', $orderId)->where('status', '=', false)->get();
         foreach ($orders as $order){
             //Create invoice
-            $ordKraft = new OrdersKraft();
-                //order_id
-                $ordKraft->_Fld53375 = $order->order_id;
-                //user_id
-                $ordKraft->_Fld53376 = Auth::user()->id;
-                //user_1c_id
-                $ordKraft->_Fld53447 = Auth::user()->vendor_code_1c;
-                //product_id
-                $ordKraft->_Fld53377 = $order->vendor_code;
-                //count
-                $ordKraft->_Fld53378 = $order->count_pack*$order->pack;
-                //stock
-                $ordKraft->_Fld53446 = $order->stock;
-                //status
-                $ordKraft->_Fld53374 = 0;
+            $orders = new OrdersKraft();
+            //order_id
+            $orders->_Fld53375 = $order->order_id;
+            //user_id
+            $orders->_Fld53376 = Auth::user()->id;
+            //user_1c_id
+            $orders->_Fld53447 = Auth::user()->vendor_code_1c;
+            //product_id
+            $orders->_Fld53377 = $order->vendor_code;
+            //count
+            $orders->_Fld53378 = $order->count_pack*$order->pack;
+            //stock
+            $orders->_Fld53446 = 0;
+            //status
+            $orders->_Fld53374 = 0;
 
-                //DEFAULT ROWS
-                $ordKraft->_IDRRef = $order->id;
-                $ordKraft->_Fld1815 = 1;
-                $ordKraft->_Marked = 1;
-                $ordKraft->_PredefinedID = 1;
-                $ordKraft->_Code = 1;
-                $ordKraft->_Description = 1;
-        $ordKraft->save();
+            //
+            $orders->_Fld1815 = 1;
+            $orders->_IDRRef = $order->id;
+            $orders->_Marked = 1;
+            $orders->_PredefinedID = 1;
+            $orders->_Code = 1;
+            $orders->_Description = 1;
+            $orders->save();
+
 
 //            Change status order
             $order->status = true;
