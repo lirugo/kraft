@@ -294,6 +294,7 @@ Route::get('testNotif', 'Notification\NotificationController@index');
 
 
 Route::get('test', 'TestController@index');
+Route::get('test2', 'TestController@test2');
 
 
 //AUTHY ROUTE
