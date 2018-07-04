@@ -1,24 +1,36 @@
 @extends('layouts.app')
 @section('stylesheets')
 
-    <style>
-    </style>
 @endsection
 
 @section('content')
+
+
 @endsection
 
 
 @section('scripts')
-
     <script>
-        var pusher = new Pusher('c704c07a87b11b822dfb', {
-            encrypted: true
+        $(document).ready(function () {
+            var obj = {
+                val1: "this",
+                val2: "that"
+            };
+            obj.val3 = 'these';
+            obj['val4'] = 'those';
+
+            $.ajax({
+                type: "POST",
+                url: "http://10.200.5.44/ERP/hs/ExchengeKalk/",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    json: JSON.stringify(obj)
+                },
+                success: function (response) {
+                    //service.php response
+                    console.log(response);
+                }
+            });
         });
-        var channel = pusher.subscribe('chatobject.1');
-
-        Pusher.logToConsole = true;
-
-
     </script>
 @endsection
