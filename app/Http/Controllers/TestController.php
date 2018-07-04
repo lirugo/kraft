@@ -11,29 +11,62 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDO;
 use PDOException;
+use SoapClient;
 
 class TestController extends Controller
 {
     public function index(){
+        function Connect1C(){
+            if (!function_exists('is_soap_fault')){
+                print 'Не настроен web сервер. Не найден модуль php-soap.';
+                return false;
+            }
+            try {
+                $client1C = new SoapClient('http://10.200.5.44/ERP/hs/ExchengeKalk/',
+                    array('login'          => 'Админ',
+                        'password'       => '3',
+                        'soap_version'   => SOAP_1_2,
+                        'cache_wsdl'     => WSDL_CACHE_NONE, //WSDL_CACHE_MEMORY, //, WSDL_CACHE_NONE, WSDL_CACHE_DISK or WSDL_CACHE_BOTH
+                        'exceptions'     => true,
+                        'trace'          => 1));
+            }catch(SoapFault $e) {
+                trigger_error('Ошибка подключения или внутренняя ошибка сервера. Не удалось связаться с базой 1С.', E_ERROR);
+                var_dump($e);
+            }
+            //echo 'Раз';
+            if (is_soap_fault(Клиент1С)){
+                trigger_error('Ошибка подключения или внутренняя ошибка сервера. Не удалось связаться с базой 1С.', E_ERROR);
+                return false;
+            }
+            return $client1C;
+        }
 
-        $orders = new OrdersKraft();
-//        $orders->_Fld53375 = 123456;
-//        $orders->_Fld53376 = 123456;
-//        $orders->_Fld53447 = 123456;
-//        $orders->_Fld53377 = 123456;
-//        $orders->_Fld53378 = 123456;
-//        $orders->_Fld53446 = 123456;
-//        $orders->_Fld53374 = 1;
-//
-//        //
-//        $orders->_Fld1815 = 1;
-//        $orders->_IDRRef = 1;
-//        $orders->_Marked = 1;
-//        $orders->_PredefinedID = 1;
-//        $orders->_Code = 1;
-//        $orders->_Description = 1;
-//        $orders->save();
-//       dd($orders->getOrders());
+        function GetData($idc, $txt){
+            if (is_object($idc)){
+
+                try {
+                    $par = array('zapros' => $txt);
+                    //var_dump($par);
+                    $ret1c = $idc->hellobaza($par);
+                } catch (SoapFault $e) {
+                    echo "АЩИБКА!!! </br>";
+                    var_dump($e);
+                }
+            }
+            else{
+                echo 'Не удалося подключиться к 1С';
+                var_dump($idc);
+            }
+            return $ret1c;
+        }
+
+        $idc = Connect1C();
+        $ret1c = GetData($idc, "привет");
+        //var_dump($ret1c);
+        $aa=$ret1c->return;
+        echo "!!$aa!!";
+
+        dd('OK');
         return view('test');
     }
 

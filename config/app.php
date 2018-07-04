@@ -247,7 +247,7 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Pusher' => Pusher\Pusher::class,
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
-
+        'SoapClient' => SoapClient::class,
         'Authy' => App\Facades\Authy::class,
     ],
 
