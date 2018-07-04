@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use PDO;
 use PDOException;
 use SoapClient;
+use SoapFault;
 
 class TestController extends Controller
 {
@@ -22,7 +23,7 @@ class TestController extends Controller
                 return false;
             }
             try {
-                $client1C = new SoapClient('http://10.200.5.44/ERP/hs/ExchengeKalk/',
+                $Клиент1С = new SoapClient('http://10.200.5.44/ERP/hs/ExchengeKalk/',
                     array('login'          => 'Админ',
                         'password'       => '3',
                         'soap_version'   => SOAP_1_2,
@@ -38,7 +39,7 @@ class TestController extends Controller
                 trigger_error('Ошибка подключения или внутренняя ошибка сервера. Не удалось связаться с базой 1С.', E_ERROR);
                 return false;
             }
-            return $client1C;
+            return $Клиент1С;
         }
 
         function GetData($idc, $txt){
