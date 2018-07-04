@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Главная</a>
+                <a class="link-bread" href='javascript:history.back(1);'>Назад</a>
             </div>
         </div>
     </div>
