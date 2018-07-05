@@ -79,9 +79,9 @@
                 <div id="company" class="m-t-10">
                     {!! Form::label('label', "Укажите информацию о компании") !!}
                     <hr style="margin:0;">
-                    {!! Form::text('companyname', null , ['class' => 'form-control required', 'placeholder' => trans('app.companyname')." *"]) !!}
-                    {!! Form::text('companycity', null , ['class' => 'form-control required', 'placeholder' => "Город *"]) !!}
-                    {!! Form::text('companysite', null , ['class' => 'form-control required', 'placeholder' => "Сайт *"]) !!}
+                    {!! Form::text('companyname', null , ['class' => 'form-control', 'placeholder' => trans('app.companyname')]) !!}
+                    {!! Form::text('companycity', null , ['class' => 'form-control', 'placeholder' => "Город"]) !!}
+                    {!! Form::text('companysite', null , ['class' => 'form-control', 'placeholder' => "Сайт"]) !!}
                 </div>
 
                 {!! Form::number('workexperience', null , ['class' => 'form-control m-b-10','required', 'min' => '1', 'placeholder' => "Стаж работы * - кол-во лет"]) !!}
