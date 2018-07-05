@@ -241,10 +241,11 @@ class OrderController extends Controller
         }
         $orders->total = $total;
         $ord = OrdersKraft::where('_Fld53375', '=', $orders->order_id)->first();
-        if($ord->_Fld53374 == '1')
+        if($ord){
+            if($ord->_Fld53374 == '1')
             $orders->file = $orders->order_id.'.pdf';
-        else $orders->file = NULL;
-
+        }
+        else $orders->file = '';
         return view('order.show')->with('orders',$orders);
     }
 

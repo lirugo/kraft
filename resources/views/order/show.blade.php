@@ -60,7 +60,7 @@
                     </tbody>
                 </table>
                 <hr>
-                @if($orders->file)
+                @if($orders->file != NULL)
                     <a class="btn btn-success" href="/uploads/orders/{{$orders->file}}" download>Download order</a>
                 @endif
                 {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
