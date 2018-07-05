@@ -251,6 +251,13 @@ class OrderController extends Controller
 
     public function deletePartOrder($id){
         $cH = CalcHistory::find($id);
+        $orders = CalcHistory::where('order_id', '=', $cH->order_id)->get();
+        if(count($orders) == 1)
+        {
+            Session::flash('warning', 'Вы не можете удалить последнюю позицию в заказе');
+            return back();
+        }
+
         $cH->delete();
         return back();
     }
