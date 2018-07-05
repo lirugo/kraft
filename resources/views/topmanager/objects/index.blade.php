@@ -10,18 +10,6 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 pull-right">
-                <select onchange="window.location.href=this.value;">
-                    <option selected disabled>Дата посставки товара</option>
-                    <option {{$data['sort'] === 'date_asc' ? "selected" : ""}} value="?sort=date_asc">Сначала</option>
-                    <option {{$data['sort'] === 'date_desc' ? "selected" : ""}} value="?sort=date_desc">С конца</option>
-                </select>
-                <a href="?rm=manager">Type:</a>
-                {{$data['sort']}}
-            </div>
-        </div>
-
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
                 <h5>Зарегестрированые объекты компании</h5>
@@ -68,7 +56,7 @@
                                 <td>{{ $user->name}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
-                                    <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
                                 </td>
                             </tr>
                         @endif
@@ -109,7 +97,7 @@
                                 <td>{{$object->rmuser->name}}</td>
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
-                                    <a href="/distributor/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
                                 </td>
                             </tr>
                         @endif
