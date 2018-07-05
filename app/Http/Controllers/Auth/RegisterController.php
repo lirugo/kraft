@@ -61,9 +61,14 @@ class RegisterController extends Controller
             'region' => 'required',
             'city' => 'required|max:255',
             'workexperience' => 'required|numeric',
-            'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
+            'phone' => 'required|unique:users,phone|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'companycity' => 'active_url',
+            'site' => 'active_url',
+            'social1' => 'active_url',
+            'social2' => 'active_url',
+            'social3' => 'active_url',
         ]);
 
         // Save data to db

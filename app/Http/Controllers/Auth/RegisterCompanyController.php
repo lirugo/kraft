@@ -39,11 +39,16 @@ class RegisterCompanyController extends Controller
             'lawhouse' => 'required|integer',
             'lawphone' => 'required|regex:/(\+38)[ 0-9]{10}/',
 
+            'site' => 'active_url',
+            'social1' => 'active_url',
+            'social2' => 'active_url',
+            'social3' => 'active_url',
+
             //Validate user profile
             'name' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
-            'phone' => 'required|regex:/(\+38)[ 0-9]{10}/',
+            'phone' => 'required|unique:users,phone|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             ]);
