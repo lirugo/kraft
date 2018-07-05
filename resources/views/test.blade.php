@@ -6,6 +6,10 @@
 @section('content')
     <?php
 
+    $data = array(
+        "name" => "product1", "code" => "12345"
+    );
+    $data_string = json_encode($data);
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
@@ -17,11 +21,10 @@
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nHere some test text from post \r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--",
+        CURLOPT_POSTFIELDS => $data_string,
         CURLOPT_HTTPHEADER => array(
             "Cache-Control: no-cache",
-            "Postman-Token: c4883a14-6c87-4d30-a73e-779ba4f06492",
-            "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
+            'Content-Type: application/json',
         ),
     ));
     curl_setopt($curl, CURLOPT_USERPWD, "Admin:3");

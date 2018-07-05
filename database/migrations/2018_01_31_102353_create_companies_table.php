@@ -40,11 +40,11 @@ class CreateCompaniesTable extends Migration
             $table->char('lawoffice',5)->nullable();
             $table->string('lawphone');
             $table->string('lawfax')->nullable();
-            $table->string('scandoc1')->default('scandoc1.jpg');
-            $table->string('scandoc2')->default('scandoc2.jpg');
-            $table->string('scandoc3')->default('scandoc3.jpg');
-            $table->string('scandoc4')->default('scandoc4.jpg');
-            $table->string('scandoc5')->default('scandoc5.jpg');
+            $table->string('scandoc1')->default('scandoc.png');
+            $table->string('scandoc2')->default('scandoc.png');
+            $table->string('scandoc3')->default('scandoc.png');
+            $table->string('scandoc4')->default('scandoc.png');
+            $table->string('scandoc5')->default('scandoc.png');
             $table->string('site')->nullable();
             $table->string('social1')->nullable();
             $table->string('social2')->nullable();
