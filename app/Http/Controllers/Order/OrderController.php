@@ -91,6 +91,10 @@ class OrderController extends Controller
         return view('order.index')->with('data', $data);
     }
 
+    public function update($vendor_code, $quantity){
+
+    }
+
     public function create(){
         $id=0;
         $object = Object::find($id);
@@ -228,10 +232,10 @@ class OrderController extends Controller
         $i = 1;
         foreach ($orders as $order)
         {
-            $sum_by_one = $order->price;
+            $sum_by_one = $order->sum;
             $order->sum = $sum_by_one*$order->pack*$order->count_pack;
             $total += $order->sum;
-            $order->save();
+//            $order->save();
             $order->id_row = $i;
             $order->sum_by_one = $sum_by_one;
             $i+=1;

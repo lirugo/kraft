@@ -32,20 +32,20 @@
                     <tbody>
                     @foreach($orders as $order)
                          <tr>
-                                <td>{{$order->vendor_code}}</td>
-                                <td>{{$order->model}}</td>
-                                <td>{{$order->description}}</td>
-                                <td>{{$order->width}}</td>
-                                <td>{{$order->length}}</td>
-                                <td>{{$order->color}}</td>
-                                <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'onchange' => 'pack_change('.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.')']) !!}</td>
-                                <td>{{$order->sum}}</td>
-                                <td>
-                                    {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-warning btn-sm']) !!}
-                                    {!! Form::close() !!}
-                                </td>
-                            </tr>
+                            <td>{{$order->vendor_code}}</td>
+                            <td>{{$order->model}}</td>
+                            <td>{{$order->description}}</td>
+                            <td>{{$order->width}}</td>
+                            <td>{{$order->length}}</td>
+                            <td>{{$order->color}}</td>
+                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'onchange' => 'pack_change('.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.')']) !!}</td>
+                            <td>{{$order->sum}}</td>
+                            <td>
+                                {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-warning btn-sm']) !!}
+                                {!! Form::close() !!}
+                            </td>
+                         </tr>
                     @endforeach
                     <tr>
                         <td style="background-color: white"></td>
