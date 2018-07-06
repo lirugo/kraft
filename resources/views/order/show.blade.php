@@ -61,7 +61,7 @@
                 </table>
                 <hr>
                 {{--//Get file if exsist--}}
-                @if(file_exists( public_path().'/uploads/orders/{{$orders->order_id}}.pdf' ))
+                @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
                     <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>Download order</a>
                 @endif
 
