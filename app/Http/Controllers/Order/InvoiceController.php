@@ -44,7 +44,7 @@ class InvoiceController extends Controller
 
 //            set JSON
             $ords[$i] = [
-                'order_id' => $order->id,
+                'order_id' => $order->order_id,
                 'user_id' => Auth::user()->id,
                 'user_id_1c' => '00-00000341',
                 'product_id' => $order->vendor_code,
@@ -62,8 +62,8 @@ class InvoiceController extends Controller
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "8384",
-            CURLOPT_URL => "http://erp.kraftds.com:8384/ERP/hs/ExchengeKalk",
+            CURLOPT_PORT => env("CURL_1C_PORT"),
+            CURLOPT_URL => env("CURL_1C_URL"),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -76,7 +76,7 @@ class InvoiceController extends Controller
                 'Content-Type: application/json',
             ),
         ));
-        curl_setopt($curl, CURLOPT_USERPWD, "Admin:3");
+        curl_setopt($curl, CURLOPT_USERPWD, env("CURL_1C_USER").":".env("CURL_1C_PASSWORD"));
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
