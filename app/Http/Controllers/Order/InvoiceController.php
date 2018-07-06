@@ -44,7 +44,7 @@ class InvoiceController extends Controller
 
 //            set JSON
             $ords[$i] = [
-                'order_id' => $order->order_id,
+                'order_id' => $order->order_oid,
                 'user_id' => Auth::user()->id,
                 'user_id_1c' => '00-00000341',
                 'product_id' => $order->vendor_code,
