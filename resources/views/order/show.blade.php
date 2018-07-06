@@ -38,7 +38,7 @@
                             <td>{{$order->width}}</td>
                             <td>{{$order->length}}</td>
                             <td>{{$order->color}}</td>
-                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'onchange' => 'pack_change('.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.')']) !!}</td>
+                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.','.$order->pack.')']) !!}</td>
                             <td>{{$order->sum}}</td>
                             <td>
                                 {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
@@ -84,8 +84,8 @@
 @section('scripts')
     <script>
         var table = document.getElementById("table");
-    function pack_change(id,sum_by_one,count_pack){
-        table.rows[id].cells[7].innerHTML = table.rows[id].cells[6].children[0].value * sum_by_one *count_pack;
+    function pack_change(id,id_row,sum_by_one,count_pack){
+        table.rows[id_row].cells[7].innerHTML = table.rows[id_row].cells[6].children[0].value * sum_by_one *count_pack;
         total_sum = 0;
         for(var i = 1; i<table.rows.length-1; i++)
         {
@@ -93,6 +93,22 @@
         }
 
         table.rows[table.rows.length-1].cells[7].innerHTML = total_sum;
+
+        // save data
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "POST",
+            url: "/order/" + id + "/update", //Relative or absolute path to response.php file
+            data: {"id" : id, "quantity" : document.getElementById('pack').value},
+            success: function(data) {
+                console.log('OK');
+            },
+            error: function(data){
+                alert("Form submitted unsuccessfully.\nReturned: " + data);
+            }
+        });
     }
 
     </script>

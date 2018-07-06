@@ -20,6 +20,7 @@ function common_save(){
                     length:table.rows[z].cells[4].innerHTML,
                     color:table.rows[z].cells[5].innerHTML,
                     pack:table.rows[z].cells[6].getElementsByTagName("input")[0].value,
+                    sum:parseFloat(table.rows[z].cells[8].innerHTML.replace(/,/g, '')) / table.rows[z].cells[7].innerHTML,
                     count_pack:table.rows[z].cells[7].innerHTML
                     },
                 dataType:'json',

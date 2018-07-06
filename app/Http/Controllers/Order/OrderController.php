@@ -91,8 +91,12 @@ class OrderController extends Controller
         return view('order.index')->with('data', $data);
     }
 
-    public function update($vendor_code, $quantity){
-
+    public function update(){
+        $id = $_POST['id'];
+        $pack = $_POST['quantity'];
+        $order = CalcHistory::find($id);
+        $order->pack = $pack;
+        $order->save();
     }
 
     public function create(){
