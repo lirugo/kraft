@@ -70,7 +70,7 @@
                             {!! Form::label('label',trans('app.financialrequisites')) !!}
                             {!! Form::text('bank', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.bank')." *"]) !!}
                             {!! Form::text('mfo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.mfo')." *"]) !!}
-                            {!! Form::text('settlementaccount', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.settlementaccount')." *"]) !!}
+                            {!! Form::number('settlementaccount', null , ['class' => 'form-control m-b-10 required', 'min' => '0', 'placeholder' => trans('app.settlementaccount')." *"]) !!}
                             {!! Form::text('okpo', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.okpo')." *"]) !!}
 
                             {!! Form::label('label', trans('app.lawaddress'), ['class' => 'm-b-10']) !!}

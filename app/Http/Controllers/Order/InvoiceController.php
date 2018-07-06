@@ -23,6 +23,7 @@ class InvoiceController extends Controller
 
         //Get order
         $orders = CalcHistory::where('order_id', '=', $orderId)->where('status', '=', false)->get();
+        $i = 1;
         foreach ($orders as $order){
             //Create invoice
 //            $ords = new Collection();
@@ -43,7 +44,7 @@ class InvoiceController extends Controller
 
 //            set JSON
             $ords[$order->id] = [
-                'order_id' => $order->order_id,
+                'order_id' => $i,
                 'user_id' => Auth::user()->id,
                 'user_id_1c' => '00-00000341',
                 'product_id' => $order->vendor_code,
@@ -51,13 +52,13 @@ class InvoiceController extends Controller
                 'stock' => $order->stock,
                 'status' => 0,
             ];
+            $i++;
 
 
 //            Change status order
 //            $order->status = true;
 //            $order->save();
         }
-
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(
