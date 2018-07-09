@@ -189,8 +189,8 @@
                 return /.{6,}/.test( value );
         }, 'Min lenght 6 or passwords do not match');
         jQuery.validator.addMethod("phone", function(value, element) {
-            return this.optional( element ) || /(\+38)[ 0-9]{10}/.test( value );
-        }, 'Format phone +38 XXX XXX XXXX.');
+            return this.optional( element ) || /^(\+380)[0-9]{9}$/.test( value );
+        }, 'Format phone +380XXXXXXXXX.');
         jQuery.validator.addMethod("lettersonly", function(value, element) {
             return this.optional(element) || /^[а-яА-ЯёЁіІїЇa-zA-Z ]+$/i.test(value);
         }, "Letters only please");

@@ -44,7 +44,7 @@
                     <option value="48">Черновицкая область</option>
                 </select>
                 {!! Form::text('city', null , ['class' => 'form-control', 'required', 'placeholder' => "Город проживания *"]) !!}
-                {!! Form::text('phone', null , ['class' => 'form-control', 'required','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX', 'placeholder' => trans('app.phone')."*"]) !!}
+                {!! Form::text('phone', null , ['class' => 'form-control', 'required','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX', 'placeholder' => trans('app.phone')."*"]) !!}
                 {!! Form::email('email', null,['class' => 'form-control', 'required', 'placeholder' => trans('app.email')." *"]) !!}
                 {!! Form::password('password', ['class' => 'form-control', 'required', 'placeholder' => trans('app.password')." *"]) !!}
                 {!! Form::password('password_confirmation', ['class' => 'form-control', 'required', 'placeholder' => trans('app.confirmpassword')." *"]) !!}

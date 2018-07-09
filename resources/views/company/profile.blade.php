@@ -87,7 +87,7 @@
                                     {!! Form::text('lawoffice', $company->lawoffice , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
                                 </div>
                                 {!! Form::label('lawphone', 'Телфон бух.', ['class' => 'm-t-20']) !!}
-                                {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10', 'required','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX',  'placeholder' => 'Law Phone']) !!}
+                                {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10', 'required','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX',  'placeholder' => 'Law Phone']) !!}
                                 {!! Form::text('lawfax', $company->lawfax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Fax']) !!}
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                 <hr>
                                 <div class="col-md-3">
                                 {!! Form::label('phonecompany', 'Phone', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('phone', $company->phone , ['class' => 'form-control', 'required','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX', 'placeholder' => trans('app.phone')."*"]) !!}
+                                {!! Form::text('phone', $company->phone , ['class' => 'form-control', 'required','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX', 'placeholder' => trans('app.phone')."*"]) !!}
                                 </div>
                                 <div class="col-md-3">
                                 {!! Form::label('fax', 'Fax', ['class' => 'm-t-10']) !!}
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-md-3">
                                 {!! Form::label('smartphone', 'Smartphone', ['class' => 'm-t-10']) !!}
-                                {!! Form::text('smartphone', $company->smartphone, ['class' => 'form-control']) !!}
+                                {!! Form::text('smartphone', $company->smartphone, ['class' => 'form-control', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX',]) !!}
                                 </div>
                                 <div class="col-md-3">
                                 {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}

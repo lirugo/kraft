@@ -140,14 +140,14 @@
                             {!! Form::text('customer',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customer').' *']) !!}
                             {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername').' *']) !!}
                             {!! Form::text('customerposition',null , ['class' => 'form-control m-b-10 ', 'placeholder' => 'Должность']) !!}
-                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX','placeholder' => trans('app.customerpphone').' *']) !!}
+                            {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX','placeholder' => trans('app.customerpphone').' *']) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}
                             <hr>
                             {!! Form::text('generalbuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.generalbuilder')]) !!}
                             {!! Form::text('delegatebuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuilder')]) !!}
                             {!! Form::text('delegatebuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.delegatebuildername')]) !!}
-                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX','placeholder' => trans('app.delegatebuilderphone')]) !!}
+                            {!! Form::text('delegatebuilderphone',null , ['class' => 'form-control m-b-10', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX','placeholder' => trans('app.delegatebuilderphone')]) !!}
 
 
 
@@ -157,7 +157,7 @@
                             <hr>
                             {!! Form::text('subbuilder',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuilder')]) !!}
                             {!! Form::text('subbuildername',null , ['class' => 'form-control m-b-10', 'placeholder' => trans('app.subbuildername')]) !!}
-                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','pattern' => '(\+38)[ 0-9]{10}', 'title' => '+38 XXX XXX XXXX', 'placeholder' => trans('app.subbuilderphone')]) !!}
+                            {!! Form::text('subbuilderphone',null , ['class' => 'form-control m-b-10','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX', 'placeholder' => trans('app.subbuilderphone')]) !!}
 
                         </div>
                         <div class="row">
