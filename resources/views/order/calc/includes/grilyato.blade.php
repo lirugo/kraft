@@ -3,23 +3,23 @@
     <div class="row">
         <div class="col-md-4">
             {!! Form::open(['onsubmit' => 'return formGrilyato();']) !!}
-            {!! Form::number('grilyato_areaceiling', null, ['class' => 'form-control', 'id' => 'grilyato_areaceiling', 'required', 'placeholder' => 'Введите площадь потолка','step' => '1', 'min' => '1']) !!}
-            {!! Form::number('grilyato_pceiling', null, ['class' => 'form-control', 'id' => 'grilyato_pceiling', 'required', 'placeholder' => 'Введите периметр потолка','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('grilyato_areaceiling', '25', ['class' => 'form-control', 'id' => 'grilyato_areaceiling', 'required', 'placeholder' => 'Введите площадь потолка','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('grilyato_pceiling', '20', ['class' => 'form-control', 'id' => 'grilyato_pceiling', 'required', 'placeholder' => 'Введите периметр потолка','step' => '1', 'min' => '1']) !!}
             {!! Form::select('grilyato_difficult', [
                 $data['constants']->easy =>'Простая',
                 $data['constants']->hard =>'Сложная'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+                ], '3', ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
             {!! Form::select('grilyato_model', [
                'classical' => 'Классический',
                'pyramidal' => 'Пирамидальный',
                'glk' => 'GLK модульный'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => 'Выберите модель профиля', 'required']) !!}
+                ], 'classical', ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => 'Выберите модель профиля', 'required']) !!}
             {!! Form::select('grilyato_color', [
                 'other' => 'Другой',
                 '9003' => 'RAL 9003 (белый)',
                 '9005' => 'RAL 9005 (черный)',
                 '9006' => 'RAL 9006 (серый)'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_color', 'placeholder' => 'Выберите модель профиля', 'required', 'id' => 'grilyato_color']) !!}
+                ], '9003', ['class' => 'form-control', 'id' => 'grilyato_color', 'placeholder' => 'Выберите модель профиля', 'required', 'id' => 'grilyato_color']) !!}
             {!! Form::number('grilyato_othercolor',null, ['class' => 'form-control', 'id' => 'grilyato_othercolor', 'required', 'placeholder' => 'Введите цвет RAL - 4 цифры','step' => '1', 'min' => '1000', 'max' => '9999']) !!}
             {!! Form::select('grilyato_sizecells', [
                 '50' => '50х50 мм',
@@ -30,7 +30,7 @@
                 '120' => '120х120 мм',
                 '150' => '150х150 мм',
                 '200' => '200х200 мм',
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_sizecells', 'placeholder' => 'Выберите размер ячейки', 'required']) !!}
+                ], '50', ['class' => 'form-control', 'id' => 'grilyato_sizecells', 'placeholder' => 'Выберите размер ячейки', 'required']) !!}
             {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>

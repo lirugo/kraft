@@ -99,8 +99,8 @@ function formGrilyato() {
     document.getElementById("table-grilyato-3600-vendor").innerHTML = "";
     document.getElementById("table-grilyato-3600-model").innerHTML = $( "#grilyato_model option:selected" ).text();
     document.getElementById("table-grilyato-3600-desciption").innerHTML = "Грильято 3600 мм";
-    document.getElementById("table-grilyato-3600-width").innerHTML = document.getElementById("grilyato_sizecells").value;
-    document.getElementById("table-grilyato-3600-length").innerHTML = document.getElementById("grilyato_sizecells").value;
+    document.getElementById("table-grilyato-3600-width").innerHTML = '';
+    document.getElementById("table-grilyato-3600-length").innerHTML = '3600';
     document.getElementById("table-grilyato-3600-color").innerHTML = color;
     document.getElementById("table-grilyato-3600-count").innerHTML = Math.ceil(tp3600)+" ("+Math.ceil(tp3600*100)/100+")";
     document.getElementById("table-grilyato-3600-price").innerHTML = tp3600_price;
@@ -110,8 +110,8 @@ function formGrilyato() {
     document.getElementById("table-grilyato-2400-vendor").innerHTML = "";
     document.getElementById("table-grilyato-2400-model").innerHTML = $( "#grilyato_model option:selected" ).text();
     document.getElementById("table-grilyato-2400-desciption").innerHTML = "Грильято 2400 мм";
-    document.getElementById("table-grilyato-2400-width").innerHTML = document.getElementById("grilyato_sizecells").value;
-    document.getElementById("table-grilyato-2400-length").innerHTML = document.getElementById("grilyato_sizecells").value;
+    document.getElementById("table-grilyato-2400-width").innerHTML = '';
+    document.getElementById("table-grilyato-2400-length").innerHTML = '2400';
     document.getElementById("table-grilyato-2400-color").innerHTML = color;
     document.getElementById("table-grilyato-2400-count").innerHTML = Math.ceil(tp2400)+" ("+Math.ceil(tp2400*100)/100+")";
     document.getElementById("table-grilyato-2400-price").innerHTML = grilyato_g2400c_price;
@@ -121,8 +121,8 @@ function formGrilyato() {
     document.getElementById("table-grilyato-1200-vendor").innerHTML = "";
     document.getElementById("table-grilyato-1200-model").innerHTML = $( "#grilyato_model option:selected" ).text();
     document.getElementById("table-grilyato-1200-desciption").innerHTML = "Грильято 1200 мм";
-    document.getElementById("table-grilyato-1200-width").innerHTML = document.getElementById("grilyato_sizecells").value;
-    document.getElementById("table-grilyato-1200-length").innerHTML = document.getElementById("grilyato_sizecells").value;
+    document.getElementById("table-grilyato-1200-width").innerHTML = '';
+    document.getElementById("table-grilyato-1200-length").innerHTML = '1200';
     document.getElementById("table-grilyato-1200-color").innerHTML = color;
     document.getElementById("table-grilyato-1200-count").innerHTML = Math.ceil(tp1200)+" ("+Math.ceil(tp1200*100)/100+")";
     document.getElementById("table-grilyato-1200-price").innerHTML = tp1200_price;
@@ -132,8 +132,8 @@ function formGrilyato() {
     document.getElementById("table-grilyato-600-vendor").innerHTML = "";
     document.getElementById("table-grilyato-600-model").innerHTML = $( "#grilyato_model option:selected" ).text();
     document.getElementById("table-grilyato-600-desciption").innerHTML = "Грильято 600 мм";
-    document.getElementById("table-grilyato-600-width").innerHTML = document.getElementById("grilyato_sizecells").value;
-    document.getElementById("table-grilyato-600-length").innerHTML = document.getElementById("grilyato_sizecells").value;
+    document.getElementById("table-grilyato-600-width").innerHTML = '';
+    document.getElementById("table-grilyato-600-length").innerHTML = '600';
     document.getElementById("table-grilyato-600-color").innerHTML = color;
     document.getElementById("table-grilyato-600-count").innerHTML = Math.ceil(tp600)+" ("+Math.ceil(tp600*100)/100+")";
     document.getElementById("table-grilyato-600-price").innerHTML = tp600_price;
@@ -143,8 +143,8 @@ function formGrilyato() {
     document.getElementById("table-grilyato-600mf-vendor").innerHTML = "";
     document.getElementById("table-grilyato-600mf-model").innerHTML = $( "#grilyato_model option:selected" ).text();
     document.getElementById("table-grilyato-600mf-desciption").innerHTML = "Грильято 600 мм (мама,папа)";
-    document.getElementById("table-grilyato-600mf-width").innerHTML = document.getElementById("grilyato_sizecells").value;
-    document.getElementById("table-grilyato-600mf-length").innerHTML = document.getElementById("grilyato_sizecells").value;
+    document.getElementById("table-grilyato-600mf-width").innerHTML = '';
+    document.getElementById("table-grilyato-600mf-length").innerHTML = '600';
     document.getElementById("table-grilyato-600mf-color").innerHTML = color;
     document.getElementById("table-grilyato-600mf-count").innerHTML = Math.ceil(tp600f)+" ("+Math.ceil(tp600f*100)/100+")";
     document.getElementById("table-grilyato-600mf-price").innerHTML = tp600f_price;

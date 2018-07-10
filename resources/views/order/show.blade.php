@@ -38,7 +38,7 @@
                             <td>{{$order->width}}</td>
                             <td>{{$order->length}}</td>
                             <td>{{$order->color}}</td>
-                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.','.$order->pack.')']) !!}</td>
+                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.', this.value)']) !!}</td>
                             <td>{{$order->sum}}</td>
                             <td>
                                 {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
@@ -86,7 +86,7 @@
 @section('scripts')
     <script>
         var table = document.getElementById("table");
-    function pack_change(id,id_row,sum_by_one,count_pack){
+    function pack_change(id,id_row,sum_by_one,count_pack,pack){
         table.rows[id_row].cells[7].innerHTML = table.rows[id_row].cells[6].children[0].value * sum_by_one *count_pack;
         total_sum = 0;
         for(var i = 1; i<table.rows.length-1; i++)
@@ -103,9 +103,9 @@
             },
             type: "POST",
             url: "/order/" + id + "/update", //Relative or absolute path to response.php file
-            data: {"id" : id, "quantity" : document.getElementById('pack').value},
+            data: {"id" : id, "quantity" : pack},
             success: function(data) {
-                console.log('OK');
+                console.log(pack);
             },
             error: function(data){
                 alert("Form submitted unsuccessfully.\nReturned: " + data);

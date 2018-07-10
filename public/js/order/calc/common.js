@@ -3,7 +3,7 @@ var price;
 var table = document.getElementById("common_table");
 function common_save(){
     for(var z=1; z<$('#common_table tr').length; z++){
-        if(table.rows[z].id != "total")
+        if(table.rows[z].id != "total" && table.rows[z].cells[6].getElementsByTagName("input")[0].value != 0)
         {
             $.ajax({
                 type:'POST',
@@ -20,7 +20,7 @@ function common_save(){
                     length:table.rows[z].cells[4].innerHTML,
                     color:table.rows[z].cells[5].innerHTML,
                     pack:table.rows[z].cells[6].getElementsByTagName("input")[0].value,
-                    sum:parseFloat(table.rows[z].cells[8].innerHTML.replace(/,/g, '')) / table.rows[z].cells[7].innerHTML,
+                    sum:parseFloat(table.rows[z].cells[8].innerHTML.replace(/,/g, '')) / (table.rows[z].cells[7].innerHTML * table.rows[z].cells[6].getElementsByTagName("input")[0].value),
                     count_pack:table.rows[z].cells[7].innerHTML
                     },
                 dataType:'json',
@@ -75,8 +75,10 @@ function grilyato_add(){
     row.insertCell(5).innerHTML =  document.getElementById("table-grilyato-3600-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-3600-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*tp3600c_pack*tp3600c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    row.insertCell(8).innerHTML = 15;
+    row.insertCell(7).innerHTML = 0;
+    row.insertCell(8).innerHTML =  (newinput.value*tp3600c_pack*tp3600c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(9).innerHTML =  tp3600c_price;
+    // row.cells[9].setAttribute('style', 'display:none;');
     //grilyato 2400
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -93,7 +95,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-2400-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-2400-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_g2400_pack*grilyato_g2400c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_g2400_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_g2400_pack*grilyato_g2400c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato 1200
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -110,7 +113,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-1200-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-1200-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_g1200_pack*grilyato_g1200c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_g1200_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_g1200_pack*grilyato_g1200c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato 600
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -127,7 +131,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-600-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-600-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_g600_pack*grilyato_g600c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_g600_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_g600_pack*grilyato_g600c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato 600mf
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -144,7 +149,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-600mf-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-600mf-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_g600_pack*grilyato_g600fc_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_g600_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_g600_pack*grilyato_g600fc_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato susp
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -161,7 +167,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-susp-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-susp-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_gsusp_pack*grilyato_gsusp_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_gsusp_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_gsusp_pack*grilyato_gsusp_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato susp
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -178,7 +185,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-angle-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-angle-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_gL3000_pack*grilyato_L3000c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_gL3000_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_gL3000_pack*grilyato_L3000c_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato suspass
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -195,7 +203,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-suspass-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-suspass-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_gsuspass_pack*grilyato_gsuspass_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_gsuspass_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_gsuspass_pack*grilyato_gsuspass_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato dowel1dowel1
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -212,7 +221,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-dowel1-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-dowel1-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_dowel1_pack*grilyato_dowel1_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_dowel1_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_dowel1_pack*grilyato_dowel1_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     //grilyato dowel1dowel22
     row = table.insertRow(-1);
     row.style.borderLeft = "1px solid #f78620";
@@ -230,7 +240,8 @@ function grilyato_add(){
     row.insertCell(5).innerHTML = document.getElementById("table-grilyato-dowel2-color").innerHTML;
     newinput.setAttribute("value", document.getElementById("table-grilyato-dowel2-pack").innerHTML);
     row.insertCell(6).appendChild(newinput);
-    row.insertCell(7).innerHTML =  (newinput.value*grilyato_dowel2_pack*grilyato_dowel2_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    row.insertCell(7).innerHTML = grilyato_dowel2_pack;
+    row.insertCell(8).innerHTML =  (newinput.value*grilyato_dowel2_pack*grilyato_dowel2_price*price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
     //SHOW COMMON TABLE
     $("#common_div").show();
