@@ -7,6 +7,7 @@ use App\Constants;
 use App\Object;
 use App\OrdersKraft;
 use App\ProductKraft;
+use App\ProfileGrilyato;
 use App\VendorCodeTProfile;
 use App\VendorCodeTProfileAngle;
 use App\VendorCodeTProfileSusp;
@@ -76,6 +77,7 @@ class OrderController extends Controller
             'grilyato_dowel2_price' => $constants->dowel2_price,
             'grilyato_g600tc_price' => $constants->g600tc_price,
             //Pack
+            'grilyato_g3600_pack' => $constants->g3600_pack,
             'grilyato_g2400_pack' => $constants->g2400_pack,
             'grilyato_g1200_pack' => $constants->g1200_pack,
             'grilyato_g600_pack' => $constants->g600_pack,
@@ -156,6 +158,7 @@ class OrderController extends Controller
             'grilyato_dowel2_price' => $constants->dowel2_price,
             'grilyato_g600tc_price' => $constants->g600tc_price,
             //Pack
+            'grilyato_g3600_pack' => $constants->g3600_pack,
             'grilyato_g2400_pack' => $constants->g2400_pack,
             'grilyato_g1200_pack' => $constants->g1200_pack,
             'grilyato_g600_pack' => $constants->g600_pack,
@@ -309,6 +312,82 @@ class OrderController extends Controller
             $collection->put('spring_susp', $springSusp);
         }
         return $collection;
+    }
+
+    public function grilyatovendor(Request $request){
+        $sizecells = $request->sizecells;
+        if($request->color == 'other')
+            $color = 'ANY RAL';
+        else
+            $color = $request->color;
+
+        $collection = new Collection();
+        if($request->grilyato_model == 'classical'){
+             $grilyato_2400 = ProfileGrilyato::where([
+                 ['length', '=', 2400],
+                 ['cells', '=', $sizecells],
+                 ['type', '=', 'Грильято'],
+                 ['color', '=', $color],
+             ])->first();
+            $grilyato_1200 = NULL;
+            $grilyato_600 = ProfileGrilyato::where([
+                ['length', '=', 600],
+                ['cells', '=', $sizecells],
+                ['type', '=', 'Грильято'],
+                ['speciality', '=', 'повздовжний'],
+                ['color', '=', $color],
+            ])->first();
+            $grilyato_600m = ProfileGrilyato::where([
+                ['length', '=', 600],
+                ['cells', '=', $sizecells],
+                ['type', '=', 'Грильято'],
+                ['color', '=', $color],
+                ['speciality', '=', 'М'],
+            ])->first();
+            $grilyato_600f = ProfileGrilyato::where([
+                ['length', '=', 600],
+                ['cells', '=', $sizecells],
+                ['type', '=', 'Грильято'],
+                ['color', '=', $color],
+                ['speciality', '=', 'П'],
+            ])->first();
+            $WireWithHook = ProfileGrilyato::where([
+                ['vendor_code', '=', 2222],
+            ])->first();
+            $WireWithEar = ProfileGrilyato::where([
+                ['speciality', '=', 'вушко'],
+                ['length', '=', $request->grilyato_wire_with_ear],
+            ])->first();
+            $susp = ProfileGrilyato::where([
+                ['vendor_code', '=', 1111],
+            ])->first();
+            $angle = ProfileGrilyato::where([
+                ['vendor_code', '=', 1329003],
+            ])->first();
+            $dowel1 = ProfileGrilyato::where([
+                ['vendor_code', '=', 2231100406],
+            ])->first();
+            $dowel2 = ProfileGrilyato::where([
+                ['vendor_code', '=', 2232100406],
+            ])->first();
+
+            $collection->put('3600',NULL);
+            $collection->put('2400',$grilyato_2400);
+            $collection->put('1200',$grilyato_1200);
+            $collection->put('600',$grilyato_600);
+            $collection->put('600m',$grilyato_600m);
+            $collection->put('600f',$grilyato_600f);
+            $collection->put('susp',$susp);
+            $collection->put('wireWithHook',$WireWithHook);
+            $collection->put('wireWithEar',$WireWithEar);
+            $collection->put('angle',$angle);
+            $collection->put('dowel1',$dowel1);
+            $collection->put('dowel2',$dowel2);
+
+        return $collection;
+        }
+        else
+        return $request->grilyato_model;
     }
 
     public function common_save(Request $request, $id){

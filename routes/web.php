@@ -219,6 +219,7 @@ Route::get('/order/show/{id}', 'Order\OrderController@show');
 Route::post('/select/delete/{id}', 'Order\OrderController@deletePartOrder')->name('select.delete');
 
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
+Route::post('/order/grilyato/vendor', 'Order\OrderController@grilyatovendor');
 Route::post('/order/common/save/{id}', 'Order\OrderController@common_save')->name('order.common.save');
 
 //Invoice Route

@@ -66,6 +66,7 @@ class ConstantsSeeder extends Seeder
             'dowel2_price' => 30,
             'g600tc_price' => 30,
             //Pack
+            'g3600_pack' => 30,
             'g2400_pack' => 30,
             'g1200_pack' => 30,
             'g600_pack' => 30,

@@ -70,6 +70,7 @@ class CreateConstantsTable extends Migration
             $table->double('dowel2_price');
             $table->double('g600tc_price');
             //Pack
+            $table->double('g3600_pack');
             $table->double('g2400_pack');
             $table->double('g1200_pack');
             $table->double('g600_pack');
