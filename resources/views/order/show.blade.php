@@ -24,8 +24,9 @@
                         <th scope="col" style="color: #f78421;">Ширина, мм.</th>
                         <th scope="col" style="color: #f78421;">Длина, мм.</th>
                         <th scope="col" style="color: #f78421;">Цвет RAL</th>
-                        <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
-                        <th scope="col" style="color: #f78421;">Стоимость</th>
+                        <th scope="col" style="color: #f78421;">Кол-во шт</th>
+                        <th scope="col" style="color: #f78421;">Цена за шт</th>
+                        <th scope="col" style="color: #f78421;">Итого</th>
                         <th scope="col" style="color: #f78421;">Action</th>
                     </tr>
                     </thead>
@@ -38,8 +39,9 @@
                             <td>{{$order->width}}</td>
                             <td>{{$order->length}}</td>
                             <td>{{$order->color}}</td>
-                            <td>{!! Form::number('pack', $order->pack, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.','.$order->sum_by_one.','.$order->count_pack.', this.value)']) !!}</td>
-                            <td>{{$order->sum}}</td>
+                            <td>{!! Form::number('pack', $order->count, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.', this.value'.','.$order->price.')']) !!}</td>
+                            <td>{{$order->price}}</td>
+                            <td>{{$order->price*$order->count}}</td>
                             <td>
                                 {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
                                 {!! Form::submit('Delete', ['class' => 'btn btn-warning btn-sm']) !!}
@@ -48,6 +50,7 @@
                          </tr>
                     @endforeach
                     <tr>
+                        <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
@@ -66,7 +69,7 @@
                 @endif
 
                 {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-            @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                @if(Auth::user()->vendor_code_1c && $orders->status == 0)
                     {!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}
                 @endif
                 <br>
@@ -86,15 +89,14 @@
 @section('scripts')
     <script>
         var table = document.getElementById("table");
-    function pack_change(id,id_row,sum_by_one,count_pack,pack){
-        table.rows[id_row].cells[7].innerHTML = table.rows[id_row].cells[6].children[0].value * sum_by_one *count_pack;
+    function pack_change(id,id_row,pack,price){
+        table.rows[id_row].cells[8].innerHTML = (pack*price).toFixed(2);
         total_sum = 0;
         for(var i = 1; i<table.rows.length-1; i++)
         {
-            total_sum = +total_sum + +table.rows[i].cells[7].innerHTML;
+            total_sum += +table.rows[i].cells[8].innerHTML;
         }
-
-        table.rows[table.rows.length-1].cells[7].innerHTML = total_sum;
+        table.rows[table.rows.length-1].cells[8].innerHTML = total_sum.toFixed(2);
 
         // save data
         $.ajax({
@@ -102,13 +104,14 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "POST",
-            url: "/order/" + id + "/update", //Relative or absolute path to response.php file
+            url: "/order/" + id + "/update",
             data: {"id" : id, "quantity" : pack},
             success: function(data) {
-                console.log(pack);
+                console.log('OK');
             },
             error: function(data){
-                alert("Form submitted unsuccessfully.\nReturned: " + data);
+                console.log(id);
+                console.log(data);
             }
         });
     }

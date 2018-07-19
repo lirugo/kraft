@@ -63,7 +63,6 @@
                     <th scope="col" style="color: #f78421;">Цвет RAL</th>
                     <th scope="col" style="color: #f78421;">Кол-во шт.</th>
                     <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
-                    <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
                     <th scope="col" style="color: #f78421;">Стоимость</th>
                 </tr>
                 </thead>
@@ -77,7 +76,6 @@
                     <td id="table-3600-color"></td>
                     <td id="table-3600-count"></td>
                     <td id="table-3600-price"></td>
-                    <td id="table-3600-pack"></td>
                     <td id="table-3600-price-all"></td>
                 </tr>
                 <tr>
@@ -89,7 +87,6 @@
                     <td id="table-1200-color"></td>
                     <td id="table-1200-count"></td>
                     <td id="table-1200-price"></td>
-                    <td id="table-1200-pack"></td>
                     <td id="table-1200-price-all"></td>
                 </tr>
                 <tr>
@@ -101,7 +98,6 @@
                     <td id="table-600-color"></td>
                     <td id="table-600-count"></td>
                     <td id="table-600-price"></td>
-                    <td id="table-600-pack"></td>
                     <td id="table-600-price-all"></td>
                 </tr>
                 <tr>
@@ -113,7 +109,6 @@
                     <td id="table-wall-profile-color"></td>
                     <td id="table-wall-profile-count"></td>
                     <td id="table-wall-profile-price"></td>
-                    <td id="table-wall-profile-pack"></td>
                     <td id="table-wall-profile-price-all"></td>
                 </tr>
                 <tr>
@@ -125,7 +120,6 @@
                     <td id="table-wireWithEar-color"></td>
                     <td id="table-wireWithEar-count"></td>
                     <td id="table-wireWithEar-price"></td>
-                    <td id="table-wireWithEar-pack"></td>
                     <td id="table-wireWithEar-price-all"></td>
                 </tr>
                 <tr>
@@ -137,7 +131,6 @@
                     <td id="table-wireWithHook-color"></td>
                     <td id="table-wireWithHook-count"></td>
                     <td id="table-wireWithHook-price"></td>
-                    <td id="table-wireWithHook-pack"></td>
                     <td id="table-wireWithHook-price-all"></td>
                 </tr>
                 <tr>
@@ -149,7 +142,6 @@
                     <td id="table-springSusp-color"></td>
                     <td id="table-springSusp-count"></td>
                     <td id="table-springSusp-price"></td>
-                    <td id="table-springSusp-pack"></td>
                     <td id="table-springSusp-price-all"></td>
                 </tr>
                 {{--<tr>--}}
@@ -161,12 +153,10 @@
                     {{--<td id="table-susp-color"></td>--}}
                     {{--<td id="table-susp-count"></td>--}}
                     {{--<td id="table-susp-price"></td>--}}
-                    {{--<td id="table-susp-pack"></td>--}}
                     {{--<td id="table-susp-price-all"></td>--}}
                 {{--</tr>--}}
                 {{--BottomRightSide--}}
                 <tr>
-                    <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>

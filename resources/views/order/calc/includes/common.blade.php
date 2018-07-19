@@ -10,8 +10,8 @@
                 <th scope="col" style="color: #f78421;">Ширина, мм.</th>
                 <th scope="col" style="color: #f78421;">Длина, мм.</th>
                 <th scope="col" style="color: #f78421;">Цвет RAL</th>
-                <th scope="col" style="color: #f78421;">Кол-во упаковок</th>
-                <th scope="col" style="color: #f78421;">Кол-во шт в упаковке</th>
+                <th scope="col" style="color: #f78421;">Кол-во шт</th>
+                <th scope="col" style="color: #f78421;">Цена за шт</th>
                 <th scope="col" style="color: #f78421;">Стоимость, грн</th>
             </tr>
             </thead>
