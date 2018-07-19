@@ -56,11 +56,7 @@
                 <thead>
                 <tr>
                     <th scope="col" style="color: #f78421;">Артикул</th>
-                    <th scope="col" style="color: #f78421;">Модель</th>
                     <th scope="col" style="color: #f78421;">Наименование</th>
-                    <th scope="col" style="color: #f78421;">Ширина, мм.</th>
-                    <th scope="col" style="color: #f78421;">Длина, мм.</th>
-                    <th scope="col" style="color: #f78421;">Цвет RAL</th>
                     <th scope="col" style="color: #f78421;">Кол-во шт.</th>
                     <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
                     <th scope="col" style="color: #f78421;">Стоимость</th>
@@ -69,98 +65,62 @@
                 <tbody>
                 <tr>
                     <td id="table-3600-vendor"></td>
-                    <td id="table-3600-model"></td>
-                    <td id="table-3600-name"></td>
-                    <td id="table-3600-width"></td>
-                    <td id="table-3600-lenght"></td>
-                    <td id="table-3600-color"></td>
+                    <td id="table-3600-description"></td>
                     <td id="table-3600-count"></td>
                     <td id="table-3600-price"></td>
                     <td id="table-3600-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-1200-vendor"></td>
-                    <td id="table-1200-model"></td>
-                    <td id="table-1200-name"></td>
-                    <td id="table-1200-width"></td>
-                    <td id="table-1200-lenght"></td>
-                    <td id="table-1200-color"></td>
+                    <td id="table-1200-description"></td>
                     <td id="table-1200-count"></td>
                     <td id="table-1200-price"></td>
                     <td id="table-1200-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-600-vendor"></td>
-                    <td id="table-600-model"></td>
-                    <td id="table-600-name"></td>
-                    <td id="table-600-width"></td>
-                    <td id="table-600-lenght"></td>
-                    <td id="table-600-color"></td>
+                    <td id="table-600-description"></td>
                     <td id="table-600-count"></td>
                     <td id="table-600-price"></td>
                     <td id="table-600-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-wall-profile-vendor"></td>
-                    <td id="table-wall-profile-model"></td>
                     <td id="table-wall-profile-description"></td>
-                    <td></td>
-                    <td></td>
-                    <td id="table-wall-profile-color"></td>
                     <td id="table-wall-profile-count"></td>
                     <td id="table-wall-profile-price"></td>
                     <td id="table-wall-profile-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-wireWithEar-vendor"></td>
-                    <td id="table-wireWithEar-model"></td>
                     <td id="table-wireWithEar-description"></td>
-                    <td id="table-wireWithEar-width"></td>
-                    <td id="table-wireWithEar-lenght"></td>
-                    <td id="table-wireWithEar-color"></td>
                     <td id="table-wireWithEar-count"></td>
                     <td id="table-wireWithEar-price"></td>
                     <td id="table-wireWithEar-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-wireWithHook-vendor"></td>
-                    <td id="table-wireWithHook-model"></td>
                     <td id="table-wireWithHook-description"></td>
-                    <td id="table-wireWithHook-width"></td>
-                    <td id="table-wireWithHook-lenght"></td>
-                    <td id="table-wireWithHook-color"></td>
                     <td id="table-wireWithHook-count"></td>
                     <td id="table-wireWithHook-price"></td>
                     <td id="table-wireWithHook-price-all"></td>
                 </tr>
                 <tr>
                     <td id="table-springSusp-vendor"></td>
-                    <td id="table-springSusp-model"></td>
                     <td id="table-springSusp-description"></td>
-                    <td id="table-springSusp-width"></td>
-                    <td id="table-springSusp-lenght"></td>
-                    <td id="table-springSusp-color"></td>
                     <td id="table-springSusp-count"></td>
                     <td id="table-springSusp-price"></td>
                     <td id="table-springSusp-price-all"></td>
                 </tr>
                 {{--<tr>--}}
                     {{--<td id="table-susp-vendor"></td>--}}
-                    {{--<td id="table-susp-model"></td>--}}
                     {{--<td id="table-susp-name"></td>--}}
-                    {{--<td id="table-susp-width"></td>--}}
-                    {{--<td id="table-susp-lenght"></td>--}}
-                    {{--<td id="table-susp-color"></td>--}}
                     {{--<td id="table-susp-count"></td>--}}
                     {{--<td id="table-susp-price"></td>--}}
                     {{--<td id="table-susp-price-all"></td>--}}
                 {{--</tr>--}}
                 {{--BottomRightSide--}}
                 <tr>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>

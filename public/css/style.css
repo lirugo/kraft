@@ -113,6 +113,9 @@ padding-top: 4vh;
 #app{
     min-height: 90vh;
 }
+.m-b-0{
+    margin-bottom:0px;
+}
 .m-t-10{
     margin-top:10px;
 }

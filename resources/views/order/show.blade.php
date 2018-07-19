@@ -19,11 +19,7 @@
                     <thead>
                     <tr>
                         <th scope="col" style="color: #f78421;">Артикул</th>
-                        <th scope="col" style="color: #f78421;">Модель</th>
                         <th scope="col" style="color: #f78421;">Наименование</th>
-                        <th scope="col" style="color: #f78421;">Ширина, мм.</th>
-                        <th scope="col" style="color: #f78421;">Длина, мм.</th>
-                        <th scope="col" style="color: #f78421;">Цвет RAL</th>
                         <th scope="col" style="color: #f78421;">Кол-во шт</th>
                         <th scope="col" style="color: #f78421;">Цена за шт</th>
                         <th scope="col" style="color: #f78421;">Итого</th>
@@ -34,11 +30,7 @@
                     @foreach($orders as $order)
                          <tr>
                             <td>{{$order->vendor_code}}</td>
-                            <td>{{$order->model}}</td>
                             <td>{{$order->description}}</td>
-                            <td>{{$order->width}}</td>
-                            <td>{{$order->length}}</td>
-                            <td>{{$order->color}}</td>
                             <td>{!! Form::number('pack', $order->count, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.', this.value'.','.$order->price.')']) !!}</td>
                             <td>{{$order->price}}</td>
                             <td>{{$order->price*$order->count}}</td>
@@ -50,10 +42,6 @@
                          </tr>
                     @endforeach
                     <tr>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
-                        <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
@@ -90,13 +78,13 @@
     <script>
         var table = document.getElementById("table");
     function pack_change(id,id_row,pack,price){
-        table.rows[id_row].cells[8].innerHTML = (pack*price).toFixed(2);
+        table.rows[id_row].cells[4].innerHTML = (pack*price).toFixed(2);
         total_sum = 0;
         for(var i = 1; i<table.rows.length-1; i++)
         {
-            total_sum += +table.rows[i].cells[8].innerHTML;
+            total_sum += +table.rows[i].cells[4].innerHTML;
         }
-        table.rows[table.rows.length-1].cells[8].innerHTML = total_sum.toFixed(2);
+        table.rows[table.rows.length-1].cells[4].innerHTML = total_sum.toFixed(2);
 
         // save data
         $.ajax({

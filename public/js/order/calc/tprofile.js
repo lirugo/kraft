@@ -357,39 +357,25 @@ function formTProfile() {
 
         //Display
         document.getElementById("table-3600-vendor").innerHTML = v3600_vendor;
-        document.getElementById("table-3600-model").innerHTML = v3600_model;
-        document.getElementById("table-3600-name").innerHTML = v3600_name;
-        document.getElementById("table-3600-width").innerHTML = v3600_width;
-        document.getElementById("table-3600-lenght").innerHTML = v3600_lenght;
-        document.getElementById("table-3600-color").innerHTML = v3600_color;
+        document.getElementById("table-3600-description").innerHTML = v3600_name;
         document.getElementById("table-3600-count").innerHTML = v3600_count;
         document.getElementById("table-3600-price").innerHTML = v3600_price;
         document.getElementById("table-3600-price-all").innerHTML = v3600_price*v3600_count.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         document.getElementById("table-1200-vendor").innerHTML = v1200_vendor;
-        document.getElementById("table-1200-model").innerHTML = v1200_model;
-        document.getElementById("table-1200-name").innerHTML = v1200_name;
-        document.getElementById("table-1200-width").innerHTML = v1200_width;
-        document.getElementById("table-1200-lenght").innerHTML = v1200_lenght;
-        document.getElementById("table-1200-color").innerHTML = v1200_color;
+        document.getElementById("table-1200-description").innerHTML = v1200_name;
         document.getElementById("table-1200-count").innerHTML = v1200_count;
         document.getElementById("table-1200-price").innerHTML = v1200_price;
         document.getElementById("table-1200-price-all").innerHTML = v1200_price*v1200_count.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         document.getElementById("table-600-vendor").innerHTML = v600_vendor;
-        document.getElementById("table-600-model").innerHTML = v600_model;
-        document.getElementById("table-600-name").innerHTML = v600_name;
-        document.getElementById("table-600-width").innerHTML = v600_width;
-        document.getElementById("table-600-lenght").innerHTML = v600_lenght;
-        document.getElementById("table-600-color").innerHTML = v600_color;
+        document.getElementById("table-600-description").innerHTML = v600_name;
         document.getElementById("table-600-count").innerHTML = v600_count;
         document.getElementById("table-600-price").innerHTML = v600_price;
         document.getElementById("table-600-price-all").innerHTML = v600_price*v600_count.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //Angle
         document.getElementById("table-wall-profile-vendor").innerHTML = wall_profile_vendor;
-        document.getElementById("table-wall-profile-model").innerHTML = wall_profile_model;
         document.getElementById("table-wall-profile-description").innerHTML = wall_profile_description;
-        document.getElementById("table-wall-profile-color").innerHTML = wall_profile_color;
         document.getElementById("table-wall-profile-count").innerHTML = Math.ceil(angles);
         document.getElementById("table-wall-profile-price").innerHTML = angle_price;
         document.getElementById("table-wall-profile-price-all").innerHTML = (Math.ceil(angles)*angle_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -397,10 +383,7 @@ function formTProfile() {
 
         //SuspWithEar
         document.getElementById("table-wireWithEar-vendor").innerHTML = wire_with_ear_vendor;
-        document.getElementById("table-wireWithEar-model").innerHTML = wire_with_ear_model;
         document.getElementById("table-wireWithEar-description").innerHTML = wire_with_ear_description;
-        document.getElementById("table-wireWithEar-lenght").innerHTML = wire_with_ear_profile;
-        document.getElementById("table-wireWithEar-color").innerHTML = "9005";
         document.getElementById("table-wireWithEar-count").innerHTML = vSusp_count;
         document.getElementById("table-wireWithEar-price").innerHTML = wire_with_ear_price;
         document.getElementById("table-wireWithEar-price-all").innerHTML = (Math.ceil(vSusp_count)*wire_with_ear_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -408,10 +391,7 @@ function formTProfile() {
 
         //SuspWithHook
         document.getElementById("table-wireWithHook-vendor").innerHTML = wire_with_hook_vendor;
-        document.getElementById("table-wireWithHook-model").innerHTML = wire_with_hook_model;
         document.getElementById("table-wireWithHook-description").innerHTML = wire_with_hook_description;
-        document.getElementById("table-wireWithHook-lenght").innerHTML = wire_with_hook_profile;
-        document.getElementById("table-wireWithHook-color").innerHTML = "9005";
         document.getElementById("table-wireWithHook-count").innerHTML = vSusp_count;
         document.getElementById("table-wireWithHook-price").innerHTML = wire_with_hook_price;
         document.getElementById("table-wireWithHook-price-all").innerHTML = (Math.ceil(vSusp_count)*wire_with_hook_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -419,20 +399,14 @@ function formTProfile() {
 
         //SuspSpring
         document.getElementById("table-springSusp-vendor").innerHTML = susp_spring_vendor;
-        document.getElementById("table-springSusp-model").innerHTML = susp_spring_model;
         document.getElementById("table-springSusp-description").innerHTML = susp_spring_description;
-        document.getElementById("table-springSusp-color").innerHTML = "9005";
         document.getElementById("table-springSusp-count").innerHTML = vSusp_count;
         document.getElementById("table-springSusp-price").innerHTML = susp_spring_price;
         document.getElementById("table-springSusp-price-all").innerHTML = (Math.ceil(vSusp_count)*susp_spring_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspSpring
 
         // document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
-        // document.getElementById("table-susp-model").innerHTML = null;
-        // document.getElementById("table-susp-name").innerHTML = "Итого по подвесу";
-        // document.getElementById("table-susp-width").innerHTML = null;
-        // document.getElementById("table-susp-lenght").innerHTML = vSusp_lenght;
-        // document.getElementById("table-susp-color").innerHTML = vSusp_color;
+        // document.getElementById("table-susp-description").innerHTML = "Итого по подвесу";
         // document.getElementById("table-susp-count").innerHTML = vSusp_count;
         // document.getElementById("table-susp-price").innerHTML = vSusp_price;
         // document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');

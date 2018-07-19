@@ -47,7 +47,14 @@
                '1000' => '1000 мм',
                '1500' => '1500 мм',
                '2000' => '2000 мм'
-               ], '125', ['class' => 'form-control', 'id' => 'grilyato_wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
+               ], '125', ['class' => 'form-control m-b-10', 'id' => 'grilyato_wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
+            <div class="checkbox">
+                <label><input type="checkbox" id="light">Добавить освещение</label>
+            </div>
+            {!! Form::select('grilyato_h',[
+               '0' => 'Менее 3.5м',
+               '1' => 'Более 3.5м',
+               ], '125', ['class' => 'form-control m-b-10', 'id' => 'grilyato_h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
             {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
@@ -66,11 +73,7 @@
                 <thead>
                 <tr>
                     <th scope="col" style="color: #f78421;">Артикул</th>
-                    <th scope="col" style="color: #f78421;">Модель профиля</th>
                     <th scope="col" style="color: #f78421;">Наименование</th>
-                    <th scope="col" style="color: #f78421;">Ширина, мм.</th>
-                    <th scope="col" style="color: #f78421;">Длина, мм.</th>
-                    <th scope="col" style="color: #f78421;">Цвет RAL</th>
                     <th scope="col" style="color: #f78421;">Кол-во шт.</th>
                     <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
                     <th scope="col" style="color: #f78421;">Стоимость</th>
@@ -79,141 +82,89 @@
                 <tbody>
                 <tr id="grilyato-3600">
                     <td id="table-grilyato-3600-vendor"></td>
-                    <td id="table-grilyato-3600-model"></td>
-                    <td id="table-grilyato-3600-desciption"></td>
-                    <td id="table-grilyato-3600-width"></td>
-                    <td id="table-grilyato-3600-length"></td>
-                    <td id="table-grilyato-3600-color"></td>
+                    <td id="table-grilyato-3600-description"></td>
                     <td id="table-grilyato-3600-count"></td>
                     <td id="table-grilyato-3600-price"></td>
                     <td id="table-grilyato-3600-price-all"></td>
                 </tr>
                 <tr id="grilyato-2400">
                     <td id="table-grilyato-2400-vendor"></td>
-                    <td id="table-grilyato-2400-model"></td>
-                    <td id="table-grilyato-2400-desciption"></td>
-                    <td id="table-grilyato-2400-width"></td>
-                    <td id="table-grilyato-2400-length"></td>
-                    <td id="table-grilyato-2400-color"></td>
+                    <td id="table-grilyato-2400-description"></td>
                     <td id="table-grilyato-2400-count"></td>
                     <td id="table-grilyato-2400-price"></td>
                     <td id="table-grilyato-2400-price-all"></td>
                 </tr>
                 <tr id="grilyato-1200">
                     <td id="table-grilyato-1200-vendor"></td>
-                    <td id="table-grilyato-1200-model"></td>
-                    <td id="table-grilyato-1200-desciption"></td>
-                    <td id="table-grilyato-1200-width"></td>
-                    <td id="table-grilyato-1200-length"></td>
-                    <td id="table-grilyato-1200-color"></td>
+                    <td id="table-grilyato-1200-description"></td>
                     <td id="table-grilyato-1200-count"></td>
                     <td id="table-grilyato-1200-price"></td>
                     <td id="table-grilyato-1200-price-all"></td>
                 </tr>
                 <tr id="grilyato-600">
                     <td id="table-grilyato-600-vendor"></td>
-                    <td id="table-grilyato-600-model"></td>
-                    <td id="table-grilyato-600-desciption"></td>
-                    <td id="table-grilyato-600-width"></td>
-                    <td id="table-grilyato-600-length"></td>
-                    <td id="table-grilyato-600-color"></td>
+                    <td id="table-grilyato-600-description"></td>
                     <td id="table-grilyato-600-count"></td>
                     <td id="table-grilyato-600-price"></td>
                     <td id="table-grilyato-600-price-all"></td>
                 </tr>
                 <tr id="grilyato-600m">
                     <td id="table-grilyato-600m-vendor"></td>
-                    <td id="table-grilyato-600m-model"></td>
-                    <td id="table-grilyato-600m-desciption"></td>
-                    <td id="table-grilyato-600m-width"></td>
-                    <td id="table-grilyato-600m-length"></td>
-                    <td id="table-grilyato-600m-color"></td>
+                    <td id="table-grilyato-600m-description"></td>
                     <td id="table-grilyato-600m-count"></td>
                     <td id="table-grilyato-600m-price"></td>
                     <td id="table-grilyato-600m-price-all"></td>
                 </tr>
                 <tr id="grilyato-600f">
                     <td id="table-grilyato-600f-vendor"></td>
-                    <td id="table-grilyato-600f-model"></td>
-                    <td id="table-grilyato-600f-desciption"></td>
-                    <td id="table-grilyato-600f-width"></td>
-                    <td id="table-grilyato-600f-length"></td>
-                    <td id="table-grilyato-600f-color"></td>
+                    <td id="table-grilyato-600f-description"></td>
                     <td id="table-grilyato-600f-count"></td>
                     <td id="table-grilyato-600f-price"></td>
                     <td id="table-grilyato-600f-price-all"></td>
                 </tr>
                 <tr id="grilyato-susp">
                     <td id="table-grilyato-susp-vendor"></td>
-                    <td id="table-grilyato-susp-model"></td>
-                    <td id="table-grilyato-susp-desciption"></td>
-                    <td id="table-grilyato-susp-width"></td>
-                    <td id="table-grilyato-susp-length"></td>
-                    <td id="table-grilyato-susp-color"></td>
+                    <td id="table-grilyato-susp-description"></td>
                     <td id="table-grilyato-susp-count"></td>
                     <td id="table-grilyato-susp-price"></td>
                     <td id="table-grilyato-susp-price-all"></td>
                 </tr>
                 <tr id="grilyato-ear">
                     <td id="table-grilyato-ear-vendor"></td>
-                    <td id="table-grilyato-ear-model"></td>
-                    <td id="table-grilyato-ear-desciption"></td>
-                    <td id="table-grilyato-ear-width"></td>
-                    <td id="table-grilyato-ear-length"></td>
-                    <td id="table-grilyato-ear-color"></td>
+                    <td id="table-grilyato-ear-description"></td>
                     <td id="table-grilyato-ear-count"></td>
                     <td id="table-grilyato-ear-price"></td>
                     <td id="table-grilyato-ear-price-all"></td>
                 </tr>
                 <tr id="grilyato-hook">
                     <td id="table-grilyato-hook-vendor"></td>
-                    <td id="table-grilyato-hook-model"></td>
-                    <td id="table-grilyato-hook-desciption"></td>
-                    <td id="table-grilyato-hook-width"></td>
-                    <td id="table-grilyato-hook-length"></td>
-                    <td id="table-grilyato-hook-color"></td>
+                    <td id="table-grilyato-hook-description"></td>
                     <td id="table-grilyato-hook-count"></td>
                     <td id="table-grilyato-hook-price"></td>
                     <td id="table-grilyato-hook-price-all"></td>
                 </tr>
                 <tr id="grilyato-angle">
                     <td id="table-grilyato-angle-vendor"></td>
-                    <td id="table-grilyato-angle-model"></td>
-                    <td id="table-grilyato-angle-desciption"></td>
-                    <td id="table-grilyato-angle-width"></td>
-                    <td id="table-grilyato-angle-length"></td>
-                    <td id="table-grilyato-angle-color"></td>
+                    <td id="table-grilyato-angle-description"></td>
                     <td id="table-grilyato-angle-count"></td>
                     <td id="table-grilyato-angle-price"></td>
                     <td id="table-grilyato-angle-price-all"></td>
                 </tr>
                 <tr id="grilyato-dowel1">
                     <td id="table-grilyato-dowel1-vendor"></td>
-                    <td id="table-grilyato-dowel1-model"></td>
-                    <td id="table-grilyato-dowel1-desciption"></td>
-                    <td id="table-grilyato-dowel1-width"></td>
-                    <td id="table-grilyato-dowel1-length"></td>
-                    <td id="table-grilyato-dowel1-color"></td>
+                    <td id="table-grilyato-dowel1-description"></td>
                     <td id="table-grilyato-dowel1-count"></td>
                     <td id="table-grilyato-dowel1-price"></td>
                     <td id="table-grilyato-dowel1-price-all"></td>
                 </tr>
                 <tr id="grilyato-dowel2">
                     <td id="table-grilyato-dowel2-vendor"></td>
-                    <td id="table-grilyato-dowel2-model"></td>
-                    <td id="table-grilyato-dowel2-desciption"></td>
-                    <td id="table-grilyato-dowel2-width"></td>
-                    <td id="table-grilyato-dowel2-length"></td>
-                    <td id="table-grilyato-dowel2-color"></td>
+                    <td id="table-grilyato-dowel2-description"></td>
                     <td id="table-grilyato-dowel2-count"></td>
                     <td id="table-grilyato-dowel2-price"></td>
                     <td id="table-grilyato-dowel2-price-all"></td>
                 </tr>
                 <tr>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
-                    <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>

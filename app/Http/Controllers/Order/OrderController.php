@@ -535,22 +535,20 @@ class OrderController extends Controller
         if($id != 0)
             $calcHis->object_id = $id;
         else
-        {
             $calcHis->stock = true;
-            $calcHis->user_id = Auth::user()->id;
-        }
-            $calcHis->order_id = $request->order_id;
-            $calcHis->vendor_code = $request->vendor_code;
-            $calcHis->model = $request->model;
-            $calcHis->description = $request->description;
-            $calcHis->width = $request->width;
-            $calcHis->length = $request->length;
-            $calcHis->color = $request->color;
-            $calcHis->count = $request->count;
-            $calcHis->price = $request->price;
+
+        $calcHis->user_id = Auth::user()->id;
+        $calcHis->order_id = $request->order_id;
+        $calcHis->vendor_code = $request->vendor_code;
+        $calcHis->model = $request->model;
+        $calcHis->description = $request->description;
+        $calcHis->width = $request->width;
+        $calcHis->length = $request->length;
+        $calcHis->color = $request->color;
+        $calcHis->count = $request->count;
+        $calcHis->price = $request->price;
         $calcHis->save();
         Session::flash('success', 'Ваш заказ сохранен.');
-        return 'OK';
     }
 
     public function show($id){
