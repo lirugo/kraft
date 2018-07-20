@@ -30,13 +30,12 @@
                 '2000' => '2000 мм'
                 ], '250', ['class' => 'form-control', 'id' => 'wire_with_ear', 'placeholder' => 'Выберите длину проволки с ушком', 'required']) !!}
                 {!! Form::select('wire_with_hook',[
-                '125' => '125 мм',
                 '250' => '250 мм',
                 '500' => '500 мм',
                 '1000' => '1000 мм',
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
-                ], '125', ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
+                ], '250', ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
                 {!! Form::select('colors',['9003' => '9003'], '9003', ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
                 <div class="checkbox">
                     <label><input type="checkbox" id="light">Добавить освещение</label>

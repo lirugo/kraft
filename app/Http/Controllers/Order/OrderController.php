@@ -269,40 +269,41 @@ class OrderController extends Controller
 
     public function tprofilevendor(Request $request){
 
-        $profiles = DB::table('vendor_code_t_profiles')->where([
-            ['model', $request->model],
-            ['profile_thickness', $request->profile_thickness],
+        $profiles = DB::table('profile_grilyatos')->where([
+            ['type', $request->model],
+            ['weight', $request->profile_thickness],
+            ['color', $request->color]
+        ])->get();
+        $angles = DB::table('profile_grilyatos')->where([
+            ['speciality', $request->wall_profile],
             ['color', $request->color]
         ])->get();
 
-        $angles = DB::table('vendor_code_t_profile_angles')->where([
-            ['profile', $request->wall_profile],
-            ['color', $request->color]
+        $wireWithEars = DB::table('profile_grilyatos')->where([
+            ['speciality', "вушко"],
+            ['length', $request->wire_with_ear],
         ])->get();
 
-        $wireWithEars = DB::table('vendor_code_t_profile_susps')->where([
-            ['model', "Дріт з вушком"],
-            ['profile', $request->wire_with_ear],
+        $wireWithHooks = DB::table('profile_grilyatos')->where([
+            ['speciality', "гак"],
+            ['length', $request->wire_with_hook],
+        ])->first();
+
+        $springSusps = DB::table('profile_grilyatos')->where([
+            ['speciality', "підвіс"],
         ])->get();
 
-        $wireWithHooks = DB::table('vendor_code_t_profile_susps')->where([
-            ['model', "Дріт з гаком"],
-            ['profile', $request->wire_with_hook],
-        ])->get();
+        $light = ProfileGrilyato::where([
+            ['speciality', '=', 'T'],
+            ['type', '=', 'KRAFT LED'],
+            ['weight', '=', $request->profile_thickness],
+            ['length', '=', '600'],
+        ])->first();
 
-        $springSusps = DB::table('vendor_code_t_profile_susps')->where([
-            ['model', "Пружинный подвес"],
-        ])->get();
-            $light = ProfileGrilyato::where([
-                ['speciality', '=', 'T'],
-                ['type', '=', 'KRAFT LED'],
-                ['weight', '=', $request->profile_thickness],
-                ['length', '=', 600],
-            ])->first();
         $collection = new Collection();
         foreach ($profiles as $profile)
         {
-            $collection->put($profile->profile, $profile);
+            $collection->put($profile->length, $profile);
         }
         foreach ($angles as $angle) {
             $collection->put('angle', $angle);
@@ -310,9 +311,7 @@ class OrderController extends Controller
         foreach ($wireWithEars as $wireWithEar) {
             $collection->put('wire_with_ear', $wireWithEar);
         }
-        foreach ($wireWithHooks as $wireWithHook) {
-            $collection->put('wire_with_hook', $wireWithHook);
-        }
+        $collection->put('wire_with_hook', $wireWithHooks);
         foreach ($springSusps as $springSusp) {
             $collection->put('spring_susp', $springSusp);
         }
