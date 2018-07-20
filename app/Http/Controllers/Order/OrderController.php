@@ -434,28 +434,28 @@ class OrderController extends Controller
                 ['speciality', '=', 'П'],
             ])->first();
             $WireWithHook = ProfileGrilyato::where([
-                ['vendor_code', '=', 2222],
+                ['vendor_code', '=', '2222'],
             ])->first();
             $WireWithEar = ProfileGrilyato::where([
                 ['speciality', '=', 'вушко'],
                 ['length', '=', $request->grilyato_wire_with_ear],
             ])->first();
             $susp = ProfileGrilyato::where([
-                ['vendor_code', '=', 1111],
+                ['vendor_code', '=', '1111'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', 1329003],
+                ['vendor_code', '=', '1329003'],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2231100406],
+                ['vendor_code', '=', '2231100406'],
             ])->first();
             $dowel2 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2232100406],
+                ['vendor_code', '=', '2232100406'],
             ])->first();
             $light = ProfileGrilyato::where([
                 ['speciality', '=', 'Т'],
                 ['type', '=', 'KRAFT LED'],
-                ['weight', '=', 15],
+                ['weight', '=', '15'],
             ])->first();
 
             $collection->put('3600',NULL);
