@@ -43,7 +43,7 @@
                 {!! Form::select('h',[
                    '1' => 'Менее 3.5м',
                    '2' => 'Более 3.5м',
-                   ], null, ['class' => 'form-control m-b-10', 'id' => 'h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
+                ], null, ['class' => 'form-control m-b-10', 'id' => 'h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
                 {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>

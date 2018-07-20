@@ -58,7 +58,7 @@ class LaratrustSeeder extends Seeder
             $user = \App\User::create([
                 'name' => ucwords(str_replace('_', ' ', $key)),
                 'dateofbirth' => Carbon::create('2000', '01', '01'),
-                'vendor_code_1c' => '1',
+                'vendor_code_1c' => '00-00000341',
                 'sex' => 'x',
                 'phone' => '+380674171332',
                 'email' => $key.'@app.com',
