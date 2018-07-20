@@ -330,57 +330,57 @@ class OrderController extends Controller
         $collection = new Collection();
         if($request->grilyato_model == 'classical'){
             $grilyato_2400 = ProfileGrilyato::where([
-                 ['length', '=', 2400],
+                 ['length', '=', '2400'],
                  ['cells', '=', $sizecells],
                  ['type', '=', 'Грильято'],
                  ['color', '=', $color],
              ])->first();
             $grilyato_1200 = NULL;
             $grilyato_600 = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято'],
                 ['speciality', '=', 'повздовжний'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600m = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято'],
                 ['color', '=', $color],
                 ['speciality', '=', 'М'],
             ])->first();
             $grilyato_600f = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято'],
                 ['color', '=', $color],
                 ['speciality', '=', 'П'],
             ])->first();
             $WireWithHook = ProfileGrilyato::where([
-                ['vendor_code', '=', 2222],
+                ['vendor_code', '=', '2222'],
             ])->first();
             $WireWithEar = ProfileGrilyato::where([
                 ['speciality', '=', 'вушко'],
                 ['length', '=', $request->grilyato_wire_with_ear],
             ])->first();
             $susp = ProfileGrilyato::where([
-                ['vendor_code', '=', 1111],
+                ['vendor_code', '=', '1111'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', 1329003],
+                ['vendor_code', '=', '1329003'],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2231100406],
+                ['vendor_code', '=', '2231100406'],
             ])->first();
             $dowel2 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2232100406],
+                ['vendor_code', '=', '2232100406'],
             ])->first();
             $light = ProfileGrilyato::where([
                 ['speciality', '=', 'T'],
                 ['type', '=', 'KRAFT LED'],
-                ['weight', '=', 15],
-                ['length', '=', 600],
+                ['weight', '=', '15'],
+                ['length', '=', '600'],
             ])->first();
 
             $collection->put('3600',NULL);
@@ -401,33 +401,33 @@ class OrderController extends Controller
         }
         else if($request->grilyato_model == 'pyramidal'){
             $grilyato_2400 = ProfileGrilyato::where([
-                ['length', '=', 2400],
+                ['length', '=', '2400'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_1200 = ProfileGrilyato::where([
-                ['length', '=', 1200],
+                ['length', '=', '1200'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600 = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['speciality', '=', 'повздовжний'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600m = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
                 ['speciality', '=', 'М'],
             ])->first();
             $grilyato_600f = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
@@ -477,34 +477,34 @@ class OrderController extends Controller
         }
         else if($request->grilyato_model == 'Glk-15'){
             $grilyato_3600 = DB::table('vendor_code_t_profiles')->where([
-                ['profile', '=', 3600],
-                ['profile_thickness', '=', 15],
+                ['profile', '=', '3600'],
+                ['profile_thickness', '=', '15'],
                 ['model', '=', 'Fortis'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_2400 = NULL;
             $grilyato_1200 = DB::table('vendor_code_t_profiles')->where([
-                ['profile', '=', 1200],
-                ['profile_thickness', '=', 15],
+                ['profile', '=', '1200'],
+                ['profile_thickness', '=', '15'],
                 ['model', '=', 'Fortis'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600 = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'GLK-15'],
                 ['speciality', '=', 'торцевой'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600m = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
                 ['speciality', '=', 'М'],
             ])->first();
             $grilyato_600f = ProfileGrilyato::where([
-                ['length', '=', 600],
+                ['length', '=', '600'],
                 ['cells', '=', $sizecells],
                 ['type', '=', 'Грильято пирамидальная'],
                 ['color', '=', $color],
@@ -522,18 +522,18 @@ class OrderController extends Controller
                 ['vendor_code', '=', '00-00000875'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', 1329003],
+                ['vendor_code', '=', '1329003'],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2231100406],
+                ['vendor_code', '=', '2231100406'],
             ])->first();
             $dowel2 = ProfileGrilyato::where([
-                ['vendor_code', '=', 2232100406],
+                ['vendor_code', '=', '2232100406'],
             ])->first();
             $light = ProfileGrilyato::where([
                 ['speciality', '=', 'Т'],
                 ['type', '=', 'KRAFT LED'],
-                ['weight', '=', 15],
+                ['weight', '=', '15'],
             ])->first();
 
             $collection->put('3600',$grilyato_3600);
