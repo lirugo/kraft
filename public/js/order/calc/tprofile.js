@@ -3,6 +3,18 @@ document.getElementById("colors").disabled = true;
 document.getElementById("colors").style.display = "none";
 document.getElementById("calc_t_profile_table").style.display = "none";
 
+document.getElementById("h").disabled = true;
+document.getElementById("h").style.display = "none";
+$("#light").change(function() {
+    if(document.getElementById('light').checked){
+        document.getElementById("h").disabled = false;
+        document.getElementById("h").style.display = "initial";
+    }
+    else {
+        document.getElementById("h").disabled = true;
+        document.getElementById("h").style.display = "none";
+    }
+});
 //TICKNESS
 //Select MODEL LIKE NOVA,FORTIS...
 $("#model").change(function() {
@@ -145,6 +157,17 @@ function formTProfile() {
         var price;
         if (document.getElementById('colors').value === "other") price = 1.5;
         else price = 1;
+
+        var light = null;
+        if(document.getElementById("h").value == 1)
+            light = Math.ceil(s/7);
+        else if(document.getElementById("h").value == 2) light = Math.ceil(s/5);
+
+        if(!document.getElementById("light").checked) {
+            light = null;
+            document.getElementById("table-light-price-all").innerHTML = 0;
+        }
+
         //SetPrice
         tp3600_price = vendor[3600].price * price;
         tp1200_price = vendor[1200].price * price;
@@ -405,6 +428,18 @@ function formTProfile() {
         document.getElementById("table-springSusp-price-all").innerHTML = (Math.ceil(vSusp_count)*susp_spring_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspSpring
 
+        //light
+        if(light != null) {
+            $("#tprofile-light").show();
+            document.getElementById("table-light-vendor").innerHTML =  vendor['light'].vendor_code;
+            document.getElementById("table-light-description").innerHTML = vendor['light'].description;
+            document.getElementById("table-light-count").innerHTML = light;
+            document.getElementById("table-light-price").innerHTML = vendor['light'].price;
+            document.getElementById("table-light-price-all").innerHTML = (light*vendor['light'].price).toFixed(2);
+        }else {
+            $("#tprofile-light").hide();
+            document.getElementById("table-light-vendor").innerHTML = '';
+        }
         // document.getElementById("table-susp-vendor").innerHTML = vSusp_vendor;
         // document.getElementById("table-susp-description").innerHTML = "Итого по подвесу";
         // document.getElementById("table-susp-count").innerHTML = vSusp_count;
@@ -418,6 +453,7 @@ function formTProfile() {
             +document.getElementById("table-wall-profile-price-all").innerHTML+
             +document.getElementById("table-wireWithEar-price-all").innerHTML+
             +document.getElementById("table-wireWithHook-price-all").innerHTML+
+            +document.getElementById("table-light-price-all").innerHTML+
             +document.getElementById("table-springSusp-price-all").innerHTML
         ).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
         // //ShowTable

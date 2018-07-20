@@ -58,8 +58,8 @@ $("#grilyato_model").change(function() {
 
 document.getElementById("grilyato_h").disabled = true;
 document.getElementById("grilyato_h").style.display = "none";
-$("#light").change(function() {
-  if(document.getElementById('light').checked){
+$("#grilyato_light").change(function() {
+  if(document.getElementById('grilyato_light').checked){
       document.getElementById("grilyato_h").disabled = false;
       document.getElementById("grilyato_h").style.display = "initial";
   }
@@ -96,6 +96,7 @@ function formGrilyato() {
                 'sizecells':sizecells,
                 'grilyato_wire_with_ear':grilyato_wire_with_ear,
                 'grilyato_wire_with_hook':grilyato_wire_with_hook,
+                'light':document.getElementById('grilyato_light').checked,
             },
             beforeSend: function(){
                 $( function() {
@@ -130,7 +131,7 @@ function formGrilyato() {
     //отправляю wall_profile запрос и получаю ответ
     getNewENumber(function( vendor ) {
         $( "#loader-message" ).dialog('close');
-        console.log(vendor);
+        console.log(document.getElementById('grilyato_light').checked);
 
 
 //DataProcessing
@@ -160,6 +161,16 @@ function formGrilyato() {
         tp600f = (600 / (sizecells - 1)) * grilyato_g600fc_a * p;
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
         tp600m = tp600f;
+
+        var light = null;
+        if(document.getElementById("grilyato_h").value == 1)
+            light = Math.ceil(s/7);
+        else if(document.getElementById("grilyato_h").value == 2) light = Math.ceil(s/5);
+
+        if(!document.getElementById("grilyato_light").checked) {
+            light = null;
+            document.getElementById("table-grilyato-light-price-all").innerHTML = 0;
+        }
 
         var susp = tp2400 * grilyato_suspc_a;
         var wire = tp2400 * 3;
@@ -321,7 +332,19 @@ function formGrilyato() {
         document.getElementById("table-grilyato-hook-vendor").innerHTML = '';
     }
 
-    console.log($('#grilyato_model').find(":selected").attr("value"));
+    //light
+    if(light != null) {
+        $("#grilyato-light").show();
+        document.getElementById("table-grilyato-light-vendor").innerHTML =  vendor['light'].vendor_code;
+        document.getElementById("table-grilyato-light-description").innerHTML = vendor['light'].description;
+        document.getElementById("table-grilyato-light-count").innerHTML = light;
+        document.getElementById("table-grilyato-light-price").innerHTML = vendor['light'].price;
+        document.getElementById("table-grilyato-light-price-all").innerHTML = (light*vendor['light'].price).toFixed(2);
+    }else {
+        $("#grilyato-light").hide();
+        document.getElementById("table-grilyato-light-vendor").innerHTML = '';
+    }
+
     if($('#grilyato_model').find(":selected").attr("value") != "Glk-15"){
         $("#grilyato-angle").show();
         $("#grilyato-dowel1").show();
@@ -367,6 +390,7 @@ function formGrilyato() {
         +document.getElementById("table-grilyato-ear-price-all").innerHTML+
         +document.getElementById("table-grilyato-hook-price-all").innerHTML+
         +document.getElementById("table-grilyato-angle-price-all").innerHTML+
+        +document.getElementById("table-grilyato-light-price-all").innerHTML+
         +document.getElementById("table-grilyato-dowel1-price-all").innerHTML+
         +document.getElementById("table-grilyato-dowel2-price-all").innerHTML
     ).toFixed(2);

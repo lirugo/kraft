@@ -293,7 +293,12 @@ class OrderController extends Controller
         $springSusps = DB::table('vendor_code_t_profile_susps')->where([
             ['model', "Пружинный подвес"],
         ])->get();
-
+            $light = ProfileGrilyato::where([
+                ['speciality', '=', 'T'],
+                ['type', '=', 'KRAFT LED'],
+                ['weight', '=', $request->profile_thickness],
+                ['length', '=', 600],
+            ])->first();
         $collection = new Collection();
         foreach ($profiles as $profile)
         {
@@ -311,6 +316,7 @@ class OrderController extends Controller
         foreach ($springSusps as $springSusp) {
             $collection->put('spring_susp', $springSusp);
         }
+        $collection->put('light',$light);
         return $collection;
     }
 
@@ -370,6 +376,12 @@ class OrderController extends Controller
             $dowel2 = ProfileGrilyato::where([
                 ['vendor_code', '=', 2232100406],
             ])->first();
+            $light = ProfileGrilyato::where([
+                ['speciality', '=', 'T'],
+                ['type', '=', 'KRAFT LED'],
+                ['weight', '=', 15],
+                ['length', '=', 600],
+            ])->first();
 
             $collection->put('3600',NULL);
             $collection->put('2400',$grilyato_2400);
@@ -383,6 +395,7 @@ class OrderController extends Controller
             $collection->put('angle',$angle);
             $collection->put('dowel1',$dowel1);
             $collection->put('dowel2',$dowel2);
+            $collection->put('light',$light);
 
         return $collection;
         }
@@ -439,6 +452,11 @@ class OrderController extends Controller
             $dowel2 = ProfileGrilyato::where([
                 ['vendor_code', '=', 2232100406],
             ])->first();
+            $light = ProfileGrilyato::where([
+                ['speciality', '=', 'Т'],
+                ['type', '=', 'KRAFT LED'],
+                ['weight', '=', 15],
+            ])->first();
 
             $collection->put('3600',NULL);
             $collection->put('2400',$grilyato_2400);
@@ -452,6 +470,8 @@ class OrderController extends Controller
             $collection->put('angle',$angle);
             $collection->put('dowel1',$dowel1);
             $collection->put('dowel2',$dowel2);
+            $collection->put('light',$light);
+
 
             return $collection;
         }
@@ -510,6 +530,11 @@ class OrderController extends Controller
             $dowel2 = ProfileGrilyato::where([
                 ['vendor_code', '=', 2232100406],
             ])->first();
+            $light = ProfileGrilyato::where([
+                ['speciality', '=', 'Т'],
+                ['type', '=', 'KRAFT LED'],
+                ['weight', '=', 15],
+            ])->first();
 
             $collection->put('3600',$grilyato_3600);
             $collection->put('2400',$grilyato_2400);
@@ -523,6 +548,8 @@ class OrderController extends Controller
             $collection->put('angle',$angle);
             $collection->put('dowel1',$dowel1);
             $collection->put('dowel2',$dowel2);
+            $collection->put('light',$light);
+
 
             return $collection;
         }

@@ -49,12 +49,12 @@
                '2000' => '2000 мм'
                ], '125', ['class' => 'form-control m-b-10', 'id' => 'grilyato_wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
             <div class="checkbox">
-                <label><input type="checkbox" id="light">Добавить освещение</label>
+                <label><input type="checkbox" id="grilyato_light">Добавить освещение</label>
             </div>
             {!! Form::select('grilyato_h',[
-               '0' => 'Менее 3.5м',
-               '1' => 'Более 3.5м',
-               ], '125', ['class' => 'form-control m-b-10', 'id' => 'grilyato_h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
+               '1' => 'Менее 3.5м',
+               '2' => 'Более 3.5м',
+               ], null, ['class' => 'form-control m-b-10', 'id' => 'grilyato_h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
             {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
@@ -163,6 +163,13 @@
                     <td id="table-grilyato-dowel2-count"></td>
                     <td id="table-grilyato-dowel2-price"></td>
                     <td id="table-grilyato-dowel2-price-all"></td>
+                </tr>
+                <tr id="grilyato-light">
+                    <td id="table-grilyato-light-vendor"></td>
+                    <td id="table-grilyato-light-description"></td>
+                    <td id="table-grilyato-light-count"></td>
+                    <td id="table-grilyato-light-price"></td>
+                    <td id="table-grilyato-light-price-all"></td>
                 </tr>
                 <tr>
                     <td style="background-color: white"></td>

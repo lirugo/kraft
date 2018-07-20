@@ -11,6 +11,25 @@ function common_total(){
 }
 
 function common_save(){
+    $( function() {
+        var progressbar = $( "#progressbar" ),
+            progressLabel = $( ".progress-label" );
+
+        progressbar.progressbar({
+            value: false,
+            change: function() {
+                progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+            },
+            complete: function() {
+                progressLabel.text( "Complete!" );
+            }
+        });
+    } );
+    $( function() {
+        $( "#loader-message" ).dialog({
+            modal: true,
+        });
+    } );
     for(var z=1; z<$('#common_table tr').length; z++){
         $.ajax({
             type:'POST',
@@ -36,6 +55,8 @@ function common_save(){
             }
         );
     }
+
+    $( "#loader-message" ).dialog('close');
     if(id == 0)
         window.location.replace("/manage");
     else
@@ -280,7 +301,6 @@ function grilyato_add(){
         row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
         row.style.borderRight = "1px solid #f78620";
-        row.style.borderBottom = "1px solid #f78620";
         newinput = document.createElement("INPUT");
         newinput.setAttribute("type", "number");
         newinput.setAttribute("min", "1");
@@ -292,6 +312,23 @@ function grilyato_add(){
         row.insertCell(2).appendChild(newinput);
         row.insertCell(3).innerHTML = document.getElementById("table-grilyato-dowel2-price").innerHTML;
         row.insertCell(4).innerHTML = (newinput.value * document.getElementById("table-grilyato-dowel2-price").innerHTML * price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    }
+    if(document.getElementById("table-grilyato-light-vendor").innerHTML != '') {
+        row = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        row.style.borderBottom = "1px solid #f78620";
+        newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-grilyato-light-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table-grilyato-light-description").innerHTML;
+        newinput.setAttribute("value", document.getElementById("table-grilyato-light-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-grilyato-light-price").innerHTML;
+        row.insertCell(4).innerHTML = (newinput.value * document.getElementById("table-grilyato-light-price").innerHTML * price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     }
     //SHOW COMMON TABLE
     $("#common_div").show();
@@ -398,7 +435,6 @@ function tprofile_add() {
     row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";
         row.style.borderRight = "1px solid #f78620";
-        row.style.borderBottom = "1px solid #f78620";
     newinput = document.createElement("INPUT");
     newinput.setAttribute("type", "number");
     newinput.setAttribute("min", "1");
@@ -410,6 +446,23 @@ function tprofile_add() {
     row.insertCell(2).appendChild(newinput);
     row.insertCell(3).innerHTML =  document.getElementById("table-springSusp-price").innerHTML;
     row.insertCell(4).innerHTML =  document.getElementById("table-springSusp-price-all").innerHTML;
+    if(document.getElementById("table-light-vendor").innerHTML != '') {
+        row = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        row.style.borderBottom = "1px solid #f78620";
+        newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-light-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table-light-description").innerHTML;
+        newinput.setAttribute("value", document.getElementById("table-light-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-light-price").innerHTML;
+        row.insertCell(4).innerHTML = (newinput.value * document.getElementById("table-light-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    }
     // //SUSP;
     // row = table.insertRow(-1);
     //     row.style.borderBottom = "1px solid #f78620";

@@ -38,6 +38,13 @@
                 '2000' => '2000 мм'
                 ], '125', ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
                 {!! Form::select('colors',['9003' => '9003'], '9003', ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
+                <div class="checkbox">
+                    <label><input type="checkbox" id="light">Добавить освещение</label>
+                </div>
+                {!! Form::select('h',[
+                   '1' => 'Менее 3.5м',
+                   '2' => 'Более 3.5м',
+                   ], null, ['class' => 'form-control m-b-10', 'id' => 'h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
                 {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
@@ -111,6 +118,13 @@
                     <td id="table-springSusp-count"></td>
                     <td id="table-springSusp-price"></td>
                     <td id="table-springSusp-price-all"></td>
+                </tr>
+                <tr id="tprofile-light">
+                    <td id="table-light-vendor"></td>
+                    <td id="table-light-description"></td>
+                    <td id="table-light-count"></td>
+                    <td id="table-light-price"></td>
+                    <td id="table-light-price-all"></td>
                 </tr>
                 {{--<tr>--}}
                     {{--<td id="table-susp-vendor"></td>--}}
