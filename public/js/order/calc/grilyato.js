@@ -131,7 +131,7 @@ function formGrilyato() {
     //отправляю wall_profile запрос и получаю ответ
     getNewENumber(function( vendor ) {
         $( "#loader-message" ).dialog('close');
-        console.log(document.getElementById('grilyato_light').checked);
+        console.log(vendor);
 
 
 //DataProcessing
