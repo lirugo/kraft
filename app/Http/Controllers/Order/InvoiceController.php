@@ -48,7 +48,7 @@ class InvoiceController extends Controller
                 'user_id' => Auth::user()->id,
                 'user_id_1c' => '00-00000341',
                 'product_id' => $order->vendor_code,
-                'quantity' => $order->count_pack*$order->pack,
+                'quantity' => $order->count,
                 'stock' => $order->stock,
                 'status' => 0,
             ];
