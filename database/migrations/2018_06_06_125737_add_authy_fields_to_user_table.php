@@ -14,7 +14,7 @@ class AddAuthyFieldsToUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('two_factor_type', ['firstTime', 'off', 'sms']);
+            $table->enum('two_factor_type', ['off', 'firstTime', 'sms']);
             $table->integer('authy_id')->unique()->nullable()->after('id');
         });
     }

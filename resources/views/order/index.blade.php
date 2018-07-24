@@ -30,6 +30,8 @@
 
         @include('order.calc.includes.grilyato')
 
+        @include('order.calc.includes.rail')
+
         @include('order.calc.includes.common')
 
         <div id="loader-message" title="Получение данных">
@@ -40,39 +42,37 @@
     </div>
     {{--JQuery--}}
     <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
-            <div class="col-md-3">
-                <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
-                <h4 onclick="showTProfile()">T-Profile</h4>
-            </div>
-            <div class="col-md-3">
-                <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
-                <h4 onclick="showGrilyato()">Grilyato</h4>
-            </div>
-            <div class="col-md-3">
-                <img src="/img/icon/calc/cube.png" width="150px"/>
-                <h4>Cube</h4>
-            </div>
-            <div class="col-md-3">
-                <img src="/img/icon/calc/led.png" width="150px"/>
-                <h4>Led</h4>
-            </div>
+        <div class="col-md-4">
+            <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
+            <h4 onclick="showTProfile()">T-Profile</h4>
+        </div>
+        <div class="col-md-4">
+            <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
+            <h4 onclick="showGrilyato()">Grilyato</h4>
+        </div>
+        <div class="col-md-4">
+            <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
+            <h4 onclick="showRail()">Rail</h4>
+        </div>
     </div>
 @endsection
 
 @section('scripts')
     <script src="/js/order/calc/tprofile.js"></script>
     <script src="/js/order/calc/grilyato.js"></script>
+    <script src="/js/order/calc/rail.js"></script>
     <script src="/js/order/calc/common.js"></script>
     <script>
         $("#calc_t_profile").hide();
         $("#calc_grilyato").hide();
+        $("#calc_rail").hide();
         $("#common_div").hide();
         $("#save_order").hide();
         //Dialog select Calc
         $( function() {
             $( "#dialog_select_cal" ).dialog({
                 autoOpen: true,
-                width:800,
+                width:600,
                 dialogClass: 'arbeitsauftrag_hilfe',
                 show: {
                     effect: "drop",
@@ -95,6 +95,7 @@
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_grilyato").hide();
+            $("#calc_rail").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_t_profile" ).is( ":visible" ))
             {
@@ -102,10 +103,23 @@
             }
             else $("#calc_t_profile").show();
         }
+        function showRail() {
+            //Hide  Dialog Window
+            $("#dialog_select_cal").dialog( "close" );
+            $("#calc_grilyato").hide();
+            $("#calc_t_profile").hide();
+            //Show or Hide Calc TProfile
+            if($( "#calc_rail" ).is( ":visible" ))
+            {
+                $("#calc_rail").hide();
+            }
+            else $("#calc_rail").show();
+        }
         function showGrilyato() {
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_t_profile").hide();
+            $("#calc_rail").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_grilyato" ).is( ":visible" ))
             {
