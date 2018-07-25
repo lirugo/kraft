@@ -44,29 +44,27 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/admin/product/">
+                                    <i class="fa fa-upload fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Products
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                         {{--<div class="col-md-2 text-center">--}}
                             {{--<div class="card">--}}
-                                {{--<a href="/admin/product/upload">--}}
-                                    {{--<i class="fa fa-upload fa-5x" aria-hidden="true"></i>--}}
+                                {{--<a href="/admin/calc">--}}
+                                    {{--<i class="fa fa-calculator fa-5x" aria-hidden="true"></i>--}}
                                     {{--<div class="description m-t-10">--}}
-                                        {{--Upload products--}}
+                                        {{--Setting Calculator--}}
                                     {{--</div>--}}
                                 {{--</a>--}}
                             {{--</div>--}}
                         {{--</div>--}}
                         <div class="col-md-2 text-center">
-                            <div class="card">
-                                <a href="/admin/calc">
-                                    <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
-                                    <div class="description m-t-10">
-                                        Setting Calculator
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row m-t-20">
-                        <div class="col-md-2 col-md-offset-1 text-center">
                             <div class="card">
                                 <a href="/admin/news/create">
                                     <i class="fa fa-newspaper-o fa-5x" aria-hidden="true"></i>

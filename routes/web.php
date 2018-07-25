@@ -131,8 +131,8 @@ Route::group(['prefix' => 'admin'],
         Route::post('users/create', 'Admin\AdminController@createuserpost')->name('admin.users.create');
 
         //Product
-            Route::get('product/upload', 'Product\ProductController@upload');
-            Route::post('product/upload', 'Product\ProductController@uploadpost')->name('admin.product.upload');
+        Route::get('product', 'Admin\ProductController@index');
+        Route::post('product/update/{id}', 'Admin\ProductController@update')->name('admin.product.update');
         //Product
 
         //News
@@ -220,6 +220,7 @@ Route::post('/select/delete/{id}', 'Order\OrderController@deletePartOrder')->nam
 
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
 Route::post('/order/grilyato/vendor', 'Order\OrderController@grilyatovendor');
+Route::post('/order/rail/vendor', 'Order\OrderController@railvendor');
 Route::post('/order/common/save/{id}', 'Order\OrderController@common_save')->name('order.common.save');
 
 //Invoice Route

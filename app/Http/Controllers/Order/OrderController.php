@@ -556,6 +556,95 @@ class OrderController extends Controller
         return $request->grilyato_model;
     }
 
+    public function railvendor(Request $request){
+        $collection = new Collection();
+        if($request->color == 'other')
+            $color = 'ANY RAL';
+        else
+            $color = $request->color;
+
+        $rail_1 = ProfileGrilyato::where([
+            ['type', '=', 'Рейка'],
+            ['speciality', '=', 'кубоподібна'],
+            ['color', '=', $request->color],
+            ['weight', '=', $request->rail_m_w_1],
+            ['height', '=', $request->rail_m_h_1],
+        ])->first();
+        $rail_2 = ProfileGrilyato::where([
+            ['type', '=', 'Рейка'],
+            ['speciality', '=', 'кубоподібна'],
+            ['color', '=', $request->color],
+            ['weight', '=', $request->rail_m_w_2],
+            ['height', '=', $request->rail_m_h_2],
+        ])->first();
+        $rail_3 = ProfileGrilyato::where([
+            ['type', '=', 'Рейка'],
+            ['speciality', '=', 'кубоподібна'],
+            ['color', '=', $request->color],
+            ['weight', '=', $request->rail_m_w_3],
+            ['height', '=', $request->rail_m_h_3],
+        ])->first();
+        $rail_4 = ProfileGrilyato::where([
+            ['type', '=', 'Рейка'],
+            ['speciality', '=', 'кубоподібна'],
+            ['color', '=', $request->color],
+            ['weight', '=', $request->rail_m_w_4],
+            ['height', '=', $request->rail_m_h_4],
+        ])->first();
+
+        if($request->rail_face == 'stub')
+        {
+            $stub = ProfileGrilyato::where([
+                ['type', '=', 'Заглушка'],
+                ['color', '=', $request->color],
+                ['weight', '=', $request->rail_m_w_1],
+                ['height', '=', $request->rail_m_h_1],
+            ])->first();
+        }else if($request->rail_face == 'angle'){
+            $stub = ProfileGrilyato::where([
+                ['type', '=', 'Fortis'],
+                ['speciality', '=', 'L'],
+                ['color', '=', $request->color],
+                ['length', '=', '3000'],
+            ])->first();
+        } else {
+            $stub = NULL;
+        }
+
+        $suspass = ProfileGrilyato::where([
+            ['vendor_code', '=', '2223'],
+        ])->first();
+        $wireWithEar = ProfileGrilyato::where([
+            ['vendor_code', '=', '22101250'],
+        ])->first();
+        $wireWithHook = ProfileGrilyato::where([
+            ['vendor_code', '=', '22111250'],
+        ])->first();
+        $suspdowel = ProfileGrilyato::where([
+            ['vendor_code', '=', '2232100406'],
+        ])->first();
+        $travers = ProfileGrilyato::where([
+            ['vendor_code', '=', '2200'],
+        ])->first();
+        $stubdowel = ProfileGrilyato::where([
+            ['vendor_code', '=', '2231100406'],
+        ])->first();
+
+        $collection->put('rail_1',$rail_1);
+        $collection->put('rail_2',$rail_2);
+        $collection->put('rail_3',$rail_3);
+        $collection->put('rail_4',$rail_4);
+        $collection->put('stub',$stub);
+        $collection->put('suspass',$suspass);
+        $collection->put('suspdowel',$suspdowel);
+        $collection->put('wireWithEar',$wireWithEar);
+        $collection->put('wireWithHook',$wireWithHook);
+        $collection->put('travers',$travers);
+        $collection->put('stubdowel',$stubdowel);
+
+        return $collection;
+    }
+
     public function common_save(Request $request, $id){
         $calcHis = new CalcHistory();
         if($id != 0)

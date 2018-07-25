@@ -90,12 +90,15 @@ class AdminController extends Controller
         {
             $company = Company::all()->where('email', '=', $user->email)->first();
             $objects = Object::all()->where('companyid', '=', $company->id);
+
             foreach ($objects as $object)
                 if(!empty($object))$object->delete();
+
             $users = User::all();
             foreach ($users as $u)
                 if($u->company == $company->companyname)
                     $u->delete();
+
             $company->delete();
         }
         $user->delete();
