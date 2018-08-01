@@ -10,8 +10,8 @@
             <tr>
                 <th scope="col" style="color: #f78421;">Артикул</th>
                 <th scope="col" style="color: #f78421;">Наименование</th>
-                <th scope="col" style="color: #f78421;">Кол-во шт</th>
-                <th scope="col" style="color: #f78421;">Цена за шт</th>
+                <th scope="col" style="color: #f78421;">Кол-во</th>
+                <th scope="col" style="color: #f78421;">Цена</th>
                 <th scope="col" style="color: #f78421;">Стоимость, грн</th>
             </tr>
             </thead>

@@ -85,6 +85,218 @@ function update_pack(e) {
 
 }
 //ADding to common table
+function rail_add(){
+
+    $("#save_order").show();
+    $("#calc_grilyato").hide();
+    var row;
+    var newinput;
+    if(document.getElementById("table-rail-1-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderTop = "1px solid #f78620";
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-1-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-1-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-1-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-1-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-1-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-2-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-2-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-2-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-2-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-2-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-2-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-3-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-3-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-3-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-3-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-3-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-3-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-4-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-4-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-4-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-4-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-4-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-4-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-travers-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-travers-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-travers-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-travers-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-travers-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-travers-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-stub-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-stub-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-stub-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-stub-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-stub-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-stub-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-suspass-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-suspass-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-suspass-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-suspass-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-suspass-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-suspass-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-wireWithEar-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-wireWithEar-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-wireWithEar-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-wireWithEar-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-wireWithEar-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-wireWithEar-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-wireWithHook-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-wireWithHook-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-wireWithHook-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-wireWithHook-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-wireWithHook-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-wireWithHook-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-suspdowel-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-suspdowel-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-suspdowel-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-suspdowel-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-suspdowel-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-suspdowel-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    if(document.getElementById("table-rail-stubdowel-vendor").innerHTML != ''){
+        row  = table.insertRow(-1);
+        row.style.borderBottom = "1px solid #f78620";
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        var newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-rail-stubdowel-vendor").innerHTML;
+        row.insertCell(1).innerHTML =  document.getElementById("table-rail-stubdowel-description").innerHTML ;
+        newinput.setAttribute("value", document.getElementById("table-rail-stubdowel-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-rail-stubdowel-price").innerHTML;
+        row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-stubdowel-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        // row.cells[9].setAttribute('style', 'display:none;');
+    }
+
+    //SHOW COMMON TABLE
+    $("#common_div").show();
+
+    common_total();
+}
 function grilyato_add(){
 
     $("#save_order").show();
