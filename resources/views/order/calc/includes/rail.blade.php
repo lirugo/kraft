@@ -275,6 +275,48 @@
                 </tr>
                 </tbody>
             </table>
+            <h3 class="text-center">Вывод данных для производства</h3>
+            <table class="table table-striped table-borderless text-center">
+                <thead>
+                <tr>
+                    <th scope="col" style="color: #f78421;">Артикул</th>
+                    <th scope="col" style="color: #f78421;">Наименование</th>
+                    <th scope="col" style="color: #f78421;">Длина 1 шт</th>
+                    <th scope="col" style="color: #f78421;">м.п.</th>
+                    <th scope="col" style="color: #f78421;">шт.</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="table2-rail-1">
+                    <td id="table2-rail-1-vendor"></td>
+                    <td id="table2-rail-1-description"></td>
+                    <td id="table2-rail-1-length"></td>
+                    <td id="table2-rail-1-mp"></td>
+                    <td id="table2-rail-1-count"></td>
+                </tr>
+                <tr id="table2-rail-2">
+                    <td id="table2-rail-2-vendor"></td>
+                    <td id="table2-rail-2-description"></td>
+                    <td id="table2-rail-2-length"></td>
+                    <td id="table2-rail-2-mp"></td>
+                    <td id="table2-rail-2-count"></td>
+                </tr>
+                <tr id="table2-rail-3">
+                    <td id="table2-rail-3-vendor"></td>
+                    <td id="table2-rail-3-description"></td>
+                    <td id="table2-rail-3-length"></td>
+                    <td id="table2-rail-3-mp"></td>
+                    <td id="table2-rail-3-count"></td>
+                </tr>
+                <tr id="table2-rail-4">
+                    <td id="table2-rail-4-vendor"></td>
+                    <td id="table2-rail-4-description"></td>
+                    <td id="table2-rail-4-length"></td>
+                    <td id="table2-rail-4-mp"></td>
+                    <td id="table2-rail-4-count"></td>
+                </tr>
+                </tbody>
+            </table>
             {!! Form::button('Добавить в спецификацию', ['onclick' => 'rail_add()', 'class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
             <br>
             <br>
