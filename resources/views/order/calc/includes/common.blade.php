@@ -18,6 +18,24 @@
             <tbody>
             </tbody>
         </table>
+
+        {{--TABLE2  for rail--}}
+
+        <h3 class="text-center" id="rail-text-production">Вывод данных для производства</h3>
+        <table class="table table-striped table-borderless text-center" id="table2-rail">
+            <thead>
+            <tr>
+                <th scope="col" style="color: #f78421;">Артикул</th>
+                <th scope="col" style="color: #f78421;">Наименование</th>
+                <th scope="col" style="color: #f78421;">Длина 1 шт</th>
+                <th scope="col" style="color: #f78421;">м.п.</th>
+                <th scope="col" style="color: #f78421;">шт.</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
         <hr>
     </div>
 </div>

@@ -220,7 +220,7 @@ function formRail() {
     var length = document.getElementById('rail_length').value;
     var count = document.getElementById('rail_count').value;
     var rail_face = document.getElementById('rail_face').value;
-    var S = (width*length/count/1000000);
+    var S = (width*length/count);
     var P = (2*width)+(2*length);
     var type;
     var l_angle_count = Math.ceil(P / 3000);
@@ -253,8 +253,8 @@ function formRail() {
         rail_m_h_1 = document.getElementById('rail_m_h_1').value;
         var rail_1_count;
         var stub_1;
-        var rail_1_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_1_one_length = (type / 1000 / rail_1_count_in_row).toFixed(2);
+        var rail_1_count_in_row = Math.ceil(type / 4);
+        var rail_1_one_length = (type / rail_1_count_in_row).toFixed(2);
         var rail_1_count_connect = rail_1_count_in_row - 1;
         rail_1_m_p = S * 1000 / module_1;
         rail_1_count = Math.ceil(rail_1_m_p / type);
@@ -265,15 +265,15 @@ function formRail() {
         var rail_1_count_stub = rail_1_count_rail*2;
 
     }
-    if(count == 2){
+    else if(count == 2){
         var rail_1_m_p;
         var module_1 = document.getElementById('rail_m_s_1').value;
         rail_m_w_1 = document.getElementById('rail_m_w_1').value;
         rail_m_h_1 = document.getElementById('rail_m_h_1').value;
         var rail_1_count;
         var stub_1;
-        var rail_1_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_1_one_length = (type / 1000 / rail_1_count_in_row).toFixed(2);
+        var rail_1_count_in_row = Math.ceil(type / 4);
+        var rail_1_one_length = (type / rail_1_count_in_row).toFixed(2);
         var rail_1_count_connect = rail_1_count_in_row - 1;
         rail_1_m_p = S * 1000 / module_1;
         rail_1_count = Math.ceil(rail_1_m_p / type);
@@ -289,8 +289,8 @@ function formRail() {
         rail_m_h_2 = document.getElementById('rail_m_h_2').value;
         var rail_2_count;
         var stub_2;
-        var rail_2_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_2_one_length = (type / 1000 / rail_2_count_in_row).toFixed(2);
+        var rail_2_count_in_row = Math.ceil(type / 4);
+        var rail_2_one_length = (type / rail_2_count_in_row).toFixed(2);
         var rail_2_count_connect = rail_2_count_in_row - 1;
         rail_2_m_p = S * 1000 / module_2;
         rail_2_count = Math.ceil(rail_2_m_p / type);
@@ -300,15 +300,15 @@ function formRail() {
         var rail_2_count_rail = Math.ceil(rail_2_m_p / rail_2_one_length);
         var rail_2_count_stub = rail_2_count_rail*2;
     }
-    if(count == 3){
+    else if(count == 3){
         var rail_1_m_p;
         var module_1 = document.getElementById('rail_m_s_1').value;
         rail_m_w_1 = document.getElementById('rail_m_w_1').value;
         rail_m_h_1 = document.getElementById('rail_m_h_1').value;
         var rail_1_count;
         var stub_1;
-        var rail_1_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_1_one_length = (type / 1000 / rail_1_count_in_row).toFixed(2);
+        var rail_1_count_in_row = Math.ceil(type / 4);
+        var rail_1_one_length = (type / rail_1_count_in_row).toFixed(2);
         var rail_1_count_connect = rail_1_count_in_row - 1;
         rail_1_m_p = S * 1000 / module_1;
         rail_1_count = Math.ceil(rail_1_m_p / type);
@@ -324,8 +324,8 @@ function formRail() {
         rail_m_h_2 = document.getElementById('rail_m_h_2').value;
         var rail_2_count;
         var stub_2;
-        var rail_2_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_2_one_length = (type / 1000 / rail_2_count_in_row).toFixed(2);
+        var rail_2_count_in_row = Math.ceil(type / 4);
+        var rail_2_one_length = (type / rail_2_count_in_row).toFixed(2);
         var rail_2_count_connect = rail_2_count_in_row - 1;
         rail_2_m_p = S * 1000 / module_2;
         rail_2_count = Math.ceil(rail_2_m_p / type);
@@ -341,8 +341,8 @@ function formRail() {
         rail_m_h_3 = document.getElementById('rail_m_h_3').value;
         var rail_3_count;
         var stub_3;
-        var rail_3_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_3_one_length = (type / 1000 / rail_3_count_in_row).toFixed(2);
+        var rail_3_count_in_row = Math.ceil(type / 4);
+        var rail_3_one_length = (type / rail_3_count_in_row).toFixed(2);
         var rail_3_count_connect = rail_3_count_in_row - 1;
         rail_3_m_p = S * 1000 / module_3;
         rail_3_count = Math.ceil(rail_3_m_p / type);
@@ -352,15 +352,15 @@ function formRail() {
         var rail_3_count_rail = Math.ceil(rail_3_m_p / rail_3_one_length);
         var rail_3_count_stub = rail_3_count_rail*2;
     }
-    if(count == 4){
+    else if(count == 4){
         var rail_1_m_p;
         var module_1 = document.getElementById('rail_m_s_1').value;
         rail_m_w_1 = document.getElementById('rail_m_w_1').value;
         rail_m_h_1 = document.getElementById('rail_m_h_1').value;
         var rail_1_count;
         var stub_1;
-        var rail_1_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_1_one_length = (type / 1000 / rail_1_count_in_row).toFixed(2);
+        var rail_1_count_in_row = Math.ceil(type / 4);
+        var rail_1_one_length = (type / rail_1_count_in_row).toFixed(2);
         var rail_1_count_connect = rail_1_count_in_row - 1;
         rail_1_m_p = S * 1000 / module_1;
         rail_1_count = Math.ceil(rail_1_m_p / type);
@@ -376,8 +376,8 @@ function formRail() {
         rail_m_h_2 = document.getElementById('rail_m_h_2').value;
         var rail_2_count;
         var stub_2;
-        var rail_2_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_2_one_length = (type / 1000 / rail_2_count_in_row).toFixed(2);
+        var rail_2_count_in_row = Math.ceil(type / 4);
+        var rail_2_one_length = (type / rail_2_count_in_row).toFixed(2);
         var rail_2_count_connect = rail_2_count_in_row - 1;
         rail_2_m_p = S * 1000 / module_2;
         rail_2_count = Math.ceil(rail_2_m_p / type);
@@ -393,8 +393,8 @@ function formRail() {
         rail_m_h_3 = document.getElementById('rail_m_h_3').value;
         var rail_3_count;
         var stub_3;
-        var rail_3_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_3_one_length = (type / 1000 / rail_3_count_in_row).toFixed(2);
+        var rail_3_count_in_row = Math.ceil(type / 4);
+        var rail_3_one_length = (type / rail_3_count_in_row).toFixed(2);
         var rail_3_count_connect = rail_3_count_in_row - 1;
         rail_3_m_p = S * 1000 / module_3;
         rail_3_count = Math.ceil(rail_3_m_p / type);
@@ -410,8 +410,8 @@ function formRail() {
         rail_m_h_4 = document.getElementById('rail_m_h_4').value;
         var rail_4_count;
         var stub_4;
-        var rail_4_count_in_row = Math.ceil(type / 1000 / 4);
-        var rail_4_one_length = (type / 1000 / rail_4_count_in_row).toFixed(2);
+        var rail_4_count_in_row = Math.ceil(type / 4);
+        var rail_4_one_length = (type / rail_4_count_in_row).toFixed(2);
         var rail_4_count_connect = rail_4_count_in_row - 1;
         rail_4_m_p = S * 1000 / module_4;
         rail_4_count = Math.ceil(rail_4_m_p / type);

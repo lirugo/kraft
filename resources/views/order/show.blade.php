@@ -28,6 +28,7 @@
                     </thead>
                     <tbody>
                     @foreach($orders as $order)
+                        @if($order->production == false)
                          <tr>
                             <td>{{$order->vendor_code}}</td>
                             <td>{{$order->description}}</td>
@@ -40,6 +41,7 @@
                                 {!! Form::close() !!}
                             </td>
                          </tr>
+                         @endif
                     @endforeach
                     <tr>
                         <td style="background-color: white"></td>
@@ -48,6 +50,33 @@
                         <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
                         <td style="background-color: #eeeeee; color: #f78421;" id="total-sum">{{$orders->total}}</td>
                     </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <hr style="margin-top: 30px;">
+                <h3 class="text-center">Вывод данных для производства</h3>
+                <table class="table table-striped table-borderless text-center" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="color: #f78421;">Артикул</th>
+                        <th scope="col" style="color: #f78421;">Наименование</th>
+                        <th scope="col" style="color: #f78421;">Длина 1 шт</th>
+                        <th scope="col" style="color: #f78421;">м.п.</th>
+                        <th scope="col" style="color: #f78421;">шт.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($orders as $order)
+                        @if($order->production == true)
+                            <tr>
+                                <td>{{$order->vendor_code}}</td>
+                                <td>{{$order->description}}</td>
+                                <td>{{$order->one_length}}</td>
+                                <td>{{$order->mp}}</td>
+                                <td>{{$order->count_production}}</td>
+                            </tr>
+                        @endif
+                    @endforeach
                     </tbody>
                 </table>
                 <hr>

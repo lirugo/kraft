@@ -1,7 +1,9 @@
 var i;
 var price;
 var table = document.getElementById("common_table");
-
+var table2 = document.getElementById("table2-rail");
+document.getElementById("table2-rail").style.display = 'none';
+document.getElementById("rail-text-production").style.display = 'none';
 function common_total(){
     var total = 0;
     for(var z=1; z<$('#common_table tr').length; z++){
@@ -35,6 +37,37 @@ function common_save(){
             type:'POST',
             url:'/order/common/save/'+id,
             async:false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+                console.log('ok');
+                console.log(data);
+            },
+            error: function (error){
+                console.log('errors');
+                console.log(error);
+            },
+            data:{
+                id:id,
+                order_id:document.getElementById('order_code').innerText,
+                vendor_code:table.rows[z].cells[0].innerHTML,
+                description:table.rows[z].cells[1].innerHTML,
+                count:table.rows[z].cells[2].getElementsByTagName("input")[0].value,
+                price:table.rows[z].cells[3].innerHTML,
+                },
+            dataType:'json',
+            }
+        );
+    }
+    for(var z=1; z<$('#table2-rail tr').length; z++){
+        $.ajax({
+            type:'POST',
+            url:'/order/common/save/'+id,
+            async:false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             success: function (data) {
                 console.log(data);
             },
@@ -43,13 +76,14 @@ function common_save(){
                 console.log(error);
             },
             data:{
-                _token: $('meta[name=csrf-token]').attr('content'),
                 id:id,
+                production:true,
                 order_id:document.getElementById('order_code').innerText,
-                vendor_code:table.rows[z].cells[0].innerHTML,
+                vendor_code:table2.rows[z].cells[0].innerHTML,
                 description:table.rows[z].cells[1].innerHTML,
-                count:table.rows[z].cells[2].getElementsByTagName("input")[0].value,
-                price:table.rows[z].cells[3].innerHTML,
+                one_length:table2.rows[z].cells[2].innerHTML,
+                mp:table2.rows[z].cells[3].innerHTML,
+                count_production:table2.rows[z].cells[4].innerHTML,
                 },
             dataType:'json',
             }
@@ -290,6 +324,54 @@ function rail_add(){
         row.insertCell(3).innerHTML = document.getElementById("table-rail-stubdowel-price").innerHTML;
         row.insertCell(4).innerHTML =  (newinput.value*document.getElementById("table-rail-stubdowel-price").innerHTML).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         // row.cells[9].setAttribute('style', 'display:none;');
+    }
+    //Tabl2
+    if(document.getElementById("table2-rail-1-vendor").innerHTML != ''){
+        row  = table2.insertRow(-1);
+        document.getElementById("table2-rail").style.display = '';
+        document.getElementById("rail-text-production").style.display = '';
+        row.style.borderTop = "1px solid red";
+        row.style.borderBottom = "1px solid red";
+        row.style.borderLeft = "1px solid red";
+        row.style.borderRight = "1px solid red";
+        row.insertCell(0).innerHTML = document.getElementById("table2-rail-1-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table2-rail-1-description").innerHTML;
+        row.insertCell(2).innerHTML = document.getElementById("table2-rail-1-length").innerHTML;
+        row.insertCell(3).innerHTML = document.getElementById("table2-rail-1-mp").innerHTML;
+        row.insertCell(4).innerHTML = document.getElementById("table2-rail-1-count").innerHTML;
+    }
+    if(document.getElementById("table2-rail-2-vendor").innerHTML != ''){
+        row  = table2.insertRow(-1);
+        row.style.borderBottom = "1px solid red";
+        row.style.borderLeft = "1px solid red";
+        row.style.borderRight = "1px solid red";
+        row.insertCell(0).innerHTML = document.getElementById("table2-rail-2-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table2-rail-2-description").innerHTML;
+        row.insertCell(2).innerHTML = document.getElementById("table2-rail-2-length").innerHTML;
+        row.insertCell(3).innerHTML = document.getElementById("table2-rail-2-mp").innerHTML;
+        row.insertCell(4).innerHTML = document.getElementById("table2-rail-2-count").innerHTML;
+    }
+    if(document.getElementById("table2-rail-3-vendor").innerHTML != ''){
+        row  = table2.insertRow(-1);
+        row.style.borderBottom = "1px solid red";
+        row.style.borderLeft = "1px solid red";
+        row.style.borderRight = "1px solid red";
+        row.insertCell(0).innerHTML = document.getElementById("table2-rail-3-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table2-rail-3-description").innerHTML;
+        row.insertCell(2).innerHTML = document.getElementById("table2-rail-3-length").innerHTML;
+        row.insertCell(3).innerHTML = document.getElementById("table2-rail-3-mp").innerHTML;
+        row.insertCell(4).innerHTML = document.getElementById("table2-rail-3-count").innerHTML;
+    }
+    if(document.getElementById("table2-rail-4-vendor").innerHTML != ''){
+        row  = table2.insertRow(-1);
+        row.style.borderBottom = "1px solid red";
+        row.style.borderLeft = "1px solid red";
+        row.style.borderRight = "1px solid red";
+        row.insertCell(0).innerHTML = document.getElementById("table2-rail-4-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table2-rail-4-description").innerHTML;
+        row.insertCell(2).innerHTML = document.getElementById("table2-rail-4-length").innerHTML;
+        row.insertCell(3).innerHTML = document.getElementById("table2-rail-4-mp").innerHTML;
+        row.insertCell(4).innerHTML = document.getElementById("table2-rail-4-count").innerHTML;
     }
 
     //SHOW COMMON TABLE

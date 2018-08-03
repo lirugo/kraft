@@ -652,17 +652,30 @@ class OrderController extends Controller
         else
             $calcHis->stock = true;
 
-        $calcHis->user_id = Auth::user()->id;
-        $calcHis->order_id = $request->order_id;
-        $calcHis->vendor_code = $request->vendor_code;
-        $calcHis->model = $request->model;
-        $calcHis->description = $request->description;
-        $calcHis->width = $request->width;
-        $calcHis->length = $request->length;
-        $calcHis->color = $request->color;
-        $calcHis->count = $request->count;
-        $calcHis->price = $request->price;
-        $calcHis->save();
+        if(!isset($request->production)) {
+            $calcHis->production = false;
+            $calcHis->user_id = Auth::user()->id;
+            $calcHis->order_id = $request->order_id;
+            $calcHis->vendor_code = $request->vendor_code;
+            $calcHis->model = $request->model;
+            $calcHis->description = $request->description;
+            $calcHis->width = $request->width;
+            $calcHis->length = $request->length;
+            $calcHis->color = $request->color;
+            $calcHis->count = $request->count;
+            $calcHis->price = $request->price;
+            $calcHis->save();
+        }else if($request->production == true) {
+            $calcHis->production = true;
+            $calcHis->user_id = Auth::user()->id;
+            $calcHis->description = $request->description;
+            $calcHis->order_id = $request->order_id;
+            $calcHis->vendor_code = $request->vendor_code;
+            $calcHis->one_length = $request->one_length;
+            $calcHis->mp = $request->mp;
+            $calcHis->count_production = $request->count_production;
+            $calcHis->save();
+        }
         Session::flash('success', 'Ваш заказ сохранен.');
     }
 
