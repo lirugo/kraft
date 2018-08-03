@@ -90,7 +90,6 @@ function common_save(){
         );
     }
 
-    $( "#loader-message" ).dialog('close');
     if(id == 0)
         window.location.replace("/manage");
     else
