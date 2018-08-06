@@ -106,7 +106,7 @@ class OrderController extends Controller
         $object = Object::find($id);
         $constants = Constants::get()->last();
         $data = new Collection;
-        $data->put('objectId' , $id);
+        $data->put('objectId' , rand(0,999));
         $data->put('constants' , $constants);
         Javascript::put([
             'id' => $id,
@@ -195,17 +195,10 @@ class OrderController extends Controller
         $i = 1;
         foreach ($orders as $order)
         {
-            if(!empty($buff = VendorCodeTProfile::where('vendor_code','=', $order->vendor_code)->first()))
-                $sum_by_one = $buff->price;
-            else  if(!empty($buff = VendorCodeTProfileAngle::where('vendor_code','=', $order->vendor_code)->first()))
-                $sum_by_one = $buff->price;
-            else  if(!empty($buff = VendorCodeTProfileSusp::where('vendor_code','=', $order->vendor_code)->first()))
-                $sum_by_one = $buff->price;
-            else $sum_by_one = 0;
-
+            $sum_by_one = $order->sum;
             $order->sum = $sum_by_one*$order->pack*$order->count_pack;
-            $total += $order->sum;
-            $order->save();
+            $total += $order->count*$order->price;
+//            $order->save();
             $order->id_row = $i;
             $order->sum_by_one = $sum_by_one;
             $i+=1;
@@ -214,13 +207,12 @@ class OrderController extends Controller
             $orders->status = $order->status;
         }
         $orders->total = $total;
-
         return view('order.show')->with('orders',$orders);
     }
 
     public function historyStock(){
         $orders = CalcHistory::all()->where('user_id', Auth::user()->id);
-        $orders = $orders->unique('user_id');
+        $orders = $orders->unique('order_id');
         $data = new Collection();
         $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
