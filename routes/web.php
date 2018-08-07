@@ -134,6 +134,10 @@ Route::group(['prefix' => 'admin'],
         Route::get('product', 'Admin\ProductController@index');
         Route::post('product/update/{id}', 'Admin\ProductController@update')->name('admin.product.update');
         //Product
+        //Distributor
+        Route::get('distributor', 'Admin\DistributorController@index');
+        Route::post('distributor/update/{id}', 'Admin\DistributorController@update')->name('admin.distributor.update');
+        //Distributor
 
         //News
             Route::get('news/create', 'Admin\NewsController@create');
