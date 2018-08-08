@@ -47,7 +47,7 @@ class InvoiceController extends Controller
                 $ords[$i] = [
                     'order_id' => $order->order_id,
                     'user_id' => Auth::user()->id,
-                    'user_id_1c' => '00-00000341',
+                    'user_id_1c' => $order->vendor_code_1c,
                     'product_id' => $order->vendor_code,
                     'quantity' => $order->count,
                     'stock' => $order->stock,

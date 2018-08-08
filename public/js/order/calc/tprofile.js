@@ -160,8 +160,8 @@ function formTProfile() {
 
         var light = null;
         if(document.getElementById("h").value == 1)
-            light = Math.ceil(s/7);
-        else if(document.getElementById("h").value == 2) light = Math.ceil(s/5);
+            light = Math.ceil(s/10);
+        else if(document.getElementById("h").value == 2) light = Math.ceil(s/7);
 
         if(!document.getElementById("light").checked) {
             light = null;
