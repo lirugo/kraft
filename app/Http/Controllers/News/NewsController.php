@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class NewsController extends Controller
 {
     public function index(){
-        $news = News::all();
+        $news = News::orderBy('id', 'desc')->get();
         return view('news.index')->with('news', $news);
     }
 }

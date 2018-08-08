@@ -43,22 +43,29 @@ class InvoiceController extends Controller
 //            $ords->_Fld53374 = 0;
 
 //            set JSON
-            $ords[$i] = [
-                'order_id' => $order->order_id,
-                'user_id' => Auth::user()->id,
-                'user_id_1c' => '00-00000341',
-                'product_id' => $order->vendor_code,
-                'quantity' => $order->count,
-                'stock' => $order->stock,
-                'status' => 0,
-            ];
-            $i++;
 
+                $ords[$i] = [
+                    'order_id' => $order->order_id,
+                    'user_id' => Auth::user()->id,
+                    'user_id_1c' => '00-00000341',
+                    'product_id' => $order->vendor_code,
+                    'quantity' => $order->count,
+                    'stock' => $order->stock,
+                    'status' => 0,
+                    'production' => $order->production,
+                    'one_length' => $order->one_length,
+                    'mp' => $order->mp,
+                    'count_production' => $order->count_production,
+                ];
+
+
+            $i++;
 
 //            Change status order
 //            $order->status = true;
 //            $order->save();
         }
+
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(

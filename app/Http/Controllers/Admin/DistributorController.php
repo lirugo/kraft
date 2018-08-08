@@ -29,7 +29,7 @@ class DistributorController extends Controller
         $distr->vendor_code_1c = $request->vendor_code_1c;
         $distr->save();
 
-        Session::flash('success', 'Data was upadted.');
+        Session::flash('success', 'Data was updated.');
         return back();
     }
 }

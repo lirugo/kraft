@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-md-4">
             {!! Form::open(['onsubmit' => 'return formRail();']) !!}
-            {!! Form::number('rail_width', 25, ['class' => 'form-control', 'id' => 'rail_width', 'placeholder' => 'Введите максимальную ширину помещения', 'required','step' => '1', 'min' => '1']) !!}
-            {!! Form::number('rail_length', 25, ['class' => 'form-control', 'id' => 'rail_length', 'placeholder' => 'Введите максимальную длину помещения', 'required','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('rail_width', null, ['class' => 'form-control', 'id' => 'rail_width', 'placeholder' => 'Введите максимальную ширину помещения', 'required','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('rail_length', null, ['class' => 'form-control', 'id' => 'rail_length', 'placeholder' => 'Введите максимальную длину помещения', 'required','step' => '1', 'min' => '1']) !!}
             {!! Form::select('rail_face',[
                 'no'  => 'Нет',
                 'stub'  => 'Заглушка',
                 'angle'  => 'Уголок профилированный',
-            ], 'stub', ['class' => 'form-control', 'id' => 'rail_face', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+            ], null, ['class' => 'form-control', 'id' => 'rail_face', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
             {!! Form::select('rail_count',[
                 1 => '1',
                 2 => '2',
@@ -21,18 +21,18 @@
                 3 => '3 %',
                 4 => '4 %',
                 5 => '5 %',
-                   ], 5, ['class' => 'form-control m-b-10', 'id' => 'rail_percent', 'placeholder' => 'Выберите % на порезку', 'required']) !!}
+                   ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_percent', 'placeholder' => 'Выберите % на порезку', 'required']) !!}
             {!! Form::select('rail_color', [
                '9003' => 'RAL 9003 (белый)',
                '9005' => 'RAL 9005 (черный)',
                '9006' => 'RAL 9006 (серый)'
-               ], '9003', ['class' => 'form-control m-b-10', 'id' => 'rail_color', 'placeholder' => 'Выберите модель профиля', 'required']) !!}
+               ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_color', 'placeholder' => 'Выберите цвет профиля', 'required']) !!}
             <div id="rail_m_1">
                 {!! Form::label('Тип рейки 1') !!}
                 {!! Form::select('rail_m_w_1',[
                    35 => '35 мм',
                    88 => '88 мм',
-                      ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_1', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
+                      ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_1', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
                 {!! Form::select('rail_m_h_1',[
                    35 => '35 мм',
                    45 => '45 мм',
@@ -43,7 +43,7 @@
                    85 => '85 мм',
                    95 => '95 мм',
                    105 => '105 мм',
-                      ], 45, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_1', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
+                      ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_1', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
                 {!! Form::select('rail_m_s_1',[
                     50 => '50 мм',
                     100 => '100 мм',
@@ -51,14 +51,14 @@
                     200 => '200 мм',
                     250 => '250 мм',
                     300 => '300 мм',
-                       ], 100, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_1', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
+                       ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_1', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
             </div>
             <div id="rail_m_2">
                 {!! Form::label('Тип рейки 2') !!}
                 {!! Form::select('rail_m_w_2',[
                    35 => '35 мм',
                    88 => '88 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_2', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_2', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
                 {!! Form::select('rail_m_h_2',[
                     35 => '35 мм',
                    45 => '45 мм',
@@ -69,7 +69,7 @@
                    85 => '85 мм',
                    95 => '95 мм',
                    105 => '105 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_2', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_2', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
                 {!! Form::select('rail_m_s_2',[
                     50 => '50 мм',
                     100 => '100 мм',
@@ -77,14 +77,14 @@
                     200 => '200 мм',
                     250 => '250 мм',
                     300 => '300 мм',
-                           ], 100, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_2', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
+                           ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_2', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
             </div>
             <div id="rail_m_3">
                 {!! Form::label('Тип рейки 3') !!}
                 {!! Form::select('rail_m_w_3',[
                    35 => '35 мм',
                    88 => '88 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_3', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_3', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
                 {!! Form::select('rail_m_h_3',[
                     35 => '35 мм',
                    45 => '45 мм',
@@ -95,7 +95,7 @@
                    85 => '85 мм',
                    95 => '95 мм',
                    105 => '105 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_3', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_3', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
                 {!! Form::select('rail_m_s_3',[
                     50 => '50 мм',
                     100 => '100 мм',
@@ -103,14 +103,14 @@
                     200 => '200 мм',
                     250 => '250 мм',
                     300 => '300 мм',
-                           ], 100, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_3', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
+                           ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_3', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
             </div>
             <div id="rail_m_4">
                 {!! Form::label('Тип рейки 4') !!}
                 {!! Form::select('rail_m_w_4',[
                    35 => '35 мм',
                    88 => '88 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_4', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_w_4', 'placeholder' => 'Выберите ширину рейки', 'required']) !!}
                 {!! Form::select('rail_m_h_4',[
                      35 => '35 мм',
                    45 => '45 мм',
@@ -121,7 +121,7 @@
                    85 => '85 мм',
                    95 => '95 мм',
                    105 => '105 мм',
-                          ], 35, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_4', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
+                          ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_h_4', 'placeholder' => 'Выберите высоту рейки', 'required']) !!}
                 {!! Form::select('rail_m_s_4',[
                     50 => '50 мм',
                     100 => '100 мм',
@@ -129,17 +129,17 @@
                     200 => '200 мм',
                     250 => '250 мм',
                     300 => '300 мм',
-                           ], 100, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_4', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
+                           ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_m_s_4', 'placeholder' => 'Выберите размер модуля', 'required']) !!}
             </div>
 
             <div class="col-md-6 m-t-10">
-                <img src="http://placehold.it/160x100" class="img-responsive img-radio active">
-                <button type="button" class="botton btn-block btn-primary btn-radio active" style="margin:0; width: 160px;">Вдоль</button>
+                <img src="{{url('/img/calc/by_length.png')}}" class="img-responsive img-radio active">
+                <button type="button" class="botton btn-block btn-primary btn-radio active" style="margin:0; width: 160px;">По длине</button>
                 <input type="checkbox" id="rail_along" class="hidden" checked>
             </div>
             <div class="col-md-6 m-t-10 m-b-10">
-                <img src="http://placehold.it/160x100" class="img-responsive img-radio">
-                <button type="button" class="botton btn-block btn-primary btn-radio" style="margin:0; width: 160px;">Поперек</button>
+                <img src="{{url('/img/calc/by_width.png')}}" class="img-responsive img-radio">
+                <button type="button" class="botton btn-block btn-primary btn-radio" style="margin:0; width: 160px;">По ширине</button>
                 <input type="checkbox" id="rail_across" class="hidden">
             </div>
 
