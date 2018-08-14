@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class HelpController extends Controller
 {
     public function index(){
-        return view('help.index');
+        return view('help.user');
     }
 
     public function admin(){

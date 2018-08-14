@@ -69,7 +69,7 @@
                         {{ csrf_field() }}
                     </form>
                 </li>
-                <li><a href="{{ url('/help') }}"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="{{ url('/help') }}"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>

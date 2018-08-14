@@ -20,19 +20,19 @@
             <div class="col-md-6 col-md-offset-3 m-t-20">
 
                 <p><img src="/img/help/regobject/1.jpg" width="100%"/></p>
-                <p class="text-primary">Меню «Заказ».</p>
+                <h3 class="text-primary">Меню «Заказ».</h3>
                 <p><img src="/img/help/regobject/2.jpg" width="100%"/></p>
                 <p>Здесь можно просчитать продукцию на калькуляторе, сохранить результаты расчетов и выписать счет.</p>
 
-                <p class="text-primary">Меню «Мои заказы».</p>
+                <h3 class="text-primary">Меню «Мои заказы».</h3>
                 <p><img src="/img/help/regobject/3.jpg" width="100%"/></p>
                 <p>Здесь сохраняются результаты всех расчетов (спецификации). В любой момент спецификацию можно просмотреть, поправить и выписать счет.</p>
 
-                <p class="text-primary">Меню «Отчеты»</p>
+                <h3 class="text-primary">Меню «Отчеты»</h3>
                 <p><img src="/img/help/regobject/4.jpg" width="100%"/></p>
                 <p>Из этого меню подаются отчеты по работе над объектом. Отчеты автоматически отправляются вашему Региональному менеджеру.</p>
 
-                <p class="text-primary">Меню «Задать вопрос»</p>
+                <h3 class="text-primary">Меню «Задать вопрос»</h3>
                 <p><img src="/img/help/regobject/5.jpg" width="100%"/></p>
                 <p>Эта переписка (личный чат) с Региональным менеджером, если требуется уточнить какие-то вопросы.</p>
             </div>
