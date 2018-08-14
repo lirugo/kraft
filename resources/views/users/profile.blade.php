@@ -41,7 +41,7 @@
                                 {!! Form::text('dateofbirth', $user->dateofbirth, ['class' => 'form-control', 'id' => 'datepicker']) !!}
 
                                 {!! Form::label('sex', 'Sex', ['class' => 'm-t-10']) !!}
-                                {!! Form::label('sex', $user->sex == 'x' ? trans('app.male') : trans('app.femele'), ['class' => 'form-control']) !!}
+                                {!! Form::label('sex', $user->sex == 'x' || $user->sex == 'X' ? trans('app.male') : trans('app.femele'), ['class' => 'form-control']) !!}
 
                                 {!! Form::label('phone', 'Phone', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('phone', $user->phone, ['class' => 'form-control', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX']) !!}

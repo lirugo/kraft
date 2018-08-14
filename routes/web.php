@@ -308,3 +308,12 @@ Route::get('test2', 'TestController@test2');
 Route::get('/auth/token', 'Auth\AuthTokenController@getToken');
 Route::post('/auth/token', 'Auth\AuthTokenController@postToken')->name('auth.token');
 Route::get('/auth/token/resend', 'Auth\AuthTokenController@getResend')->name('auth.token');
+
+
+//HELP PAGE
+Route::get('/help', 'Help\HelpController@index');
+Route::get('/help/admin', 'Help\HelpController@admin');
+Route::get('/help/user', 'Help\HelpController@user');
+Route::get('/help/newobject', 'Help\HelpController@newObject');
+Route::get('/help/regobject', 'Help\HelpController@regObject');
+Route::get('/help/order', 'Help\HelpController@order');
