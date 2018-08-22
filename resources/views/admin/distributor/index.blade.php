@@ -14,7 +14,7 @@
             @foreach($distributors as $distributor)
                 {!! Form::open(['route' => ['admin.distributor.update', $distributor->id]]) !!}
                 <div class="col-md-4" style="padding-bottom: 20px;">
-                    <h5><strong>{{$distributor->name}}</strong></h5>
+                    <h5>Company name - <strong>{{$distributor->getcompany->companyname}}</strong></h5>
                     <hr style="margin: 0;">
                     <div class="col-md-4">
                         <img src="/uploads/avatars/{{$distributor->avatar}}" style="
