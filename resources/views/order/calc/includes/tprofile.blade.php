@@ -12,7 +12,7 @@
                 {!! Form::select('difficult',[
                 $data['constants']->easy => 'Простая',
                 $data['constants']->hard => 'Сложная'
-                ], null, ['class' => 'form-control', 'id' => 'difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'difficult', 'placeholder' => 'Выберите комплектацию потолка', 'required']) !!}
                {!! Form::select('thickness',[
                     '15' => '15 мм',
                     '24' => '24 мм'

@@ -4,6 +4,9 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">Панель управления</a>
+                @if(Auth::user()->hasRole('distributor'))
+                    <a class="link-bread" href="/distributor/objects">Объекты</a>
+                @endif
                 <a class="link-bread" href="#">Создание объекта</a>
             </div>
         </div>

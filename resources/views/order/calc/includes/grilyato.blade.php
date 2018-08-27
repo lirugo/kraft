@@ -8,7 +8,7 @@
             {!! Form::select('grilyato_difficult', [
                 $data['constants']->easy =>'Простая',
                 $data['constants']->hard =>'Сложная'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' => 'Выберите комплектацию потолка', 'required']) !!}
             {!! Form::select('grilyato_model', [
                'classical' => 'Классический',
                'pyramidal' => 'Пирамидальный',

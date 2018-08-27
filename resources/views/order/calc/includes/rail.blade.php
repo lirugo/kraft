@@ -8,7 +8,7 @@
                 'no'  => 'Нет',
                 'stub'  => 'Заглушка',
                 'angle'  => 'Уголок профилированный',
-            ], null, ['class' => 'form-control', 'id' => 'rail_face', 'placeholder' => 'Выберите конфигурацию помещения', 'required']) !!}
+            ], null, ['class' => 'form-control', 'id' => 'rail_face', 'placeholder' => 'Выберите комплектацию потолка', 'required']) !!}
             {!! Form::select('rail_count',[
                 1 => '1',
                 2 => '2',

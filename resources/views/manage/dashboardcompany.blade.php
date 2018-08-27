@@ -71,7 +71,7 @@
                                     <a href="/order">
                                         <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
-                                            Прсочет на склад
+                                            Просчет на склад
                                         </div>
                                     </a>
                                 </div>
