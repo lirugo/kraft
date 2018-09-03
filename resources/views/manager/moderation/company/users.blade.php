@@ -3,9 +3,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/moderation">Модерация</a>
-                <a class="link-bread" href="#">Пользователи компании</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/manager/moderation">{{trans('app.Moderation')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Company Users')}}</a>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="row">
             @if(count($users) == 0)
                 <div class="col-md-12 text-center">
-                    <h1>Запросов на изменение профиля - нет.</h1>
+                    <h1>{{trans('app.There are no requests for profile changes.')}}</h1>
                 </div>
             @endif
             @foreach($users as $user)
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-md-12">
                         {!! Form::open(['route' => ['moderation.company.users.activate', $user->id], 'method' => 'POST']) !!}
-                        {!! Form::submit('Активировать', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                         <hr>
                     </div>

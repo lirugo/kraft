@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Главная</a>
+                <a class="link-bread" href="#">{{trans('app.Panel Control')}}</a>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                    Main page
+                    {{trans('app.Main')}}
                 </div>
             </div>
         </div>

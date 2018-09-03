@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/report/{{$report->object->id}}">Отчеты</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/report/{{$report->object->id}}">{{trans('app.Reports')}}</a>
             </div>
         </div>
     </div>
@@ -25,8 +25,8 @@
 <div class="container">
    <div class="row">
        <div class="col-md-8 col-md-offset-2">
-            Дата отчета: {{$report->dateofreport}}<br>
-            Коментарий:
+           {{trans('app.Date Report')}}: {{$report->dateofreport}}<br>
+           {{trans('app.Comments')}}:
             {!! Form::textarea('comments', $report->comments, ['class' => 'form-control']) !!}
            <br>
            <br>

@@ -19,7 +19,7 @@
                             {!! Form::text('companyname', null , ['class' => 'form-control m-b-10 required', 'placeholder' => trans('app.companyname')." *"]) !!}
 
                             <select required name="region" class="form-control m-b-10">
-                                <option value="" disabled selected>Выберите область</option>
+                                <option value="" disabled selected>{{ trans('app.select region') }}</option>
                                 <option value="12">Киевская область</option>
                                 <option value="11">Житомирская область</option>
                                 <option value="13">Черниговская область</option>

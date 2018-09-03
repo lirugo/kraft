@@ -14,7 +14,7 @@
                 {!! Form::text('dateofbirth',null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.date')." *"]) !!}
                 {!! Form::select('sex', ['X' => trans('app.male'), 'Y' => trans('app.femele')], null, ['class' => 'form-control', 'required']); !!}
                 <select required name="region" class="form-control">
-                    <option value="" disabled selected>Выберите область</option>
+                    <option value="" disabled selected>{{ trans('app.select region') }}</option>
                     <option value="12">Киевская область</option>
                     <option value="11">Житомирская область</option>
                     <option value="13">Черниговская область</option>

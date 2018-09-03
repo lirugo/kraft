@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="#">Менеджеры</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Managers')}}</a>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                Активированные менеджеры системы
+                {{trans('app.Activated System Managers')}}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -35,13 +35,13 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{trans('app.Date of Birth')}}: {{ $user->dateofbirth }}</p>
+                            <p>{{trans('app.Phone')}}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
-                            <p>Регион: {{ $user->regionname }}</p>
+                            <p>{{trans('app.Region')}}: {{ $user->regionname }}</p>
                             <p>
                                 {!! Form::open(['url' => ['/managers', $user->id], 'method' => 'get']) !!}
-                                {!! Form::submit('Просмотреть', ['class' => 'btn btn-primary pull-right']) !!}
+                                {!! Form::submit(trans('app.View'), ['class' => 'btn btn-primary pull-right']) !!}
                                 {!! Form::close() !!}
                             </p>
                         </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                Неактивированные менеджеры системы
+                {{trans('app.Not Activated System Managers')}}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -73,10 +73,10 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{trans('app.Date of Birth')}}: {{ $user->dateofbirth }}</p>
+                            <p>{{trans('app.Phone')}}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
-                            <p>Регион: {{ $user->regionname }}</p>
+                            <p>{{trans('app.Region')}}: {{ $user->regionname }}</p>
 
                         </div>
                     </div>

@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/users">Список клиентов</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/manager/users">{{trans('app.List of Client')}}</a>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
                         <a href="/order/{{$object->id}}/select">
                             <i class="fa fa-history fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Заказы
+                                {{trans('app.Orders')}}
                             </div>
                         </a>
                     </div>
@@ -40,7 +40,7 @@
                         <a href="/report/{{$object->id}}">
                             <i class="fa fa-flag fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Отчеты
+                                {{trans('app.Reports')}}
                             </div>
                         </a>
                     </div>
@@ -51,7 +51,7 @@
                             <a href="/object/{{ $object->id }}/chat" onclick="chat()">
                                 <i class="fa fa-comments fa-5x" aria-hidden="true"></i>
                                 <div class="description m-t-10">
-                                    Чат с клиентом
+                                    {{trans('app.Chat with client')}}
                                 </div>
                             </a>
                         </div>
@@ -60,18 +60,18 @@
                 <div class="col-md-2 text-center pull-right">
                     <div class="card">
                         {!! Form::open(['route' => ['manager.object.show.transfer.distributor',$object->id]]) !!}
-                        {!! Form::label('Change distributor') !!}
+                        {!! Form::label(trans('app.Change Distributor')) !!}
                         {!! Form::select('distributor', $distributors, null, ['class' => 'form-control','placeholder' => 'Select distributor', 'required']) !!}
-                        {!! Form::submit('Change', ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
+                        {!! Form::submit(trans('app.Change'), ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>
                 <div class="col-md-2 text-center pull-right">
                     <div class="card">
                         {!! Form::open(['route' => ['manager.object.show.transfer',$object->id]]) !!}
-                            {!! Form::label('Change manager') !!}
+                            {!! Form::label(trans('app.Change Manager')) !!}
                             {!! Form::select('manager', $managers, null, ['class' => 'form-control','placeholder' => 'Select manager', 'required']) !!}
-                            {!! Form::submit('Change', ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
+                            {!! Form::submit(trans('app.Change'), ['class' => 'btn btn-primary m-t-20 pull-right']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -86,60 +86,60 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <strong>Область:</strong> {{$object->getregion->regionname_ru}}<br>
-                <strong>Город:</strong> {{$object->city}}<br>
-                <strong>Улица:</strong> {{$object->street}}<br>
-                <strong>Дом:</strong> {{$object->house}}<br>
-                {{ !empty($object->housing) ? "Корпус: ".$object->housing : "" }}<br>
-                {{ !empty($object->locationinformation) ? "Доп. информация: ".$object->locationinformation : "" }}<br>
+                <strong>{{trans('app.Region')}}:</strong> {{$object->getregion->regionname_ru}}<br>
+                <strong>{{trans('app.city')}}:</strong> {{$object->city}}<br>
+                <strong>{{trans('app.street')}}:</strong> {{$object->street}}<br>
+                <strong>{{trans('app.house')}}:</strong> {{$object->house}}<br>
+                {{ !empty($object->housing) ? trans('app.office').$object->housing : "" }}<br>
+                {{ !empty($object->locationinformation) ? trans('app.Additional Information').$object->locationinformation : "" }}<br>
             </div>
             <div class="col-md-4">
-                Компания/Менеджер:
-                {!! !empty($object->company) ? Form::label('Company Name', $object->company->companyname).", " : "" !!}
-                {!! Form::label('Manager',$object->creator->patronymic." ".$object->creator->name) !!}
+                {{trans('app.Company/Manager')}}
+                {!! !empty($object->company) ? Form::label(trans('app.Company Name'), $object->company->companyname).", " : "" !!}
+                {!! Form::label(trans('app.Manager'),$object->creator->patronymic." ".$object->creator->name) !!}
                 <br>
-                Региональный менеджер:
-                {!! Form::label('RM',$object->rm->patronymic." ".$object->rm->name) !!}
+                {{trans('app.Regional Manager')}}
+                {!! Form::label(trans('app.RM'),$object->rm->patronymic." ".$object->rm->name) !!}
                 <br>
-                Телефон РМ:
-                {!! Form::label('RMPhone',$object->rm->phone) !!}
+                {{trans('app.Phone RM')}}
+                {!! Form::label(trans('app.Phone RM'),$object->rm->phone) !!}
             </div>
             <div class="col-md-4">
-                <strong>Дата Регистрации:</strong>
-                {!! Form::label('Create Date', Carbon\Carbon::parse($object->created_at)->format('d.m.Y')) !!}
+                <strong>{{trans('app.Date registration')}}:</strong>
+                {!! Form::label(trans('app.Create Date'), Carbon\Carbon::parse($object->created_at)->format('d.m.Y')) !!}
                 <br>
                 {!! Form::model($object,['route' => ['manager.object.activate', $object->id], 'method' => 'POST']) !!}
                 <div class="form-inline">
-                    {!! Form::label('Дата поставки товара: ', null, ['class' => 'm-t-10']) !!}
+                    {!! Form::label(trans('app.Date delivery product'), null, ['class' => 'm-t-10']) !!}
                     {!! Form::text('dateofdelivery',null, ['class' => 'form-control', 'placeholder' => 'DD/MM/YYYY','required', 'id' => 'datepicker']) !!}
                 </div>
                 <div class="form-inline m-t-10">
-                    {!! Form::label('Переодичнось отчетов: каждые', null) !!}
+                    {!! Form::label(trans('app.Reporting frequency: every'), null) !!}
                     @if($object->active == false)
                     {!! Form::select('reporttime', [
-                    '' => 'Выберите период',
-                    '0' => 'Без отчета',
-                    '7' => '7 Дней',
-                    '14' => '14 Дней',
-                    '30' => '30 Дней'
+                    '' => trans('app.Select Period'),
+                    '0' => trans('app.Without Report'),
+                    '7' => '7 '.trans('app.Days'),
+                    '14' => '14 '.trans('app.Days'),
+                    '30' => '30 '.trans('app.Days')
                     ],'', ['class' => 'form-control', 'required']) !!}
                     @else
-                         {{$object->reporttime}} дней
+                         {{$object->reporttime}} {{trans('app.Days')}}
                     @endif
                 </div>
-                <strong> Дата Активации: </strong>
-                {!! Form::label('Activate Date', empty($object->dateofactivate) ? " " : Carbon\Carbon::parse($object->dateofactivate)->format('d.m.Y')) !!}
+                <strong> {{trans('app.Date Activate')}}: </strong>
+                {!! Form::label(trans('app.Date Activate'), empty($object->dateofactivate) ? " " : Carbon\Carbon::parse($object->dateofactivate)->format('d.m.Y')) !!}
                 <br>
-                    <strong>До следующего отчета: </strong>
-                    {{ $object->daystoreport ? $object->daystoreport." дней" : ""}}
+                    <strong>{{trans('app.Until next report')}}: </strong>
+                    {{ $object->daystoreport ? $object->daystoreport.' '.trans('app.Days') : ""}}
                 <br>
-                    <strong>Дата следующего отчета:</strong>
-                    {!! Form::label('Date Report', empty($object->dateofreport) ? " " : Carbon\Carbon::parse($object->dateofreport)->format('d.m.Y')) !!}
+                    <strong>{{trans('app.Date next report')}}:</strong>
+                    {!! Form::label(trans('app.Date next report'), empty($object->dateofreport) ? " " : Carbon\Carbon::parse($object->dateofreport)->format('d.m.Y')) !!}
                 <br>
                 @if($object->active == false)
-                {!! Form::submit("Активировать", ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary pull-right']) !!}
                 @else
-                {!! Form::submit("Обновить", ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::submit(trans('app.Update'), ['class' => 'btn btn-primary pull-right']) !!}
                 @endif
                 {!! Form::close() !!}
             </div>

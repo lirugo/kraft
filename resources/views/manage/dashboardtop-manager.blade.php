@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Панель управления</a>
+                <a class="link-bread" href="#">{{ trans('app.Panel Control') }}</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                                 <a href="/topmanager/objects">
                                     <i class="fa fa-university fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
-                                        Objects
+                                        {{ trans('app.Objects') }}
                                     </div>
                                 </a>
                             </div>

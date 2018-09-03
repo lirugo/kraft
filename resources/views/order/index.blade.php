@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Главная</a>
-                <a class="link-bread" href='javascript:history.back(1);'>Назад</a>
+                <a class="link-bread" href="/manage">{{trans('app.Main')}}</a>
+                <a class="link-bread" href='javascript:history.back(1);'>{{trans('app.Back')}}</a>
             </div>
         </div>
     </div>
@@ -13,12 +13,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="select_calc" class="btn btn-primary" style="border-radius:0; margin:0;">Добавить продукт</button>
-                <button id="save_order" class="btn btn-primary" onclick="common_save()" style="border-radius:0; margin:0;">Сохранить заказ</button>
+                <button id="select_calc" class="btn btn-primary" style="border-radius:0; margin:0;">{{trans('app.Add product')}}</button>
+                <button id="save_order" class="btn btn-primary" onclick="common_save()" style="border-radius:0; margin:0;">{{trans('app.Save Order')}}</button>
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4 text-right">
-                <label>Заказ №</label> <label id="order_code">{{$data['objectId'].\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')}}</label>
+                <label>{{trans('app.Order')}} №</label> <label id="order_code">{{$data['objectId'].\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')}}</label>
             </div>
         </div>
         <div class="row">
@@ -34,7 +34,7 @@
 
         @include('order.calc.includes.common')
 
-        <div id="loader-message" title="Получение данных">
+        <div id="loader-message" title="{{trans('app.Getting data')}}">
             <div id="progressbar"class="m-t-20"></div>
         </div>
 
@@ -44,15 +44,15 @@
     <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
         <div class="col-md-4">
             <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
-            <h4 onclick="showTProfile()">T-Profile</h4>
+            <h4 onclick="showTProfile()">{{trans('app.T-Profile')}}</h4>
         </div>
         <div class="col-md-4">
             <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
-            <h4 onclick="showGrilyato()">Grilyato</h4>
+            <h4 onclick="showGrilyato()">{{trans('app.Grilyato')}}</h4>
         </div>
         <div class="col-md-4">
             <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
-            <h4 onclick="showRail()">Rail</h4>
+            <h4 onclick="showRail()">{{trans('app.Rail')}}</h4>
         </div>
     </div>
 @endsection

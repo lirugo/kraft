@@ -3,11 +3,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
                 @if(Auth::user()->hasRole('distributor'))
-                    <a class="link-bread" href="/distributor/objects">Объекты</a>
+                    <a class="link-bread" href="/distributor/objects">{{trans('app.Objects')}}</a>
                 @endif
-                <a class="link-bread" href="#">Создание объекта</a>
+                <a class="link-bread" href="#">{{trans('app.Create Objects')}}</a>
             </div>
         </div>
     </div>
@@ -33,10 +33,10 @@
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object *']) !!}
-                            {!! Form::text('type',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Тип объекта - ТРЦ, магазин, офис... *']) !!}
+                            {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.Name Object').' *']) !!}
+                            {!! Form::text('type',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.Type Object').' *']) !!}
                             <select required name="region" class="form-control m-b-10">
-                                <option value="" disabled selected>Выберите область</option>
+                                <option value="" disabled selected>{{trans('app.Select Region')}}</option>
                                 <option value="12">Киевская область</option>
                                 <option value="11">Житомирская область</option>
                                 <option value="13">Черниговская область</option>
@@ -68,19 +68,19 @@
                             {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city').' *', 'id' => 'city']) !!}
                             {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street').' *', 'id' => 'street']) !!}
                             {!! Form::number('house',null , ['class' => 'form-control m-b-10', 'required', 'min' => '1', 'placeholder' => trans('app.house').' *', 'id' => 'street_number']) !!}
-                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => "Корпус", 'id' => 'street_number']) !!}
-                            {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => "Дополнительная информация о месте положения объекта", 'id' => 'street_number']) !!}
+                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => trans('app.office'), 'id' => 'street_number']) !!}
+                            {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => trans('app.Additional Information'), 'id' => 'street_number']) !!}
                             <hr>
                             {!! Form::number('sworks', null , ['class' => 'form-control','required', 'min' => '10', 'placeholder' => trans('app.sworks').' *']) !!}
                             {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
 
-                            {!! Form::label('label',"Выберите предполагаемые продукты на объекте", ['class' => 'm-t-20 text-center']) !!}
+                            {!! Form::label('label', trans('app.Select the prospective products on object'), ['class' => 'm-t-20 text-center']) !!}
                             <select multiple class="form-control" name="products[]" style="height:110px;" required>
-                                <option name="product1" value="product1">T-Профиль</option>
-                                <option name="product2" value="product2">Грильято</option>
-                                <option name="product3" value="product3">Kraft Cube</option>
-                                <option name="product4" value="product4">KRAFT LED</option>
-                                <option name="product5" value="product5">Плиты OWA</option>
+                                <option name="product1" value="product1">{{trans('app.T-Profile')}}T-Профиль</option>
+                                <option name="product2" value="product2">{{trans('app.Grilyato')}}Грильято</option>
+                                <option name="product3" value="product3">{{trans('app.Kraft Cube')}}Kraft Cube</option>
+                                <option name="product4" value="product4">{{trans('app.Kraft LED')}}KRAFT LED</option>
+                                <option name="product5" value="product5">{{trans('app.Block OWA')}}Плиты OWA</option>
                             </select>
                             {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
                                 {{--<input type="checkbox"  name="product1" id="product1" value="1"/>--}}
@@ -182,7 +182,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                {!! Form::label('label',trans('app.uploadphotoobject',['class' => 'm-t-20'])) !!}
+                                {!! Form::label('label',trans('app.uploadphotoobject'),['class' => 'm-t-20']) !!}
                                 <hr>
                                 <div id="scanUpload" class="dropzone"></div>
                                 <div id="boatAddForm"></div>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Form::submit('Create Object',['class' => 'pull-right botton botton-primary botton-default m-t-10']) !!}
+                                {!! Form::submit(trans('app.Create Object'),['class' => 'pull-right botton botton-primary botton-default m-t-10']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>

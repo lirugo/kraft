@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Панель управления</a>
+                <a class="link-bread" href="#">{{ trans('app.Panel Control') }}</a>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
                                     <a href="/company/users/create">
                                         <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
-                                           Create User
+                                            {{ trans('app.Create User') }}
                                         </div>
                                     </a>
                                 </div>
@@ -71,7 +71,7 @@
                                     <a href="/order">
                                         <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
-                                            Просчет на склад
+                                            {{ trans('app.Warehouse calculation') }}
                                         </div>
                                     </a>
                                 </div>
@@ -81,7 +81,7 @@
                                     <a href="/order/history">
                                         <i class="fa fa-history fa-5x" aria-hidden="true"></i>
                                         <div class="description m-t-10">
-                                            История просчетов
+                                            {{ trans('app.History calculation') }}
                                         </div>
                                     </a>
                                 </div>

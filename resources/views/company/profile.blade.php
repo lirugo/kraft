@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="#">Профиль компании</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Profile Company')}}</a>
             </div>
         </div>
     </div>
@@ -32,79 +32,79 @@
                         {!! Form::model(['route' =>['company.change'], 'method' => 'POST', 'files' => true]) !!}
                         <div class="row">
                             <div class="col-md-4">
-                                {!! Form::label('label','Company profile') !!}
+                                {!! Form::label('label', trans('app.Profile Company')) !!}
                                 <hr>
-                                {!! Form::label('id', 'Company id', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('id', trans('app.Company ID'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('id', $company->id, ['class' => 'form-control','readonly']) !!}
-                                {!! Form::label('companyname', 'Company name', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('companyname', trans('app.Company Name'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('companyname', $company->companyname, ['class' => 'form-control','readonly']) !!}
-                                {!! Form::label('city', 'City', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('city', trans('app.city'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('city', $company->city, ['class' => 'form-control']) !!}
-                                {!! Form::label('street', 'Street', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('street', trans('app.street'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('street', $company->street, ['class' => 'form-control']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::label('house', 'House', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('house', trans('app.house'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('house', $company->house , ['class' => 'form-control form-inline required', 'placeholder' => 'House']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('housing', 'Housing', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('housing', trans('app.housing'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('housing', $company->housing , ['class' => 'form-control form-inline required', 'placeholder' => 'Housing']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('office', 'Office', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('office', trans('app.office'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('office', $company->office , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                {!! Form::label('label','Financial requisites') !!}
+                                {!! Form::label('label',trans('app.Financial requisites')) !!}
                                 <hr>
-                                {!! Form::label('bank', 'Bank', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('bank', trans('app.Bank'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('bank', $company->bank, ['class' => 'form-control required', 'placeholder' => 'Bank']) !!}
-                                {!! Form::label('mfo', 'MFO', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('mfo', trans('app.MFO'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('mfo', $company->mfo, ['class' => 'form-control required', 'placeholder' => 'MFO']) !!}
-                                {!! Form::label('settlementaccount', 'Settlement account', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('settlementaccount', trans('app.Settlement account'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('settlementaccount', $company->settlementaccount , ['class' => 'form-control required', 'placeholder' => 'Settlement account']) !!}
-                                {!! Form::label('okpo', 'OKPO', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('okpo', trans('app.OKPO'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('okpo', $company->okpo , ['class' => 'form-control required', 'placeholder' => 'OKPO']) !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::label('label','Law address') !!}
+                                {!! Form::label('label',trans('app.Law address')) !!}
                                 <hr>
-                                {!! Form::label('lawcity', 'Law city', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('lawcity', trans('app.Law city'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('lawcity', $company->lawcity , ['class' => 'form-control required', 'placeholder' => 'Law City']) !!}
-                                {!! Form::label('lawstreet', 'Law street', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('lawstreet', trans('app.Law street'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('lawstreet', $company->lawstreet , ['class' => 'form-control required', 'placeholder' => 'Law Street']) !!}
                                 <div class="col-md-4">
-                                    {!! Form::label('lawhouse', 'Law House', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('lawhouse', trans('app.Law house'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('lawhouse', $company->lawhouse , ['class' => 'form-control form-inline required', 'placeholder' => 'House']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('lawhousing', 'Law Housing', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('lawhousing', trans('app.Law housing'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('lawhousing', $company->lawhousing , ['class' => 'form-control form-inline required', 'placeholder' => 'Housing']) !!}
                                 </div>
                                 <div class="col-md-4">
-                                    {!! Form::label('lawoffice', 'Law Office', ['class' => 'm-t-10']) !!}
+                                    {!! Form::label('lawoffice', trans('app.Law office'), ['class' => 'm-t-10']) !!}
                                     {!! Form::text('lawoffice', $company->lawoffice , ['class' => 'form-control required', 'placeholder ' => 'Office']) !!}
                                 </div>
-                                {!! Form::label('lawphone', 'Телфон бух.', ['class' => 'm-t-20']) !!}
+                                {!! Form::label('lawphone', trans('app.Phone bookkeeping'), ['class' => 'm-t-20']) !!}
                                 {!! Form::text('lawphone', $company->lawphone , ['class' => 'form-control m-b-10', 'required','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX',  'placeholder' => 'Law Phone']) !!}
                                 {!! Form::text('lawfax', $company->lawfax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Law Fax']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Form::label('label','Contact information', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('label',trans('app.Contact information'), ['class' => 'm-t-10']) !!}
                                 <hr>
                                 <div class="col-md-3">
-                                {!! Form::label('phonecompany', 'Phone', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('phonecompany', trans('app.Phone'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('phone', $company->phone , ['class' => 'form-control', 'required','pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX', 'placeholder' => trans('app.phone')."*"]) !!}
                                 </div>
                                 <div class="col-md-3">
-                                {!! Form::label('fax', 'Fax', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('fax', trans('app.Fax'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('fax', $company->fax , ['class' => 'form-control m-b-10 required', 'placeholder' => 'Fax']) !!}
                                 </div>
                                 <div class="col-md-3">
-                                {!! Form::label('smartphone', 'Smartphone', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('smartphone', trans('app.Smart Phone'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('smartphone', $company->smartphone, ['class' => 'form-control', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX',]) !!}
                                 </div>
                                 <div class="col-md-3">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h5><strong>Your documents</strong></h5>
+                                <h5><strong>{{trans('app.Your Documents')}}</strong></h5>
                                 <hr>
                                 @if($company->scandoc1 != 'scandoc1')
                                 <a data-toggle="lightbox" href="#demoLightbox">
@@ -126,7 +126,7 @@
                                         <div class='lightbox-content'>
                                             <img src="/uploads/scandocs/{{$company->scandoc1}}">
                                             <div class='lightbox-caption'>
-                                                Scan document 1
+                                                {{trans('app.Scan document')}} 1
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@
                                         <div class='lightbox-content'>
                                             <img src="/uploads/scandocs/{{$company->scandoc2}}">
                                             <div class='lightbox-caption'>
-                                                Scan document 2
+                                                {{trans('app.Scan document')}} 2
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@
                                         <div class='lightbox-content'>
                                             <img src="/uploads/scandocs/{{$company->scandoc3}}">
                                             <div class='lightbox-caption'>
-                                                Scan document 3
+                                                {{trans('app.Scan document')}} 3
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@
                                         <div class='lightbox-content'>
                                             <img src="/uploads/scandocs/{{$company->scandoc4}}">
                                             <div class='lightbox-caption'>
-                                                Scan document 4
+                                                {{trans('app.Scan document')}} 4
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                                         <div class='lightbox-content'>
                                             <img src="/uploads/scandocs/{{$company->scandoc5}}">
                                             <div class='lightbox-caption'>
-                                                Scan document 5
+                                                {{trans('app.Scan document')}} 5
                                             </div>
                                         </div>
                                     </div>

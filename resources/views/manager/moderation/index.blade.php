@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="#">Модерация</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Moderation')}}</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                                         <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['company'] }}</span>
                                         @endif
                                     <div class="description m-t-10">
-                                        Профиль компаний
+                                        {{trans('app.Company Profile')}}
                                     </div>
                                 </a>
                             </div>
@@ -36,7 +36,7 @@
                                         <span class="badge badge-secondary" style="position:absolute; margin-left: -10px;">{{ $data['users'] }}</span>
                                     @endif
                                     <div class="description m-t-10">
-                                        Пользователи компаний
+                                        {{trans('app.Company Users')}}
                                     </div>
                                 </a>
                             </div>

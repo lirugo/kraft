@@ -3,9 +3,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/designer/object/show">Объекты</a>
-                <a class="link-bread" href="#">Регистрация</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/designer/object/show">{{trans('app.Objects')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Registration')}}</a>
             </div>
         </div>
     </div>
@@ -31,10 +31,10 @@
                         <div class="col-md-4">
                             {!! Form::label('label',trans('app.objectdata'), ['class' => 'm-t-20']) !!}
                             <hr>
-                            {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Name object *']) !!}
-                            {!! Form::text('type',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => 'Тип объекта - ТРЦ, магазин, офис... *']) !!}
+                            {!! Form::text('name',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.Name Object').' *']) !!}
+                            {!! Form::text('type',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.Type Object').' *']) !!}
                             <select required name="region" class="form-control m-b-10">
-                                <option value="" disabled selected>Выберите область</option>
+                                <option value="" disabled selected>{{trans('app.Select Region')}}</option>
                                 <option value="12">Киевская область</option>
                                 <option value="11">Житомирская область</option>
                                 <option value="13">Черниговская область</option>
@@ -66,8 +66,8 @@
                             {!! Form::text('city',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.city').' *', 'id' => 'city']) !!}
                             {!! Form::text('street',null , ['class' => 'form-control m-b-10', 'required','placeholder' => trans('app.street').' *', 'id' => 'street']) !!}
                             {!! Form::number('house',null , ['class' => 'form-control m-b-10', 'required', 'min' => '1', 'placeholder' => trans('app.house').' *', 'id' => 'street_number']) !!}
-                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => "Корпус", 'id' => 'street_number']) !!}
-                            {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => "Дополнительная информация о месте положения объекта", 'id' => 'street_number']) !!}
+                            {!! Form::text('housing',null , ['class' => 'form-control m-b-10','placeholder' => trans('app.office'), 'id' => 'street_number']) !!}
+                            {!! Form::textarea('locationinformation',null , ['class' => 'form-control m-b-10', 'rows' => '2', 'placeholder' => trans('app.Additional information about the location of the object'), 'id' => 'street_number']) !!}
                             <hr>
                             {!! Form::number('sworks', null , ['class' => 'form-control','required', 'min' => '10', 'placeholder' => trans('app.sworks').' *']) !!}
                             {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
@@ -81,7 +81,7 @@
                                         <span class="[ fa fa-minus ]"></span>
                                     </label>
                                     <label for="product1" class="[ btn btn-default active ]">
-                                        T-Профиль
+                                       {{trans('app.T-Profile')}}
                                     </label>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                         <span class="[ fa fa-minus ]"></span>
                                     </label>
                                     <label for="product2" class="[ btn btn-default active ]">
-                                        Грильято
+                                        {{trans('app.Grilyato')}}
                                     </label>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                         <span class="[ fa fa-minus ]"></span>
                                     </label>
                                     <label for="product3" class="[ btn btn-default active ]">
-                                        Крафт Куб
+                                        {{trans('app.Kraft Cube')}}
                                     </label>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                         <span class="[ fa fa-minus ]"></span>
                                     </label>
                                     <label for="product4" class="[ btn btn-default active btn-block]">
-                                        KRAFT LED
+                                        {{trans('app.Kraft LED')}}
                                     </label>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                         <span class="[ fa fa-minus ]"></span>
                                     </label>
                                     <label for="product5" class="[ btn btn-default active ]">
-                                        Плиты OWA
+                                        {{trans('app.Block OWA')}}
                                     </label>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                             <hr>
                             {!! Form::text('customer',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customer').' *']) !!}
                             {!! Form::text('customername',null , ['class' => 'form-control m-b-10 ','required', 'placeholder' => trans('app.customername').' *']) !!}
-                            {!! Form::text('customerposition',null , ['class' => 'form-control m-b-10 ', 'placeholder' => 'Должность']) !!}
+                            {!! Form::text('customerposition',null , ['class' => 'form-control m-b-10 ', 'placeholder' => trans('app.Position')]) !!}
                             {!! Form::text('customerphone',null , ['class' => 'form-control m-b-10 ','required', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX','placeholder' => trans('app.customerpphone').' *']) !!}
 
                             {!! Form::label('label',trans('app.generalbuilder'), ['class' => 'm-t-20']) !!}

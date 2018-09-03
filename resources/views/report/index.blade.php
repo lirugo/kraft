@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
             </div>
         </div>
     </div>
@@ -18,10 +18,10 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Дата отчета</th>
-                        <th>Коментарий</th>
-                        <th>Сатутус</th>
-                        <th>Action</th>
+                        <th>{{trans('app.Date Report')}}</th>
+                        <th>{{trans('app.Comments')}}</th>
+                        <th>{{trans('app.Status')}}</th>
+                        <th>{{trans('app.Action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,10 +29,10 @@
                         <tr>
                             <td>{{$report->dateofreport}}</td>
                             <td>{{strlen($report->comments) > 60 ? substr($report->comments, 0, 60)."...": $report->comments}}</td>
-                            <td>{{$report->done == false ? "Отчет не сдан" : "Сдан"}}</td>
+                            <td>{{$report->done == false ? trans('app.Report not submitted') : trans('app.Was passed')}}</td>
                             <td>
-                                @if($report->done == false && Auth::user()->id == $data['user']->id) <a href="/report/submit/{{$report->id}}" class="btn btn-primary">Подать отчет</a>
-                                @else <a href="/report/show/{{$report->id}}" class="btn btn-primary">Посмотреть</a>
+                                @if($report->done == false && Auth::user()->id == $data['user']->id) <a href="/report/submit/{{$report->id}}" class="btn btn-primary">{{trans('app.Submit a report')}}</a>
+                                @else <a href="/report/show/{{$report->id}}" class="btn btn-primary">{{trans('app.View')}}</a>
                                 @endif
                             </td>
                         </tr>

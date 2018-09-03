@@ -9,7 +9,7 @@
                         <a href="/object/register">
                             <i class="fa fa-plus fa-5x" aria-hidden="true"></i>
                             <div class="description m-t-10">
-                                Новый объект
+                                {{trans('app.New Object')}}
                             </div>
                         </a>
                     </div>
@@ -18,19 +18,19 @@
         </div>
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
-                <h5>Зарегестрированые объекты компании</h5>
+                <h5>{{trans('app.Registered Objects Company')}}</h5>
                 <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
-                        <th scope="col">Дата регистрации</th>
-                        <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
-                        <th scope="col">Региональный менеджер</th>
-                        <th scope="col">Телефон РМ</th>
+                        <th scope="col">{{trans('app.Name')}}</th>
+                        <th scope="col">{{trans('app.Region')}}</th>
+                        <th scope="col">{{trans('app.Manager')}}</th>
+                        <th scope="col">{{trans('app.Date Registration')}}</th>
+                        <th scope="col">{{trans('app.Date delivery product')}}</th>
+                        <th scope="col">{{trans('app.Next Report')}}</th>
+                        <th scope="col">{{trans('app.Regional Manager')}}</th>
+                        <th scope="col">{{trans('app.Phone RM')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,19 +55,19 @@
         </div>
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
-                <h5>Не зарегестрированые объекты компании</h5>
+                <h5>{{trans('app.Not Registered Objects Company')}}</h5>
                 <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
-                        <th scope="col">Дата регистрации</th>
-                        <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
-                        <th scope="col">Региональный менеджер</th>
-                        <th scope="col">Телефон РМ</th>
+                        <th scope="col">{{trans('app.Name')}}</th>
+                        <th scope="col">{{trans('app.Region')}}</th>
+                        <th scope="col">{{trans('app.Manager')}}</th>
+                        <th scope="col">{{trans('app.Date Registration')}}</th>
+                        <th scope="col">{{trans('app.Date delivery product')}}</th>
+                        <th scope="col">{{trans('app.Next Report')}}</th>
+                        <th scope="col">{{trans('app.Regional Manager')}}</th>
+                        <th scope="col">{{trans('app.Phone RM')}}</th>
                     </tr>
                     </thead>
                     <tbody>

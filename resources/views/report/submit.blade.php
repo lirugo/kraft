@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/report/{{$report->object->id}}">Отчеты</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/report/{{$report->object->id}}">{{trans('app.Reports')}}</a>
             </div>
         </div>
     </div>
@@ -24,9 +24,9 @@
                 <div id="scanUpload" class="dropzone"></div>
                 <div id="boatAddForm"></div>
                 <br>
-                {!! Form::textarea('comments',null ,['class' => 'form-control', 'placeholder' => 'Комментарий к отчету', 'required']) !!}
+                {!! Form::textarea('comments',null ,['class' => 'form-control', 'placeholder' => trans('app.Comments'), 'required']) !!}
                 <br>
-                {!! Form::submit('Send', ['class' => 'btn btn-primary pull-right']) !!}
+                {!! Form::submit(trans('app.Send'), ['class' => 'btn btn-primary pull-right']) !!}
             </div>
         </div>
         {!! Form::close() !!}

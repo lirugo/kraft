@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
             </div>
         </div>
     </div>

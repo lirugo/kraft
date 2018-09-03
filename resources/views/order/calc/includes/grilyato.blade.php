@@ -3,23 +3,23 @@
     <div class="row">
         <div class="col-md-4">
             {!! Form::open(['onsubmit' => 'return formGrilyato();']) !!}
-            {!! Form::number('grilyato_areaceiling', null, ['class' => 'form-control', 'id' => 'grilyato_areaceiling', 'required', 'placeholder' => 'Введите площадь потолка','step' => '1', 'min' => '1']) !!}
-            {!! Form::number('grilyato_pceiling', null, ['class' => 'form-control', 'id' => 'grilyato_pceiling', 'required', 'placeholder' => 'Введите периметр потолка','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('grilyato_areaceiling', null, ['class' => 'form-control', 'id' => 'grilyato_areaceiling', 'required', 'placeholder' => trans('app.Enter the ceiling area'),'step' => '1', 'min' => '1']) !!}
+            {!! Form::number('grilyato_pceiling', null, ['class' => 'form-control', 'id' => 'grilyato_pceiling', 'required', 'placeholder' => trans('app.Enter the perimeter of the ceiling'),'step' => '1', 'min' => '1']) !!}
             {!! Form::select('grilyato_difficult', [
                 $data['constants']->easy =>'Простая',
                 $data['constants']->hard =>'Сложная'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' => 'Выберите комплектацию потолка', 'required']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'grilyato_difficult', 'placeholder' =>  trans('app.Choose a ceiling kit'), 'required']) !!}
             {!! Form::select('grilyato_model', [
                'classical' => 'Классический',
                'pyramidal' => 'Пирамидальный',
                'Glk-15' => 'GLK модульный'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => 'Выберите модель профиля', 'required']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => trans('app.Select a profile model'), 'required']) !!}
             {!! Form::select('grilyato_color', [
                 'other' => 'Другой',
                 '9003' => 'RAL 9003 (белый)',
                 '9005' => 'RAL 9005 (черный)',
                 '9006' => 'RAL 9006 (серый)'
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_color', 'placeholder' => 'Выберите модель профиля', 'required', 'id' => 'grilyato_color']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'grilyato_color', 'placeholder' => trans('app.Select a color'), 'required']) !!}
             {!! Form::number('grilyato_othercolor',null, ['class' => 'form-control', 'id' => 'grilyato_othercolor', 'required', 'placeholder' => 'Введите цвет RAL - 4 цифры','step' => '1', 'min' => '1000', 'max' => '9999']) !!}
             {!! Form::select('grilyato_sizecells', [
                 '50' => '50х50 мм',
@@ -30,7 +30,7 @@
                 '120' => '120х120 мм',
                 '150' => '150х150 мм',
                 '200' => '200х200 мм',
-                ], null, ['class' => 'form-control', 'id' => 'grilyato_sizecells', 'placeholder' => 'Выберите размер ячейки', 'required']) !!}
+                ], null, ['class' => 'form-control', 'id' => 'grilyato_sizecells', 'placeholder' => trans('app.Select a size cells'), 'required']) !!}
             {!! Form::select('grilyato_wire_with_ear',[
                '250' => '250 мм',
                '500' => '500 мм',
@@ -39,7 +39,7 @@
                '1500' => '1500 мм',
                '2000' => '2000 мм',
                '3000' => '3000 мм'
-               ], null, ['class' => 'form-control', 'id' => 'grilyato_wire_with_ear', 'placeholder' => 'Выберите длину проволки с ушком', 'required']) !!}
+               ], null, ['class' => 'form-control', 'id' => 'grilyato_wire_with_ear', 'placeholder' => trans('app.Select a size cells'), 'required']) !!}
             {!! Form::select('grilyato_wire_with_hook',[
                '125' => '125 мм',
                '250' => '250 мм',
@@ -47,22 +47,22 @@
                '1000' => '1000 мм',
                '1500' => '1500 мм',
                '2000' => '2000 мм'
-               ], null, ['class' => 'form-control m-b-10', 'id' => 'grilyato_wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
+               ], null, ['class' => 'form-control m-b-10', 'id' => 'grilyato_wire_with_hook', 'placeholder' => trans('app.Select the length of the wire with a hook'), 'required']) !!}
             <div class="checkbox">
-                <label><input type="checkbox" id="grilyato_light">Добавить освещение</label>
+                <label><input type="checkbox" id="grilyato_light">{{trans('app.Add light')}}</label>
             </div>
             {!! Form::select('grilyato_h',[
-               '1' => 'Менее 3.5м',
-               '2' => 'Более 3.5м',
-               ], null, ['class' => 'form-control m-b-10', 'id' => 'grilyato_h', 'placeholder' => 'Укажите высоту потолка', 'required']) !!}
-            {!! Form::Submit('Сделать расчет', ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
+               '1' => trans('app.less').' 3.5м',
+               '2' => trans('app.more').' 3.5м',
+               ], null, ['class' => 'form-control m-b-10', 'id' => 'grilyato_h', 'placeholder' => trans('app.Indicate the height of the ceiling'), 'required']) !!}
+            {!! Form::Submit(trans('app.Make a calculation'), ['class' => 'btn-block btn btn-primary m-t-10', 'style' => 'border-radius:0']) !!}
             {!! Form::close() !!}
         </div>
         <div class="col-md-4 text-center">
             <img src="/img/icon/calc/grilyato.png"/>
         </div>
         <div class="col-md-4 text-center">
-            <h4>Подксказки для расчетов</h4>
+            <h4>{{trans('app.Tips for calculations')}}</h4>
         </div>
     </div>
 
@@ -72,11 +72,11 @@
             <table class="table table-striped table-borderless text-center" id="grilyato-table">
                 <thead>
                 <tr>
-                    <th scope="col" style="color: #f78421;">Артикул</th>
-                    <th scope="col" style="color: #f78421;">Наименование</th>
-                    <th scope="col" style="color: #f78421;">Кол-во шт.</th>
-                    <th scope="col" style="color: #f78421;">Цена за шт. грн</th>
-                    <th scope="col" style="color: #f78421;">Стоимость</th>
+                    <th scope="col" style="color: #f78421;">{{trans('app.Vendor Code')}}</th>
+                    <th scope="col" style="color: #f78421;">{{trans('app.Name')}}</th>
+                    <th scope="col" style="color: #f78421;">{{trans('app.Count')}}</th>
+                    <th scope="col" style="color: #f78421;">{{trans('app.Price for')}} шт. грн</th>
+                    <th scope="col" style="color: #f78421;">{{trans('app.Cost')}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -175,11 +175,11 @@
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
                     <td style="background-color: white"></td>
-                    <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
+                    <td style="background-color: #eeeeee; color: #f78421;"><strong>{{trans('app.TOTAL')}}</strong></td>
                     <td id="table-grilyato-total" style="background-color: #eeeeee; color: #f78421;"></td>
                 </tr>              </tbody>
             </table>
-            {!! Form::button('Добавить в спецификацию', ['onclick' => 'grilyato_add()', 'class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
+            {!! Form::button(trans('app.Add to cart'), ['onclick' => 'grilyato_add()', 'class' => 'botton botton-primary pull-right', 'style' => 'margin:0;']) !!}
             <br>
             <br>
             <br>

@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/users">Список клиентов</a>
-                <a class="link-bread" href="/manager/distributor/{{$users->idback}}">Дистрибьютор</a>
-                <a class="link-bread" href="#">Пользователи компании</a>
+                <a class="link-bread" href="/manage">{{ trans('app.Panel Control') }}</a>
+                <a class="link-bread" href="/manager/users">{{ trans('app.List of Client') }}</a>
+                <a class="link-bread" href="/manager/distributor/{{$users->idback}}">{{ trans('app.Distributor') }}</a>
+                <a class="link-bread" href="#">{{ trans('app.Company users') }}</a>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                Зарегистрированные пользователи компании
+                {{ trans('app.Registered users of company') }}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -37,8 +37,8 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{ trans('app.Date of Birth') }}: {{ $user->dateofbirth }}</p>
+                            <p>{{ trans('app.Phone') }}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                Незарегистрированные пользователи компании
+                {{ trans('app.Not Registered users of company') }}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -69,12 +69,12 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{ trans('app.Date of Birth') }}: {{ $user->dateofbirth }}</p>
+                            <p>{{ trans('app.Phone') }}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
                             <p>
                                 {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
-                                {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                                {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary pull-right']) !!}
                                 {!! Form::close() !!}
                             </p>
                         </div>

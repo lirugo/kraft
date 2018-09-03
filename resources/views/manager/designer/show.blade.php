@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="/manager/users">Список клиентов</a>
+                <a class="link-bread" href="/manage">{{ trans('app.Panel Control') }}</a>
+                <a class="link-bread" href="/manager/users">{{ trans('app.List of Client') }}</a>
                 <a class="link-bread" href="#">{{$user->name." ".$user->name}}</a>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <a href="{{ route('manager.designer.profile', $user->id) }}">
                         <i class="fa fa-tasks fa-5x" aria-hidden="true"></i>
                         <div class="description m-t-10">
-                           Профиль дизайнера
+                            {{ trans('app.Profile Designer') }}
                         </div>
                     </a>
                 </div>
@@ -27,18 +27,18 @@
 
         <div class="row m-t-20">
             <div class="col-md-10 col-md-offset-1">
-                <h5>Зарегестрированые объекты</h5>
+                <h5>{{ trans('app.Registered Objects') }}</h5>
                 <table class="table" id="clickable">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
-                        <th scope="col">Дата регистрации</th>
-                        <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{ trans('app.Name') }}</th>
+                        <th scope="col">{{ trans('app.Region') }}</th>
+                        <th scope="col">{{ trans('app.Manager') }}</th>
+                        <th scope="col">{{ trans('app.Date Registration') }}</th>
+                        <th scope="col">{{ trans('app.Date product delivery') }}</th>
+                        <th scope="col">{{ trans('app.Next Report') }}</th>
+                        <th scope="col">{{ trans('app.Action') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,21 +67,21 @@
                             <td>
                                 @php
                                     if(empty($object->reports->last()))
-                                           echo "Без отчетов";
+                                           echo trans('app.Without Report');
                                     else{
                                        if($reportdiff->invert == 0 && $reportdiff->days == 0)
-                                           echo "Отчет нужно сдать сегодня!";
+                                           echo trans('app.Report need send today');
                                        else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
-                                           echo "Отчет нужно сдать завтра!";
+                                           echo trans('app.Report need send tomorrow');
                                        else  if($reportdiff->invert == 1)
-                                           echo "Дней осталось: ".$reportdiff->days;
+                                           echo trans('app.Days left').$reportdiff->days;
                                        else  if($reportdiff->invert == 0)
-                                           echo "Дней просрочено: ".$reportdiff->days;
+                                           echo trans('app.Days overdue').$reportdiff->days;
                                     }
                                 @endphp
                             </td>
                                 <td>
-                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{ trans('app.View') }}<br></a>
                                 </td>
                             </tr>
                     @endforeach
@@ -98,13 +98,13 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Область</th>
-                        <th scope="col">Менеджер</th>
-                        <th scope="col">Дата регистрации</th>
-                        <th scope="col">Дата поставки товара</th>
-                        <th scope="col">Следующий отчет</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{{ trans('app.Name') }}</th>
+                        <th scope="col">{{ trans('app.Region') }}</th>
+                        <th scope="col">{{ trans('app.Manager') }}</th>
+                        <th scope="col">{{ trans('app.Date Registration') }}</th>
+                        <th scope="col">{{ trans('app.Date product delivery') }}</th>
+                        <th scope="col">{{ trans('app.Next Report') }}</th>
+                        <th scope="col">{{ trans('app.Action') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -119,7 +119,7 @@
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td></td>
                                 <td>
-                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">Просмотреть<br></a>
+                                    <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{ trans('app.View') }}<br></a>
                                 </td>
                             </tr>
                         @endif

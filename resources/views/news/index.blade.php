@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">Новости</a>
+                <a class="link-bread" href="#">{{trans('app.News')}}</a>
             </div>
         </div>
     </div>

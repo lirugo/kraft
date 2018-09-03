@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="#">Пользователи компании</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="#">{{trans('app.Users Company')}}</a>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                Зарегистрированные пользователи компании
+                {{trans('app.Registered users of company')}}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -35,8 +35,8 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{trans('app.Date of birth')}}: {{ $user->dateofbirth }}</p>
+                            <p>{{trans('app.Phone')}}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                Незарегистрированные пользователи компании
+                {{trans('app.Not Registered users of company')}}
                 <hr style="margin: 0;">
             </div>
         </div>
@@ -67,8 +67,8 @@
                         </div>
                         <div class="col-md-8">
                             <br>
-                            <p>Дата рождения: {{ $user->dateofbirth }}</p>
-                            <p>Телефон: {{ $user->phone }}</p>
+                            <p>{{trans('app.Date of birth')}}: {{ $user->dateofbirth }}</p>
+                            <p>{{trans('app.Phone')}}: {{ $user->phone }}</p>
                             <p>Email: {{ $user->email }}</p>
                             <p>
 

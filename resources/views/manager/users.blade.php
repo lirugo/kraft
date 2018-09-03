@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
-                <a class="link-bread" href="#">Список клиентов</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="#">{{trans('app.List of Client')}}</a>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4" style="padding-left: 60px;">
-                <h5>Зарегистрированные дистрибьюторы</h5>
+                <h5>{{trans('app.Registered Distributors')}}</h5>
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('distributor')  && $user->active == true)
@@ -29,7 +29,7 @@
                     @endif
                 @endforeach
 
-                <h5>Незарегистрированные дистрибьюторы</h5>
+                <h5>{{trans('app.Not Registered Distributors')}}</h5>
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('distributor') && $user->active == false)
@@ -43,7 +43,7 @@
                         <h6>
                             {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post',  'class' => 'form-inline']) !!}
                             {!! Form::text('vendor_code_1c',null, ['class' => 'form-control', 'style' => 'width:200px', 'placeholder' => 'Ведите ID компании из 1С', 'required']) !!}
-                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary ']) !!}
+                            {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary ']) !!}
                             {!! Form::close() !!}
                         </h6>
                         <br>
@@ -53,7 +53,7 @@
 
             </div>
             <div class="col-md-4 col-md-offset-2">
-                <h5>Зарегистрированые Архитекторы</h5>
+                <h5>{{trans('app.Registered Architects')}}</h5>
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 1)
@@ -64,7 +64,7 @@
                     @endif
                 @endforeach
 
-                <h5>Незарегистрированые Архитекторы</h5>
+                <h5>{{trans('app.Not Registered Architects')}}</h5>
                 <hr>
                 @foreach($users as $user)
                     @if($user->hasRole('designer') && $user->active == 0)
@@ -73,7 +73,7 @@
                         <h6>{{ $user->phone }}</h6>
                         <h6>
                             {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post']) !!}
-                            {!! Form::submit('Активировать', ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary pull-right']) !!}
                             {!! Form::close() !!}
                         </h6>
                         <br>

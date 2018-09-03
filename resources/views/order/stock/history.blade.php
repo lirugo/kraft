@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Главная</a>
-                <a class="link-bread" href='javascript:history.back(1);'>Назад</a>
+                <a class="link-bread" href="/manage">{{trans('app.Main')}}</a>
+                <a class="link-bread" href='javascript:history.back(1);'>{{trans('app.Back')}}</a>
             </div>
         </div>
     </div>
@@ -17,9 +17,9 @@
                 <table class="table table-striped table-borderless">
                     <thead>
                     <tr>
-                        <th scope="col" style="color: #f78421;">Номер заказа</th>
-                        <th scope="col" style="color: #f78421;">Дата заказа</th>
-                        <th scope="col" style="color: #f78421;">Action</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Number Order')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Date Order')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@
                             <td>{{$order->order_id}}</td>
                             <td>{{$order->created_at}}</td>
                             <td>
-                                <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary">Подробнее</a>
+                                <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary">{{trans('app.Learn More')}}</a>
                             </td>
                         </tr>
                     @endforeach

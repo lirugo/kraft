@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Главная</a>
-                <a class="link-bread" href='javascript:history.back(1);'>Назад</a>
+                <a class="link-bread" href="/manage">{{trans('app.Main')}}</a>
+                <a class="link-bread" href='javascript:history.back(1);'>{{trans('app.Back')}}</a>
             </div>
         </div>
     </div>
@@ -17,9 +17,9 @@
                 <table class="table table-striped table-borderless">
                     <thead>
                     <tr>
-                        <th scope="col" style="color: #f78421;">Номер заказа</th>
-                        <th scope="col" style="color: #f78421;">Дата заказа</th>
-                        <th scope="col" style="color: #f78421;">Action</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Number Order')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Order Date')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,8 +35,8 @@
                             <td>{{$order->created_at}}</td>
                             <td>
                                 {!! Form::open(['route' => ['order.select.delete',$data['id'],$order->order_id], 'method' => 'DELETE']) !!}
-                                <a href="/order/{{$data['id']}}/select/{{$order->order_id}}" class="btn btn-primary">Подробнее</a>
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                <a href="/order/{{$data['id']}}/select/{{$order->order_id}}" class="btn btn-primary">{{trans('app.Learn More')}}</a>
+                                {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-danger']) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>

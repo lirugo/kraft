@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Панель управления</a>
+                <a class="link-bread" href="/manage">{{trans('app.Panel Control')}}</a>
             </div>
         </div>
     </div>
@@ -31,22 +31,22 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <hr>
-                                {!! Form::label('name', 'Name', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('name', trans('app.Name'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('name', $user->name, ['class' => 'form-control']) !!}
 
                                 {!! Form::label('email', 'Email', ['class' => 'm-t-10']) !!}
                                 {!! Form::text('email', $user->email, ['class' => 'form-control', 'readonly']) !!}
 
-                                {!! Form::label('dateofbirth', 'Date of birth', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('dateofbirth', trans('app.Date of Birth'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('dateofbirth', $user->dateofbirth, ['class' => 'form-control', 'id' => 'datepicker']) !!}
 
-                                {!! Form::label('sex', 'Sex', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('sex', trans('app.Sex'), ['class' => 'm-t-10']) !!}
                                 {!! Form::label('sex', $user->sex == 'x' || $user->sex == 'X' ? trans('app.male') : trans('app.femele'), ['class' => 'form-control']) !!}
 
-                                {!! Form::label('phone', 'Phone', ['class' => 'm-t-10']) !!}
+                                {!! Form::label('phone', trans('app.Phone'), ['class' => 'm-t-10']) !!}
                                 {!! Form::text('phone', $user->phone, ['class' => 'form-control', 'pattern' => '^(\+380)[0-9]{9}$', 'title' => '+380XXXXXXXXX']) !!}
 
-                                {!! Form::submit('Update Profile', ['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}
+                                {!! Form::submit(trans('app.Update Profile'), ['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}
 
                                 {!! Form::close() !!}
                             </div>

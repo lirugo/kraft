@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="/manage">Главная</a>
-                <a class="link-bread" href="/order/{{$orders->object_id}}/select">История заказов</a>
+                <a class="link-bread" href="/manage">{{trans('app.Main')}}</a>
+                <a class="link-bread" href="/order/{{$orders->object_id}}/select">{{trans('app.History Order')}}</a>
             </div>
         </div>
     </div>
@@ -13,17 +13,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <label class="pull-right"> Заказ № {{ $orders->order_id }}</label>
+                <label class="pull-right"> {{trans('app.Order')}} № {{ $orders->order_id }}</label>
                 <hr style="margin-top: 30px;">
                 <table class="table table-striped table-borderless text-center" id="table">
                     <thead>
                     <tr>
-                        <th scope="col" style="color: #f78421;">Артикул</th>
-                        <th scope="col" style="color: #f78421;">Наименование</th>
-                        <th scope="col" style="color: #f78421;">Кол-во шт</th>
-                        <th scope="col" style="color: #f78421;">Цена за шт</th>
-                        <th scope="col" style="color: #f78421;">Итого</th>
-                        <th scope="col" style="color: #f78421;">Action</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Vendor Code')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Name')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Count')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Price')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.TOTAL')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Action')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,7 +37,7 @@
                             <td>{{$order->price*$order->count}}</td>
                             <td>
                                 {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-warning btn-sm']) !!}
+                                {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-warning btn-sm']) !!}
                                 {!! Form::close() !!}
                             </td>
                          </tr>
@@ -47,20 +47,20 @@
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
                         <td style="background-color: white"></td>
-                        <td style="background-color: #eeeeee; color: #f78421;"><strong>ИТОГО</strong></td>
+                        <td style="background-color: #eeeeee; color: #f78421;"><strong>{{trans('app.TOTAL')}}</strong></td>
                         <td style="background-color: #eeeeee; color: #f78421;" id="total-sum">{{$orders->total}}</td>
                     </tr>
                     </tbody>
                 </table>
                 <hr>
                 <hr style="margin-top: 30px;">
-                <h3 class="text-center">Вывод данных для производства</h3>
+                <h3 class="text-center">{{trans('app.Output of data for production')}}</h3>
                 <table class="table table-striped table-borderless text-center" id="table">
                     <thead>
                     <tr>
-                        <th scope="col" style="color: #f78421;">Артикул</th>
-                        <th scope="col" style="color: #f78421;">Наименование</th>
-                        <th scope="col" style="color: #f78421;">Длина 1 шт</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Vendor Code')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Name')}}</th>
+                        <th scope="col" style="color: #f78421;">{{trans('app.Length 1 piece')}}</th>
                         <th scope="col" style="color: #f78421;">м.п.</th>
                         <th scope="col" style="color: #f78421;">шт.</th>
                     </tr>
@@ -82,11 +82,11 @@
                 <hr>
                 {{--//Get file if exsist--}}
                 @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
-                    <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>Download order</a>
+                    <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
                 @elseif
                     {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                     @if(Auth::user()->vendor_code_1c && $orders->status == 0)
-                        {!! Form::submit('Выписать счет', ['class' => 'btn btn-primary pull-right']) !!}
+                        {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
                     @endif
                     <br>
                     <br>

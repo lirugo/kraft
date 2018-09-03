@@ -24,7 +24,7 @@
                                         <a href="/admin/users/create">
                                             <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                                             <div class="description m-t-10">
-                                                Create User
+                                                {{ trans('app.Create User') }}
                                             </div>
                                         </a>
                                     </div>

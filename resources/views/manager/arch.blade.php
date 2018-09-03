@@ -11,16 +11,16 @@
                         <div class="panel-heading" style="height: 50px;">
                             {{$user->name}}
                             {!! Form::model($user,['route' => ['manager.user.activate', $user->id], 'method' => 'POST', 'style' => 'margin-top:-25px;']) !!}
-                            <button class="btn btn-danger btn-sm pull-right">{{$user->active == true ? "Отключить" : "Активировать"}}</button>
+                            <button class="btn btn-danger btn-sm pull-right">{{$user->active == true ? trans('app.Disable') : trans('app.Activate')}}</button>
                             {!! Form::close() !!}
                             {!! Form::model($user,['route' => ['manager.user.verified', $user->id], 'method' => 'POST', 'style' => 'margin-right:110px;']) !!}
-                            <button class="btn btn-danger btn-sm pull-right">{{$user->verified == true ? "Перепроверка" : "Проверить"}}</button>
+                            <button class="btn btn-danger btn-sm pull-right">{{$user->verified == true ? trans('app.Recheck') : trans('app.Check')}}</button>
                             {!! Form::close() !!}
                         </div>
                         <div class="panel-body">
                             <div class="col-md-4">
                                 <hr>
-                                <p>{{ empty($user->company) ? null : "Company name: ".$user->company  }}</p>
+                                <p>{{ empty($user->company) ? null : trans('app.Company Name').': '.$user->company  }}</p>
                                 <p>{{trans('app.name')}}: {{$user->name}}</p>
                                 <p>{{trans('app.dateofbirth')}}: {{$user->dateofbirth}}</p>
                                 <p>{{trans('app.gender')}}: {{$user->sex == 'X' ? trans('app.male') : trans('app.femele')}}</p>
@@ -39,8 +39,8 @@
                             </div>
                             <div class="col-md-4">
                                 <hr>
-                                <p>Активен: {{$user->active == true ? "Да" : "Нет"}}</p>
-                                <p>Проверен: {{$user->verified == true ? "Да" : "Нет"}} </p>
+                                <p>{{trans('app.Active')}}: {{$user->active == true ? trans('app.Yes') : trans('app.No')}}</p>
+                                <p>{{trans('app.Checked')}}: {{$user->verified == true ? trans('app.Yes') : trans('app.No')}} </p>
                             </div>
                         </div>
                     </div>
