@@ -27,7 +27,7 @@ class ManagerController extends Controller
     public function postCreate(Request $request){
         //GetCompanyID
         $user = Auth::user();
-        $company = Company::where('companyname', $user->company)->firstOrFail();
+        $company = Company::where($user->company, $user->company)->firstOrFail();
         //Validate
         $this->validate($request,[
             //Validate company profile
