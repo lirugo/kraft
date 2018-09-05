@@ -251,6 +251,7 @@ Route::get('/distributors', 'TopManager\DistributorsController@index');
 //EndTopManager
 
 //ContactController
+Route::get('/contact/send', 'ContactController@send')->name('contact.send');
 Route::post('/contact/send', 'ContactController@send')->name('contact.send');
 Route::post('/order/send/{order_id}', 'ContactController@order')->name('order.send');
 //EndContactController

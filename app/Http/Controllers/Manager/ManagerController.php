@@ -27,7 +27,7 @@ class ManagerController extends Controller
     public function postCreate(Request $request){
         //GetCompanyID
         $user = Auth::user();
-        $company = Company::where($user->company, $user->company)->firstOrFail();
+        //$company = Company::where('companyname', $user->company)->firstOrFail();
         //Validate
         $this->validate($request,[
             //Validate company profile
@@ -44,7 +44,7 @@ class ManagerController extends Controller
             'sworks' => 'required|integer',
             'customer' => 'required|max:255',
             'customername' => 'required|max:255',
-            'customersurname' => 'required|max:255',
+//            'customersurname' => 'required|max:255',
 //            'customerpatronymic' => 'required|max:255',
             'customerphone' => 'required|max:255',
             /* 'delegatebuildername' => 'required|max:255',
@@ -106,27 +106,27 @@ class ManagerController extends Controller
         $object->dateofdelivery = $request->dateofdelivery;
         $object->customer = $request->customer;
         $object->customername = $request->customername;
-        $object->customersurname = $request->customersurname;
-        $object->customerpatronymic = $request->customerpatronymic;
+//        $object->customersurname = $request->customersurname;
+//        $object->customerpatronymic = $request->customerpatronymic;
         $object->customerposition = $request->customerposition;
         $object->customerphone = $request->customerphone;
         $object->generalbuilder = $request->generalbuilder;
         $object->delegatebuildername = $request->delegatebuildername;
-        $object->delegatebuildersurname = $request->delegatebuildersurname;
-        $object->delegatebuilderpatronymic = $request->delegatebuilderpatronymic;
+//        $object->delegatebuildersurname = $request->delegatebuildersurname;
+//        $object->delegatebuilderpatronymic = $request->delegatebuilderpatronymic;
         $object->delegatebuilderphone = $request->delegatebuilderphone;
         $object->subbuilder = $request->subbuilder;
         $object->subbuildername = $request->subbuildername;
-        $object->subbuildersurname = $request->subbuildersurname;
-        $object->subbuilderpatronymic = $request->subbuilderpatronymic;
+//        $object->subbuildersurname = $request->subbuildersurname;
+//        $object->subbuilderpatronymic = $request->subbuilderpatronymic;
         $object->subbuilderphone = $request->subbuilderphone;
         $object->archname = $request->architectname;
-        $object->archsurname = $request->architectsurname;
-        $object->archpatronymic = $request->architectpatronymic;
+//        $object->archsurname = $request->architectsurname;
+//        $object->archpatronymic = $request->architectpatronymic;
         $object->archphone = $request->architectphone;
         $object->designname = $request->designname;
-        $object->designsurname = $request->designsurname;
-        $object->designpatronymic = $request->designpatronymic;
+//        $object->designsurname = $request->designsurname;
+//        $object->designpatronymic = $request->designpatronymic;
         $object->designphone = $request->designphone;
         $object->photo1 = $request->scandoc1;
         $object->photo2 = $request->scandoc2;
