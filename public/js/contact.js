@@ -58,8 +58,8 @@ $(function () {
         valid = valid && checkLength(theme, "theme", 6, 50);
         valid = valid && checkLength(body, "body", 6, 500);
 
-        valid = valid && checkRegexp(theme, /^[а-яА-ЯёЁa-zA-Z0-9]+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
-        valid = valid && checkRegexp(body, /^[а-яА-ЯёЁa-zA-Z0-9]+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
+        valid = valid && checkRegexp(theme, /^[а-яА-ЯёЁa-zA-Z0-9 -\,\.]+$/i, "Theme may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
+        valid = valid && checkRegexp(body, /[^@]/, "Body may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
 
         if (valid) {
             //SendPost

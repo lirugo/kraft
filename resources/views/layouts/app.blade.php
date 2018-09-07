@@ -55,7 +55,7 @@
                 {!! Form::close() !!}
             </div>
             <div id="success" title="Ваш запрос отправлен">
-                <p>Ваше мнение важно для нас текс</p>
+                <p>Ваше мнение важно для нас</p>
             </div>
         @endif
         {{--EndContactForm--}}
