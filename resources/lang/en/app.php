@@ -336,4 +336,5 @@ return [
     'Registered objects of the company' => 'Registered objects of the company',
     'Not Registered objects of the company' => 'Not Registered objects of the company',
     'Date before report' => 'Date before report',
+    'History Order' => 'History Order',
 ];

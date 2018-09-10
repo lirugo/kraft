@@ -336,4 +336,5 @@ return [
     'Registered objects of the company' => 'Зареєстровані об\'єкти компанії',
     'Not Registered objects of the company' => 'Не зареєстровані об\'єкти компанії',
     'Date before report' => 'Дата до звіту',
+    'History Order' => 'Iторiя розрахунків',
 ];
