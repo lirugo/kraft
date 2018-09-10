@@ -83,7 +83,7 @@
                 {{--//Get file if exsist--}}
                 @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
                     <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
-                @elseif
+                @else
                     {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                     @if(Auth::user()->vendor_code_1c && $orders->status == 0)
                         {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
