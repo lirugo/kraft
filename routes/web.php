@@ -310,6 +310,11 @@ Route::get('/auth/token', 'Auth\AuthTokenController@getToken');
 Route::post('/auth/token', 'Auth\AuthTokenController@postToken')->name('auth.token');
 Route::get('/auth/token/resend', 'Auth\AuthTokenController@getResend')->name('auth.token');
 
+//SHOP
+Route::get('/shop', 'Shop\ShopController@index');
+Route::get('/shop/show', 'Shop\ShopController@show');
+Route::post('/shop/add', 'Shop\ShopController@add')->name('shop.add');
+
 
 //HELP PAGE
 Route::get('/help', 'Help\HelpController@index');
