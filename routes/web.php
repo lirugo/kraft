@@ -313,6 +313,7 @@ Route::get('/auth/token/resend', 'Auth\AuthTokenController@getResend')->name('au
 //SHOP
 Route::get('/stock', 'Order\StockController@index');
 Route::get('/shop', 'Shop\ShopController@index');
+Route::get('/shop/ok', 'Shop\ShopController@ok');
 Route::get('/shop/cart', 'Shop\ShopController@cart');
 Route::get('/shop/clear', 'Shop\ShopController@clear');
 Route::get('/shop/show', 'Shop\ShopController@show');

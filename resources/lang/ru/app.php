@@ -348,4 +348,5 @@ return [
     'go to shop' => 'перейти в магазин',
     'Accessories' => 'Аксессуары',
     'Light' => 'Свет',
+    'The specification is fully preserved' => 'Спецификация успешно сохранена',
 ];

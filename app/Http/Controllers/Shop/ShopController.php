@@ -14,6 +14,14 @@ use App\Http\Controllers\Controller;
 class ShopController extends Controller
 {
     /**
+     * ShopController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -28,9 +36,9 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ok()
     {
-        //
+        return view('shop.ok');
     }
 
     /**
@@ -56,7 +64,8 @@ class ShopController extends Controller
         }
 
         Session::forget('cart');
-        return back();
+
+        return redirect(url('/shop/ok'));
 
     }
 

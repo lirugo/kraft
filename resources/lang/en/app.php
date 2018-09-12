@@ -350,5 +350,6 @@ return [
     'go to shop' => 'go to shop',
     'Accessories' => 'Accessories',
     'Light' => 'Light',
+    'The specification is fully preserved' => 'The specification is fully preserved',
 
 ];
