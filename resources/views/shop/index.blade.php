@@ -14,7 +14,7 @@
         <div class="row m-t-100">
             <div class="col-md-2 col-md-offset-1">
                 <div class="panel">
-                    <a href="{{url('/shop/show?sort=grilyato')}}">
+                    <a href="{{url('/shop/show?sort=tprofile')}}">
                     <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/tprofile.png')}}" width="150px" alt="Card image cap">
                     <div class="panel-body">
                         <h5 class="panel-title m-b-10 text-center">T-Profile</h5>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-2">
                 <div class="panel">
-                    <a href="{{url('/shop/show?sort=tprofile')}}">
+                    <a href="{{url('/shop/show?sort=grilyato')}}">
                     <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/grilyato.png')}}" width="150px" alt="Card image cap">
                     <div class="panel-body ">
                         <h5 class="panel-title m-b-10 text-center">Grilyato</h5>
