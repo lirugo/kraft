@@ -16,7 +16,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                    @if(Session::has('cart'))
-                       {!! Form::open(['route' => 'shop.save', 'method' => 'POST']) !!}
+                       {!! Form::model($products, ['route' => 'shop.save', 'method' => 'POST']) !!}
                         <div class="row m-b-20">
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary" style="border-radius:0; margin:0;">{{trans('app.Save Order')}}</button>
@@ -35,6 +35,7 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-body">
+                                {!! Form::hidden('orderId', $objectId.\Carbon\Carbon::now()->format('Y'.'m'.'d'.'H'.'i'.'s')) !!}
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>

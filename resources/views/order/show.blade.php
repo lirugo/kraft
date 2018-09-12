@@ -4,7 +4,11 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">{{trans('app.Main')}}</a>
-                <a class="link-bread" href="/order/{{$orders->object_id}}/select">{{trans('app.History Order')}}</a>
+                @if($orders->object_id)
+                    <a class="link-bread" href="/order/{{$orders->object_id}}/select">{{trans('app.History Order')}}</a>
+                @else
+                    <a class="link-bread" href="/order/history">{{trans('app.History Order')}}</a>
+                @endif
             </div>
         </div>
     </div>

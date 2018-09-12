@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\CalcHistory;
 use App\Http\Cart;
 use Session;
+use Auth;
 use App\Product;
 use App\ProfileGrilyato;
 use Illuminate\Http\Request;
@@ -39,7 +41,23 @@ class ShopController extends Controller
      */
     public function save(Request $request)
     {
-        //
+
+        foreach (Session::get('cart')->items as $item){
+            $calcHis = new CalcHistory();
+            $calcHis->stock = true;
+            $calcHis->production = false;
+            $calcHis->user_id = Auth::user()->id;
+            $calcHis->order_id = $request->orderId;
+            $calcHis->vendor_code = $item['item']->vendor_code;
+            $calcHis->description = $item['item']->description;
+            $calcHis->count = $item['qty'];
+            $calcHis->price = $item['item']->price;
+            $calcHis->save();
+        }
+
+        Session::forget('cart');
+        return back();
+
     }
 
     /**
