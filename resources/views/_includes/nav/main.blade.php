@@ -27,6 +27,13 @@
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
                 @else
+                    @if(Auth::user()->hasRole('distributor'))
+                        <li>
+                            <a href="{{ url('/shop/cart') }}">
+                                <i data-count="{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}" id="notification_counter" class="fa fa-shopping-cart notification-icon"></i>
+                            </a>
+                        </li>
+                    @endif
                     {{--<li><a href="/messages">Messages @include('messenger.unread-count')</a></li>--}}
                     {{--Notification --}}
                     <li class="dropdown dropdown-notifications">
@@ -60,6 +67,7 @@
                             {{ csrf_field() }}
                         </form>
                     </li>
+
                 @endif
                 <li>
                     <form action="/language" method="post" class="m-t-30 m-l-20 m-r-10">
@@ -69,6 +77,7 @@
                         {{ csrf_field() }}
                     </form>
                 </li>
+
                 <li><a href="{{ url('/help') }}"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></a></li>
             </ul>
         </div>

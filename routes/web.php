@@ -311,9 +311,14 @@ Route::post('/auth/token', 'Auth\AuthTokenController@postToken')->name('auth.tok
 Route::get('/auth/token/resend', 'Auth\AuthTokenController@getResend')->name('auth.token');
 
 //SHOP
+Route::get('/stock', 'Order\StockController@index');
 Route::get('/shop', 'Shop\ShopController@index');
+Route::get('/shop/cart', 'Shop\ShopController@cart');
+Route::get('/shop/clear', 'Shop\ShopController@clear');
 Route::get('/shop/show', 'Shop\ShopController@show');
-Route::post('/shop/add', 'Shop\ShopController@add')->name('shop.add');
+Route::post('/shop/save', 'Shop\ShopController@save')->name('shop.save');
+Route::post('/shop/add/{id}', 'Shop\ShopController@add')->name('shop.add');
+Route::post('/shop/delete/{id}', 'Shop\ShopController@destroy')->name('shop.cart.delete');
 
 
 //HELP PAGE

@@ -40,31 +40,34 @@
         <!--Content-->
         @yield('content')
         {{--ContactForm--}}
-        @if(Auth::user())
-            <div id="dialog-form" title="Связь с KRAFT">
-                <p class="validateTips">Эта форма предназначена для связи с руководством компании-производителя.
-                    Если у вас есть какие-либо предложения, пожелания или возникли проблемы при работе с нами - напишите нам, и мы рассмотрим Ваше обращение в ближайшее время.</p>
-                {!! Form::open(['route' =>['contact.send'], 'method' => 'POST', 'id' => 'contact']) !!}
-                <fieldset>
-                {!! Form::text('theme',null, ['class' => 'form-control', 'id' => 'theme','placeholder' => 'Тема']) !!}
-                {!! Form::textarea('body',null, ['class' => 'form-control',  'id' => 'body', 'placeholder' => 'Текст письма', 'style' => 'height:190px;']) !!}
-                <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                    {{--<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">--}}
-                    {{--{!! Form::submit('Отправить!') !!}--}}
-                </fieldset>
-                {!! Form::close() !!}
-            </div>
-            <div id="success" title="Ваш запрос отправлен">
-                <p>Ваше мнение важно для нас</p>
-            </div>
+
+        @if(!(substr(Request::path(), 0, 4) == 'shop'))
+            @if(Auth::user())
+                <div id="dialog-form" title="Связь с KRAFT">
+                    <p class="validateTips">Эта форма предназначена для связи с руководством компании-производителя.
+                        Если у вас есть какие-либо предложения, пожелания или возникли проблемы при работе с нами - напишите нам, и мы рассмотрим Ваше обращение в ближайшее время.</p>
+                    {!! Form::open(['route' =>['contact.send'], 'method' => 'POST', 'id' => 'contact']) !!}
+                    <fieldset>
+                    {!! Form::text('theme',null, ['class' => 'form-control', 'id' => 'theme','placeholder' => 'Тема']) !!}
+                    {!! Form::textarea('body',null, ['class' => 'form-control',  'id' => 'body', 'placeholder' => 'Текст письма', 'style' => 'height:190px;']) !!}
+                    <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                        {{--<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">--}}
+                        {{--{!! Form::submit('Отправить!') !!}--}}
+                    </fieldset>
+                    {!! Form::close() !!}
+                </div>
+                <div id="success" title="Ваш запрос отправлен">
+                    <p>Ваше мнение важно для нас</p>
+                </div>
+            @endif
         @endif
         {{--EndContactForm--}}
     </div>
-
     <!--Footer-->
     @include('_includes.footer')
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    @if(!(substr(Request::path(), 0, 4) == 'shop'))
+        <script src="/js/app.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {{--Set id user for js --}}
     <script>
@@ -75,6 +78,7 @@
     {{--ContactForm--}}
     <script src="/js/contact.js"></script>
     <script src="/js/notifications.js"></script>
+    @endif
     @include('_includes.scripts')
 </body>
 </html>
