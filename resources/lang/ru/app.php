@@ -336,4 +336,16 @@ return [
     'Not Registered objects of the company' => 'Not Registered objects of the company',
     'Date before report' => 'Date before report',
     'History Order' => 'История рассчетов',
+
+    //NEW
+    'Shop' => 'Магазин',
+    'Cart' => 'Корзина',
+    'Clear all' => 'Очистить все',
+    'Nothing here yet' => 'Тут ничего нет',
+    'Code' => 'Код',
+    'Description' => 'Описание',
+    'Remove' => 'Удалить',
+    'go to shop' => 'перейти в магазин',
+    'Accessories' => 'Аксессуары',
+    'Light' => 'Свет',
 ];

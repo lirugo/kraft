@@ -337,4 +337,18 @@ return [
     'Not Registered objects of the company' => 'Not Registered objects of the company',
     'Date before report' => 'Date before report',
     'History Order' => 'History Order',
+
+
+    //NEW
+    'Shop' => 'Shop',
+    'Cart' => 'Cart',
+    'Clear all' => 'Clear all',
+    'Nothing here yet' => 'Nothing here yet',
+    'Code' => 'Code',
+    'Description' => 'Description',
+    'Remove' => 'Remove',
+    'go to shop' => 'go to shop',
+    'Accessories' => 'Accessories',
+    'Light' => 'Light',
+
 ];

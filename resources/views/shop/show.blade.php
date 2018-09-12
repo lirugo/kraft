@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">{{ trans('app.Panel Control') }}</a>
-                <a class="link-bread" href="/shop">Shop</a>
+                <a class="link-bread" href="/shop">{{ trans('app.Shop') }}</a>
                 <a class="link-bread" href="#">
                     {{Request::get('sort') == 'tprofile' ? 'T-Profile' : ''}}
                     {{Request::get('sort') == 'grilyato' ? 'Gryljato' : ''}}
@@ -25,11 +25,11 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col">Code</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Count</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">{{trans('app.Code')}}</th>
+                                <th scope="col">{{trans('app.Description')}}</th>
+                                <th scope="col">{{trans('app.Price')}}</th>
+                                <th scope="col">{{trans('app.Count')}}</th>
+                                <th scope="col">{{trans('app.Action')}}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,7 +40,7 @@
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{!! Form::number('count', null, ['class' => 'form-control', 'min' => 1, 'step' => 1, 'max' => 1000, 'required', 'placeholder' => '0']) !!}</td>
-                                        <td>{!! Form::submit('Add to cart', ['class' => 'btn btn-primary btn-sm']) !!}</td>
+                                        <td>{!! Form::submit(trans('Add to cart'), ['class' => 'btn btn-primary btn-sm']) !!}</td>
                                     </tr>
                                     {!! Form::close() !!}
                                 @endforeach
