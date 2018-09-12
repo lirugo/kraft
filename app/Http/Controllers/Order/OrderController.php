@@ -211,7 +211,10 @@ class OrderController extends Controller
     }
 
     public function historyStock(){
-        $orders = CalcHistory::all()->where('user_id', Auth::user()->id);
+        $orders = CalcHistory::where([
+            ['stock', '=', 1],
+            ['user_id', Auth::user()->id]
+        ])->get();
         $orders = $orders->unique('order_id');
         $data = new Collection();
         $data->put('orders', $orders);
