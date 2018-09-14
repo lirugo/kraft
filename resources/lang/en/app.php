@@ -352,4 +352,10 @@ return [
     'Light' => 'Light',
     'The specification is fully preserved' => 'The specification is fully preserved',
 
+
+    'Rail' => 'Rail',
+    'Make a calculation' => 'Make a calculation',
+    'Tips for calculations' => 'Tips for calculations',
+    'Select susp length' => 'Select length of suspension',
+
 ];

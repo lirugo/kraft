@@ -349,4 +349,9 @@ return [
     'Accessories' => 'Аксессуары',
     'Light' => 'Свет',
     'The specification is fully preserved' => 'Спецификация успешно сохранена',
+
+    'Rail' => 'Рейка',
+    'Make a calculation' => 'Сделать просчте',
+    'Tips for calculations' => 'Подсказки для расчетов',
+    'Select susp length' => 'Выберите длину подвеса',
 ];

@@ -8,10 +8,10 @@ return [
     'rememberme' => 'Запам\'ятати мене',
     'forgotyourpassword' => 'Забули пароль?',
     'language' => 'Мова',
-    'login' => 'Ввійти',
-    'registration' => 'Регістрація',
+    'login' => 'Вхід',
+    'registration' => 'Реєстрація',
     'logout' => 'Вихід',
-    'register' => 'Регістрація',
+    'register' => 'Реєстрація',
     'registertext' => 'Для доступу до системи необхідна реєстрація',
     'entity' => 'Юр. особа',
     'individual' => 'Фіз. особа',
@@ -352,4 +352,8 @@ return [
 
 
     'The specification is fully preserved' => 'Специфікація успішно збережена',
+    'Rail' => 'Рейка',
+    'Make a calculation' => 'Зробити разрахунок',
+    'Tips for calculations' => 'Підказки для розрахунків',
+    'Select susp length' => 'Вибрати довжину підвісу',
 ];

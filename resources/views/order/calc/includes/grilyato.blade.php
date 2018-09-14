@@ -39,7 +39,7 @@
                '1500' => '1500 мм',
                '2000' => '2000 мм',
                '3000' => '3000 мм'
-               ], null, ['class' => 'form-control', 'id' => 'grilyato_wire_with_ear', 'placeholder' => trans('app.Select a size cells'), 'required']) !!}
+               ], null, ['class' => 'form-control', 'id' => 'grilyato_wire_with_ear', 'placeholder' => trans('app.Select susp length'), 'required']) !!}
             {!! Form::select('grilyato_wire_with_hook',[
                '125' => '125 мм',
                '250' => '250 мм',
