@@ -354,4 +354,6 @@ return [
     'Make a calculation' => 'Сделать просчте',
     'Tips for calculations' => 'Подсказки для расчетов',
     'Select susp length' => 'Выберите длину подвеса',
+
+    'slt from schedule' => 'Выбрать из списка',
 ];

@@ -358,4 +358,7 @@ return [
     'Tips for calculations' => 'Tips for calculations',
     'Select susp length' => 'Select length of suspension',
 
+
+    'slt from schedule' => 'Select from list',
+
 ];

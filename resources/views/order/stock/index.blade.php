@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 p-20">
-                <a class="link-bread" href="#">{{trans('app.Panel Control')}}</a>
+                <a class="link-bread" href="/show">{{trans('app.Panel Control')}}</a>
                 <a class="link-bread" href="#">Склад</a>
             </div>
         </div>
@@ -17,7 +17,7 @@
                     <a href="{{url('/order')}}">
                         <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
                         <div class="description m-t-10">
-                            Калькулятор
+                            {{trans('app.calculator')}}
                         </div>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                     <a href="/shop">
                         <i class="fa fa-list fa-5x" aria-hidden="true"></i>
                         <div class="description m-t-10">
-                            Выбрать из списка
+                            {{trans('app.slt from schedule')}}
                         </div>
                     </a>
                 </div>

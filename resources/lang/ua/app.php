@@ -356,4 +356,6 @@ return [
     'Make a calculation' => 'Зробити разрахунок',
     'Tips for calculations' => 'Підказки для розрахунків',
     'Select susp length' => 'Вибрати довжину підвісу',
+
+    'slt from schedule' => 'Вибрати з переліку',
 ];
