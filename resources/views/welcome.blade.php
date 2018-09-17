@@ -10,7 +10,7 @@
                 <h1>
                     {{ trans('app.h1welcometext') }}
                 </h1>
-                <h4>On-liner v1.0</h4>
+                <h4>Onliner v1.0</h4>
             </div>
         </div>
     </div>
