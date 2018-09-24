@@ -688,4 +688,9 @@ class OrderController extends Controller
         DB::table('calc_histories')->where('order_id', $order_id)->delete();
         return back();
     }
+
+    public function deleteStockOrder($order_id){
+        DB::table('calc_histories')->where('order_id', $order_id)->delete();
+        return back();
+    }
 }

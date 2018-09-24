@@ -34,7 +34,12 @@
                             <td>{{$order->order_id}}</td>
                             <td>{{$order->created_at}}</td>
                             <td>
-                                <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary">{{trans('app.Learn More')}}</a>
+                                <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary btn-sm left">{{trans('app.Learn More')}}</a>
+                            </td>
+                            <td>
+                                {!! Form::open(['route' => ['order.stock.delete',$order->order_id], 'method' => 'POST']) !!}
+                                    {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-danger btn-sm right']) !!}
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach
