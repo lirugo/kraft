@@ -23,6 +23,7 @@ return [
     'main' => 'Главная',
     'manage' => 'Панель управления',
     'objects' => 'Объекты',
+    'Objects' => 'Объекты',
     //EndMenu
 
     //RegisterArch/Design Page
@@ -356,4 +357,6 @@ return [
     'Select susp length' => 'Выберите длину подвеса',
 
     'slt from schedule' => 'Выбрать из списка',
+    'Invoice is formed, expect' => 'Счет формируется, ожидайте',
+    'Item was added' => 'Товар был добавлен',
 ];

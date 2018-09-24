@@ -91,7 +91,7 @@ class InvoiceController extends Controller
         if ($err) {
             Session::flash('error', 'Извините, не получилось отправить Ваш счет, обратитесь к администрации.');
         } else {
-            Session::flash('success', 'Счет формируется ожидайте');
+            Session::flash('success', trans('app.Invoice is formed, expect'));
         }
 
         //Return back show msg

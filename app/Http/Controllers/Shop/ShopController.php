@@ -125,7 +125,7 @@ class ShopController extends Controller
         $cart->add($product, $product->vendor_code, $request->count);
 
         Session::put('cart', $cart);
-        Session::flash('success', 'Item was added');
+        Session::flash('success', trans('app.Item was added'));
         return redirect()->back();
     }
 

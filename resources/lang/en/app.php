@@ -23,6 +23,7 @@ return [
     'main' => 'Main',
     'manage' => 'Manage Dashboard',
     'objects' => 'Objects',
+    'Objects' => 'Objects',
     //EndMenu
 
     //RegisterArch/Design Page
@@ -360,5 +361,7 @@ return [
 
 
     'slt from schedule' => 'Select from list',
+    'Invoice is formed, expect' => 'Invoice is formed, expect',
+    'Item was added' => 'Item was added',
 
 ];
