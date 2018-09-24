@@ -48,9 +48,11 @@ class ModerationController extends Controller
     }
 
     public function companyusers(){
-        $users = User::with(['roles' => function($q){
-            $q->where('name', 'Worker');
-        }])->get();
+        $users = User::whereHas(
+            'roles', function($q){
+            $q->where('name', 'worker');
+        }
+        )->get();
 
         foreach ($users as $key => $user)
         {
