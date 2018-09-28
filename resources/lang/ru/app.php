@@ -359,4 +359,7 @@ return [
     'slt from schedule' => 'Выбрать из списка',
     'Invoice is formed, expect' => 'Счет формируется, ожидайте',
     'Item was added' => 'Товар был добавлен',
+    'Date of birth' => 'Дата рождения',
+    'Confirm' => 'Подтвердить',
+    'Law OKPO' => 'OKPO',
 ];

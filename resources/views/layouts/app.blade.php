@@ -79,6 +79,11 @@
     <script src="/js/contact.js"></script>
     <script src="/js/notifications.js"></script>
     @endif
+    {{--<script>--}}
+        {{--var notification_counter = document.getElementById("notification_counter");--}}
+        {{--notification_counter.classList.remove("notification-icon");--}}
+    {{--</script>--}}
     @include('_includes.scripts')
+
 </body>
 </html>

@@ -361,4 +361,7 @@ return [
     'slt from schedule' => 'Вибрати з переліку',
     'Invoice is formed, expect' => 'Рахунок формується, очікуйте',
     'Item was added' => 'Товар був доданний',
+    'Date of birth' => 'Дата народження',
+    'Confirm' => 'Підтвердити',
+    'Law OKPO' => 'OKPO',
 ];

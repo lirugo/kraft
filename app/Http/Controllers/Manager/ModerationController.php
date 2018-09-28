@@ -14,29 +14,40 @@ class ModerationController extends Controller
 {
     public function index(){
         //GetCompanyChange
-        $ch = CompanyChange::all()->where('done', '=', false);
+        $companychanges = CompanyChange::all()->where('done' , '=', false);
+        foreach($companychanges as $key => $ch) {
+            $ch->company = Company::find($ch->company_id);
+            if($ch->company->rmid != Auth::user()->id)
+                unset($companychanges[$key]);
+        }
 
         //GetUsersCompanyWhatNotActive
-        $users = User::with(['roles' => function($q){
-            $q->where('name', 'Worker');
-        }])->get();
+        $users = User::whereHas(
+            'roles', function($q){
+            $q->where('name', 'worker');
+        }
+        )->get();
         foreach ($users as $key => $user)
             if($user->active == true || $user->regionname != Auth::user()->regionname)
                 unset($users[$key]);
 
         //Set data
         $data = [
-            'company' => count($ch),
+            'company' => count($companychanges),
             'users' => count($users)
         ];
+
         //Send to view
         return view('manager/moderation/index')->with('data', $data);
     }
 
     public function company(){
         $companychanges = CompanyChange::all()->where('done' , '=', false);
-        foreach($companychanges as $ch)
+        foreach($companychanges as $key => $ch) {
             $ch->company = Company::find($ch->company_id);
+            if($ch->company->rmid != Auth::user()->id)
+                unset($companychanges[$key]);
+        }
         return view('manager/moderation/company/index')->with('chs', $companychanges);
     }
 

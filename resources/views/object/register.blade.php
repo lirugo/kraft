@@ -76,11 +76,11 @@
 
                             {!! Form::label('label', trans('app.Select the prospective products on object'), ['class' => 'm-t-20 text-center']) !!}
                             <select multiple class="form-control" name="products[]" style="height:110px;" required>
-                                <option name="product1" value="product1">{{trans('app.T-Profile')}}T-Профиль</option>
-                                <option name="product2" value="product2">{{trans('app.Grilyato')}}Грильято</option>
-                                <option name="product3" value="product3">{{trans('app.Kraft Cube')}}Kraft Cube</option>
-                                <option name="product4" value="product4">{{trans('app.Kraft LED')}}KRAFT LED</option>
-                                <option name="product5" value="product5">{{trans('app.Block OWA')}}Плиты OWA</option>
+                                <option name="product1" value="product1">{{trans('app.T-Profile')}}</option>
+                                <option name="product2" value="product2">{{trans('app.Grilyato')}}</option>
+                                <option name="product3" value="product3">{{trans('app.Kraft Cube')}}</option>
+                                <option name="product4" value="product4">{{trans('app.Kraft LED')}}</option>
+                                <option name="product5" value="product5">{{trans('app.Block OWA')}}</option>
                             </select>
                             {{--<div class="[ form-group-checkbox  m-t-20 ]">--}}
                                 {{--<input type="checkbox"  name="product1" id="product1" value="1"/>--}}

@@ -41,7 +41,7 @@
                     <a href="{{url('/shop/show?sort=reyka')}}">
                     <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/led.png')}}" width="150px" alt="Card image cap">
                     <div class="panel-body">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Kraft LED') }}</h5>
+                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Rail') }}</h5>
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
                     </div>
@@ -65,7 +65,7 @@
                     <a href="{{url('/shop/show?sort=svet')}}">
                     <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/svet.png')}}" width="150px" alt="Card image cap">
                     <div class="panel-body">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Light') }}</h5>
+                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Kraft LED') }}</h5>
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
                     </div>

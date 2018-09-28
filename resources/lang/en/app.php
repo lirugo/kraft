@@ -363,5 +363,8 @@ return [
     'slt from schedule' => 'Select from list',
     'Invoice is formed, expect' => 'Invoice is formed, expect',
     'Item was added' => 'Item was added',
+    'Date of birth' => 'Date of birth',
+    'Confirm' => 'Confirm',
+    'Law OKPO' => 'OKPO',
 
 ];

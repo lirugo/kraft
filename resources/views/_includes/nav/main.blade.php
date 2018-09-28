@@ -30,7 +30,11 @@
                     @if(Auth::user()->hasRole('distributor'))
                         <li>
                             <a href="{{ url('/shop/cart') }}">
-                                <i data-count="{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}" id="notification_counter" class="fa fa-shopping-cart notification-icon"></i>
+                                @if(Session::has('cart'))
+                                    <i data-count="{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}" id="notification_counter" class="fa fa-shopping-cart notification-icon"></i>
+                                @else
+                                    <i id="notification_counter" class="fa fa-shopping-cart"></i>
+                                @endif
                             </a>
                         </li>
                     @endif

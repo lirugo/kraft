@@ -28,6 +28,12 @@ $(function(){
             notificationsCount = data.data.length;
             notificationsCountElem.attr('data-count', notificationsCount);
             notificationsWrapper.find('.notif-count').text(notificationsCount);
+
+            // if(notificationsCount != 0){
+            //     var notification_counter = document.getElementById("notification_counter");
+            //     notification_counter.classList.add("notification-icon");
+            // }
+
             for(var i=0; i<data.data.length; i++) {
                 var existingNotifications = notifications.html();
                 if(data.data[i].body != null)
@@ -111,6 +117,7 @@ Echo.private('notification-arrived.'+authUserId)
 
         notificationsCount += 1;
         notificationsCountElem.attr('data-count', notificationsCount);
+
         notificationsWrapper.find('.notif-count').text(notificationsCount);
         notificationsWrapper.show();
     });
