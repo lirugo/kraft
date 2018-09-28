@@ -31,9 +31,9 @@
                         <li>
                             <a href="{{ url('/shop/cart') }}">
                                 @if(Session::has('cart'))
-                                    <i data-count="{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}" id="notification_counter" class="fa fa-shopping-cart notification-icon"></i>
+                                    <i data-count="{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}" id="notification_counter_shop" class="fa fa-shopping-cart notification-icon"></i>
                                 @else
-                                    <i id="notification_counter" class="fa fa-shopping-cart"></i>
+                                    <i id="notification_counter_shop" class="fa fa-shopping-cart"></i>
                                 @endif
                             </a>
                         </li>
@@ -42,7 +42,7 @@
                     {{--Notification --}}
                     <li class="dropdown dropdown-notifications">
                         <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                            <i data-count="0" id="notification_counter" class="fa fa-bell notification-icon"></i>
+                            <i data-count="0" id="notification_counter" class="fa fa-bell"></i>
                         </a>
                         <div class="dropdown-container">
                             <div class="dropdown-toolbar">
