@@ -73,14 +73,18 @@
                     </li>
 
                 @endif
-                <li>
-                    <form action="/language" method="post" class="m-t-30 m-l-20 m-r-10">
-                        <input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">
-                        <input type=image src="/img/icon/flags/ua.png" name="locale" value="ua" class="flag m-l-10" alt="Ukrainian">
-                        <input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag m-l-10" alt="English">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
+                {{--<li>--}}
+                    {{--<form action="/language" method="post" class="m-t-30 m-l-20 m-r-10">--}}
+                        {{--<input type=image src="/img/icon/flags/ru.svg" name="locale" value="ru" class="flag" alt="Russian">--}}
+                        {{--<input type=image src="/img/icon/flags/ua.png" name="locale" value="ua" class="flag m-l-10" alt="Ukrainian">--}}
+                        {{--<input type=image src="/img/icon/flags/en.svg" name="locale" value="en" class="flag m-l-10" alt="English">--}}
+                        {{--{{ csrf_field() }}--}}
+                    {{--</form>--}}
+                {{--</li>--}}
+
+                <li><a src="/img/icon/flags/ru.svg" name="locale" class="flag" href="{{url('/language?lang=ru')}}"><img src="/img/icon/flags/ru.svg" width="20px"></a></li>
+                <li><a src="/img/icon/flags/ua.svg" name="locale" class="flag" href="{{url('/language?lang=ua')}}"><img src="/img/icon/flags/ua.png" width="20px"></a></li>
+                <li><a src="/img/icon/flags/en.svg" name="locale" class="flag" href="{{url('/language?lang=en')}}"><img src="/img/icon/flags/en.svg" width="20px"></a></li>
 
                 <li><a href="{{ url('/help') }}"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></a></li>
             </ul>

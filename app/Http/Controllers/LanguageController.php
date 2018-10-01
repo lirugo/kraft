@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Input;
 
 class LanguageController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
        if(!Session::has('locale')){
-           Session::put('locale', Input::get('locale'));
+           Session::put('locale', $request->lang);
        } else {
-           Session::put('locale', Input::get('locale'));
+           Session::put('locale', $request->lang);
        }
 
        return redirect()->back();

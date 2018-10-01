@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 
 //Language route
-Route::post('/language', [
+Route::get('/language', [
     'Middleware' => 'LanguageSwitcher',
     'uses' => 'LanguageController@index'
 ]);
