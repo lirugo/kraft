@@ -367,4 +367,7 @@ return [
     'Date of birth' => 'Дата народження',
     'Confirm' => 'Підтвердити',
     'Law OKPO' => 'OKPO',
+    'Update profile image' => 'Оновити зображення',
+    'profile' => 'Профіль',
+    'only' => 'Тільки',
 ];

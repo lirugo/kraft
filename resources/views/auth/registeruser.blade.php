@@ -65,7 +65,7 @@
                 <hr style="margin:0; margin-bottom: 10px">
                 {!! Form::hidden('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
                 <div id="iamgeUpload" class="dropzone text-center">
-                    <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                    <div class="dz-message" data-dz-message><span>{{trans('app.only')}} - *.jpg, *.png, *.gif, *.pdf</span></div>
                 </div>
             </div>
             <div class="col-md-4">

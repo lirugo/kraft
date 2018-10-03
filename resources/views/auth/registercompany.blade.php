@@ -102,7 +102,7 @@
                                 {!! Form::label('label',trans('app.uploaddocuments')) !!}
                                 <br>
                                 <div id="scanUpload" class="dropzone">
-                                    <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                                    <div class="dz-message" data-dz-message><span>{{trans('app.only')}} - *.jpg, *.png, *.gif, *.pdf</span></div>
                                 </div>
                                 <div id="boatAddForm"></div>
                             </div>
@@ -128,7 +128,7 @@
                             <hr>
                             {!! Form::text('avatar', null , ['class' => 'form-control m-t-20 m-b-20', 'hidden', 'id' => 'upl', 'placeholder' => 'avatar', 'readonly']) !!}
                             <div id="iamgeUpload" class="dropzone">
-                                <div class="dz-message" data-dz-message><span>Only - *.jpg, *.png, *.gif, *.pdf</span></div>
+                                <div class="dz-message" data-dz-message><span>{{trans('app.only')}} - *.jpg, *.png, *.gif, *.pdf</span></div>
                             </div>
                         </div>
 

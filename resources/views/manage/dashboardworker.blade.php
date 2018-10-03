@@ -34,6 +34,26 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="{{url('/stock')}}">
+                                    <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        {{ trans('app.Warehouse calculation') }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/order/history">
+                                    <i class="fa fa-history fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        {{ trans('app.History calculation') }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                     <li><a href="{{ url('/login') }}">{{ trans('app.login') }}</a></li>
                     <li><a href="{{ url('/register') }}">{{ trans('app.registration') }}</a></li>
                 @else
-                    @if(Auth::user()->hasRole('distributor'))
+                    @if(Auth::user()->hasRole(['distributor', 'worker']))
                         <li>
                             <a href="{{ url('/shop/cart') }}">
                                 @if(Session::has('cart'))

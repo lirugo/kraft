@@ -369,5 +369,8 @@ return [
     'Date of birth' => 'Date of birth',
     'Confirm' => 'Confirm',
     'Law OKPO' => 'OKPO',
+    'Update profile image' => 'Update profile image',
+    'profile' => 'Profile',
+    'only' => 'only',
 
 ];

@@ -365,4 +365,7 @@ return [
     'Date of birth' => 'Дата рождения',
     'Confirm' => 'Подтвердить',
     'Law OKPO' => 'OKPO',
+    'Update profile image' => 'Обновить аватар',
+    'profile' => 'Профиль',
+    'only' => 'Только',
 ];

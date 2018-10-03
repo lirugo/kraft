@@ -21,8 +21,8 @@
                     <div class="panel-body">
                         <img src="/uploads/avatars/{{ $user->avatar }}" class="avatar"/>
                         {!! Form::open(['method' => 'POST', 'route' =>['profile.update'], 'files' => true]) !!}
-                        <h2>Profile</h2>
-                        {!! Form::label('avatar', 'Update profile Image') !!}
+                        <h2>{{trans('app.profile')}}</h2>
+                        {!! Form::label('avatar', trans('app.Update profile image')) !!}
                         {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
                         <div class="row">
                             <div class="col-md-12"></div>
