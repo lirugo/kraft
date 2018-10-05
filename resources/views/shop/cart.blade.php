@@ -51,7 +51,7 @@
                                             <tr>
                                                 <td scope="row">{{$product['item']->vendor_code}}</td>
                                                 <td>{{$product['item']->description}}</td>
-                                                <td>{!! Form::number('count', $product['qty'], ['class' =>'form-control', 'min' => '1', 'step' => '1', 'max' => '1000']) !!}</td>
+                                                <td>{!! Form::number('count', $product['qty'], ['class' =>'form-control', 'min' => '1', 'step' => '1', 'max' => '100000']) !!}</td>
                                                 <td>{{$product['item']->price * $product['qty']}}</td>
                                                 {!! Form::open(['route' => ['shop.cart.delete', $product['item']->vendor_code], 'method' => 'POST']) !!}
                                                     <td>{!! Form::submit(trans('app.Remove'), ['class' => 'btn btn-danger btn-small']) !!}</td>

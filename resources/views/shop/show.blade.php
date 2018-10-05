@@ -39,7 +39,7 @@
                                         <td>{{$product->vendor_code}}</td>
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->price}}</td>
-                                        <td>{!! Form::number('count', null, ['class' => 'form-control', 'min' => 1, 'step' => 1, 'max' => 1000, 'required', 'placeholder' => '0']) !!}</td>
+                                        <td>{!! Form::number('count', null, ['class' => 'form-control', 'min' => 1, 'step' => 1, 'max' => 100000, 'required', 'placeholder' => '0']) !!}</td>
                                         <td>{!! Form::submit(trans('Add to cart'), ['class' => 'btn btn-primary btn-sm']) !!}</td>
                                     </tr>
                                     {!! Form::close() !!}
