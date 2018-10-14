@@ -269,6 +269,7 @@ class OrderController extends Controller
             ['weight', $request->profile_thickness],
             ['color', $request->color]
         ])->get();
+
         $angles = DB::table('profile_grilyatos')->where([
             ['type', $request->model],
             ['speciality', $request->wall_profile],

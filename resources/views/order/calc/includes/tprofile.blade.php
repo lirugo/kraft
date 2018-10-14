@@ -36,7 +36,7 @@
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
                 ], null, ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
-                {!! Form::select('colors',['9003' => '9003'], '9003', ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
+                {!! Form::select('colors', [], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
                 <div class="checkbox">
                     <label><input type="checkbox" id="light">Добавить освещение</label>
                 </div>

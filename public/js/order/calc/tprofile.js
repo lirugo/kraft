@@ -23,13 +23,14 @@ $("#model").change(function() {
     document.getElementById("thickness").options[1].disabled = false;
     //SET VARIABLE
     var colors = document.getElementById("colors");
+    var opt = document.createElement("option");
     var option = document.createElement("option");
     var option1 = document.createElement("option");
     var option2 = document.createElement("option");
     var option3 = document.createElement("option");
     var option4 = document.createElement("option");
     //Clear Color
-    for (var i=document.getElementById('colors').options.length; i-->2;)
+    for (var i=document.getElementById('colors').options.length; i-->1;)
         document.getElementById('colors').options[i] = null;
     //Set COLOR
     if($('#model').find(":selected").text() === "NOVA")
@@ -45,6 +46,9 @@ $("#model").change(function() {
         document.getElementById("colors").style.display = "initial";
     }else if($('#model').find(":selected").text() === "FORTIS")
     {
+        opt.text = "RAL 7024 (графитовый)";
+        opt.value = "7024";
+        colors.add(opt);
         option.text = "RAL 9003 (белый)";
         option.value = "9003";
         colors.add(option);
