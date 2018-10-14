@@ -163,9 +163,9 @@ function formGrilyato() {
         tp600m = tp600f;
 
         var light = null;
-        if(document.getElementById("h").value == 1)
+        if(document.getElementById("grilyato_h").value == 1)
             light = Math.ceil(s/10);
-        else if(document.getElementById("h").value == 2) light = Math.ceil(s/7);
+        else if(document.getElementById("grilyato_h").value == 2) light = Math.ceil(s/7);
 
         if(!document.getElementById("grilyato_light").checked) {
             light = null;
@@ -332,6 +332,9 @@ function formGrilyato() {
         document.getElementById("table-grilyato-hook-vendor").innerHTML = '';
     }
 
+    console.log('-----------------------');
+    console.log(light);
+    console.log('-----------------------');
     //light
     if(light != null) {
         $("#grilyato-light").show();
