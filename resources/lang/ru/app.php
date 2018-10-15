@@ -355,7 +355,7 @@ return [
     'The specification is fully preserved' => 'Спецификация успешно сохранена',
 
     'Rail' => 'Рейка',
-    'Make a calculation' => 'Сделать просчте',
+    'Make a calculation' => 'Сделать просчет',
     'Tips for calculations' => 'Подсказки для расчетов',
     'Select susp length' => 'Выберите длину подвеса',
 

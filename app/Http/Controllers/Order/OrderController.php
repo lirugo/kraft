@@ -449,9 +449,10 @@ class OrderController extends Controller
                 ['vendor_code', '=', '2232100406'],
             ])->first();
             $light = ProfileGrilyato::where([
-                ['speciality', '=', 'Т'],
+                ['speciality', '=', 'T'],
                 ['type', '=', 'KRAFT LED'],
                 ['weight', '=', '15'],
+                ['length', '=', '600'],
             ])->first();
 
             $collection->put('3600',NULL);
@@ -527,9 +528,10 @@ class OrderController extends Controller
                 ['vendor_code', '=', '2232100406'],
             ])->first();
             $light = ProfileGrilyato::where([
-                ['speciality', '=', 'Т'],
+                ['speciality', '=', 'T'],
                 ['type', '=', 'KRAFT LED'],
                 ['weight', '=', '15'],
+                ['length', '=', '600'],
             ])->first();
 
             $collection->put('3600',$grilyato_3600);

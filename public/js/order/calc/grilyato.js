@@ -133,7 +133,10 @@ function formGrilyato() {
         $( "#loader-message" ).dialog('close');
         console.log(vendor);
 
-
+        var light = null;
+        if(document.getElementById("grilyato_h").value == 1)
+            light = Math.ceil(s/10);
+        else if(document.getElementById("grilyato_h").value == 2) light = Math.ceil(s/7);
 //DataProcessing
     if(document.getElementById("grilyato_model").value === 'classical' || document.getElementById("grilyato_model").value === 'pyramidal'){
         var k2400;
@@ -162,10 +165,7 @@ function formGrilyato() {
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
         tp600m = tp600f;
 
-        var light = null;
-        if(document.getElementById("grilyato_h").value == 1)
-            light = Math.ceil(s/10);
-        else if(document.getElementById("grilyato_h").value == 2) light = Math.ceil(s/7);
+
 
         if(!document.getElementById("grilyato_light").checked) {
             light = null;
