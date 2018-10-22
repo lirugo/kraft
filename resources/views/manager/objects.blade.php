@@ -36,7 +36,7 @@
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
-                        <th scope="col">{{trans('app.Date Registration')}}/th>
+                        <th scope="col">{{trans('app.Date Registration')}}</th>
                         <th scope="col">{{trans('app.Date delivery product')}}</th>
                         <th scope="col">{{trans('app.Next Report')}}</th>
                         <th scope="col">{{trans('app.Action')}}</th>
@@ -49,17 +49,18 @@
                                 if(!empty($object->reports->last()))
                                     $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
                             @endphp
-                            <tr bgcolor="
+                            <tr
                                 @if(!empty($object->reports->last()))
-                            @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
-                                #ffff81
-                                @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
-                                    white
-@else #fe8081
-                                @endif
-                            @else
-                                    white
-@endif">
+                                    @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
+                                        bgcolor="#ffff81"
+                                    @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
+                                        bgcolor="white"
+                                    @else
+                                        bgcolor="#efbfbc"
+                                    @endif
+                                @else
+                                    bgcolor="white"
+                                @endif>
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>

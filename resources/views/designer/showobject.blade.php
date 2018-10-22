@@ -44,22 +44,18 @@
                     </thead>
                     <tbody>
                     @foreach($objects as $object)
-                        @if($object->active == true)
-                            @php
-                                if(!empty($object->reports->last()))
-                                    $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
-                            @endphp
-                            <tr bgcolor="
-                                @if(!empty($object->reports->last()))
+                        <tr
+                            @if(!empty($object->reports->last()))
                             @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
-                                #ffff81
-                                @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
-                                    white
-@else #fe8081
-                                @endif
+                            bgcolor="#ffff81"
+                            @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
+                            bgcolor="white"
                             @else
-                                    white
-@endif">
+                            bgcolor="#efbfbc"
+                            @endif
+                            @else
+                            bgcolor="white"
+                            @endif>
                                 <th scope="row">{{$object->id}}</th>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
