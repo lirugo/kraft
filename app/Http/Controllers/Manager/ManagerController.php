@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Company;
+use App\Http\Controllers\Controller;
 use App\Object;
 use App\Report;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -313,9 +313,12 @@ class ManagerController extends Controller
             $q->where('name', 'Distributor');
         }
         )->get();
-        $distr = $distr->pluck('name','id');
+        $distributors = [];
+        foreach ($distr as $d){
+            $distributors[$d->id] = $d->getcompany->companyname;
+        }
         $managers = $managers->pluck('name','id');
-        return view('manager.objects.show')->with('object', $object)->with('managers', $managers)->with('distributors', $distr);
+        return view('manager.objects.show')->with('object', $object)->with('managers', $managers)->with('distributors', $distributors);
     }
 
     public function transferTo(Request $request, $objectId){
