@@ -211,20 +211,21 @@ class OrderController extends Controller
     }
 
     public function historyStock(){
+        //BAck if empty
         $orders = CalcHistory::where([
             ['stock', '=', 1],
             ['user_id', Auth::user()->id]
         ])->get();
+        if(count($orders) === 0 )
+        {
+            Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
+            return redirect(url('/manage'));
+        }
         $orders = $orders->unique('order_id');
         $data = new Collection();
         $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
-        //BAck if empty
-        if(count($orders) === 0 )
-        {
-            Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
-            return back();
-        }
+
         return view('order.stock.history')->with('data', $data);
     }
 
