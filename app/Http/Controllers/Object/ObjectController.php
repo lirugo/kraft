@@ -164,7 +164,7 @@ class ObjectController extends Controller
                     $notif->user_id_from = Auth::user()->id;
                     $notif->user_id_to = $mngrsId[$i];
                     $notif->object_id = $object->id;
-                    $notif->title = $user->name.' create new object.';
+                    $notif->title = $company->companyname . ' create new object.';
                     $notif->body = $object->name;
                 $notif->save();
             }
