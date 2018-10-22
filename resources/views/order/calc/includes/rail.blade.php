@@ -16,6 +16,7 @@
                 4 => '4',
                    ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_count', 'placeholder' => 'Выберите кол-во типов рейки', 'required']) !!}
             {!! Form::select('rail_percent',[
+                0 => '0 %',
                 1 => '1 %',
                 2 => '2 %',
                 3 => '3 %',
