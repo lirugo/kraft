@@ -85,21 +85,23 @@
                 </table>
                 <hr>
                 {{--//Get file if exsist--}}
-                @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
-                    <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
-                @else
-                    {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-                    @if(Auth::user()->vendor_code_1c && $orders->status == 0)
-                        {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
+                @if(Auth::user()->hasRole('distributor'))
+                    @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
+                        <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
+                    @else
+                        {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
+                        @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                            {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
+                        @endif
+                        <br>
+                        <br>
+                        {!! Form::close() !!}
+                        {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
+                        {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
+                        <br>
+                        <br>
+                        {!! Form::close() !!}
                     @endif
-                    <br>
-                    <br>
-                    {!! Form::close() !!}
-                    {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
-                    {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
-                    <br>
-                    <br>
-                    {!! Form::close() !!}
                 @endif
             </div>
         </div>
