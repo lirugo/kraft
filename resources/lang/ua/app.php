@@ -370,4 +370,5 @@ return [
     'Update profile image' => 'Оновити зображення',
     'profile' => 'Профіль',
     'only' => 'Тільки',
+    'Status order' => 'Статус замовлень',
 ];

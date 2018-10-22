@@ -34,6 +34,16 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="{{url('https://docs.google.com/spreadsheets/d/1IvWJNVMrnV8_o4CK8DjSxcxh8WXE6PAT-f1TMcwp50Q/edit#gid=1266156413')}}" target="_blank">
+                                    <i class="fa fa-truck fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        {{ trans('app.Status order') }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

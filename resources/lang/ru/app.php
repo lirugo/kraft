@@ -368,4 +368,5 @@ return [
     'Update profile image' => 'Обновить аватар',
     'profile' => 'Профиль',
     'only' => 'Только',
+    'Status order' => 'Статус заказа',
 ];

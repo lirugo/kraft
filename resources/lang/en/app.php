@@ -372,5 +372,6 @@ return [
     'Update profile image' => 'Update profile image',
     'profile' => 'Profile',
     'only' => 'only',
+    'Status order' => 'Status order',
 
 ];
