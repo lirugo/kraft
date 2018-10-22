@@ -40,8 +40,9 @@ $(function(){
                     description = "<p class=\"notification-desc\">"+data.data[i].body+"</p>";
                 else
                     description = "";
-                if(data.data[i].object_id)
-                // var link = `<small class="timestamp pull-left"><a href="/object/`+data.data[i].object_id+`">Перейти к объекту</a></small>`;
+                if(data.data[i].title.indexOf('create new object.') != -1)
+                    var link = `<small class="timestamp pull-left"><a href="/manager/object/show/`+data.data[i].object_id+`">Перейти к объекту</a></small>`;
+                else var link = '';
 
                 var newNotificationHtml = `
                       <li class="notification active">
@@ -56,6 +57,7 @@ $(function(){
                               `+description+`
                               <div class="notification-meta">
                                 <small class="timestamp pull-right">`+data.data[i].created_at+`</small>
+                                ` + link + `
                               </div>
                             </div>
                           </div>
