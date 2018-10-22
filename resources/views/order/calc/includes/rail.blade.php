@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-4">
             {!! Form::open(['onsubmit' => 'return formRail();']) !!}
-            {!! Form::number('rail_width', null, ['class' => 'form-control', 'id' => 'rail_width', 'placeholder' => 'Введите максимальную ширину помещения', 'required','step' => '1', 'min' => '1']) !!}
-            {!! Form::number('rail_length', null, ['class' => 'form-control', 'id' => 'rail_length', 'placeholder' => 'Введите максимальную длину помещения', 'required','step' => '1', 'min' => '1']) !!}
+            {!! Form::number('rail_width', null, ['class' => 'form-control', 'id' => 'rail_width', 'placeholder' => 'Введите максимальную ширину помещения', 'required','step' => '.01', 'min' => '1.00']) !!}
+            {!! Form::number('rail_length', null, ['class' => 'form-control', 'id' => 'rail_length', 'placeholder' => 'Введите максимальную длину помещения', 'required','step' => '.01', 'min' => '1.00']) !!}
             {!! Form::select('rail_face',[
                 'no'  => 'Нет',
                 'stub'  => 'Заглушка',
