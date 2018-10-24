@@ -6,7 +6,7 @@
         font-size: 6pt;
     }
 </style>
-        {{--<img src="/home/admin/web/onliner.kraftds.com/public_html/public/img/logo/pdfLogo.jpg" class="m-l-0" width="700px">--}}
+    <img src="/home/onliner/web/onliner.kraftds.com/public_html/public/img/logo/pdfLogo.jpg" class="m-l-0" width="700px">
 <table class="table table-striped">
     <thead>
     <tr>
