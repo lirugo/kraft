@@ -374,5 +374,6 @@ return [
     'only' => 'only',
     'Status order' => 'Status order',
     'Download PDF' => 'Download PDF',
+    'Prices are approximate and may differ from the final price in the account.' => 'Prices are approximate and may differ from the final price in the account.',
 
 ];

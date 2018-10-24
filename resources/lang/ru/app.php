@@ -371,4 +371,6 @@ return [
     'Status order' => 'Статус заказа',
 
     'Download PDF' => 'Скачать PDF',
+
+    'Prices are approximate and may differ from the final price in the account.' => 'В спецификации представлена цена для ознакомления. Цена может отличаться за счет персональных скидок.',
 ];
