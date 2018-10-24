@@ -3,6 +3,7 @@
 <style>
     body {
         font-family: DejaVu Sans;
+        font-size: 6pt;
     }
 </style>
         {{--<img src="/home/admin/web/onliner.kraftds.com/public_html/public/img/logo/pdfLogo.jpg" class="m-l-0" width="700px">--}}
