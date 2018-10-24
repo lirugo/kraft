@@ -371,9 +371,8 @@ return [
     'profile' => 'Профіль',
     'only' => 'Тільки',
     'Status order' => 'Статус замовлень',
-
     'Download PDF' => 'Завантажити PDF',
-
-
     'Prices are approximate and may differ from the final price in the account.' => 'У специфікації представлена ціна для ознайомлення. Ціна може відрізнятися за рахунок персональних знижок.',
+    'Your changes have been sent on moderation.' => 'Ваші зміни були відправлені на модерування.',
+
 ];

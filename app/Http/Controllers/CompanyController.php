@@ -97,7 +97,7 @@ class CompanyController extends Controller
         if($count == 0)
             Session::flash('warning', 'You dont change any data.');
         else
-            Session::flash('success', 'Your changes have been sent on moderation.');
+            Session::flash('success', trans('app.Your changes have been sent on moderation.'));
         //Redirect
         return redirect(route('manage.dashboard'));
     }

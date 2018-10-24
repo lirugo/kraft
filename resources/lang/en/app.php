@@ -375,5 +375,6 @@ return [
     'Status order' => 'Status order',
     'Download PDF' => 'Download PDF',
     'Prices are approximate and may differ from the final price in the account.' => 'Prices are approximate and may differ from the final price in the account.',
+    'Your changes have been sent on moderation.' => 'Your changes have been sent on moderation.',
 
 ];
