@@ -14,6 +14,10 @@
 use App\Events\MsgPosted;
 use App\ProductKraft;
 
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

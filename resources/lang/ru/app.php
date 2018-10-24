@@ -369,4 +369,6 @@ return [
     'profile' => 'Профиль',
     'only' => 'Только',
     'Status order' => 'Статус заказа',
+
+    'Download PDF' => 'Скачать PDF',
 ];

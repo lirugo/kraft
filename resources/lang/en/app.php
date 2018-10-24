@@ -373,5 +373,6 @@ return [
     'profile' => 'Profile',
     'only' => 'only',
     'Status order' => 'Status order',
+    'Download PDF' => 'Download PDF',
 
 ];

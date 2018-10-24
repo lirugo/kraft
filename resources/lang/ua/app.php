@@ -371,4 +371,6 @@ return [
     'profile' => 'Профіль',
     'only' => 'Тільки',
     'Status order' => 'Статус замовлень',
+
+    'Download PDF' => 'Завантажити PDF',
 ];
