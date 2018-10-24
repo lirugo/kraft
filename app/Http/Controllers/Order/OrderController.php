@@ -267,11 +267,18 @@ class OrderController extends Controller
             ['color', $request->color]
         ])->get();
 
-        $angles = DB::table('profile_grilyatos')->where([
-            ['type', $request->model],
-            ['speciality', $request->wall_profile],
-            ['color', $request->color]
-        ])->get();
+        if($request->model == 'NOVA')
+            $angles = DB::table('profile_grilyatos')->where([
+                ['type', $request->model],
+                ['speciality', 'L'],
+                ['color', $request->color]
+            ])->get();
+        else
+            $angles = DB::table('profile_grilyatos')->where([
+                ['type', $request->model],
+                ['speciality', $request->wall_profile],
+                ['color', $request->color]
+            ])->get();
 
         $wireWithEars = DB::table('profile_grilyatos')->where([
             ['speciality', "вушко"],
