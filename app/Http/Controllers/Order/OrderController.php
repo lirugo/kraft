@@ -4,20 +4,16 @@ namespace App\Http\Controllers\Order;
 
 use App\CalcHistory;
 use App\Constants;
-use App\Object;
-use App\OrdersKraft;
-use App\ProductKraft;
-use App\ProfileGrilyato;
-use App\VendorCodeTProfile;
-use App\VendorCodeTProfileAngle;
-use App\VendorCodeTProfileSusp;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Object;
+use App\ProfileGrilyato;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use JavaScript;
 use Session;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -696,5 +692,17 @@ class OrderController extends Controller
     public function deleteStockOrder($order_id){
         DB::table('calc_histories')->where('order_id', $order_id)->delete();
         return back();
+    }
+
+    public function pdf($order_id){
+        $orders = CalcHistory::get()->where('order_id', '=', $order_id);
+        $total = 0;
+        foreach ($orders as $order)
+        {
+            $total += $order->count*$order->price;
+        }
+        $orders->total = $total;
+        $pdf = PDF::loadView('order.pdf', compact('orders'));
+        return $pdf->download('invoice.pdf');
     }
 }

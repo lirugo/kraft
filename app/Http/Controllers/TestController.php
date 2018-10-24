@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Notification;
-use App\Object;
-use App\OrdersKraft;
-use App\ProductKraft;
-use App\User;
-use Illuminate\Http\Request;
+use App\CalcHistory;
+use PDF;
 use Illuminate\Support\Facades\DB;
-use PDO;
-use PDOException;
-use SoapClient;
-use SoapFault;
 
 class TestController extends Controller
 {
-    public function index(){
-        return view('test');
+    public function index($orderId){
+        $orders = CalcHistory::get()->where('order_id', '=', $orderId);
+        return view('order.pdf');
+        $order = CalcHistory::find(13);
+        $pdf = PDF::loadView('order.pdf', compact('order'));
+        return $pdf->download('invoice.pdf');
     }
 
     public function test2(){

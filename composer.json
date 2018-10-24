@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "authy/php": "^3.0",
         "barryvdh/laravel-cors": "^0.11.0",
+        "barryvdh/laravel-dompdf": "^0.8.2",
         "cboden/ratchet": "^0.4.1",
         "cmgmyr/messenger": "^2.15",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",

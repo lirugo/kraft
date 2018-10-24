@@ -187,6 +187,7 @@ return [
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -249,6 +250,7 @@ return [
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'SoapClient' => SoapClient::class,
         'Authy' => App\Facades\Authy::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

@@ -211,6 +211,7 @@ Route::get('routes/console', function()
 
 //OrderCalc
 Route::get('/order/history', 'Order\OrderController@historyStock');
+Route::get('/order/pdf/{order_id}', 'Order\OrderController@pdf');
 Route::get('/order/stock/{order_id}', 'Order\OrderController@showStock');
 Route::get('/order/{id}/select/', 'Order\OrderController@select');
 Route::get('/order/{id}/select/{order_id}', 'Order\OrderController@selectorder');
@@ -302,8 +303,8 @@ Route::post('/delNotif', 'Notification\NotificationController@delNotif');
 Route::get('testNotif', 'Notification\NotificationController@index');
 
 
-Route::get('test', 'TestController@index');
-Route::get('test2', 'TestController@test2');
+Route::get('/test', 'TestController@index');
+Route::get('/test2', 'TestController@test2');
 
 
 //AUTHY ROUTE
