@@ -702,7 +702,10 @@ class OrderController extends Controller
             $total += $order->count*$order->price;
         }
         $orders->total = $total;
-        $pdf = PDF::loadView('order.pdf', compact('orders'));
+        $pdf = PDF::setOptions([
+            'logOutputFile' => storage_path('logs/log.htm'),
+            'tempDir' => storage_path('logs/')
+        ])->loadView('order.pdf', compact('orders'));
         return $pdf->download('invoice.pdf');
     }
 }
