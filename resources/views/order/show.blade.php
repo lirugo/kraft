@@ -92,10 +92,7 @@
                         <br>
                         <br>
                     @else
-                        {{Auth::user()->vendor_code_1c}}
-                        ---
-                        {{$orders->status}}
-                        @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                        @if($orders->status == 0)
                             {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                             {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
                             {!! Form::close() !!}
