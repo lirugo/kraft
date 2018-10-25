@@ -86,7 +86,7 @@
                 <hr>
                 {{--//Get file if exsist--}}
                 <a class="btn btn-primary pull-right m-l-20" href="/order/pdf/{{$orders->order_id}}">{{trans('app.Download PDF')}}</a>
-                @if(Auth::user()->hasRole('distributor'))
+{{--                @if(Auth::user()->hasRole('distributor'))--}}
                     @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
                         <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
                         <br>
@@ -105,7 +105,7 @@
                         <br>
                         {!! Form::close() !!}
                     @endif
-                @endif
+                {{--@endif--}}
             </div>
         </div>
     </div>
