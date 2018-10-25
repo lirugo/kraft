@@ -92,18 +92,14 @@
                         <br>
                         <br>
                     @else
-                        {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-                    @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                        {{Auth::user()->vendor_code_1c}}
+                        ---
+                        {{$orders->status}}
+                        @if(Auth::user()->vendor_code_1c && $orders->status == 0)
+                            {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                             {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
+                            {!! Form::close() !!}
                         @endif
-                        <br>
-                        <br>
-                        {!! Form::close() !!}
-                        {!! Form::model($orders, ['route' => ['order.send',$orders->order_id], 'method' => 'POST']) !!}
-                        {{--{!! Form::submit('Email', ['class' => 'btn btn-primary pull-right']) !!}--}}
-                        <br>
-                        <br>
-                        {!! Form::close() !!}
                     @endif
                 {{--@endif--}}
             </div>
