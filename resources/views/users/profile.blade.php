@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -50,11 +50,23 @@
 
                                 {!! Form::close() !!}
                             </div>
+                            <div class="col-md-4">
+                                <hr>
+                                {!! Form::open(['route' => 'profile.password.update']) !!}
+                                {!! Form::label('current_password', trans('app.Current Password'), ['class' => 'm-t-10']) !!}
+                                {!! Form::password('current_password', ['class' => 'form-control', 'required']) !!}
+                                {!! Form::label('password', trans('app.New Password'), ['class' => 'm-t-10']) !!}
+                                {!! Form::password('password', ['class' => 'form-control', 'required', 'minlength' => 8]) !!}
+                                {!! Form::label('password_confirmation', trans('app.Confirm New Password'), ['class' => 'm-t-10']) !!}
+                                {!! Form::password('password_confirmation', ['class' => 'form-control', 'required', 'minlength' => 8]) !!}
+                                {!! Form::submit(trans('app.Update Password'), ['class' => 'btn pull-right btn-sm btn-primary m-t-10']) !!}
+                                {!! Form::close() !!}
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

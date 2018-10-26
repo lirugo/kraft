@@ -375,4 +375,10 @@ return [
     'Prices are approximate and may differ from the final price in the account.' => 'У специфікації представлена ціна для ознайомлення. Ціна може відрізнятися за рахунок персональних знижок.',
     'Your changes have been sent on moderation.' => 'Ваші зміни були відправлені на модерування.',
 
+
+    'Current Password' => 'Поточний пароль',
+    'New Password' => 'Новий пароль',
+    'Confirm New Password' => 'Підтвердження пароля',
+    'Update Password' => 'Оновити пароль',
+
 ];

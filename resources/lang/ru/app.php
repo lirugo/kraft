@@ -373,4 +373,10 @@ return [
     'Prices are approximate and may differ from the final price in the account.' => 'В спецификации представлена цена для ознакомления. Цена может отличаться за счет персональных скидок.',
     'Your changes have been sent on moderation.' => 'Ваши изменения были отправлены на модерирование.',
 
+
+    'Current Password' => 'Текущий пароль',
+    'New Password' => 'Новый пароль',
+    'Confirm New Password' => 'Подтверждение пароля',
+    'Update Password' => 'Обновить пароль',
+
 ];

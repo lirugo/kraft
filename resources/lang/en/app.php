@@ -377,4 +377,9 @@ return [
     'Prices are approximate and may differ from the final price in the account.' => 'Prices are approximate and may differ from the final price in the account.',
     'Your changes have been sent on moderation.' => 'Your changes have been sent on moderation.',
 
+    'Current Password' => 'Current Password',
+    'New Password' => 'New Password',
+    'Confirm New Password' => 'Confirm New Password',
+    'Update Password' => 'Update Password',
+
 ];

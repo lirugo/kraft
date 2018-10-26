@@ -52,6 +52,7 @@ Route::group(['prefix' => 'manage',
 //User route
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@profile_update')->name('profile.update');
+Route::post('profile/password/update', 'UserController@updatePassword')->name('profile.password.update');
 //EndUser route
 
 //Company route
