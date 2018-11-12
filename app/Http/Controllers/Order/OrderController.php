@@ -500,14 +500,14 @@ class OrderController extends Controller
             $grilyato_600m = ProfileGrilyato::where([
                 ['length', '=', '600'],
                 ['cells', '=', $sizecells],
-                ['type', '=', 'Грильято пирамидальная'],
+                ['type', '=', 'Glk-15'],
                 ['color', '=', $color],
                 ['speciality', '=', 'М'],
             ])->first();
             $grilyato_600f = ProfileGrilyato::where([
                 ['length', '=', '600'],
                 ['cells', '=', $sizecells],
-                ['type', '=', 'Грильято пирамидальная'],
+                ['type', '=', 'Glk-15'],
                 ['color', '=', $color],
                 ['speciality', '=', 'П'],
             ])->first();
