@@ -32,14 +32,14 @@ $("#grilyato_model").change(function() {
         document.getElementById("grilyato_wire_with_hook").style.display = "none";
     }
 
-    if($('#grilyato_model').find(":selected").attr("value") === "classical")
-    {
-        document.getElementById("grilyato_sizecells").options[6].disabled = true;
-        document.getElementById("grilyato_sizecells").options[7].disabled = true;
-        document.getElementById("grilyato_sizecells").options[8].disabled = true;
-
-        document.getElementById("grilyato_sizecells").options[1].selected = true;
-    }
+    // if($('#grilyato_model').find(":selected").attr("value") === "classical")
+    // {
+    //     document.getElementById("grilyato_sizecells").options[6].disabled = true;
+    //     document.getElementById("grilyato_sizecells").options[7].disabled = true;
+    //     document.getElementById("grilyato_sizecells").options[8].disabled = true;
+    //
+    //     document.getElementById("grilyato_sizecells").options[1].selected = true;
+    // }
 
     if($('#grilyato_model').find(":selected").attr("value") === "pyramidal")
     {
