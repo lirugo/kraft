@@ -368,7 +368,10 @@ class OrderController extends Controller
                 ['vendor_code', '=', '1111'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', '1329003'],
+                ['type_product', '=', 'Accessories'],
+                ['speciality', '=', 'L'],
+                ['type', '=', 'Fortis'],
+                ['color', '=', $color],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
                 ['vendor_code', '=', '2231100406'],
@@ -444,7 +447,10 @@ class OrderController extends Controller
                 ['vendor_code', '=', '1111'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', '1329003'],
+                ['type_product', '=', 'Accessories'],
+                ['speciality', '=', 'L'],
+                ['type', '=', 'Fortis'],
+                ['color', '=', $color],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
                 ['vendor_code', '=', '2231100406'],
@@ -523,7 +529,10 @@ class OrderController extends Controller
                 ['vendor_code', '=', '00-00000875'],
             ])->first();
             $angle = ProfileGrilyato::where([
-                ['vendor_code', '=', '1329003'],
+                ['type_product', '=', 'Accessories'],
+                ['speciality', '=', 'L'],
+                ['type', '=', 'Fortis'],
+                ['color', '=', $color],
             ])->first();
             $dowel1 = ProfileGrilyato::where([
                 ['vendor_code', '=', '2231100406'],
