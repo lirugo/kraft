@@ -42,7 +42,7 @@ class InvoiceController extends Controller
                 $i++;
             }
         }
-dd(json_encode($ords));
+//dd(json_encode($ords));
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(
