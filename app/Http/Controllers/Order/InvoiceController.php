@@ -25,25 +25,7 @@ class InvoiceController extends Controller
         $orders = CalcHistory::where('order_id', '=', $orderId)->where('status', '=', false)->get();
         $i = 1;
         foreach ($orders as $order){
-            //Create invoice
-//            $ords = new Collection();
-//            //order_id
-//            $ords->_Fld53375 = $order->order_id;
-//            //user_id
-//            $ords->_Fld53376 = Auth::user()->id;
-//            //user_1c_id
-//            $ords->_Fld53447 = Auth::user()->vendor_code_1c;
-//            //product_id
-//            $ords->_Fld53377 = $order->vendor_code;
-//            //count
-//            $ords->_Fld53378 = $order->count_pack*$order->pack;
-//            //stock
-//            $ords->_Fld53446 = 0;
-//            //status
-//            $ords->_Fld53374 = 0;
-
-//            set JSON
-
+            if(!$order->production) {
                 $ords[$i] = [
                     'order_id' => $order->order_id,
                     'user_id' => Auth::user()->id,
@@ -57,15 +39,10 @@ class InvoiceController extends Controller
                     'mp' => $order->mp,
                     'count_production' => $order->count_production,
                 ];
-
-
-            $i++;
-
-//            Change status order
-//            $order->status = true;
-//            $order->save();
+                $i++;
+            }
         }
-//dd(json_encode($ords));
+dd(json_encode($ords));
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(
