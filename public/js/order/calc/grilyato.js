@@ -190,6 +190,8 @@ function formGrilyato() {
         wire = Math.ceil(wire + (wire/100*difficult));
         var susp = wire;
         var dowel1 = 0, dowel2 = 0;
+        var angles = p / grilyato_L3000c_a;
+        angles = angles + ((angles / 100) * difficult) * 2;
         var tp3600 = grilyato_tp3600c*s+((grilyato_tp3600c*s)/100)*difficult;
         tp1200 = grilyato_tp1200c*s+((grilyato_tp1200c*s)/100)*difficult;
         tp600 = 11.12*s+((11.12*s)/100)*difficult;
@@ -348,16 +350,18 @@ function formGrilyato() {
         document.getElementById("table-grilyato-light-vendor").innerHTML = '';
     }
 
+        //ANGLE
+    document.getElementById("table-grilyato-angle-vendor").innerHTML = vendor['angle'].vendor_code;
+    document.getElementById("table-grilyato-angle-description").innerHTML = vendor['angle'].description;
+    document.getElementById("table-grilyato-angle-count").innerHTML = Math.ceil(angles);
+    document.getElementById("table-grilyato-angle-price").innerHTML = vendor['angle'].price;
+    document.getElementById("table-grilyato-angle-price-all").innerHTML = (Math.ceil(angles) * vendor['angle'].price).toFixed(2);
+    $("#grilyato-angle").show();
+
+
     if($('#grilyato_model').find(":selected").attr("value") != "Glk-15"){
-        $("#grilyato-angle").show();
         $("#grilyato-dowel1").show();
         $("#grilyato-dowel2").show();
-        //ANGLE
-        document.getElementById("table-grilyato-angle-vendor").innerHTML = vendor['angle'].vendor_code;
-        document.getElementById("table-grilyato-angle-description").innerHTML = vendor['angle'].description;
-        document.getElementById("table-grilyato-angle-count").innerHTML = Math.ceil(angles);
-        document.getElementById("table-grilyato-angle-price").innerHTML = vendor['angle'].price;
-        document.getElementById("table-grilyato-angle-price-all").innerHTML = (Math.ceil(angles)*vendor['angle'].price).toFixed(2);
 
         //dowel1
         document.getElementById("table-grilyato-dowel1-vendor").innerHTML = vendor['dowel1'].vendor_code;
@@ -374,8 +378,6 @@ function formGrilyato() {
         document.getElementById("table-grilyato-dowel2-price-all").innerHTML = (Math.ceil(dowel2/100)*vendor['dowel2'].price).toFixed(2);
     }
     else {
-        $("#grilyato-angle").hide();
-        document.getElementById("table-grilyato-angle-vendor").innerHTML = '';
         $("#grilyato-dowel1").hide();
         document.getElementById("table-grilyato-dowel1-vendor").innerHTML = '';
         $("#grilyato-dowel2").hide();
