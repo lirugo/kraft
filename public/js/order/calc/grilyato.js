@@ -161,7 +161,7 @@ function formGrilyato() {
         else
             tp600 = grilyato_g1200c_b * s + ((grilyato_g1200c_b * s) / 100) * difficult;
 
-        tp600f = (600 / (sizecells - 1)) * grilyato_g600fc_a * p;
+        tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * s;
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
         tp600m = tp600f;
 
