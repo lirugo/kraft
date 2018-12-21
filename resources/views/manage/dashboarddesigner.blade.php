@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-2 text-center">
                             <div class="card">
-                                <a href="{{url('https://drive.google.com/file/d/1ADoenarloOdKNvXwVJpral2QlXLEO7Aj/view')}}" target="_blank">
+                                <a href="{{url('https://docs.google.com/file/d/1ZiLx69IrxymJ5d4LVX157GSCgEzfzLAs2wI6zFtgGIs/view#gid=1143152097')}}" target="_blank">
                                     <i class="fa fa-truck fa-5x" aria-hidden="true"></i>
                                     <div class="description m-t-10">
                                         {{ trans('app.Status order') }}
