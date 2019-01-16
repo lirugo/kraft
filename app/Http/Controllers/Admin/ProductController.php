@@ -21,7 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ProfileGrilyato::all();
+        $products = ProfileGrilyato::paginate(50);
         return view('admin.product.index')->with('products', $products);
     }
 
@@ -95,5 +95,27 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateCSV(Request $request){
+        $file = $request->file('file');
+
+        $row = 1;
+        if (($handle = fopen($file, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                $num = count($data);
+                $row++;
+                for ($c=0; $c < $num - 1; $c++) {
+                    //UPDATING PRODUCT
+                    $product = ProfileGrilyato::where('vendor_code', $data[$c])->first();
+                    $product->price = $data[$c+1];
+                    $product->save();
+                    $c++;
+                }
+            }
+        }
+
+        Session::flash('success', 'UPDATED FROM CSV!');
+        return back();
     }
 }
