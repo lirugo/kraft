@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\ProfileGrilyato;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Response;
 
 class ProductController extends Controller
 {
@@ -108,6 +109,9 @@ class ProductController extends Controller
                 for ($c=0; $c < $num - 1; $c++) {
                     //UPDATING PRODUCT
                     $product = ProfileGrilyato::where('vendor_code', $data[$c])->first();
+                    if(is_null($product))
+                        continue;
+
                     $product->price = $data[$c+1];
                     $product->save();
                     $c++;
@@ -117,5 +121,28 @@ class ProductController extends Controller
 
         Session::flash('success', 'UPDATED FROM CSV!');
         return back();
+    }
+
+    public function getProductsCSV(){
+        $headers = [
+            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+            ,   'Content-type'        => 'text/csv'
+            ,   'Content-Disposition' => 'attachment; filename=products.csv'
+            ,   'Expires'             => '0'
+            ,   'Pragma'              => 'public'
+        ];
+
+        $callback = function()
+            {
+                $FH = fopen('php://output', 'w');
+
+                //WRITE TO FILE
+                foreach (ProfileGrilyato::all() as $product)
+                    fputcsv($FH, [$product->vendor_code, $product->price], ';');
+
+                fclose($FH);
+            };
+
+    return response()->stream($callback, 200, $headers);
     }
 }

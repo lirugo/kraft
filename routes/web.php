@@ -137,6 +137,7 @@ Route::group(['prefix' => 'admin'],
 
         //Product
         Route::get('product', 'Admin\ProductController@index');
+        Route::get('product/csv/get', 'Admin\ProductController@getProductsCSV');
         Route::post('product/update/{id}', 'Admin\ProductController@update')->name('admin.product.update');
         Route::post('product/csv/update', 'Admin\ProductController@updateCSV')->name('admin.product.csv.update');
         //Product

@@ -18,6 +18,8 @@
                     <input type="file" name="file" required/>
                 </div>
                 {!! Form::close() !!}
+
+                <a href="{{url('/admin/product/csv/get')}}" class="botton botton-default">Download CSV</a>
             </div>
         </div>
         <div class="row">
