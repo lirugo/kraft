@@ -555,6 +555,55 @@ function formRail() {
             document.getElementById("table-rail-stub-price").innerHTML = null;
             document.getElementById("table-rail-stub-price-all").innerHTML = null;
         }
+        if(vendor['stub_2'] != null){
+            // Rail 4
+            document.getElementById("table-rail-stub-2-vendor").innerHTML = vendor['stub_2'].vendor_code;
+            document.getElementById("table-rail-stub-2-description").innerHTML = vendor['stub_2'].description;
+            document.getElementById("table-rail-stub-2-count").innerHTML = rail_2_count_stub;
+            document.getElementById("table-rail-stub-2-price").innerHTML = vendor['stub_2'].price;
+            document.getElementById("table-rail-stub-2-price-all").innerHTML = (vendor['stub_2'].price*rail_2_count_stub).toFixed(2);
+            document.getElementById("rail-stub-2").style.display = '';
+        }else {
+            document.getElementById("rail-stub-2").style.display = 'none';
+            document.getElementById("table-rail-stub-2-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-2-description").innerHTML = null;
+            document.getElementById("table-rail-stub-2-count").innerHTML = null;
+            document.getElementById("table-rail-stub-2-price").innerHTML = null;
+            document.getElementById("table-rail-stub-2-price-all").innerHTML = null;
+        }
+        if(vendor['stub_3'] != null){
+            // Rail 4
+            document.getElementById("table-rail-stub-3-vendor").innerHTML = vendor['stub_3'].vendor_code;
+            document.getElementById("table-rail-stub-3-description").innerHTML = vendor['stub_3'].description;
+            document.getElementById("table-rail-stub-3-count").innerHTML = rail_3_count_stub;
+            document.getElementById("table-rail-stub-3-price").innerHTML = vendor['stub_3'].price;
+            document.getElementById("table-rail-stub-3-price-all").innerHTML = (vendor['stub_3'].price*rail_3_count_stub).toFixed(2);
+            document.getElementById("rail-stub-3").style.display = '';
+        }else {
+            document.getElementById("rail-stub-3").style.display = 'none';
+            document.getElementById("table-rail-stub-3-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-3-description").innerHTML = null;
+            document.getElementById("table-rail-stub-3-count").innerHTML = null;
+            document.getElementById("table-rail-stub-3-price").innerHTML = null;
+            document.getElementById("table-rail-stub-3-price-all").innerHTML = null;
+        }
+        if(vendor['stub_4'] != null){
+            // Rail 4
+            document.getElementById("table-rail-stub-4-vendor").innerHTML = vendor['stub_4'].vendor_code;
+            document.getElementById("table-rail-stub-4-description").innerHTML = vendor['stub_4'].description;
+            document.getElementById("table-rail-stub-4-count").innerHTML = rail_4_count_stub;
+            document.getElementById("table-rail-stub-4-price").innerHTML = vendor['stub_4'].price;
+            document.getElementById("table-rail-stub-4-price-all").innerHTML = (vendor['stub_4'].price*rail_4_count_stub).toFixed(2);
+            document.getElementById("rail-stub-4").style.display = '';
+        }else {
+            document.getElementById("rail-stub-4").style.display = 'none';
+            document.getElementById("table-rail-stub-4-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-4-description").innerHTML = null;
+            document.getElementById("table-rail-stub-4-count").innerHTML = null;
+            document.getElementById("table-rail-stub-4-price").innerHTML = null;
+            document.getElementById("table-rail-stub-4-price-all").innerHTML = null;
+        }
+
         if(vendor['suspass'] != null){
             // Rail 4
             document.getElementById("table-rail-suspass-vendor").innerHTML = vendor['suspass'].vendor_code;

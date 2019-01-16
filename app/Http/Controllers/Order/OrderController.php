@@ -612,6 +612,31 @@ class OrderController extends Controller
                 ['weight', '=', $request->rail_m_w_1],
                 ['height', '=', $request->rail_m_h_1],
             ])->first();
+
+            if($rail_2){
+                $stub_2 = ProfileGrilyato::where([
+                    ['type', '=', 'Заглушка'],
+                    ['color', '=', $request->color],
+                    ['weight', '=', $request->rail_m_w_2],
+                    ['height', '=', $request->rail_m_h_2],
+                ])->first();
+            }
+            if($rail_3){
+                $stub_3 = ProfileGrilyato::where([
+                    ['type', '=', 'Заглушка'],
+                    ['color', '=', $request->color],
+                    ['weight', '=', $request->rail_m_w_3],
+                    ['height', '=', $request->rail_m_h_3],
+                ])->first();
+            }
+            if($rail_4){
+                $stub_4 = ProfileGrilyato::where([
+                    ['type', '=', 'Заглушка'],
+                    ['color', '=', $request->color],
+                    ['weight', '=', $request->rail_m_w_4],
+                    ['height', '=', $request->rail_m_h_4],
+                ])->first();
+            }
         }else if($request->rail_face == 'angle'){
             $stub = ProfileGrilyato::where([
                 ['type', '=', 'Fortis'],
@@ -647,6 +672,11 @@ class OrderController extends Controller
         $collection->put('rail_3',$rail_3);
         $collection->put('rail_4',$rail_4);
         $collection->put('stub',$stub);
+
+        $collection->put('stub_2',isset($stub_2) ? $stub_2 : null);
+        $collection->put('stub_3',isset($stub_3) ? $stub_3 : null);
+        $collection->put('stub_4',isset($stub_4) ? $stub_4 : null);
+
         $collection->put('suspass',$suspass);
         $collection->put('suspdowel',$suspdowel);
         $collection->put('wireWithEar',$wireWithEar);

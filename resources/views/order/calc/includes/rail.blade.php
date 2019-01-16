@@ -220,6 +220,30 @@
                     <td id="table-rail-stub-price"></td>
                     <td id="table-rail-stub-price-all"></td>
                 </tr>
+                <tr id="rail-stub-2">
+                    <td id="table-rail-stub-2-vendor"></td>
+                    <td id="table-rail-stub-2-description"></td>
+                    <td id="table-rail-stub-2-count"></td>
+                    <td>шт.</td>
+                    <td id="table-rail-stub-2-price"></td>
+                    <td id="table-rail-stub-2-price-all"></td>
+                </tr>
+                <tr id="rail-stub-3">
+                    <td id="table-rail-stub-3-vendor"></td>
+                    <td id="table-rail-stub-3-description"></td>
+                    <td id="table-rail-stub-3-count"></td>
+                    <td>шт.</td>
+                    <td id="table-rail-stub-3-price"></td>
+                    <td id="table-rail-stub-3-price-all"></td>
+                </tr>
+                <tr id="rail-stub-4">
+                    <td id="table-rail-stub-4-vendor"></td>
+                    <td id="table-rail-stub-4-description"></td>
+                    <td id="table-rail-stub-4-count"></td>
+                    <td>шт.</td>
+                    <td id="table-rail-stub-4-price"></td>
+                    <td id="table-rail-stub-4-price-all"></td>
+                </tr>
                 <tr id="rail-suspass">
                     <td id="table-rail-suspass-vendor"></td>
                     <td id="table-rail-suspass-description"></td>
