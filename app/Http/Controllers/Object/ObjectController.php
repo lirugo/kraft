@@ -6,6 +6,8 @@ use App\Notification;
 use App\Object;
 use App\Company;
 use App\User;
+use Exception;
+use Illuminate\Support\Facades\Mail;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -160,6 +162,7 @@ class ObjectController extends Controller
             }
             array_push($mngrsId,$object->getCompany->rmid);
             for($i=0; $i<count(array_unique($mngrsId)); $i++){
+                //Notif
                 $notif = new Notification();
                     $notif->user_id_from = Auth::user()->id;
                     $notif->user_id_to = $mngrsId[$i];
@@ -167,6 +170,19 @@ class ObjectController extends Controller
                     $notif->title = $company->companyname . ' create new object.';
                     $notif->body = $object->name;
                 $notif->save();
+
+                //Send email
+                $manager = User::find($mngrsId[$i]);
+                try{
+                    Mail::send('emails.notification', array('body' => $object->name, 'title' => $company->companyname . ' created new object.'), function($message) use ($manager)
+                    {
+                        $message->from(env('MAIL_USERNAME'));
+                        $message->to($manager->email, 'No-Replay')->subject('Kraft Notification');
+                    });
+                }catch (Exception $e){
+
+                }
+
             }
         }
 
