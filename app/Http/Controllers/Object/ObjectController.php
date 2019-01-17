@@ -170,18 +170,17 @@ class ObjectController extends Controller
                     $notif->title = $company->companyname . ' create new object.';
                     $notif->body = $object->name;
                 $notif->save();
+            }
 
-                //Send email
-                $manager = User::find($mngrsId[$i]);
-                try{
-                    Mail::send('emails.notification', array('body' => $object->name, 'title' => $company->companyname . ' created new object.'), function($message) use ($manager)
-                    {
-                        $message->from(env('MAIL_USERNAME'));
-                        $message->to($manager->email, 'No-Replay')->subject('Kraft Notification');
-                    });
-                }catch (Exception $e){
-
-                }
+            //Send email
+            $manager = User::find($mngrsId[$i]);
+            try{
+                Mail::send('emails.notification', array('body' => $object->name, 'title' => $company->companyname . ' created new object.'), function($message) use ($manager)
+                {
+                    $message->from(env('MAIL_USERNAME'));
+                    $message->to($manager->email, 'No-Replay')->subject('Kraft Notification');
+                });
+            }catch (Exception $e){
 
             }
         }
