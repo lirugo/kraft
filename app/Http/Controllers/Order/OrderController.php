@@ -483,17 +483,17 @@ class OrderController extends Controller
             return $collection;
         }
         else if($request->grilyato_model == 'Glk-15'){
-            $grilyato_3600 = DB::table('vendor_code_t_profiles')->where([
-                ['profile', '=', '3600'],
-                ['profile_thickness', '=', '15'],
-                ['model', '=', 'Fortis'],
+            $grilyato_3600 = ProfileGrilyato::where([
+                ['length', '=', '3600'],
+                ['cells', '=', 0],
+                ['type', '=', 'Fortis'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_2400 = NULL;
-            $grilyato_1200 = DB::table('vendor_code_t_profiles')->where([
-                ['profile', '=', '1200'],
-                ['profile_thickness', '=', '15'],
-                ['model', '=', 'Fortis'],
+            $grilyato_1200 = ProfileGrilyato::where([
+                ['length', '=', '1200'],
+                ['cells', '=', 0],
+                ['type', '=', 'Fortis'],
                 ['color', '=', $color],
             ])->first();
             $grilyato_600 = ProfileGrilyato::where([
