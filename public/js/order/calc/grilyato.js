@@ -24,6 +24,7 @@ $("#grilyato_model").change(function() {
 
     if($('#grilyato_model').find(":selected").attr("value") === "Glk-15")
     {
+        document.getElementById("grilyato_sizecells").options[2].disabled = true;
         document.getElementById("grilyato_wire_with_hook").disabled = false;
         document.getElementById("grilyato_wire_with_hook").style.display = "initial";
     }else
@@ -41,16 +42,17 @@ $("#grilyato_model").change(function() {
     //     document.getElementById("grilyato_sizecells").options[1].selected = true;
     // }
 
-    // if($('#grilyato_model').find(":selected").attr("value") === "pyramidal")
-    // {
-    //     document.getElementById("grilyato_sizecells").options[1].disabled = true;
-    //     document.getElementById("grilyato_sizecells").options[2].disabled = true;
-    //     document.getElementById("grilyato_sizecells").options[3].disabled = true;
-    //     document.getElementById("grilyato_sizecells").options[4].disabled = true;
-    //     document.getElementById("grilyato_sizecells").options[5].disabled = true;
-    //
-    //     document.getElementById("grilyato_sizecells").options[6].selected = true;
-    // }
+    if($('#grilyato_model').find(":selected").attr("value") === "pyramidal")
+    {
+        document.getElementById("grilyato_sizecells").options[2].disabled = true;
+        // document.getElementById("grilyato_sizecells").options[1].disabled = true;
+        // document.getElementById("grilyato_sizecells").options[2].disabled = true;
+        // document.getElementById("grilyato_sizecells").options[3].disabled = true;
+        // document.getElementById("grilyato_sizecells").options[4].disabled = true;
+        // document.getElementById("grilyato_sizecells").options[5].disabled = true;
+        //
+        // document.getElementById("grilyato_sizecells").options[6].selected = true;
+    }
 });
         document.getElementById("grilyato_wire_with_hook").style.display = "none";
         document.getElementById("grilyato_wire_with_hook").disabled = true;
