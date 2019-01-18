@@ -173,9 +173,9 @@ class ObjectController extends Controller
             }
 
             //Send email
-            $manager = User::find($mngrsId[$i]);
+            $manager = User::find($object->getCompany->rmid);
             try{
-                Mail::send('emails.notification', array('body' => $object->name, 'title' => $company->companyname . ' created new object.'), function($message) use ($manager)
+                Mail::send('emails.notification', array('objectName' => $object->name, 'companyName' => $company->companyname), function($message) use ($manager)
                 {
                     $message->from(env('MAIL_USERNAME'));
                     $message->to($manager->email, 'No-Replay')->subject('Kraft Notification');
