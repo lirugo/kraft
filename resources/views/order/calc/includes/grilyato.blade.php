@@ -102,6 +102,13 @@
                     <td id="table-grilyato-1200-price"></td>
                     <td id="table-grilyato-1200-price-all"></td>
                 </tr>
+                <tr id="grilyato-600-1">
+                    <td id="table-grilyato-600-1-vendor"></td>
+                    <td id="table-grilyato-600-1-description"></td>
+                    <td id="table-grilyato-600-1-count"></td>
+                    <td id="table-grilyato-600-1-price"></td>
+                    <td id="table-grilyato-600-1-price-all"></td>
+                </tr>
                 <tr id="grilyato-600">
                     <td id="table-grilyato-600-vendor"></td>
                     <td id="table-grilyato-600-description"></td>

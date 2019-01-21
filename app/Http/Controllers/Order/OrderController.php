@@ -496,6 +496,12 @@ class OrderController extends Controller
                 ['type', '=', 'Fortis'],
                 ['color', '=', $color],
             ])->first();
+            $grilyato_600_1 = ProfileGrilyato::where([
+                ['length', '=', '600'],
+                ['type', '=', 'Fortis'],
+                ['speciality', '=', 'T15'],
+                ['color', '=', $color],
+            ])->first();
             $grilyato_600 = ProfileGrilyato::where([
                 ['length', '=', '600'],
                 ['cells', '=', $sizecells],
@@ -550,6 +556,7 @@ class OrderController extends Controller
             $collection->put('3600',$grilyato_3600);
             $collection->put('2400',$grilyato_2400);
             $collection->put('1200',$grilyato_1200);
+            $collection->put('600_1',$grilyato_600_1);
             $collection->put('600',$grilyato_600);
             $collection->put('600m',$grilyato_600m);
             $collection->put('600f',$grilyato_600f);

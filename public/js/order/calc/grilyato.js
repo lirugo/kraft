@@ -264,7 +264,18 @@ function formGrilyato() {
         $("#grilyato-1200").hide();
         document.getElementById("table-grilyato-1200-vendor").innerHTML = '';
     }
-    //600
+    //600_1
+    if(vendor['600_1'] != null) {
+        $("#grilyato-600-1").show();
+        document.getElementById("table-grilyato-600-1-vendor").innerHTML = vendor['600_1'].vendor_code;
+        document.getElementById("table-grilyato-600-1-description").innerHTML = vendor['600_1'].description;
+        document.getElementById("table-grilyato-600-1-count").innerHTML = Math.ceil(1.4*s+(1.4*s/100*3));
+        document.getElementById("table-grilyato-600-1-price").innerHTML = vendor['600_1'].price;
+        document.getElementById("table-grilyato-600-1-price-all").innerHTML = (Math.ceil(1.4*s+(1.4*s/100*3))*vendor['600_1'].price).toFixed(2);
+    }else {
+        $("#grilyato-600-1").hide();
+        document.getElementById("table-grilyato-600-1-vendor").innerHTML = '';
+    }
     if(vendor['600'] != null) {
         $("#grilyato-600").show();
         document.getElementById("table-grilyato-600-vendor").innerHTML = vendor['600'].vendor_code;
