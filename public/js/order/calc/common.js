@@ -438,6 +438,23 @@ function grilyato_add(){
         row.insertCell(3).innerHTML = document.getElementById("table-grilyato-1200-price").innerHTML;
         row.insertCell(4).innerHTML = (newinput.value * document.getElementById("table-grilyato-1200-price").innerHTML * price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     }
+    //grilyato 600-1
+    if(document.getElementById("table-grilyato-600-1-vendor").innerHTML != '') {
+        row = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+        newinput = document.createElement("INPUT");
+        newinput.setAttribute("type", "number");
+        newinput.setAttribute("min", "1");
+        newinput.setAttribute("class", "form-control");
+        newinput.setAttribute("onchange", "update_pack()");
+        row.insertCell(0).innerHTML = document.getElementById("table-grilyato-600-1-vendor").innerHTML;
+        row.insertCell(1).innerHTML = document.getElementById("table-grilyato-600-1-description").innerHTML;
+        newinput.setAttribute("value", document.getElementById("table-grilyato-600-1-count").innerHTML);
+        row.insertCell(2).appendChild(newinput);
+        row.insertCell(3).innerHTML = document.getElementById("table-grilyato-600-1-price").innerHTML;
+        row.insertCell(4).innerHTML = (newinput.value * document.getElementById("table-grilyato-600-1-price").innerHTML * price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    }
     //grilyato 600
     if(document.getElementById("table-grilyato-600-vendor").innerHTML != '') {
         row = table.insertRow(-1);
