@@ -12,7 +12,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <hr>
                 <table class="table table-striped table-borderless">
                     <thead>
@@ -38,9 +38,28 @@
                             </td>
                             <td>
                                 {!! Form::open(['route' => ['order.stock.delete',$order->order_id], 'method' => 'POST']) !!}
-                                    {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-danger btn-sm right']) !!}
+                                {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-danger btn-sm right']) !!}
                                 {!! Form::close() !!}
                             </td>
+                            @role('manager')
+                            <td>
+                                {!! Form::open(['route' => ['order.stock.move',$order->order_id], 'method' => 'POST']) !!}
+                                <div class="row">
+                                    <div class="form-group col-xs-6">
+                                        <select class="form-control" name="distrId" required>
+                                            <option value="">Select Distributor</option>
+                                            @foreach(Auth::user()->getDistributors as $distributor)
+                                                <option value="{{$distributor->user_id}}">{{$distributor->companyname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-xs-6">
+                                        {!! Form::submit('Move', ['class' => 'btn btn-danger btn-sm right']) !!}
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </td>
+                            @endrole
                         </tr>
                     @endforeach
                     </tbody>

@@ -761,4 +761,16 @@ class OrderController extends Controller
         ])->loadView('order.pdf', compact('orders'));
         return $pdf->download('invoice.pdf');
     }
+
+    public function moveToDistributor(Request $request, $orderId){
+        $orders = CalcHistory::where('order_id', $orderId)->get();
+
+        foreach ($orders as $order){
+            $order->user_id = $request->distrId;
+            $order->save();
+        }
+
+        Session::flash('success', 'Order was be moved');
+        return back();
+    }
 }

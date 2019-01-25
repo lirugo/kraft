@@ -40,6 +40,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Company');
     }
 
+    public function getDistributors(){
+        return $this->hasMany(Company::class, 'rmid', 'id');
+    }
+
     public function objects()
     {
         return $this->hasMany('App\Object', 'creatorid');
