@@ -164,7 +164,7 @@ function formGrilyato() {
         else
             tp600 = grilyato_g1200c_b * s + ((grilyato_g1200c_b * s) / 100) * difficult;
 
-        tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * p;
+        tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * s;
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
         tp600m = tp600f;
 
@@ -198,7 +198,7 @@ function formGrilyato() {
         var tp3600 = grilyato_tp3600c*s+((grilyato_tp3600c*s)/100)*difficult;
         tp1200 = grilyato_tp1200c*s+((grilyato_tp1200c*s)/100)*difficult;
         tp600 = 11.12*s+((11.12*s)/100)*difficult;
-        tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * p;
+        tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * s;
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
         tp600m = tp600f;
         var tp600tc = grilyato_g600tc*s+((grilyato_g600tc*s)/100)*difficult;
