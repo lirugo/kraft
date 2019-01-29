@@ -217,7 +217,7 @@ class OrderController extends Controller
             })->where('companyname', Auth::user()->companyname)->get();
             foreach ($workers as $key => $worker) {
                 $ords = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ?', [$worker->id]);
-                $result = array_merge($orders, $ords);
+                $orders = array_merge($orders, $ords);
             }
         }
 
@@ -228,7 +228,7 @@ class OrderController extends Controller
         }
 
         $data = new Collection();
-        $data->put('orders', $result);
+        $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
 
         return view('order.stock.history')->with('data', $data);
