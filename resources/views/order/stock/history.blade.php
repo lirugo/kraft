@@ -32,7 +32,7 @@
                         @endphp
                         <tr>
                             <td>{{$order->order_id}}</td>
-                            {{--<td>{{$order->created_at}}</td>--}}
+                            <td>{{$order->created_at}}</td>
                             <td>
                                 <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary btn-sm left">{{trans('app.Learn More')}}</a>
                             </td>
