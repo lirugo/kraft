@@ -215,10 +215,9 @@ class OrderController extends Controller
         ])->get();
 
         if(Auth::user()->hasRole('distributor')){
-            $workers = User::where('companyname', Auth::user()->companyname)->get();
-            foreach ($workers as $key => $worker)
-                if(!$worker->hasRole('worker'))
-                   $workers->forget($key);
+            $workers = User::whereHas('roles', function ($query) {
+                $query->where('name', '=', 'worker');
+            })->where('companyname', Auth::user()->companyname)->get();
 
             foreach ($workers as $key => $worker) {
                 $ords = CalcHistory::where([
