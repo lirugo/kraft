@@ -209,14 +209,14 @@ class OrderController extends Controller
 
     public function historyStock(){
         //BAck if empty
-        $orders = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ? ORDER BY id DESC', [Auth::user()->id]);
+        $orders = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ?', [Auth::user()->id]);
 
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
             })->where('companyname', Auth::user()->companyname)->get();
             foreach ($workers as $key => $worker) {
-                $ords = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ? ORDER BY id DESC', [$worker->id]);
+                $ords = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ?', [$worker->id]);
                 $result = array_merge($orders, $ords);
             }
         }
