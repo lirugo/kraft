@@ -209,25 +209,15 @@ class OrderController extends Controller
 
     public function historyStock(){
         //BAck if empty
-        $orders = CalcHistory::where([
-            ['stock', '=', 1],
-            ['user_id', Auth::user()->id]
-        ])->get();
+        $orders = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ? ORDER BY id DESC', [Auth::user()->id]);
 
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
             })->where('companyname', Auth::user()->companyname)->get();
-
             foreach ($workers as $key => $worker) {
-                $ords = CalcHistory::where([
-                    ['stock', '=', 1],
-                    ['user_id', $worker->id]
-                ])->get();
-                $ords = $ords->unique('order_id');
-                foreach ($ords as $ord){
-                    $orders->push($ord);
-                }
+                $ords = DB::select('select DISTINCT order_id from calc_histories WHERE stock = 1 AND user_id = ? ORDER BY id DESC', [$worker->id]);
+                $result = array_merge($orders, $ords);
             }
         }
 
@@ -236,9 +226,9 @@ class OrderController extends Controller
             Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
             return redirect(url('/manage'));
         }
-        $orders = $orders->unique('order_id');
+
         $data = new Collection();
-        $data->put('orders', $orders);
+        $data->put('orders', $result);
         $data->put('user_id', Auth::user()->id);
 
         return view('order.stock.history')->with('data', $data);
