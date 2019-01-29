@@ -212,7 +212,7 @@ class OrderController extends Controller
         $orders = CalcHistory::where([
             ['stock', '=', 1],
             ['user_id', Auth::user()->id]
-        ])->orderByDesc('id')->get();
+        ])->get();
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
@@ -221,7 +221,7 @@ class OrderController extends Controller
                 $ords = CalcHistory::where([
                     ['stock', '=', 1],
                     ['user_id', $worker->id]
-                ])->orderByDesc('id')->get();
+                ])->get();
                 $ords = $ords->unique('order_id');
                 foreach ($ords as $ord){
                     $orders->push($ord);
@@ -234,6 +234,7 @@ class OrderController extends Controller
             return redirect(url('/manage'));
         }
         $orders = $orders->unique('order_id');
+        $orders = $orders->sortByDesc('id');
         $data = new Collection();
         $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
