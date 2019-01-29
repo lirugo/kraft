@@ -7,6 +7,7 @@ use App\Constants;
 use App\Http\Controllers\Controller;
 use App\Object;
 use App\ProfileGrilyato;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -212,6 +213,23 @@ class OrderController extends Controller
             ['stock', '=', 1],
             ['user_id', Auth::user()->id]
         ])->get();
+
+        $workers = User::where('companyname', Auth::user()->companyname)->get();
+        foreach ($workers as $key => $worker)
+            if(!$worker->hasRole('worker'))
+               $workers->forget($key);
+
+        foreach ($workers as $key => $worker) {
+            $ords = CalcHistory::where([
+                ['stock', '=', 1],
+                ['user_id', $worker->id]
+            ])->get();
+            $ords = $ords->unique('order_id');
+            foreach ($ords as $ord){
+                $orders->push($ord);
+            }
+        }
+
         if(count($orders) === 0 )
         {
             Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
