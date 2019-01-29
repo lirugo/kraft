@@ -214,19 +214,21 @@ class OrderController extends Controller
             ['user_id', Auth::user()->id]
         ])->get();
 
-        $workers = User::where('companyname', Auth::user()->companyname)->get();
-        foreach ($workers as $key => $worker)
-            if(!$worker->hasRole('worker'))
-               $workers->forget($key);
+        if(Auth::user()->hasRole('distributor')){
+            $workers = User::where('companyname', Auth::user()->companyname)->get();
+            foreach ($workers as $key => $worker)
+                if(!$worker->hasRole('worker'))
+                   $workers->forget($key);
 
-        foreach ($workers as $key => $worker) {
-            $ords = CalcHistory::where([
-                ['stock', '=', 1],
-                ['user_id', $worker->id]
-            ])->get();
-            $ords = $ords->unique('order_id');
-            foreach ($ords as $ord){
-                $orders->push($ord);
+            foreach ($workers as $key => $worker) {
+                $ords = CalcHistory::where([
+                    ['stock', '=', 1],
+                    ['user_id', $worker->id]
+                ])->get();
+                $ords = $ords->unique('order_id');
+                foreach ($ords as $ord){
+                    $orders->push($ord);
+                }
             }
         }
 
