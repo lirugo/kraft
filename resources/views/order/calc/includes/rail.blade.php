@@ -25,6 +25,7 @@
                    ], null, ['class' => 'form-control m-b-10', 'id' => 'rail_percent', 'placeholder' => 'Выберите % на порезку', 'required']) !!}
             {!! Form::select('rail_color', [
                '7024' => 'RAL 7024 (графитовый)',
+                '8017' => 'RAL 8017 (коричневый)',
                '9003' => 'RAL 9003 (белый)',
                '9005' => 'RAL 9005 (черный)',
                '9006' => 'RAL 9006 (серый)',
