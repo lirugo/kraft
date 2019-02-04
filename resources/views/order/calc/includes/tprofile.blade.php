@@ -36,8 +36,11 @@
                 '1500' => '1500 мм',
                 '2000' => '2000 мм'
                 ], null, ['class' => 'form-control', 'id' => 'wire_with_hook', 'placeholder' => 'Выберите длину проволки с крючком', 'required']) !!}
-                {!! Form::select('colors', [], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
-                <div class="checkbox">
+                {!! Form::select('colors', [
+                'ANY RAL' => 'ANY RAL'
+                ], null, ['class' => 'form-control', 'placeholder' => 'Выберите цвет профиля', 'id' => 'colors', 'required']) !!}
+                {!! Form::number('tprofile_othercolor',null, ['class' => 'form-control', 'id' => 'tprofile_othercolor', 'required', 'placeholder' => 'Введите цвет RAL - 4 цифры','step' => '1', 'min' => '1000', 'max' => '9999']) !!}
+            <div class="checkbox">
                     <label><input type="checkbox" id="light">Добавить освещение</label>
                 </div>
                 {!! Form::select('h',[

@@ -276,24 +276,28 @@ class OrderController extends Controller
     }
 
     public function tprofilevendor(Request $request){
+        if($request->color == 'other')
+            $color = 'ANY RAL';
+        else
+            $color = $request->color;
 
         $profiles = DB::table('profile_grilyatos')->where([
             ['type', $request->model],
             ['weight', $request->profile_thickness],
-            ['color', $request->color]
+            ['color', $color]
         ])->get();
 
         if($request->model == 'NOVA')
             $angles = DB::table('profile_grilyatos')->where([
                 ['type', $request->model],
                 ['speciality', 'L'],
-                ['color', $request->color]
+                ['color', $color]
             ])->get();
         else
             $angles = DB::table('profile_grilyatos')->where([
                 ['type', $request->model],
                 ['speciality', $request->wall_profile],
-                ['color', $request->color]
+                ['color', $color]
             ])->get();
 
         $wireWithEars = DB::table('profile_grilyatos')->where([

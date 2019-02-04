@@ -29,6 +29,7 @@ $("#model").change(function() {
     var option2 = document.createElement("option");
     var option3 = document.createElement("option");
     var option4 = document.createElement("option");
+    var optionO = document.createElement("option");
     //Clear Color
     for (var i=document.getElementById('colors').options.length; i-->1;)
         document.getElementById('colors').options[i] = null;
@@ -47,6 +48,9 @@ $("#model").change(function() {
         colors.add(opt);
         document.getElementById("colors").disabled = false;
         document.getElementById("colors").style.display = "initial";
+        optionO.text = "Другой";
+        optionO.value = "other";
+        colors.add(optionO);
     }else if($('#model').find(":selected").text() === "FORTIS")
     {
         opt.text = "RAL 7024 (графитовый)";
@@ -66,6 +70,9 @@ $("#model").change(function() {
         colors.add(option2);
         document.getElementById("colors").disabled = false;
         document.getElementById("colors").style.display = "initial";
+        optionO.text = "Другой";
+        optionO.value = "other";
+        colors.add(optionO);
     } else  if ($('#model').find(":selected").text() === 'HD' || $('#model').find(":selected").text() === 'RH1000') {
         option.text = "RAL 9003 (белый)";
         option.value = "9003";
@@ -78,8 +85,25 @@ $("#model").change(function() {
         colors.add(option2);
         document.getElementById("colors").disabled = false;
         document.getElementById("colors").style.display = "initial";
+        optionO.text = "Другой";
+        optionO.value = "other";
+        colors.add(optionO);
+    }
+
+});
+$("#colors").change(function() {
+    if($('#colors').find(":selected").attr("value") === "other")
+    {
+        document.getElementById("tprofile_othercolor").disabled = false;
+        document.getElementById("tprofile_othercolor").style.display = "initial";
+    }else
+    {
+        document.getElementById("tprofile_othercolor").disabled = true;
+        document.getElementById("tprofile_othercolor").style.display = "none";
     }
 });
+document.getElementById("tprofile_othercolor").disabled = true;
+document.getElementById("tprofile_othercolor").style.display = "none";
 
 //variable of price product
 var tp3600_price;
