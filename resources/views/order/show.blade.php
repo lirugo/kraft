@@ -33,19 +33,19 @@
                     <tbody>
                     @foreach($orders as $order)
                         @if($order->production == false)
-                         <tr>
-                            <td>{{$order->vendor_code}}</td>
-                            <td>{{$order->description}}</td>
-                            <td>{!! Form::number('pack', $order->count, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.', this.value'.','.$order->price.')']) !!}</td>
-                            <td>{{$order->price}}</td>
-                            <td>{{$order->price*$order->count}}</td>
-                            <td>
-                                {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
-                                {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-warning btn-sm']) !!}
-                                {!! Form::close() !!}
-                            </td>
-                         </tr>
-                         @endif
+                            <tr>
+                                <td>{{$order->vendor_code}}</td>
+                                <td>{{$order->description}}</td>
+                                <td>{!! Form::number('pack', $order->count, ['class' => 'form-control', 'id' => 'pack', 'onchange' => 'pack_change('.$order->id.','.$order->id_row.', this.value'.','.$order->price.')']) !!}</td>
+                                <td>{{$order->price}}</td>
+                                <td>{{$order->price*$order->count}}</td>
+                                <td>
+                                    {!! Form::open(['route' => ['select.delete',$order->id], 'method' => 'POST']) !!}
+                                    {!! Form::submit(trans('app.Delete'), ['class' => 'btn btn-warning btn-sm']) !!}
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                     <tr>
                         <td style="background-color: white"></td>
@@ -92,7 +92,22 @@
                     @else
                         @if($orders->status == 0)
                             {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-                            {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary pull-right']) !!}
+                            <div class="row m-l-15">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="pickup">Самовывоз</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="payment" style="width: 200px" required>
+                                        <option value="0">Наличный расчет</option>
+                                        <option value="1">Безналичный расчет</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary']) !!}
+                                </div>
+                            </div>
                             {!! Form::close() !!}
                         @endif
                     @endif
@@ -108,32 +123,32 @@
 @section('scripts')
     <script>
         var table = document.getElementById("table");
-    function pack_change(id,id_row,pack,price){
-        table.rows[id_row].cells[4].innerHTML = (pack*price).toFixed(2);
-        total_sum = 0;
-        for(var i = 1; i<table.rows.length-1; i++)
-        {
-            total_sum += +table.rows[i].cells[4].innerHTML;
-        }
-        table.rows[table.rows.length-1].cells[4].innerHTML = total_sum.toFixed(2);
-
-        // save data
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: "POST",
-            url: "/order/" + id + "/update",
-            data: {"id" : id, "quantity" : pack},
-            success: function(data) {
-                console.log('OK');
-            },
-            error: function(data){
-                console.log(id);
-                console.log(data);
+        function pack_change(id,id_row,pack,price){
+            table.rows[id_row].cells[4].innerHTML = (pack*price).toFixed(2);
+            total_sum = 0;
+            for(var i = 1; i<table.rows.length-1; i++)
+            {
+                total_sum += +table.rows[i].cells[4].innerHTML;
             }
-        });
-    }
+            table.rows[table.rows.length-1].cells[4].innerHTML = total_sum.toFixed(2);
+
+            // save data
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                url: "/order/" + id + "/update",
+                data: {"id" : id, "quantity" : pack},
+                success: function(data) {
+                    console.log('OK');
+                },
+                error: function(data){
+                    console.log(id);
+                    console.log(data);
+                }
+            });
+        }
 
     </script>
 @endsection
