@@ -5,7 +5,7 @@
             <div class="col-md-12 p-20">
                 <a class="link-bread" href="/manage">{{ trans('app.Panel Control') }}</a>
                 <a class="link-bread" href="/manager/moderation">{{ trans('app.Moderation') }}</a>
-                <a class="link-bread" href="#">{{ trans('app.Company Profile') }}</a>
+                <a class="link-bread" href="#">Удаление объектов</a>
             </div>
         </div>
     </div>
