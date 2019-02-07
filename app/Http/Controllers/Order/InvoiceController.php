@@ -97,7 +97,7 @@ class InvoiceController extends Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => json_encode($ords),
+            CURLOPT_POSTFIELDS => json_encode($ords, JSON_UNESCAPED_UNICODE),
             CURLOPT_HTTPHEADER => array(
                 "Cache-Control: no-cache",
                 'Content-Type: application/json',
