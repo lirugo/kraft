@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Company;
 use App\CompanyChange;
+use App\ObjectRequestOnDeleting;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -109,6 +110,12 @@ class ModerationController extends Controller
 
         Session::flash('success', 'Company profile was successfully updated.');
         return back();
+    }
+
+    public function objects(){
+        $objects = ObjectRequestOnDeleting::all();
+        return view('manager.moderation.objects')
+            ->withObjects($objects);
     }
 }
 

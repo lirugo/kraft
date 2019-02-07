@@ -86,6 +86,13 @@
                                 <td>
                                     <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
                                 </td>
+                                @if(Auth::user()->hasRole('manager'))
+                                <td>
+                                    {!! Form::open(['url' => '/object/'.$object->id.'/request/delete', 'methods' => 'POST']) !!}
+                                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                    {!! Form::close() !!}
+                                </td>
+                                @endif
                             </tr>
                         @endif
                     @endforeach
@@ -104,7 +111,7 @@
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
-                        <th scope="col">{{trans('app.Date Registration')}}/th>
+                        <th scope="col">{{trans('app.Date Registration')}}</th>
                         <th scope="col">{{trans('app.Date delivery product')}}</th>
                         <th scope="col">{{trans('app.Next Report')}}</th>
                         <th scope="col">{{trans('app.Action')}}</th>
@@ -127,8 +134,14 @@
                                         <span class="badge badge-secondary" style="position: relative">{{trans('app.New')}}</span>
                                         @endif
                                         <br></a>
-
                                 </td>
+                                @if(Auth::user()->hasRole('manager'))
+                                    <td>
+                                        {!! Form::open(['url' => '/object/'.$object->id.'/request/delete', 'methods' => 'POST']) !!}
+                                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                        {!! Form::close() !!}
+                                    </td>
+                                @endif
                             </tr>
                         @endif
                     @endforeach

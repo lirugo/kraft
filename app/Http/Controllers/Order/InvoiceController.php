@@ -45,6 +45,9 @@ class InvoiceController extends Controller
                     'count_production' => $order->count_production,
                 ];
                 $i++;
+                $order->order_available = true;
+                $order->status = true;
+                $order->save();
             }
         }
 

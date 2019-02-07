@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CalcHistory;
 use Illuminate\Http\Request;
 
 class UploadController extends Controller
@@ -35,5 +36,14 @@ class UploadController extends Controller
         $imageName = $image->hashName();
         $image->move(public_path('uploads/reports'),$imageName);
         return response()->json(['success'=>$imageName]);
+    }
+
+    public function downloadOrder($orderId){
+        $orders = CalcHistory::where('order_id', $orderId)->get();
+        foreach ($orders as $order){
+            $order->order_available = false;
+            $order->save();
+        }
+        return redirect(url('/uploads/orders/'.$orderId.'.pdf'));
     }
 }

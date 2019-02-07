@@ -91,6 +91,7 @@ Route::group(['prefix' => 'manager',
         Route::get('object/show/{id}', 'Manager\ManagerController@showobject')->name('manager.object.show');
         Route::get('moderation', 'Manager\ModerationController@index');
         Route::get('moderation/company', 'Manager\ModerationController@company');
+        Route::get('moderation/objects', 'Manager\ModerationController@objects');
         Route::get('moderation/company/users', 'Manager\ModerationController@companyusers');
         Route::post('moderation/company/users/activate/{id}', 'Manager\ModerationController@activate')->name('moderation.company.users.activate');
         Route::post('moderation/company/profile/{id}', 'Manager\ModerationController@companypost')->name('moderation.company.profile');
@@ -109,6 +110,9 @@ Route::group(['prefix' => 'manager',
         Route::post('object/show/{id}/transfer', 'Manager\ManagerController@transferTo')->name('manager.object.show.transfer');
     });
 //manager route
+
+Route::post('/object/{id}/request/delete', 'Object\ObjectController@requestOnDeleting');
+Route::post('/object/{id}/delete', 'Object\ObjectController@delete');
 
 //distributor route
 Route::group(['prefix' => 'distributor',
@@ -339,3 +343,7 @@ Route::get('/help/user', 'Help\HelpController@user');
 Route::get('/help/newobject', 'Help\HelpController@newObject');
 Route::get('/help/regobject', 'Help\HelpController@regObject');
 Route::get('/help/order', 'Help\HelpController@order');
+
+Route::get('/order/download/{orderId}', 'UploadController@downloadOrder');
+
+

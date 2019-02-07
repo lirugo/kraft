@@ -122,6 +122,16 @@
                                 {{--</div>--}}
                             {{--</div>--}}
                         {{--</div>--}}
+                        <div class="col-md-2 col-md-offset-1 text-center">
+                            <div class="card">
+                                <a href="/manager/moderation/objects/">
+                                    <i class="fa fa-close fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Запросы на удаление
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

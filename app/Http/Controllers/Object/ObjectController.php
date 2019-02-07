@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Object;
 
+use App\Company;
+use App\Http\Controllers\Controller;
 use App\Notification;
 use App\Object;
-use App\Company;
+use App\ObjectRequestOnDeleting;
 use App\User;
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Session;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class ObjectController extends Controller
 {
@@ -189,5 +189,39 @@ class ObjectController extends Controller
         Session::flash('success', 'Object was successfully created.');
         //Redirect
         return redirect('manage');
+    }
+
+    public function requestOnDeleting($objectId){
+        $object = Object::find($objectId);
+
+        $request = new ObjectRequestOnDeleting();
+        $request->object_id = $objectId;
+        $request->save();
+
+        $user = User::whereHas('roles', function($q)
+        {
+            $q->where('name', 'top-manager');
+        })->first();
+
+        $notif = new Notification();
+        $notif->user_id_from = $object->creatorid;
+        $notif->user_id_to = $user->id;
+        $notif->object_id = $object->id;
+        $notif->title = 'Запрос на удаление объекта';
+        $notif->body = $object->name;
+        $notif->save();
+
+        Session::flash('success', 'Ваш запрос на удаление отправлен на модерацию');
+        return back();
+    }
+
+    public function delete($reqDelId){
+        $request = ObjectRequestOnDeleting::find($reqDelId);
+        $object = Object::find($request->object_id);
+        $object->delete();
+        $request->delete();
+
+        Session::flash('success', 'Объект удален');
+        return back();
     }
 }

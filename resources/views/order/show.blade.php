@@ -87,29 +87,35 @@
                 {{--//Get file if exsist--}}
                 <a class="btn btn-primary pull-right m-l-20" href="/order/pdf/{{$orders->order_id}}">{{trans('app.Download PDF')}}</a>
                 @if(Auth::user()->hasRole('distributor'))
-                    @if(file_exists( public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
-                        <a class="btn btn-success" href="/uploads/orders/{{$orders->order_id}}.pdf" download>{{trans('app.Download Order')}}</a>
-                    @else
-                        @if($orders->status == 0)
-                            {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
-                            <div class="row m-l-15">
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" name="pickup">Самовывоз</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control" name="payment" style="width: 200px" required>
-                                        <option value="0">Наличный расчет</option>
-                                        <option value="1">Безналичный расчет</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary']) !!}
+                    @if(file_exists(public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
+                        @if($orders->order_available)
+                            <a class="btn btn-success" href="{{url('/order/download/'.$orders->order_id)}}" download>{{trans('app.Download Order')}}</a>
+                        @endif
+                    @elseif($orders->status == 0)
+                        {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
+                        <div class="row m-l-15">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="pickup">Самовывоз</label>
                                 </div>
                             </div>
-                            {!! Form::close() !!}
-                        @endif
+                            <div class="form-group">
+                                <select class="form-control" name="payment" style="width: 200px" required>
+                                    <option value="0">Наличный расчет</option>
+                                    <option value="1">Безналичный расчет</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary']) !!}
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                    @endif
+
+                    @if(!$orders->order_available)
+                        <div class="form-group">
+                            <button class="btn btn-primary">Запрос на перевыставление счета</button>
+                        </div>
                     @endif
                 @endif
                 <br>

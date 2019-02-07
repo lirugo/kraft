@@ -202,6 +202,7 @@ class OrderController extends Controller
             $orders->order_id = $order->order_id;
             $orders->object_id = $order->object_id;
             $orders->status = $order->status;
+            $orders->order_available = $order->order_available;
         }
         $orders->total = $total;
         return view('order.show')->with('orders',$orders);
@@ -257,6 +258,7 @@ class OrderController extends Controller
             $orders->order_id = $order->order_id;
             $orders->object_id = $order->object_id;
             $orders->status = $order->status;
+            $orders->order_available = $order->order_available;
         }
         $orders->total = $total;
         return view('order.show')->with('orders',$orders);
