@@ -93,6 +93,8 @@ Route::group(['prefix' => 'manager',
         Route::get('moderation/company', 'Manager\ModerationController@company');
         Route::get('moderation/objects', 'Manager\ModerationController@objects');
         Route::get('moderation/company/users', 'Manager\ModerationController@companyusers');
+        Route::get('moderation/company/orders', 'Manager\ModerationController@companyorders');
+        Route::post('moderation/company/orders/{repeatId}', 'Manager\ModerationController@companyordersPost');
         Route::post('moderation/company/users/activate/{id}', 'Manager\ModerationController@activate')->name('moderation.company.users.activate');
         Route::post('moderation/company/profile/{id}', 'Manager\ModerationController@companypost')->name('moderation.company.profile');
         Route::post('user/activate/{id}', 'Manager\ManagerController@activateuser')->name('manager.user.activate');
@@ -345,5 +347,7 @@ Route::get('/help/regobject', 'Help\HelpController@regObject');
 Route::get('/help/order', 'Help\HelpController@order');
 
 Route::get('/order/download/{orderId}', 'UploadController@downloadOrder');
+//Request on repeat invoice order
+Route::get('/order/request/{orderId}/repeatInvoiceOrder', 'Order\OrderController@repeatInvoiceOrder');
 
 

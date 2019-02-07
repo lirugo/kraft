@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Manager;
 
+use App\CalcHistory;
 use App\Company;
 use App\CompanyChange;
 use App\ObjectRequestOnDeleting;
+use App\OrderRepeatInvoice;
 use App\User;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -116,6 +119,33 @@ class ModerationController extends Controller
         $objects = ObjectRequestOnDeleting::all();
         return view('manager.moderation.objects')
             ->withObjects($objects);
+    }
+
+    public function companyorders(){
+        $repeats = OrderRepeatInvoice::where('rm_id', Auth::user()->id)->get()->unique('order_id');
+        return view('manager.moderation.company.orders')
+            ->withRepeats($repeats);
+    }
+
+    public function companyordersPost($repeatId){
+        $repeat = OrderRepeatInvoice::find($repeatId);
+        $orderId = $repeat->order_id;
+        $repeats = OrderRepeatInvoice::where('order_id', $orderId)->get();
+
+        $orders = CalcHistory::where('order_id', $orderId)->get();
+        foreach ($orders as $order){
+            $order->order_available = true;
+            $order->status = false;
+            $order->save();
+        }
+
+        unlink(public_path('/uploads/orders/'.$orderId.'.pdf'));
+
+        foreach ($repeats as $repeat)
+            $repeat->delete();
+
+        Session::flash('success', 'Разрешено');
+        return back();
     }
 }
 

@@ -86,7 +86,7 @@ class InvoiceController extends Controller
 
         $ords = array_merge($ords, ['details' => $details]);
 
-dd(json_encode($ords, JSON_UNESCAPED_UNICODE));
+//dd(json_encode($ords, JSON_UNESCAPED_UNICODE));
         //Send to web 1C
         $curl = curl_init();
         curl_setopt_array($curl, array(

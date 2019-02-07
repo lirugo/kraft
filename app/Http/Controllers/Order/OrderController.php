@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Order;
 
 use App\CalcHistory;
+use App\Company;
 use App\Constants;
 use App\Http\Controllers\Controller;
+use App\Notification;
 use App\Object;
+use App\OrderRepeatInvoice;
 use App\ProfileGrilyato;
 use App\User;
 use Illuminate\Http\Request;
@@ -793,6 +796,33 @@ class OrderController extends Controller
         }
 
         Session::flash('success', 'Order was be moved');
+        return back();
+    }
+
+    public function repeatInvoiceOrder($orderId){
+        $order = CalcHistory::where('order_id', $orderId)->first();
+        if(!$order->stock) {
+            $object = Object::where('id', $order->object_id)->first();
+        }
+        $company = Company::where('companyname', User::find($order->user_id)->company)->first();
+        $rmID = $company->rmid;
+
+        $repeat = new OrderRepeatInvoice();
+        if(!$order->stock)
+            $repeat->object_id = $object->id;
+        $repeat->rm_id = $rmID;
+        $repeat->order_id = $order->order_id;
+        $repeat->stock = $order->stock;
+        $repeat->save();
+
+        $notif = new Notification();
+        $notif->user_id_from = Auth::user()->id;
+        $notif->user_id_to = $rmID;
+        $notif->title = 'Запрос на перевыставление счета';
+        $notif->body = isset($object) ? $object->name : $company->companyname.' - просчет на склад';
+        $notif->save();
+
+        Session::flash('success', 'Ващ запрос на повторное выставление счета отправлен. Ожидайте подтверждения от менеджера.');
         return back();
     }
 }

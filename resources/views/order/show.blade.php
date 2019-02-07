@@ -114,7 +114,7 @@
 
                     @if(!$orders->order_available)
                         <div class="form-group">
-                            <button class="btn btn-primary">Запрос на перевыставление счета</button>
+                            <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
                         </div>
                     @endif
                 @endif
