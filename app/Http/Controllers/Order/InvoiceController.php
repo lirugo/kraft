@@ -19,6 +19,7 @@ use PhpParser\ErrorHandler\Collecting;
 class InvoiceController extends Controller
 {
     public function send(Request $request, $orderId){
+        dd('asd');
         //validate
         if(Auth::user()->vendor_code_1c == NULL){
             Session::flash('warning', 'Ваш пользователь не привязан к 1С, обратитесь к менеджеру.');
@@ -111,7 +112,7 @@ class InvoiceController extends Controller
         if ($err) {
             Session::flash('error', 'Извините, не получилось отправить Ваш счет, обратитесь к администрации.');
         } else {
-            Session::flash('success', trans('app.Invoice is formed, expect'));
+            Session::flash('success', 'Ваш счет сформирован');
         }
 
         //Return back show msg
