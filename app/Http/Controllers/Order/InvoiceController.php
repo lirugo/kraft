@@ -46,9 +46,9 @@ class InvoiceController extends Controller
                 ];
                 $i++;
                 $order->order_available = true;
-                $order->status = true;
-                $order->save();
             }
+            $order->status = true;
+            $order->save();
         }
 
         $params = [
