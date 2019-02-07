@@ -26,7 +26,7 @@ class InvoiceController extends Controller
         }
 
         //Get order
-        $orders = CalcHistory::where('order_id', '=', $orderId)->where('status', '=', false)->get();
+        $orders = CalcHistory::where('order_id', '=', $orderId)->get();
 
         $i = 1;
         foreach ($orders as $order){
@@ -83,7 +83,6 @@ class InvoiceController extends Controller
             ];
             $details = array_merge($details, $address, $companyDetail, $object);
         }
-
         $ords = array_merge($ords, ['details' => $details]);
 
 //dd(json_encode($ords, JSON_UNESCAPED_UNICODE));
