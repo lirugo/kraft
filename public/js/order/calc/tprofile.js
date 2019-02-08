@@ -43,9 +43,6 @@ $("#model").change(function() {
         option.text = "RAL 9003 (белый)";
         option.value = "9003";
         colors.add(option);
-        opt.text = "RAL 8017 (коричневый)";
-        opt.value = "8017";
-        colors.add(opt);
         document.getElementById("colors").disabled = false;
         document.getElementById("colors").style.display = "initial";
         optionO.text = "Другой";
@@ -55,9 +52,6 @@ $("#model").change(function() {
     {
         opt.text = "RAL 7024 (графитовый)";
         opt.value = "7024";
-        colors.add(opt);
-        opt.text = "RAL 8017 (коричневый)";
-        opt.value = "8017";
         colors.add(opt);
         option.text = "RAL 9003 (белый)";
         option.value = "9003";
