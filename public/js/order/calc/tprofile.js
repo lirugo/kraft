@@ -29,6 +29,7 @@ $("#model").change(function() {
     var option2 = document.createElement("option");
     var option3 = document.createElement("option");
     var option4 = document.createElement("option");
+    var option5 = document.createElement("option");
     var optionO = document.createElement("option");
     //Clear Color
     for (var i=document.getElementById('colors').options.length; i-->1;)
@@ -62,6 +63,9 @@ $("#model").change(function() {
         option2.text = "RAL 9006 (серый)";
         option2.value = "9006";
         colors.add(option2);
+        option3.text = "RAL 8017 (коричневый)";
+        option3.value = "8017";
+        colors.add(option3);
         document.getElementById("colors").disabled = false;
         document.getElementById("colors").style.display = "initial";
         optionO.text = "Другой";
