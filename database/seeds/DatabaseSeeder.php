@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductUpdatePrice::class);
         $this->call(ProductUpdate3::class);
         $this->call(ProductUpdate4::class);
+        $this->call(ProductUpdate5::class);
     }
 }
