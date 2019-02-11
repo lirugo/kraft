@@ -16,6 +16,8 @@
                 ], null, ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => trans('app.Select a profile model'), 'required']) !!}
             {!! Form::select('grilyato_color', [
                 'other' => 'Другой',
+                'антік' => 'Антік',
+                'сонома' => 'Сонома',
                 '7024' => 'RAL 7024 (графитовый)',
                 '8017' => 'RAL 8017 (коричневый)',
                 '9003' => 'RAL 9003 (белый)',
