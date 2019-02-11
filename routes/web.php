@@ -13,6 +13,7 @@
 
 use App\Events\MsgPosted;
 use App\ProductKraft;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/phpinfo', function () {
     phpinfo();
@@ -349,5 +350,16 @@ Route::get('/help/order', 'Help\HelpController@order');
 Route::get('/order/download/{orderId}', 'UploadController@downloadOrder');
 //Request on repeat invoice order
 Route::get('/order/request/{orderId}/repeatInvoiceOrder', 'Order\OrderController@repeatInvoiceOrder');
+
+
+
+Route::get('/test/email', function (){
+        Mail::send('emails.notification', array('objectName' => 'Test object', 'companyName' => ' Test company'), function($message)
+        {
+            $message->from(env('MAIL_USERNAME'));
+            $message->to('it@iib.com.ua', 'No-Replay')->subject('Kraft Notification');
+        });
+    dd('asd');
+});
 
 
