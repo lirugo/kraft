@@ -354,12 +354,15 @@ Route::get('/order/request/{orderId}/repeatInvoiceOrder', 'Order\OrderController
 
 
 Route::get('/test/email', function (){
-        Mail::send('emails.notification', array('objectName' => 'Test object', 'companyName' => ' Test company'), function($message)
+    $manager = \App\User::first();
+    $company = \App\Company::first();
+    $object = \App\Company::first();
+        Mail::send('emails.notification', array('objectName' => $object->name, 'companyName' => $company->companyname), function($message) use ($manager)
         {
             $message->from(env('MAIL_USERNAME'));
             $message->to('it@iib.com.ua', 'No-Replay')->subject('Kraft Notification');
         });
-    dd('asd');
+    dd('OK');
 });
 
 
