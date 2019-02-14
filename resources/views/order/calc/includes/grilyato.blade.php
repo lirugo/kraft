@@ -16,7 +16,6 @@
                 ], null, ['class' => 'form-control', 'id' => 'grilyato_model', 'placeholder' => trans('app.Select a profile model'), 'required']) !!}
             {!! Form::select('grilyato_color', [
                 'other' => 'Другой',
-                'дуб' => 'Дерево Золотий Дуб 018 (темне)',
                 'антік' => 'Дерево Антік (стандартне)',
                 'сонома' => 'Дерево Сонома (світле)',
                 '7024' => 'RAL 7024 (графитовый)',
