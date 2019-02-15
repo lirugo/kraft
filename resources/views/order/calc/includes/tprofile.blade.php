@@ -53,9 +53,6 @@
         <div class="col-md-4 text-center">
             <img src="/img/icon/calc/tprofile.png"/>
         </div>
-        <div class="col-md-4 text-center">
-            <h4>Подксказки для расчетов</h4>
-        </div>
     </div>
 
     <div class="row" id="calc_t_profile_table">

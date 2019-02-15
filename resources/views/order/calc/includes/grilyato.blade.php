@@ -66,9 +66,6 @@
         <div class="col-md-4 text-center">
             <img src="/img/icon/calc/grilyato.png"/>
         </div>
-        <div class="col-md-4 text-center">
-            <h4>{{trans('app.Tips for calculations')}}</h4>
-        </div>
     </div>
 
     <div class="row" id="calc_grilyato_table">
