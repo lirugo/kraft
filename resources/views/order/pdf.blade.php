@@ -7,6 +7,13 @@
     }
 </style>
     <img src="/home/onliner/web/onliner.kraftds.com/public_html/public/img/logo/pdfLogo.jpg" class="m-l-0" width="700px">
+
+
+@foreach($orders as $order)
+    @if ($loop->first)
+    <h5 class="text-center" style="font-family: DejaVu Sans;">Order {{$order->vendor_code}} - {{\Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:m')}} </h5>
+    @endif
+@endforeach
 <table class="table table-striped">
     <thead>
     <tr>
