@@ -11,7 +11,7 @@
 
 @foreach($orders as $order)
     @if ($loop->first)
-    <h5 class="text-center" style="font-family: DejaVu Sans;">Order {{$order->vendor_code}} - {{\Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:m')}} </h5>
+    <h5 class="text-center" style="font-family: DejaVu Sans;">Order {{$order->order_id}} - {{\Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:m')}} </h5>
     @endif
 @endforeach
 <table class="table table-striped">
