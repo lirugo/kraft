@@ -212,39 +212,44 @@ class OrderController extends Controller
     }
 
     public function historyStock(){
+
         //Star time
         $time_start = microtime(true);
 
-        //Processing...
-        //Get array of user id
-        $userIdArray = [];
-        array_push($userIdArray, Auth::user()->id);
+        //End time
+        $time_end = microtime(true);
+
+        //Get exec time
+        $execution_time = ($time_end - $time_start);
+
+//execution time of the script
+        //BAck if empty
+        $orders = CalcHistory::where([
+            ['stock', '=', 1],
+            ['user_id', Auth::user()->id]
+        ])->get();
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
             })->where('companyname', Auth::user()->companyname)->get();
             foreach ($workers as $key => $worker) {
-                array_push($userIdArray, $worker->id);
+                $ords = CalcHistory::where([
+                    ['stock', '=', 1],
+                    ['user_id', $worker->id]
+                ])->get();
+                $ords = $ords->unique('order_id');
+                foreach ($ords as $ord){
+                    $orders->push($ord);
+                }
             }
         }
-        //Get orders
-        $orders = CalcHistory::where('stock', 1)
-            ->whereIn('user_id', $userIdArray)
-            ->orderByDesc('id')
-            ->get()->unique('order_id');
-
-
-        //End time
-        $time_end = microtime(true);
-        //Get exec time
-        $execution_time = ($time_end - $time_start);
-
-        //BAck if empty
         if(count($orders) === 0 )
         {
             Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
             return redirect(url('/manage'));
         }
+        $orders = $orders->unique('order_id');
+        $orders = $orders->sortByDesc('id');
         $data = new Collection();
         $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
