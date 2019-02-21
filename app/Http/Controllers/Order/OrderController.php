@@ -233,9 +233,11 @@ class OrderController extends Controller
 
         //Get all orders for that users
         $orders = DB::select('
-            SELECT DISTINCT order_id FROM calc_histories
+            SELECT DISTINCT order_id, MAX(created_at) created_at FROM calc_histories
                 WHERE user_id IN ('.implode(",", $usersIdArray).')
                 AND stock = 1
+                GROUP BY order_id
+                ORDER BY created_at DESC
             ');
 
         $orders = $this->arrayPaginator($orders, $request);
