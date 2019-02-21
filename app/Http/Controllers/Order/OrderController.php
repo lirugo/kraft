@@ -236,7 +236,6 @@ class OrderController extends Controller
             SELECT DISTINCT order_id FROM calc_histories
                 WHERE user_id IN ('.implode(",", $usersIdArray).')
                 AND stock = 1
-                ORDER BY id DESC
             ');
 
         $orders = $this->arrayPaginator($orders, $request);
