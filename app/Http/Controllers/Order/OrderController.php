@@ -12,9 +12,12 @@ use App\OrderRepeatInvoice;
 use App\ProfileGrilyato;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use JavaScript;
 use Session;
 use PDF;
@@ -211,40 +214,54 @@ class OrderController extends Controller
         return view('order.show')->with('orders',$orders);
     }
 
-    public function historyStock(){
+    public function historyStock(Request $request){
+        //Start time
+        $startTime = microtime(true);
 
-        $orders = CalcHistory::where([
-            ['stock', '=', 1],
-            ['user_id', Auth::user()->id]
-        ])->get();
-
+        //Get array of users id
+        $usersIdArray = [];
+        array_push($usersIdArray, Auth::user()->id);
+            //Get workers id
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
-            })->where('companyname', Auth::user()->companyname)->get();
+            })->where('company', Auth::user()->company)->get();
             foreach ($workers as $key => $worker) {
-                $ords = CalcHistory::where([
-                    ['stock', '=', 1],
-                    ['user_id', $worker->id]
-                ])->get();
-                $ords = $ords->unique('order_id');
-                foreach ($ords as $ord){
-                    $orders->push($ord);
-                }
+                array_push($usersIdArray, $worker->id);
             }
         }
+
+        //Get all orders for that users
+        $orders = DB::select('
+            SELECT DISTINCT order_id FROM calc_histories
+                WHERE user_id IN ('.implode(",", $usersIdArray).')
+                AND stock = 1
+            ');
+
+        $orders = $this->arrayPaginator($orders, $request);
 
         if(count($orders) === 0 ){
             Session::flash('warning', 'Заказов нет. Сделайте свой первый заказ.');
             return redirect(url('/manage'));
         }
 
-        $orders = $orders->unique('order_id');
-        $orders = $orders->sortByDesc('id');
         $data = new Collection();
+        $data->put('startTime', $startTime);
         $data->put('orders', $orders);
         $data->put('user_id', Auth::user()->id);
-        return view('order.stock.history')->with('data', $data);
+
+        return view('order.stock.history')->with('data', $data)
+            ->withOrders($orders);
+    }
+
+    private function arrayPaginator($array, $request)
+    {
+        $page = Input::get('page', 1);
+        $perPage = 10;
+        $offset = ($page * $perPage) - $perPage;
+
+        return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,
+            ['path' => $request->url(), 'query' => $request->query()]);
     }
 
     public function selectorder($id, $orderId){

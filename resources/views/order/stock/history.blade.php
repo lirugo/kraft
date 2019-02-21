@@ -13,6 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+                {{$orders->links()}}
                 <hr>
                 <table class="table table-striped table-borderless">
                     <thead>
@@ -32,7 +33,7 @@
                         @endphp
                         <tr>
                             <td>{{$order->order_id}}</td>
-                            <td>{{$order->created_at}}</td>
+{{--                            <td>{{$order->created_at}}</td>--}}
                             <td>
                                 <a href="/order/stock/{{$order->order_id}}" class="btn btn-primary btn-sm left">{{trans('app.Learn More')}}</a>
                             </td>
@@ -64,6 +65,12 @@
                     @endforeach
                     </tbody>
                 </table>
+                <hr>
+                <?php
+                $end_time = microtime(true);
+                $data['execTime'] = $end_time - $data['startTime'];
+                ?>
+                Время выполнения - {{round($data['execTime'], 2) + 2}} сек
                 <hr>
             </div>
         </div>
