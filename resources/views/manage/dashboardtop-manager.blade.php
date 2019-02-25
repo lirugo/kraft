@@ -132,6 +132,16 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="col-md-2 text-center">
+                            <div class="card">
+                                <a href="/topmanager/distributor/update">
+                                    <i class="fa fa-pencil fa-5x" aria-hidden="true"></i>
+                                    <div class="description m-t-10">
+                                        Обновление дистрибьюторов
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

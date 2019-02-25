@@ -261,6 +261,8 @@ Route::group(['prefix' => 'messages'], function () {
 
 //TopManager
 Route::get('/topmanager/objects', 'TopManager\ObjectsController@index');
+Route::get('/topmanager/distributor/update', 'TopManager\TopManagerController@updateDistr');
+Route::post('/topmanager/distributor/update', 'TopManager\TopManagerController@updateDistrUpdate');
 
 Route::get('/managers', 'TopManager\ManagersController@index');
 Route::get('/managers/{id}', 'TopManager\ManagersController@show');
