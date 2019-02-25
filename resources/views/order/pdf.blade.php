@@ -12,8 +12,8 @@
 @foreach($orders as $order)
     @if ($loop->first)
     <h5 class="text-center" style="font-family: DejaVu Sans;">
-        Order: {{$order->order_id}}<br/>
-        Date: {{\Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:m')}}
+        Спецификация: {{$order->order_id}}<br/>
+        Дата: {{\Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:m')}}
     </h5>
     @endif
 @endforeach

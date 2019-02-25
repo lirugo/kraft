@@ -16,7 +16,7 @@
                {!! Form::select('thickness',[
                     '15' => '15 мм',
                     '24' => '24 мм'
-                    ], null, ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите толщину профиля', 'required']) !!}
+                    ], null, ['class' => 'form-control', 'id' => 'thickness', 'placeholder' => 'Выберите ширину профиля', 'required']) !!}
                 {!! Form::select('wall_profile',[
                 'L' => 'L',
                 'W' => 'W'
