@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\TopManager;
 
+use App\CalcHistory;
 use App\Company;
+use App\CompanyChange;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,14 +28,37 @@ class TopManagerController extends Controller
 
     public function updateDistrUpdate(Request $request){
         $this->validate($request, [
-            'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required|min:8',
+            'companyOld' => 'required',
+            'company' => 'required',
+            'password' => 'min:8|confirmed',
+            'password_confirmation' => 'min:8',
         ]);
-        $user = User::find($request->userId);
 
         //Change Password
-        $user->password = bcrypt($request->get('password'));
-        $user->save();
+        if($request->password) {
+            $user = User::find($request->userId);
+            $user->password = bcrypt($request->get('password'));
+            $user->save();
+        }
+
+        //Change company
+        $company = Company::where('companyname', $request->companyOld)->first();
+        $company->companyname = $request->company;
+        $company->save();
+
+        //Change users
+        $users = User::where('company', $request->companyOld)->get();
+        foreach ($users as $user){
+            $user->company = $request->company;
+            $user->save();
+        }
+
+        //Change company change
+        $cH = CompanyChange::where('companyname', $request->companyOld)->get();
+        foreach ($cH as $c){
+            $c->companyname = $request->company;
+            $c->save();
+        }
 
        Session::flash('success', 'Данные обновленны');
        return back();

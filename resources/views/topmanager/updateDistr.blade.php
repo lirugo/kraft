@@ -12,19 +12,23 @@
 @section('content')
     <div class="container-fluid">
         <div class="row m-t-20">
-            <div class="col-md-4 col-md-offset-1">
+            <div class="col-sm-10 col-md-offset-1">
                 {{$distributors->links()}}
-                <tbody>
-                    @foreach($distributors as $distributor)
+                <label>* Оставьте поля пароля пустыми если не хотите его менять</label>
+            </div>
+            <tbody>
+            @foreach($distributors as $distributor)
+                <div class="col-md-4 col-md-offset-1">
                     <form action="/topmanager/distributor/update" method="POST">
                         <tr>
                             <td>
                                 <label>Компания</label>
-                                <input type="text" name="company" value="{{$distributor->company}}" class="form-control" disabled>
+                                <input type="hidden" name="companyOld" value="{{$distributor->company}}" class="form-control" required>
+                                <input type="text" name="company" value="{{$distributor->company}}" class="form-control" required>
                                 <input type="text" name="email" value="{{$distributor->email}}" class="form-control" disabled>
                                 <input type="hidden" name="userId" class="form-control" value="{{$distributor->id}}">
-                                <input type="password" name="password" class="form-control" placeholder="Введите новый пароль" required>
-                                <input type="password" name="password_confirmation" class="form-control" placeholder="Повторите новый пароль" required>
+                                <input type="password" name="password" class="form-control" placeholder="Введите новый пароль" >
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Повторите новый пароль" >
                             </td>
                             <td>
                                 <button type="submit" class="btn btn-sm btn-danger m-t-10 pull-right">Обновить</button>
@@ -33,9 +37,9 @@
                         <br/>
                         <hr>
                     </form>
-                    @endforeach
-                </tbody>
-            </div>
+                </div>
+            @endforeach
+            </tbody>
         </div>
     </div>
 @endsection
