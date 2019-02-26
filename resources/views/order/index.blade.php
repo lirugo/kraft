@@ -92,6 +92,8 @@
 
         //Show calc
         function showTProfile() {
+            //Hide btn add product
+            document.getElementById("select_calc").style.display = "initial";
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_grilyato").hide();
@@ -104,6 +106,8 @@
             else $("#calc_t_profile").show();
         }
         function showRail() {
+            //Hide btn add product
+            document.getElementById("select_calc").style.display = "none";
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_grilyato").hide();
@@ -116,6 +120,8 @@
             else $("#calc_rail").show();
         }
         function showGrilyato() {
+            //Hide btn add product
+            document.getElementById("select_calc").style.display = "initial";
             //Hide  Dialog Window
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_t_profile").hide();
