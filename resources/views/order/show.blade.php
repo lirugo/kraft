@@ -93,7 +93,8 @@
                                 @if($orders->order_available)
                                     <a class="btn btn-success" href="{{url('/order/download/'.$orders->order_id)}}" download>{{trans('app.Download Order')}}</a>
                                 @endif
-                            @elseif($orders->status == 0)
+                            @endif
+                            @if($orders->status == 0)
                                 {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                                 <div class="form-group">
                                     <div class="checkbox">
@@ -111,12 +112,12 @@
                                     {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary']) !!}
                                 </div>
                                 {!! Form::close() !!}
-                            @endif
-
-                            @if(!$orders->order_available)
-                                <div class="form-group">
-                                    <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
-                                </div>
+                            @elseif($orders->status == 1)
+                                @if(!$orders->order_available)
+                                    <div class="form-group">
+                                        <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
+                                    </div>
+                                @endif
                             @endif
                         @endif
                     </div>
