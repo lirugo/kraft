@@ -826,7 +826,10 @@ class OrderController extends Controller
             $object = Object::where('id', $order->object_id)->first();
         }
         $company = Company::where('companyname', User::find($order->user_id)->company)->first();
-        $rmID = $company->rmid;
+        if(!$order->stock)
+            $rmID = $object->rmid;
+        else
+            $rmID = $company->rmid;
 
         $repeat = new OrderRepeatInvoice();
         if(!$order->stock)
