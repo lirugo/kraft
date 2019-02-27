@@ -113,11 +113,11 @@
                                 </div>
                                 {!! Form::close() !!}
                             @elseif($orders->status == 1)
-                                @if(!$orders->order_available)
-                                    <div class="form-group">
-                                        <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
-                                    </div>
-                                @endif
+{{--                                @if(!$orders->order_available)--}}
+                                <div class="form-group">
+                                    <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
+                                </div>
+                                {{--@endif--}}
                             @endif
                         @endif
                     </div>
