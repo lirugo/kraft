@@ -139,7 +139,8 @@ class ModerationController extends Controller
             $order->save();
         }
 
-        unlink(public_path('/uploads/orders/'.$orderId.'.pdf'));
+        if(file_exists('/uploads/orders/'.$orderId.'.pdf'))
+            unlink(public_path('/uploads/orders/'.$orderId.'.pdf'));
 
         foreach ($repeats as $repeat)
             $repeat->delete();
