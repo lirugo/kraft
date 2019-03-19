@@ -24,54 +24,54 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="panel">
-                    <a href="{{url('/shop/show?sort=grilyato')}}">
-                    <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/grilyato.png')}}" width="150px" alt="Card image cap">
-                    <div class="panel-body ">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Grilyato') }}</h5>
+            {{--<div class="col-md-2">--}}
+                {{--<div class="panel">--}}
+                    {{--<a href="{{url('/shop/show?sort=grilyato')}}">--}}
+                    {{--<img class="panel-img-top center-block" src="{{asset('/img/icon/calc/grilyato.png')}}" width="150px" alt="Card image cap">--}}
+                    {{--<div class="panel-body ">--}}
+                        {{--<h5 class="panel-title m-b-10 text-center">{{ trans('app.Grilyato') }}</h5>--}}
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="panel">
-                    <a href="{{url('/shop/show?sort=reyka')}}">
-                    <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/led.png')}}" width="150px" alt="Card image cap">
-                    <div class="panel-body">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Rail') }}</h5>
+                    {{--</div>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2">--}}
+                {{--<div class="panel">--}}
+                    {{--<a href="{{url('/shop/show?sort=reyka')}}">--}}
+                    {{--<img class="panel-img-top center-block" src="{{asset('/img/icon/calc/led.png')}}" width="150px" alt="Card image cap">--}}
+                    {{--<div class="panel-body">--}}
+                        {{--<h5 class="panel-title m-b-10 text-center">{{ trans('app.Rail') }}</h5>--}}
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="panel">
-                    <a href="{{url('/shop/show?sort=accessories')}}">
-                    <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/accessories.png')}}" width="150px" alt="Card image cap">
-                    <div class="panel-body">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Accessories') }}</h5>
+                    {{--</div>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2">--}}
+                {{--<div class="panel">--}}
+                    {{--<a href="{{url('/shop/show?sort=accessories')}}">--}}
+                    {{--<img class="panel-img-top center-block" src="{{asset('/img/icon/calc/accessories.png')}}" width="150px" alt="Card image cap">--}}
+                    {{--<div class="panel-body">--}}
+                        {{--<h5 class="panel-title m-b-10 text-center">{{ trans('app.Accessories') }}</h5>--}}
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="panel">
-                    <a href="{{url('/shop/show?sort=svet')}}">
-                    <img class="panel-img-top center-block" src="{{asset('/img/icon/calc/svet.png')}}" width="150px" alt="Card image cap">
-                    <div class="panel-body">
-                        <h5 class="panel-title m-b-10 text-center">{{ trans('app.Kraft LED') }}</h5>
+                    {{--</div>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-2">--}}
+                {{--<div class="panel">--}}
+                    {{--<a href="{{url('/shop/show?sort=svet')}}">--}}
+                    {{--<img class="panel-img-top center-block" src="{{asset('/img/icon/calc/svet.png')}}" width="150px" alt="Card image cap">--}}
+                    {{--<div class="panel-body">--}}
+                        {{--<h5 class="panel-title m-b-10 text-center">{{ trans('app.Kraft LED') }}</h5>--}}
                         {{--<p class="panel-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--}}
                         {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                    </div>
-                    </a>
-                </div>
-            </div>
+                    {{--</div>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection

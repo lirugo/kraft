@@ -47,7 +47,9 @@ class InvoiceController extends Controller
                 $i++;
                 $order->order_available = true;
             }
-            $order->status = true;
+            //if its not stock block get new order
+            if(!$order->stock)
+                $order->status = true;
             $order->save();
         }
 
