@@ -89,13 +89,13 @@
                 <div class="row m-l-15">
                     <div class="form-inline pull-right">
                         @if(Auth::user()->hasRole('distributor'))
+                            {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                             @if(file_exists(public_path().'/uploads/orders/'.$orders->order_id.'.pdf' ))
                                 @if($orders->order_available)
-                                    <a class="btn btn-success" href="{{url('/order/download/'.$orders->order_id)}}" download>{{trans('app.Download Order')}}</a>
+                                    <a class="btn btn-success m-r-10" href="{{url('/order/download/'.$orders->order_id)}}" download>{{trans('app.Download Order')}}</a>
                                 @endif
                             @endif
                             @if($orders->status == 0)
-                                {!! Form::model($orders, ['route' => ['order.invoice.send',$orders->order_id], 'method' => 'POST']) !!}
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <label><input type="checkbox" name="pickup" style="margin-right: 10px;">Самовывоз</label>
@@ -111,14 +111,14 @@
                                 <div class="form-group">
                                     {!! Form::submit(trans('app.Issue an invoice'), ['class' => 'btn btn-primary']) !!}
                                 </div>
-                                {!! Form::close() !!}
                             @elseif($orders->status == 1)
-{{--                                @if(!$orders->order_available)--}}
+                                {{--@if(!$orders->order_available)--}}
                                 <div class="form-group">
                                     <a href="{{url('/order/request/'.$orders->order_id.'/repeatInvoiceOrder')}}" class="btn btn-primary">Запрос на перевыставление счета</a>
                                 </div>
                                 {{--@endif--}}
                             @endif
+                            {!! Form::close() !!}
                         @endif
                     </div>
                 </div>
