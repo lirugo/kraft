@@ -46,6 +46,7 @@
             <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
             <h4 onclick="showTProfile()">{{trans('app.T-Profile')}}</h4>
         </div>
+        @if(!$data['stock'])
         <div class="col-md-4">
             <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
             <h4 onclick="showGrilyato()">{{trans('app.Grilyato')}}</h4>
@@ -54,6 +55,7 @@
             <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
             <h4 onclick="showRail()">{{trans('app.Rail')}}</h4>
         </div>
+        @endif
     </div>
 @endsection
 

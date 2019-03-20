@@ -29,6 +29,7 @@ class OrderController extends Controller
         $constants = Constants::get()->last();
         $data = new Collection;
         $data->put('objectId' , $object->id);
+        $data->put('stock' , false);
         $data->put('constants' , $constants);
         Javascript::put([
             'id' => $id,
@@ -110,6 +111,7 @@ class OrderController extends Controller
         $constants = Constants::get()->last();
         $data = new Collection;
         $data->put('objectId' , rand(0,999));
+        $data->put('stock' , true);
         $data->put('constants' , $constants);
         Javascript::put([
             'id' => $id,
