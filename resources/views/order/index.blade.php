@@ -42,7 +42,7 @@
     </div>
     {{--JQuery--}}
     <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
-        <div class="col-md-4">
+        <div class="{{!$data['stock'] ? 'col-md-4' : 'col-md-12'}}">
             <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
             <h4 onclick="showTProfile()">{{trans('app.T-Profile')}}</h4>
         </div>
@@ -74,7 +74,7 @@
         $( function() {
             $( "#dialog_select_cal" ).dialog({
                 autoOpen: true,
-                width:600,
+                width:{{!$data['stock'] ? 600 : 222}},
                 dialogClass: 'arbeitsauftrag_hilfe',
                 show: {
                     effect: "drop",
