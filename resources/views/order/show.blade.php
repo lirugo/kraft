@@ -98,12 +98,20 @@
                             @if($orders->status == 0)
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" name="pickup" style="margin-right: 10px;">Самовывоз</label>
+                                        {{--<label><input type="checkbox" name="pickup" style="margin-right: 10px;">Самовывоз</label>--}}
+                                        <select class="form-control" name="delivery" style="width: 200px; margin-right: 10px;" required>
+                                            <option value="" selected disabled>Доставка</option>
+                                            <option value="pickup">Самовывоз</option>
+                                            <option value="express_delivery">Курьерская доставка</option>
+                                            @if($orders->total > 200000)
+                                            <option value="kraft_delivery">Доставка Крафт</option>
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="payment" style="width: 200px; margin-right: 10px;" required>
-                                        <option value="">Тип расчета</option>
+                                        <option value="" selected disabled>Тип расчета</option>
                                         <option value="0">Наличный расчет</option>
                                         <option value="1">Безналичный расчет</option>
                                     </select>

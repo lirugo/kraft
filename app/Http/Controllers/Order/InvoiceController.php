@@ -54,7 +54,7 @@ class InvoiceController extends Controller
         }
 
         $params = [
-            'pickup' => $request->pickup == 'on' ? '1' : '0',
+            'delivery' => $request->delivery,
             'payment' => $request->payment,
             'stock' => $order->stock == 0 ? '0' : '1'
         ];
