@@ -26,6 +26,8 @@
                 <hr style="margin:10px 0 10px 0;">
             </div>
         </div>
+        @include('order.calc.includes.light')
+
         @include('order.calc.includes.tprofile')
 
         @include('order.calc.includes.grilyato')
@@ -42,29 +44,36 @@
     </div>
     {{--JQuery--}}
     <div id="dialog_select_cal" title="Выберите калькулятор" class="text-center">
-        <div class="{{!$data['stock'] ? 'col-md-4' : 'col-md-12'}}">
+        <div class="{{!$data['stock'] ? 'col-md-3' : 'col-md-12'}}">
+            <img src="/img/icon/calc/tprofile.png" onclick="showLight()" width="150px"/>
+            <h4 onclick="showLight()">{{trans('app.Light')}}</h4>
+        </div>
+
+        <div class="{{!$data['stock'] ? 'col-md-3' : 'col-md-12'}}">
             <img src="/img/icon/calc/tprofile.png" onclick="showTProfile()" width="150px"/>
             <h4 onclick="showTProfile()">{{trans('app.T-Profile')}}</h4>
         </div>
         @if(!$data['stock'])
-        <div class="col-md-4">
-            <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
-            <h4 onclick="showGrilyato()">{{trans('app.Grilyato')}}</h4>
-        </div>
-        <div class="col-md-4">
-            <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
-            <h4 onclick="showRail()">{{trans('app.Rail')}}</h4>
-        </div>
+            <div class="col-md-3">
+                <img src="/img/icon/calc/grilyato.png"  onclick="showGrilyato()" width="150px"/>
+                <h4 onclick="showGrilyato()">{{trans('app.Grilyato')}}</h4>
+            </div>
+            <div class="col-md-3">
+                <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
+                <h4 onclick="showRail()">{{trans('app.Rail')}}</h4>
+            </div>
         @endif
     </div>
 @endsection
 
 @section('scripts')
+    <script src="/js/order/calc/light.js"></script>
     <script src="/js/order/calc/tprofile.js"></script>
     <script src="/js/order/calc/grilyato.js"></script>
     <script src="/js/order/calc/rail.js"></script>
     <script src="/js/order/calc/common.js"></script>
     <script>
+        $("#calc_light").hide();
         $("#calc_t_profile").hide();
         $("#calc_grilyato").hide();
         $("#calc_rail").hide();
@@ -74,7 +83,7 @@
         $( function() {
             $( "#dialog_select_cal" ).dialog({
                 autoOpen: true,
-                width:{{!$data['stock'] ? 600 : 222}},
+                width:{{!$data['stock'] ? 750 : 222}},
                 dialogClass: 'arbeitsauftrag_hilfe',
                 show: {
                     effect: "drop",
@@ -93,6 +102,22 @@
 
 
         //Show calc
+        function showLight() {
+            //Hide btn add product
+            document.getElementById("select_calc").style.display = "initial";
+            //Hide  Dialog Window
+            $("#dialog_select_cal").dialog( "close" );
+            $("#calc_grilyato").hide();
+            $("#calc_rail").hide();
+            $("#calc_light").hide();
+            //Show or Hide Calc TProfile
+            if($( "#calc_light" ).is( ":visible" ))
+            {
+                $("#calc_light").hide();
+            }
+            else $("#calc_light").show();
+        }
+        //Show calc
         function showTProfile() {
             //Hide btn add product
             document.getElementById("select_calc").style.display = "initial";
@@ -100,6 +125,7 @@
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_grilyato").hide();
             $("#calc_rail").hide();
+            $("#calc_light").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_t_profile" ).is( ":visible" ))
             {
@@ -114,6 +140,7 @@
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_grilyato").hide();
             $("#calc_t_profile").hide();
+            $("#calc_light").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_rail" ).is( ":visible" ))
             {
@@ -128,6 +155,7 @@
             $("#dialog_select_cal").dialog( "close" );
             $("#calc_t_profile").hide();
             $("#calc_rail").hide();
+            $("#calc_light").hide();
             //Show or Hide Calc TProfile
             if($( "#calc_grilyato" ).is( ":visible" ))
             {

@@ -20,7 +20,6 @@
         </table>
 
         {{--TABLE2  for rail--}}
-
         <h3 class="text-center" id="rail-text-production">{{trans('app.Output of data for production')}}</h3>
         <table class="table table-striped table-borderless text-center" id="table2-rail">
             <thead>

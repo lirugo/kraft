@@ -224,6 +224,7 @@ Route::get('routes/console', function()
 //EndCron
 
 //OrderCalc
+Route::get('/order/light', 'Order\OrderController@light');
 Route::get('/order/history', 'Order\OrderController@historyStock');
 Route::get('/order/pdf/{order_id}', 'Order\OrderController@pdf');
 Route::get('/order/stock/{order_id}', 'Order\OrderController@showStock');
@@ -239,6 +240,7 @@ Route::get('/order', 'Order\OrderController@create');
 Route::get('/order/show/{id}', 'Order\OrderController@show');
 Route::post('/select/delete/{id}', 'Order\OrderController@deletePartOrder')->name('select.delete');
 
+Route::post('/order/light/vendor', 'Order\OrderController@lightvendor');
 Route::post('/order/tprofile/vendor', 'Order\OrderController@tprofilevendor')->name('order.tprofile.vendor');
 Route::post('/order/grilyato/vendor', 'Order\OrderController@grilyatovendor');
 Route::post('/order/rail/vendor', 'Order\OrderController@railvendor');

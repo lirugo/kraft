@@ -27,10 +27,24 @@ class OrderController extends Controller
     public function index($id){
         $object = Object::find($id);
         $constants = Constants::get()->last();
+        $lightTypes = ProfileGrilyato::
+                        where('vendor_code', '=', 15601123015)
+                            ->orWhere('vendor_code', '=', 15601063015)
+                            ->orWhere('vendor_code', '=', 15601063024)
+                            ->orWhere('vendor_code', '=', 15601123024)
+                            ->orWhere('vendor_code', '=', 15603123024)
+                            ->orWhere('vendor_code', '=', 15603123024)
+                            ->orWhere('vendor_code', '=', 15603246024)
+                            ->orWhere('vendor_code', '=', 15602123024)
+                            ->orWhere('vendor_code', '=', 15602063015)
+                            ->orWhere('vendor_code', '=', 15602123015)
+                            ->orWhere('vendor_code', '=', 15602063024)
+                            ->get();
         $data = new Collection;
         $data->put('objectId' , $object->id);
         $data->put('stock' , false);
         $data->put('constants' , $constants);
+        $data->put('lightTypes' , $lightTypes);
         Javascript::put([
             'id' => $id,
             'easy' => $constants->easy,
@@ -110,9 +124,23 @@ class OrderController extends Controller
         $object = Object::find($id);
         $constants = Constants::get()->last();
         $data = new Collection;
+        $lightTypes = ProfileGrilyato::
+        where('vendor_code', '=', 15601123015)
+            ->orWhere('vendor_code', '=', 15601063015)
+            ->orWhere('vendor_code', '=', 15601063024)
+            ->orWhere('vendor_code', '=', 15601123024)
+            ->orWhere('vendor_code', '=', 15603123024)
+            ->orWhere('vendor_code', '=', 15603123024)
+            ->orWhere('vendor_code', '=', 15603246024)
+            ->orWhere('vendor_code', '=', 15602123024)
+            ->orWhere('vendor_code', '=', 15602063015)
+            ->orWhere('vendor_code', '=', 15602123015)
+            ->orWhere('vendor_code', '=', 15602063024)
+            ->get();
         $data->put('objectId' , rand(0,999));
         $data->put('stock' , true);
         $data->put('constants' , $constants);
+        $data->put('lightTypes' , $lightTypes);
         Javascript::put([
             'id' => $id,
             'easy' => $constants->easy,
@@ -301,6 +329,26 @@ class OrderController extends Controller
 
         $cH->delete();
         return back();
+    }
+
+    public function lightvendor(Request $request){
+        $s = $request->square / $request->count;
+        $countLight = 0;
+        if($request->height == 'less')
+            $countLight = ceil($s / 10);
+        if($request->height == 'more')
+            $countLight = ceil($s / 7);
+
+        $type1 = ProfileGrilyato::where('vendor_code', $request->type1)->first();
+        $type2 = ProfileGrilyato::where('vendor_code', $request->type2)->first();
+        $type3 = ProfileGrilyato::where('vendor_code', $request->type3)->first();
+        $collection = new Collection();
+        $collection->put('count', $countLight);
+        $collection->put('type1', $type1);
+        $collection->put('type2', $type2);
+        $collection->put('type3', $type3);
+
+        return $collection;
     }
 
     public function tprofilevendor(Request $request){
@@ -851,4 +899,5 @@ class OrderController extends Controller
         Session::flash('success', 'Ващ запрос на повторное выставление счета отправлен. Ожидайте подтверждения от менеджера.');
         return back();
     }
+
 }
