@@ -21,6 +21,7 @@ return [
 
     //Menu
     'main' => 'Main',
+    'dateofdelivery' => 'Date of delivery',
     'manage' => 'Manage Dashboard',
     'objects' => 'Objects',
     'Objects' => 'Objects',
@@ -90,7 +91,6 @@ return [
     //CreateObject
     'objectdata' => 'Object data',
     'sworks' => 'Area of work',
-    'dateofdelivery' => 'dateofdelivery',
     'customer' => 'Customer',
     'customername' => 'Name',
     'customersurname' => 'Surname',

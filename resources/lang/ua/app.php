@@ -21,6 +21,7 @@ return [
 
     //Menu
     'main' => 'Головна',
+    'dateofdelivery' => 'Дата поставки',
     'manage' => 'Панель управління',
     'objects' => 'Об\'єкти',
     'Objects' => 'Об\'єкти',
@@ -90,7 +91,6 @@ return [
     //CreateObject
     'objectdata' => 'Дані об\'єкта',
     'sworks' => 'Площа запланованих робіт',
-    'dateofdelivery' => 'dateofdelivery',
     'customer' => 'Замовник (представник)',
     'customername' => 'Ім\'я',
     'customersurname' => 'Прізвище',
