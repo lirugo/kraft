@@ -57,11 +57,11 @@
                 <img src="/img/icon/calc/cube.png" onclick="showRail()" width="150px"/>
                 <h4 onclick="showRail()">{{trans('app.Rail')}}</h4>
             </div>
+            <div class="{{!$data['stock'] ? 'col-md-3' : 'col-md-12'}}">
+                <img src="/img/icon/calc/tprofile.png" onclick="showLight()" width="150px"/>
+                <h4 onclick="showLight()">{{trans('app.Light')}}</h4>
+            </div>
         @endif
-        <div class="{{!$data['stock'] ? 'col-md-3' : 'col-md-12'}}">
-            <img src="/img/icon/calc/tprofile.png" onclick="showLight()" width="150px"/>
-            <h4 onclick="showLight()">{{trans('app.Light')}}</h4>
-        </div>
     </div>
 @endsection
 
