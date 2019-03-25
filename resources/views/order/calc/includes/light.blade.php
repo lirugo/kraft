@@ -6,28 +6,28 @@
             <input type="number" min="0" max="9999999" placeholder="Введите площадь" name="lightSquare" id="lightSquare" class="form-control" required>
 
             <select class="form-control" id="lightTypeCount" name="lightTypeCount" onchange="lightTypeCountChange()" required>
-                <option selected disabled value="">Ввыберите кол-во светильников</option>
+                <option selected disabled value="">Ввыберите кол-во типов светильников</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
 
             <select class="form-control" id="lightTypeLight1" name="lightTypeLight1" required>
-                <option disabled selected value="">Выберите тип</option>
+                <option disabled selected value="">Выберите тип 1</option>
                 @foreach($data['lightTypes'] as $type)
                     <option value="{{$type->vendor_code}}">{{$type->description}}</option>
                 @endforeach
             </select>
 
             <select class="form-control" id="lightTypeLight2" name="lightTypeLight2" required>
-                <option disabled selected value="">Выберите тип</option>
+                <option disabled selected value="">Выберите тип 2</option>
                 @foreach($data['lightTypes'] as $type)
                     <option value="{{$type->vendor_code}}">{{$type->description}}</option>
                 @endforeach
             </select>
 
             <select class="form-control" id="lightTypeLight3" name="lightTypeLight3" required>
-                <option disabled selected value="">Выберите тип</option>
+                <option disabled selected value="">Выберите тип 3</option>
                 @foreach($data['lightTypes'] as $type)
                     <option value="{{$type->vendor_code}}">{{$type->description}}</option>
                 @endforeach
