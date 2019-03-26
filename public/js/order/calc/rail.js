@@ -457,6 +457,22 @@ function formRail() {
         // SET TABLE
         document.getElementById("calc_rail_table").style.display = "initial";
 
+        if(vendor['connector'] != null){
+            // Rail 1
+            document.getElementById("table-connector-vendor").innerHTML = vendor['connector'].vendor_code;
+            document.getElementById("table-connector-description").innerHTML = vendor['connector'].description;
+            document.getElementById("table-connector-count").innerHTML = rail_1_count_rail;
+            document.getElementById("table-connector-price").innerHTML = vendor['connector'].price;
+            document.getElementById("table-connector-price-all").innerHTML = (vendor['connector'].price*rail_1_count_rail).toFixed(2);
+            document.getElementById("rail-connector").style.display = '';
+        }else {
+            document.getElementById("rail-connector").style.display = 'none';
+            document.getElementById("table-connector-vendor").innerHTML = null;
+            document.getElementById("table-connector-description").innerHTML = null;
+            document.getElementById("table-connector-count").innerHTML = null;
+            document.getElementById("table-connector-price").innerHTML = null;
+            document.getElementById("table-connector-price-all").innerHTML = null;
+        }
         if(vendor['rail_1'] != null){
             // Rail 1
             document.getElementById("table-rail-1-vendor").innerHTML = vendor['rail_1'].vendor_code;

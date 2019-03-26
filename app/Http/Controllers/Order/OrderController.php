@@ -769,7 +769,15 @@ class OrderController extends Controller
         $stubdowel = ProfileGrilyato::where([
             ['vendor_code', '=', '2231100406'],
         ])->first();
+        $connector = DB::table('profile_grilyatos')->where([
+            ['type', '=', 'З\'эднувач'],
+            ['speciality', '=', 'кубоподібна'],
+            ['color', '=', $request->color],
+            ['weight', '=', '88'],
+            ['height', '=', '35'],
+        ])->first();
 
+        $collection->put('connector', $connector);
         $collection->put('rail_1',$rail_1);
         $collection->put('rail_2',$rail_2);
         $collection->put('rail_3',$rail_3);

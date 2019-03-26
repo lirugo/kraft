@@ -173,6 +173,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr id="rail-connector">
+                    <td id="table-connector-vendor"></td>
+                    <td id="table-connector-description"></td>
+                    <td id="table-connector-count"></td>
+                    <td>шт</td>
+                    <td id="table-connector-price"></td>
+                    <td id="table-connector-price-all"></td>
+                </tr>
                 <tr id="rail-rail-1">
                     <td id="table-rail-1-vendor"></td>
                     <td id="table-rail-1-description"></td>
