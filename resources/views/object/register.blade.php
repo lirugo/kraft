@@ -73,7 +73,11 @@
                             <hr>
                             {!! Form::number('sworks', null , ['class' => 'form-control','required', 'min' => '10', 'placeholder' => trans('app.sworks').' *']) !!}
                             {!! Form::text('dateofdelivery', null , ['class' => 'form-control','required',  'id' => 'datepicker', 'placeholder' => trans('app.dateofdelivery').' *']) !!}
-
+                            <label style="font-weight: normal">
+                                <small>
+                                    Точная дата отгрузки будет доступна в "Статус заказа" на следующий день после оплаты счета.
+                                </small>
+                            </label>
                             {!! Form::label('label', trans('app.Select the prospective products on object'), ['class' => 'm-t-20 text-center']) !!}
                             <select multiple class="form-control" name="products[]" style="height:110px;" required>
                                 <option name="product1" value="product1">{{trans('app.T-Profile')}}</option>
