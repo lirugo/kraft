@@ -30,6 +30,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Vendor Code</th>
+                        <th scope="col">Product Code</th>
                         <th scope="col">Description</th>
                         <th scope="col">Price</th>
                         <th scope="col"></th>
@@ -42,6 +43,7 @@
                         <tr>
                             <th scope="row">{{$product->id}}</th>
                             <td>{{$product->vendor_code}}</td>
+                            <td>{!! Form::number('product_code', $product->product_code, ['class' => 'form-control']) !!}</td>
                             <td>{{$product->description}}</td>
                             <td>{!! Form::number('price', $product->price, ['class' => 'form-control', 'required', 'min' => '1', 'step' => '0.01']) !!}</td>
                             <td>{!! Form::submit('Update',['class' => 'btn btn-sm btn-warning']) !!}</td>
