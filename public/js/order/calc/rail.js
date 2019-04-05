@@ -460,6 +460,7 @@ function formRail() {
         if(vendor['connector'] != null){
             // Rail 1
             document.getElementById("table-connector-vendor").innerHTML = vendor['connector'].vendor_code;
+            document.getElementById("table-connector-product_code").innerHTML = vendor['connector'].product_code;
             document.getElementById("table-connector-description").innerHTML = vendor['connector'].description;
             document.getElementById("table-connector-count").innerHTML = rail_1_count_rail;
             document.getElementById("table-connector-price").innerHTML = vendor['connector'].price;
@@ -468,6 +469,7 @@ function formRail() {
         }else {
             document.getElementById("rail-connector").style.display = 'none';
             document.getElementById("table-connector-vendor").innerHTML = null;
+            document.getElementById("table-connector-product_code").innerHTML = null;
             document.getElementById("table-connector-description").innerHTML = null;
             document.getElementById("table-connector-count").innerHTML = null;
             document.getElementById("table-connector-price").innerHTML = null;
@@ -476,6 +478,7 @@ function formRail() {
         if(vendor['rail_1'] != null){
             // Rail 1
             document.getElementById("table-rail-1-vendor").innerHTML = vendor['rail_1'].vendor_code;
+            document.getElementById("table-rail-1-product_code").innerHTML = vendor['rail_1'].product_code;
             document.getElementById("table-rail-1-description").innerHTML = vendor['rail_1'].description;
             document.getElementById("table-rail-1-count").innerHTML = rail_1_m_p;
             document.getElementById("table-rail-1-price").innerHTML = vendor['rail_1'].price;
@@ -484,6 +487,7 @@ function formRail() {
         }else {
             document.getElementById("rail-rail-1").style.display = 'none';
             document.getElementById("table-rail-1-vendor").innerHTML = null;
+            document.getElementById("table-rail-1-product_code").innerHTML = null;
             document.getElementById("table-rail-1-description").innerHTML = null;
             document.getElementById("table-rail-1-count").innerHTML = null;
             document.getElementById("table-rail-1-price").innerHTML = null;
@@ -493,6 +497,7 @@ function formRail() {
         if(vendor['rail_2'] != null){
             // Rail 2
             document.getElementById("table-rail-2-vendor").innerHTML = vendor['rail_2'].vendor_code;
+            document.getElementById("table-rail-2-product_code").innerHTML = vendor['rail_2'].product_code;
             document.getElementById("table-rail-2-description").innerHTML = vendor['rail_2'].description;
             document.getElementById("table-rail-2-count").innerHTML = rail_2_m_p;
             document.getElementById("table-rail-2-price").innerHTML = vendor['rail_2'].price;
@@ -501,6 +506,7 @@ function formRail() {
         }else {
             document.getElementById("rail-rail-2").style.display = 'none';
             document.getElementById("table-rail-2-vendor").innerHTML = null;
+            document.getElementById("table-rail-2-product_code").innerHTML = null;
             document.getElementById("table-rail-2-description").innerHTML = null;
             document.getElementById("table-rail-2-count").innerHTML = null;
             document.getElementById("table-rail-2-price").innerHTML = null;
@@ -510,6 +516,7 @@ function formRail() {
         if(vendor['rail_3'] != null){
             // Rail 3
             document.getElementById("table-rail-3-vendor").innerHTML = vendor['rail_3'].vendor_code;
+            document.getElementById("table-rail-3-product_code").innerHTML = vendor['rail_3'].product_code;
             document.getElementById("table-rail-3-description").innerHTML = vendor['rail_3'].description;
             document.getElementById("table-rail-3-count").innerHTML = rail_3_m_p;
             document.getElementById("table-rail-3-price").innerHTML = vendor['rail_3'].price;
@@ -518,6 +525,7 @@ function formRail() {
         }else {
             document.getElementById("rail-rail-3").style.display = 'none';
             document.getElementById("table-rail-3-vendor").innerHTML = null;
+            document.getElementById("table-rail-3-product_code").innerHTML = null;
             document.getElementById("table-rail-3-description").innerHTML = null;
             document.getElementById("table-rail-3-count").innerHTML = null;
             document.getElementById("table-rail-3-price").innerHTML = null;
@@ -526,6 +534,7 @@ function formRail() {
         if(vendor['rail_4'] != null){
             // Rail 4
             document.getElementById("table-rail-4-vendor").innerHTML = vendor['rail_4'].vendor_code;
+            document.getElementById("table-rail-4-product_code").innerHTML = vendor['rail_4'].product_code;
             document.getElementById("table-rail-4-description").innerHTML = vendor['rail_4'].description;
             document.getElementById("table-rail-4-count").innerHTML = rail_4_m_p;
             document.getElementById("table-rail-4-price").innerHTML = vendor['rail_4'].price;
@@ -534,6 +543,7 @@ function formRail() {
         }else {
             document.getElementById("rail-rail-4").style.display = 'none';
             document.getElementById("table-rail-4-vendor").innerHTML = null;
+            document.getElementById("table-rail-4-product_code").innerHTML = null;
             document.getElementById("table-rail-4-description").innerHTML = null;
             document.getElementById("table-rail-4-count").innerHTML = null;
             document.getElementById("table-rail-4-price").innerHTML = null;
@@ -542,6 +552,7 @@ function formRail() {
         if(vendor['travers'] != null){
             // Rail 4
             document.getElementById("table-rail-travers-vendor").innerHTML = vendor['travers'].vendor_code;
+            document.getElementById("table-rail-travers-product_code").innerHTML = vendor['travers'].product_code;
             document.getElementById("table-rail-travers-description").innerHTML = vendor['travers'].description;
             document.getElementById("table-rail-travers-count").innerHTML = travers_count;
             document.getElementById("table-rail-travers-price").innerHTML = vendor['travers'].price;
@@ -550,6 +561,7 @@ function formRail() {
         }else {
             document.getElementById("rail-travers").style.display = 'none';
             document.getElementById("table-rail-travers-vendor").innerHTML = null;
+            document.getElementById("table-rail-travers-product_code").innerHTML = null;
             document.getElementById("table-rail-travers-description").innerHTML = null;
             document.getElementById("table-rail-travers-count").innerHTML = null;
             document.getElementById("table-rail-travers-price").innerHTML = null;
@@ -558,6 +570,7 @@ function formRail() {
         if(vendor['stub'] != null){
             // Rail 4
             document.getElementById("table-rail-stub-vendor").innerHTML = vendor['stub'].vendor_code;
+            document.getElementById("table-rail-stub-product_code").innerHTML = vendor['stub'].product_code;
             document.getElementById("table-rail-stub-description").innerHTML = vendor['stub'].description;
             document.getElementById("table-rail-stub-count").innerHTML = rail_1_count_stub;
             document.getElementById("table-rail-stub-price").innerHTML = vendor['stub'].price;
@@ -566,6 +579,7 @@ function formRail() {
         }else {
             document.getElementById("rail-stub").style.display = 'none';
             document.getElementById("table-rail-stub-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-product_code").innerHTML = null;
             document.getElementById("table-rail-stub-description").innerHTML = null;
             document.getElementById("table-rail-stub-count").innerHTML = null;
             document.getElementById("table-rail-stub-price").innerHTML = null;
@@ -574,6 +588,7 @@ function formRail() {
         if(vendor['stub_2'] != null){
             // Rail 4
             document.getElementById("table-rail-stub-2-vendor").innerHTML = vendor['stub_2'].vendor_code;
+            document.getElementById("table-rail-stub-2-product_code").innerHTML = vendor['stub_2'].product_code;
             document.getElementById("table-rail-stub-2-description").innerHTML = vendor['stub_2'].description;
             document.getElementById("table-rail-stub-2-count").innerHTML = rail_2_count_stub;
             document.getElementById("table-rail-stub-2-price").innerHTML = vendor['stub_2'].price;
@@ -582,6 +597,7 @@ function formRail() {
         }else {
             document.getElementById("rail-stub-2").style.display = 'none';
             document.getElementById("table-rail-stub-2-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-2-product_code").innerHTML = null;
             document.getElementById("table-rail-stub-2-description").innerHTML = null;
             document.getElementById("table-rail-stub-2-count").innerHTML = null;
             document.getElementById("table-rail-stub-2-price").innerHTML = null;
@@ -590,6 +606,7 @@ function formRail() {
         if(vendor['stub_3'] != null){
             // Rail 4
             document.getElementById("table-rail-stub-3-vendor").innerHTML = vendor['stub_3'].vendor_code;
+            document.getElementById("table-rail-stub-3-product_code").innerHTML = vendor['stub_3'].product_code;
             document.getElementById("table-rail-stub-3-description").innerHTML = vendor['stub_3'].description;
             document.getElementById("table-rail-stub-3-count").innerHTML = rail_3_count_stub;
             document.getElementById("table-rail-stub-3-price").innerHTML = vendor['stub_3'].price;
@@ -598,6 +615,7 @@ function formRail() {
         }else {
             document.getElementById("rail-stub-3").style.display = 'none';
             document.getElementById("table-rail-stub-3-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-3-product_code").innerHTML = null;
             document.getElementById("table-rail-stub-3-description").innerHTML = null;
             document.getElementById("table-rail-stub-3-count").innerHTML = null;
             document.getElementById("table-rail-stub-3-price").innerHTML = null;
@@ -606,6 +624,7 @@ function formRail() {
         if(vendor['stub_4'] != null){
             // Rail 4
             document.getElementById("table-rail-stub-4-vendor").innerHTML = vendor['stub_4'].vendor_code;
+            document.getElementById("table-rail-stub-4-product_code").innerHTML = vendor['stub_4'].product_code;
             document.getElementById("table-rail-stub-4-description").innerHTML = vendor['stub_4'].description;
             document.getElementById("table-rail-stub-4-count").innerHTML = rail_4_count_stub;
             document.getElementById("table-rail-stub-4-price").innerHTML = vendor['stub_4'].price;
@@ -614,6 +633,7 @@ function formRail() {
         }else {
             document.getElementById("rail-stub-4").style.display = 'none';
             document.getElementById("table-rail-stub-4-vendor").innerHTML = null;
+            document.getElementById("table-rail-stub-4-product_code").innerHTML = null;
             document.getElementById("table-rail-stub-4-description").innerHTML = null;
             document.getElementById("table-rail-stub-4-count").innerHTML = null;
             document.getElementById("table-rail-stub-4-price").innerHTML = null;
@@ -623,6 +643,7 @@ function formRail() {
         if(vendor['suspass'] != null){
             // Rail 4
             document.getElementById("table-rail-suspass-vendor").innerHTML = vendor['suspass'].vendor_code;
+            document.getElementById("table-rail-suspass-product_code").innerHTML = vendor['suspass'].product_code;
             document.getElementById("table-rail-suspass-description").innerHTML = vendor['suspass'].description;
             document.getElementById("table-rail-suspass-count").innerHTML = susp_count;
             document.getElementById("table-rail-suspass-price").innerHTML = vendor['suspass'].price;
@@ -631,6 +652,7 @@ function formRail() {
         }else {
             document.getElementById("rail-suspass").style.display = 'none';
             document.getElementById("table-rail-suspass-vendor").innerHTML = null;
+            document.getElementById("table-rail-suspass-product_code").innerHTML = null;
             document.getElementById("table-rail-suspass-description").innerHTML = null;
             document.getElementById("table-rail-suspass-count").innerHTML = null;
             document.getElementById("table-rail-suspass-price").innerHTML = null;
@@ -639,6 +661,7 @@ function formRail() {
         if(vendor['wireWithEar'] != null){
             // Rail 4
             document.getElementById("table-rail-wireWithEar-vendor").innerHTML = vendor['wireWithEar'].vendor_code;
+            document.getElementById("table-rail-wireWithEar-product_code").innerHTML = vendor['wireWithEar'].product_code;
             document.getElementById("table-rail-wireWithEar-description").innerHTML = vendor['wireWithEar'].description;
             document.getElementById("table-rail-wireWithEar-count").innerHTML = susp_count;
             document.getElementById("table-rail-wireWithEar-price").innerHTML = vendor['wireWithEar'].price;
@@ -647,6 +670,7 @@ function formRail() {
         }else {
             document.getElementById("rail-wireWithEar").style.display = 'none';
             document.getElementById("table-rail-wireWithEar-vendor").innerHTML = null;
+            document.getElementById("table-rail-wireWithEar-product_code").innerHTML = null;
             document.getElementById("table-rail-wireWithEar-description").innerHTML = null;
             document.getElementById("table-rail-wireWithEar-count").innerHTML = null;
             document.getElementById("table-rail-wireWithEar-price").innerHTML = null;
@@ -655,6 +679,7 @@ function formRail() {
         if(vendor['wireWithHook'] != null){
             // Rail 4
             document.getElementById("table-rail-wireWithHook-vendor").innerHTML = vendor['wireWithHook'].vendor_code;
+            document.getElementById("table-rail-wireWithHook-product_code").innerHTML = vendor['wireWithHook'].product_code;
             document.getElementById("table-rail-wireWithHook-description").innerHTML = vendor['wireWithHook'].description;
             document.getElementById("table-rail-wireWithHook-count").innerHTML = susp_count;
             document.getElementById("table-rail-wireWithHook-price").innerHTML = vendor['wireWithHook'].price;
@@ -663,6 +688,7 @@ function formRail() {
         }else {
             document.getElementById("rail-wireWithHook").style.display = 'none';
             document.getElementById("table-rail-wireWithHook-vendor").innerHTML = null;
+            document.getElementById("table-rail-wireWithHook-product_code").innerHTML = null;
             document.getElementById("table-rail-wireWithHook-description").innerHTML = null;
             document.getElementById("table-rail-wireWithHook-count").innerHTML = null;
             document.getElementById("table-rail-wireWithHook-price").innerHTML = null;
@@ -671,6 +697,7 @@ function formRail() {
         if(vendor['suspdowel'] != null){
             // Rail 4
             document.getElementById("table-rail-suspdowel-vendor").innerHTML = vendor['suspdowel'].vendor_code;
+            document.getElementById("table-rail-suspdowel-product_code").innerHTML = vendor['suspdowel'].product_code;
             document.getElementById("table-rail-suspdowel-description").innerHTML = vendor['suspdowel'].description;
             document.getElementById("table-rail-suspdowel-count").innerHTML = susp_count/100;
             document.getElementById("table-rail-suspdowel-price").innerHTML = vendor['suspdowel'].price;
@@ -679,6 +706,7 @@ function formRail() {
         }else {
             document.getElementById("rail-suspdowel").style.display = 'none';
             document.getElementById("table-rail-suspdowel-vendor").innerHTML = null;
+            document.getElementById("table-rail-suspdowel-product_code").innerHTML = null;
             document.getElementById("table-rail-suspdowel-description").innerHTML = null;
             document.getElementById("table-rail-suspdowel-count").innerHTML = null;
             document.getElementById("table-rail-suspdowel-price").innerHTML = null;
@@ -704,6 +732,7 @@ function formRail() {
         if(vendor['rail_1'] != null){
             // Rail 1
             document.getElementById("table2-rail-1-vendor").innerHTML = vendor['rail_1'].vendor_code;
+            document.getElementById("table2-rail-1-product_code").innerHTML = vendor['rail_1'].product_code;
             document.getElementById("table2-rail-1-description").innerHTML = vendor['rail_1'].description;
             document.getElementById("table2-rail-1-length").innerHTML = rail_1_one_length;
             document.getElementById("table2-rail-1-mp").innerHTML = rail_1_m_p;
@@ -712,6 +741,7 @@ function formRail() {
         }else {
             document.getElementById("table2-rail-1").style.display = 'none';
             document.getElementById("table2-rail-1-vendor").innerHTML = null;
+            document.getElementById("table2-rail-1-product_code").innerHTML = null;
             document.getElementById("table2-rail-1-description").innerHTML = null;
             document.getElementById("table2-rail-1-mp").innerHTML = null;
             document.getElementById("table2-rail-1-length").innerHTML = null;
@@ -720,6 +750,7 @@ function formRail() {
         if(vendor['rail_2'] != null){
             // Rail 1
             document.getElementById("table2-rail-2-vendor").innerHTML = vendor['rail_2'].vendor_code;
+            document.getElementById("table2-rail-2-product_code").innerHTML = vendor['rail_2'].product_code;
             document.getElementById("table2-rail-2-description").innerHTML = vendor['rail_2'].description;
             document.getElementById("table2-rail-2-length").innerHTML = rail_2_one_length;
             document.getElementById("table2-rail-2-mp").innerHTML = rail_2_m_p;
@@ -728,6 +759,7 @@ function formRail() {
         }else {
             document.getElementById("table2-rail-2").style.display = 'none';
             document.getElementById("table2-rail-2-vendor").innerHTML = null;
+            document.getElementById("table2-rail-2-product_code").innerHTML = null;
             document.getElementById("table2-rail-2-description").innerHTML = null;
             document.getElementById("table2-rail-2-mp").innerHTML = null;
             document.getElementById("table2-rail-2-length").innerHTML = null;
@@ -736,6 +768,7 @@ function formRail() {
         if(vendor['rail_3'] != null){
             // Rail 1
             document.getElementById("table2-rail-3-vendor").innerHTML = vendor['rail_3'].vendor_code;
+            document.getElementById("table2-rail-3-product_code").innerHTML = vendor['rail_3'].product_code;
             document.getElementById("table2-rail-3-description").innerHTML = vendor['rail_3'].description;
             document.getElementById("table2-rail-3-length").innerHTML = rail_3_one_length;
             document.getElementById("table2-rail-3-mp").innerHTML = rail_3_m_p;
@@ -744,6 +777,7 @@ function formRail() {
         }else {
             document.getElementById("table2-rail-3").style.display = 'none';
             document.getElementById("table2-rail-3-vendor").innerHTML = null;
+            document.getElementById("table2-rail-3-product_code").innerHTML = null;
             document.getElementById("table2-rail-3-description").innerHTML = null;
             document.getElementById("table2-rail-3-mp").innerHTML = null;
             document.getElementById("table2-rail-3-length").innerHTML = null;
@@ -752,6 +786,7 @@ function formRail() {
         if(vendor['rail_4'] != null){
             // Rail 1
             document.getElementById("table2-rail-4-vendor").innerHTML = vendor['rail_4'].vendor_code;
+            document.getElementById("table2-rail-4-product_code").innerHTML = vendor['rail_4'].product_code;
             document.getElementById("table2-rail-4-description").innerHTML = vendor['rail_4'].description;
             document.getElementById("table2-rail-4-length").innerHTML = rail_4_one_length;
             document.getElementById("table2-rail-4-mp").innerHTML = rail_4_m_p;
@@ -760,6 +795,7 @@ function formRail() {
         }else {
             document.getElementById("table2-rail-4").style.display = 'none';
             document.getElementById("table2-rail-4-vendor").innerHTML = null;
+            document.getElementById("table2-rail-4-product_code").innerHTML = null;
             document.getElementById("table2-rail-4-description").innerHTML = null;
             document.getElementById("table2-rail-4-mp").innerHTML = null;
             document.getElementById("table2-rail-4-length").innerHTML = null;

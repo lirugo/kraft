@@ -104,6 +104,7 @@ function formLight() {
             $("#light-type1").show();
             document.getElementById("table-light-type1-description").innerHTML = vendor['type1'].description;
             document.getElementById("table-light-type1-vendor").innerHTML = vendor['type1'].vendor_code;
+            document.getElementById("table-light-type1-product_code").innerHTML = vendor['type1'].product_code;
             document.getElementById("table-light-type1-price").innerHTML = vendor['type1'].price;
             document.getElementById("table-light-type1-price-all").innerHTML = (Math.ceil(vendor['count'])*vendor['type1'].price).toFixed(2);
             document.getElementById("table-light-type1-count").innerHTML = Math.ceil(vendor['count']);
@@ -111,12 +112,14 @@ function formLight() {
         else {
             $("#light-type1").hide();
             document.getElementById("table-light-type1-vendor").innerHTML = '';
+            document.getElementById("table-light-type1-product_code").innerHTML = '';
         }
 
         if(vendor['type2'] != null) {
             $("#light-type2").show();
             document.getElementById("table-light-type2-description").innerHTML = vendor['type2'].description;
             document.getElementById("table-light-type2-vendor").innerHTML = vendor['type2'].vendor_code;
+            document.getElementById("table-light-type2-product_code").innerHTML = vendor['type2'].product_code;
             document.getElementById("table-light-type2-price").innerHTML = vendor['type2'].price;
             document.getElementById("table-light-type2-price-all").innerHTML = (Math.ceil(vendor['count'])*vendor['type2'].price).toFixed(2);
             document.getElementById("table-light-type2-count").innerHTML = Math.ceil(vendor['count']);
@@ -124,12 +127,14 @@ function formLight() {
         else {
             $("#light-type2").hide();
             document.getElementById("table-light-type2-vendor").innerHTML = '';
+            document.getElementById("table-light-type2-product_code").innerHTML = '';
         }
 
         if(vendor['type3'] != null) {
             $("#light-type3").show();
             document.getElementById("table-light-type3-description").innerHTML = vendor['type3'].description;
             document.getElementById("table-light-type3-vendor").innerHTML = vendor['type3'].vendor_code;
+            document.getElementById("table-light-type3-product_code").innerHTML = vendor['type3'].product_code;
             document.getElementById("table-light-type3-price").innerHTML = vendor['type3'].price;
             document.getElementById("table-light-type3-price-all").innerHTML = (Math.ceil(vendor['count'])*vendor['type3'].price).toFixed(2);
             document.getElementById("table-light-type3-count").innerHTML = Math.ceil(vendor['count']);
@@ -137,6 +142,7 @@ function formLight() {
         else {
             $("#light-type3").hide();
             document.getElementById("table-light-type3-vendor").innerHTML = '';
+            document.getElementById("table-light-type3-product_code").innerHTML = '';
         }
 
         document.getElementById("table-light-total").innerHTML =(

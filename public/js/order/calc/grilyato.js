@@ -232,6 +232,7 @@ function formGrilyato() {
         $("#grilyato-3600").show();
         document.getElementById("table-grilyato-3600-description").innerHTML = vendor['3600'].description;
         document.getElementById("table-grilyato-3600-vendor").innerHTML = vendor['3600'].vendor_code;
+        document.getElementById("table-grilyato-3600-product_code").innerHTML = vendor['3600'].product_code;
         document.getElementById("table-grilyato-3600-price").innerHTML = vendor['3600'].price;
         document.getElementById("table-grilyato-3600-price-all").innerHTML = (Math.ceil(tp3600)*vendor['3600'].price).toFixed(2);
         document.getElementById("table-grilyato-3600-count").innerHTML = Math.ceil(tp3600);
@@ -239,11 +240,13 @@ function formGrilyato() {
     else {
         $("#grilyato-3600").hide();
         document.getElementById("table-grilyato-3600-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-3600-product_code").innerHTML = '';
     }
     //2400
     if(vendor['2400'] != null) {
         $("#grilyato-2400").show();
         document.getElementById("table-grilyato-2400-vendor").innerHTML = vendor['2400'].vendor_code;
+        document.getElementById("table-grilyato-2400-product_code").innerHTML = vendor['2400'].product_code;
         document.getElementById("table-grilyato-2400-price").innerHTML = vendor['2400'].price;
         document.getElementById("table-grilyato-2400-price-all").innerHTML = (Math.ceil(tp2400)*vendor['2400'].price).toFixed(2);
         document.getElementById("table-grilyato-2400-description").innerHTML = vendor['2400'].description;
@@ -251,11 +254,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-2400").hide();
         document.getElementById("table-grilyato-2400-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-2400-product_code").innerHTML = '';
     }
     //1200
     if(vendor['1200'] != null) {
         $("#grilyato-1200").show();
         document.getElementById("table-grilyato-1200-vendor").innerHTML = vendor['1200'].vendor_code;
+        document.getElementById("table-grilyato-1200-product_code").innerHTML = vendor['1200'].product_code;
         document.getElementById("table-grilyato-1200-price-all").innerHTML = (Math.ceil(tp1200)*vendor['1200'].price).toFixed(2);
         document.getElementById("table-grilyato-1200-price").innerHTML = vendor['1200'].price;
         document.getElementById("table-grilyato-1200-description").innerHTML = vendor['1200'].description;
@@ -263,11 +268,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-1200").hide();
         document.getElementById("table-grilyato-1200-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-1200-product_code").innerHTML = '';
     }
     //600_1
     if(vendor['600_1'] != null) {
         $("#grilyato-600-1").show();
         document.getElementById("table-grilyato-600-1-vendor").innerHTML = vendor['600_1'].vendor_code;
+        document.getElementById("table-grilyato-600-1-product_code").innerHTML = vendor['600_1'].product_code;
         document.getElementById("table-grilyato-600-1-description").innerHTML = vendor['600_1'].description;
         document.getElementById("table-grilyato-600-1-count").innerHTML = Math.ceil(1.4*s+(1.4*s/100*3));
         document.getElementById("table-grilyato-600-1-price").innerHTML = vendor['600_1'].price;
@@ -275,10 +282,12 @@ function formGrilyato() {
     }else {
         $("#grilyato-600-1").hide();
         document.getElementById("table-grilyato-600-1-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-600-1-product_code").innerHTML = '';
     }
     if(vendor['600'] != null) {
         $("#grilyato-600").show();
         document.getElementById("table-grilyato-600-vendor").innerHTML = vendor['600'].vendor_code;
+        document.getElementById("table-grilyato-600-product_code").innerHTML = vendor['600'].product_code;
         document.getElementById("table-grilyato-600-description").innerHTML = vendor['600'].description;
         document.getElementById("table-grilyato-600-count").innerHTML = Math.ceil(tp600);
         document.getElementById("table-grilyato-600-price").innerHTML = vendor['600'].price;
@@ -286,11 +295,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-600").hide();
         document.getElementById("table-grilyato-600-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-600-product_code").innerHTML = '';
     }
     //600m
     if(vendor['600m'] != null) {
         $("#grilyato-600m").show();
         document.getElementById("table-grilyato-600m-vendor").innerHTML = vendor['600m'].vendor_code;
+        document.getElementById("table-grilyato-600m-product_code").innerHTML = vendor['600m'].product_code;
         document.getElementById("table-grilyato-600m-description").innerHTML = vendor['600m'].description;
         document.getElementById("table-grilyato-600m-count").innerHTML = Math.ceil(tp600f);
         document.getElementById("table-grilyato-600m-price").innerHTML = vendor['600m'].price;
@@ -298,11 +309,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-600m").hide();
         document.getElementById("table-grilyato-600m-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-600m-product_code").innerHTML = '';
     }
     //600f
     if(vendor['600f'] != null) {
         $("#grilyato-600f").show();
         document.getElementById("table-grilyato-600f-vendor").innerHTML = vendor['600f'].vendor_code;
+        document.getElementById("table-grilyato-600f-product_code").innerHTML = vendor['600f'].product_code;
         document.getElementById("table-grilyato-600f-description").innerHTML = vendor['600f'].description;
         document.getElementById("table-grilyato-600f-count").innerHTML = Math.ceil(tp600f);
         document.getElementById("table-grilyato-600f-price").innerHTML = vendor['600f'].price;
@@ -310,11 +323,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-600f").hide();
         document.getElementById("table-grilyato-600f-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-600f-product_code").innerHTML = '';
     }
     //SUSP
     if(vendor['susp'] != null) {
         $("#grilyato-susp").show();
         document.getElementById("table-grilyato-susp-vendor").innerHTML =  vendor['susp'].vendor_code;
+        document.getElementById("table-grilyato-susp-product_code").innerHTML =  vendor['susp'].product_code;
         document.getElementById("table-grilyato-susp-description").innerHTML = vendor['susp'].description;
         document.getElementById("table-grilyato-susp-count").innerHTML = Math.ceil(susp);
         document.getElementById("table-grilyato-susp-price").innerHTML = vendor['susp'].price;
@@ -322,11 +337,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-susp").hide();
         document.getElementById("table-grilyato-susp-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-susp-product_code").innerHTML = '';
     }
     //EAR
     if(vendor['wireWithEar'] != null) {
         $("#grilyato-ear").show();
         document.getElementById("table-grilyato-ear-vendor").innerHTML =  vendor['wireWithEar'].vendor_code;
+        document.getElementById("table-grilyato-ear-product_code").innerHTML =  vendor['wireWithEar'].product_code;
         document.getElementById("table-grilyato-ear-description").innerHTML = vendor['wireWithEar'].description;
         document.getElementById("table-grilyato-ear-count").innerHTML = Math.ceil(wire);
         document.getElementById("table-grilyato-ear-price").innerHTML = vendor['wireWithEar'].price;
@@ -334,11 +351,13 @@ function formGrilyato() {
     }else {
         $("#grilyato-ear").hide();
         document.getElementById("table-grilyato-ear-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-ear-product_code").innerHTML = '';
     }
     //HOOK
     if(vendor['wireWithHook'] != null) {
         $("#grilyato-hook").show();
         document.getElementById("table-grilyato-hook-vendor").innerHTML =  vendor['wireWithHook'].vendor_code;
+        document.getElementById("table-grilyato-hook-product_code").innerHTML =  vendor['wireWithHook'].product_code;
         document.getElementById("table-grilyato-hook-description").innerHTML = vendor['wireWithHook'].description;
         document.getElementById("table-grilyato-hook-count").innerHTML = Math.ceil(wire);
         document.getElementById("table-grilyato-hook-price").innerHTML = vendor['wireWithHook'].price;
@@ -346,6 +365,7 @@ function formGrilyato() {
     }else {
         $("#grilyato-hook").hide();
         document.getElementById("table-grilyato-hook-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-hook-product_code").innerHTML = '';
     }
 
     console.log('-----------------------');
@@ -355,6 +375,7 @@ function formGrilyato() {
     if(light != null) {
         $("#grilyato-light").show();
         document.getElementById("table-grilyato-light-vendor").innerHTML =  vendor['light'].vendor_code;
+        document.getElementById("table-grilyato-light-product_code").innerHTML =  vendor['light'].product_code;
         document.getElementById("table-grilyato-light-description").innerHTML = vendor['light'].description;
         document.getElementById("table-grilyato-light-count").innerHTML = light;
         document.getElementById("table-grilyato-light-price").innerHTML = vendor['light'].price;
@@ -362,10 +383,12 @@ function formGrilyato() {
     }else {
         $("#grilyato-light").hide();
         document.getElementById("table-grilyato-light-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-light-product_code").innerHTML = '';
     }
 
         //ANGLE
     document.getElementById("table-grilyato-angle-vendor").innerHTML = vendor['angle'].vendor_code;
+    document.getElementById("table-grilyato-angle-product_code").innerHTML = vendor['angle'].product_code;
     document.getElementById("table-grilyato-angle-description").innerHTML = vendor['angle'].description;
     document.getElementById("table-grilyato-angle-count").innerHTML = Math.ceil(angles);
     document.getElementById("table-grilyato-angle-price").innerHTML = vendor['angle'].price;
@@ -379,6 +402,7 @@ function formGrilyato() {
 
         //dowel1
         document.getElementById("table-grilyato-dowel1-vendor").innerHTML = vendor['dowel1'].vendor_code;
+        document.getElementById("table-grilyato-dowel1-product_code").innerHTML = vendor['dowel1'].product_code;
         document.getElementById("table-grilyato-dowel1-description").innerHTML = vendor['dowel1'].description;
         document.getElementById("table-grilyato-dowel1-count").innerHTML = Math.ceil(dowel1/100);
         document.getElementById("table-grilyato-dowel1-price").innerHTML = vendor['dowel1'].price;
@@ -386,6 +410,7 @@ function formGrilyato() {
 
         //dowel2
         document.getElementById("table-grilyato-dowel2-vendor").innerHTML = vendor['dowel2'].vendor_code;
+        document.getElementById("table-grilyato-dowel2-product_code").innerHTML = vendor['dowel2'].product_code;
         document.getElementById("table-grilyato-dowel2-description").innerHTML = vendor['dowel2'].description;
         document.getElementById("table-grilyato-dowel2-count").innerHTML = Math.ceil(dowel2/100);
         document.getElementById("table-grilyato-dowel2-price").innerHTML = vendor['dowel2'].price;
@@ -394,8 +419,10 @@ function formGrilyato() {
     else {
         $("#grilyato-dowel1").hide();
         document.getElementById("table-grilyato-dowel1-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-dowel1-product_code").innerHTML = '';
         $("#grilyato-dowel2").hide();
         document.getElementById("table-grilyato-dowel2-vendor").innerHTML = '';
+        document.getElementById("table-grilyato-dowel2-product_code").innerHTML = '';
     }
 
     document.getElementById("table-grilyato-total").innerHTML =(

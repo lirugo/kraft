@@ -165,6 +165,7 @@
                 <thead>
                 <tr>
                     <th scope="col" style="color: #f78421;">Артикул</th>
+                    <th scope="col" style="color: #f78421;">Код товара</th>
                     <th scope="col" style="color: #f78421;">Наименование</th>
                     <th scope="col" style="color: #f78421;">Кол-во</th>
                     <th scope="col" style="color: #f78421;">Ед. изм.</th>
@@ -175,6 +176,7 @@
                 <tbody>
                 <tr id="rail-connector">
                     <td id="table-connector-vendor"></td>
+                    <td id="table-connector-product_code"></td>
                     <td id="table-connector-description"></td>
                     <td id="table-connector-count"></td>
                     <td>шт</td>
@@ -183,6 +185,7 @@
                 </tr>
                 <tr id="rail-rail-1">
                     <td id="table-rail-1-vendor"></td>
+                    <td id="table-rail-1-product_code"></td>
                     <td id="table-rail-1-description"></td>
                     <td id="table-rail-1-count"></td>
                     <td>м. п.</td>
@@ -191,6 +194,7 @@
                 </tr>
                 <tr id="rail-rail-2">
                     <td id="table-rail-2-vendor"></td>
+                    <td id="table-rail-2-product_code"></td>
                     <td id="table-rail-2-description"></td>
                     <td id="table-rail-2-count"></td>
                     <td>м. п.</td>
@@ -199,6 +203,7 @@
                 </tr>
                 <tr id="rail-rail-3">
                     <td id="table-rail-3-vendor"></td>
+                    <td id="table-rail-3-product_code"></td>
                     <td id="table-rail-3-description"></td>
                     <td id="table-rail-3-count"></td>
                     <td>м. п.</td>
@@ -207,6 +212,7 @@
                 </tr>
                 <tr id="rail-rail-4">
                     <td id="table-rail-4-vendor"></td>
+                    <td id="table-rail-4-product_code"></td>
                     <td id="table-rail-4-description"></td>
                     <td id="table-rail-4-count"></td>
                     <td>м. п.</td>
@@ -215,6 +221,7 @@
                 </tr>
                 <tr id="rail-travers">
                     <td id="table-rail-travers-vendor"></td>
+                    <td id="table-rail-travers-product_code"></td>
                     <td id="table-rail-travers-description"></td>
                     <td id="table-rail-travers-count"></td>
                     <td>шт.</td>
@@ -223,6 +230,7 @@
                 </tr>
                 <tr id="rail-stub">
                     <td id="table-rail-stub-vendor"></td>
+                    <td id="table-rail-stub-product_code"></td>
                     <td id="table-rail-stub-description"></td>
                     <td id="table-rail-stub-count"></td>
                     <td>шт.</td>
@@ -231,6 +239,7 @@
                 </tr>
                 <tr id="rail-stub-2">
                     <td id="table-rail-stub-2-vendor"></td>
+                    <td id="table-rail-stub-2-product_code"></td>
                     <td id="table-rail-stub-2-description"></td>
                     <td id="table-rail-stub-2-count"></td>
                     <td>шт.</td>
@@ -239,6 +248,7 @@
                 </tr>
                 <tr id="rail-stub-3">
                     <td id="table-rail-stub-3-vendor"></td>
+                    <td id="table-rail-stub-3-product_code"></td>
                     <td id="table-rail-stub-3-description"></td>
                     <td id="table-rail-stub-3-count"></td>
                     <td>шт.</td>
@@ -247,6 +257,7 @@
                 </tr>
                 <tr id="rail-stub-4">
                     <td id="table-rail-stub-4-vendor"></td>
+                    <td id="table-rail-stub-4-product_code"></td>
                     <td id="table-rail-stub-4-description"></td>
                     <td id="table-rail-stub-4-count"></td>
                     <td>шт.</td>
@@ -255,6 +266,7 @@
                 </tr>
                 <tr id="rail-suspass">
                     <td id="table-rail-suspass-vendor"></td>
+                    <td id="table-rail-suspass-product_code"></td>
                     <td id="table-rail-suspass-description"></td>
                     <td id="table-rail-suspass-count"></td>
                     <td>шт.</td>
@@ -263,6 +275,7 @@
                 </tr>
                 <tr id="rail-wireWithEar">
                     <td id="table-rail-wireWithEar-vendor"></td>
+                    <td id="table-rail-wireWithEar-product_code"></td>
                     <td id="table-rail-wireWithEar-description"></td>
                     <td id="table-rail-wireWithEar-count"></td>
                     <td>шт.</td>
@@ -271,6 +284,7 @@
                 </tr>
                 <tr id="rail-wireWithHook">
                     <td id="table-rail-wireWithHook-vendor"></td>
+                    <td id="table-rail-wireWithHook-product_code"></td>
                     <td id="table-rail-wireWithHook-description"></td>
                     <td id="table-rail-wireWithHook-count"></td>
                     <td>шт.</td>
@@ -279,6 +293,7 @@
                 </tr>
                 <tr id="rail-suspdowel">
                     <td id="table-rail-suspdowel-vendor"></td>
+                    <td id="table-rail-suspdowel-product_code"></td>
                     <td id="table-rail-suspdowel-description"></td>
                     <td id="table-rail-suspdowel-count"></td>
                     <td>уп.</td>
@@ -287,6 +302,7 @@
                 </tr>
                 <tr id="rail-stubdowel">
                     <td id="table-rail-stubdowel-vendor"></td>
+                    <td id="table-rail-stubdowel-product_code"></td>
                     <td id="table-rail-stubdowel-description"></td>
                     <td id="table-rail-stubdowel-count"></td>
                     <td>уп.</td>
@@ -295,6 +311,7 @@
                 </tr>
                 <tr id="rail-light">
                     <td id="table-rail-light-vendor"></td>
+                    <td id="table-rail-light-product_code"></td>
                     <td id="table-rail-light-description"></td>
                     <td id="table-rail-light-count"></td>
                     <td></td>
@@ -316,6 +333,7 @@
                 <thead>
                 <tr>
                     <th scope="col" style="color: #f78421;">Артикул</th>
+                    <th scope="col" style="color: #f78421;">Код товара</th>
                     <th scope="col" style="color: #f78421;">Наименование</th>
                     <th scope="col" style="color: #f78421;">Длина 1 шт</th>
                     <th scope="col" style="color: #f78421;">м.п.</th>
@@ -325,6 +343,7 @@
                 <tbody>
                 <tr id="table2-rail-1">
                     <td id="table2-rail-1-vendor"></td>
+                    <td id="table2-rail-1-product_code"></td>
                     <td id="table2-rail-1-description"></td>
                     <td id="table2-rail-1-length"></td>
                     <td id="table2-rail-1-mp"></td>
@@ -332,6 +351,7 @@
                 </tr>
                 <tr id="table2-rail-2">
                     <td id="table2-rail-2-vendor"></td>
+                    <td id="table2-rail-2-product_code"></td>
                     <td id="table2-rail-2-description"></td>
                     <td id="table2-rail-2-length"></td>
                     <td id="table2-rail-2-mp"></td>
@@ -339,6 +359,7 @@
                 </tr>
                 <tr id="table2-rail-3">
                     <td id="table2-rail-3-vendor"></td>
+                    <td id="table2-rail-3-product_code"></td>
                     <td id="table2-rail-3-description"></td>
                     <td id="table2-rail-3-length"></td>
                     <td id="table2-rail-3-mp"></td>
@@ -346,6 +367,7 @@
                 </tr>
                 <tr id="table2-rail-4">
                     <td id="table2-rail-4-vendor"></td>
+                    <td id="table2-rail-4-product_code"></td>
                     <td id="table2-rail-4-description"></td>
                     <td id="table2-rail-4-length"></td>
                     <td id="table2-rail-4-mp"></td>

@@ -50,6 +50,7 @@
                 <thead>
                 <tr>
                     <th scope="col" style="color: #f78421;">{{trans('app.Vendor Code')}}</th>
+                    <th scope="col" style="color: #f78421;">Код товара</th>
                     <th scope="col" style="color: #f78421;">{{trans('app.Name')}}</th>
                     <th scope="col" style="color: #f78421;">{{trans('app.Count')}}</th>
                     <th scope="col" style="color: #f78421;">{{trans('app.Price for')}} шт. грн</th>
@@ -59,6 +60,7 @@
                 <tbody>
                 <tr id="light-type1">
                     <td id="table-light-type1-vendor"></td>
+                    <td id="table-light-type1-product_code"></td>
                     <td id="table-light-type1-description"></td>
                     <td id="table-light-type1-count"></td>
                     <td id="table-light-type1-price"></td>
@@ -66,6 +68,7 @@
                 </tr>
                 <tr id="light-type2">
                     <td id="table-light-type2-vendor"></td>
+                    <td id="table-light-type2-product_code"></td>
                     <td id="table-light-type2-description"></td>
                     <td id="table-light-type2-count"></td>
                     <td id="table-light-type2-price"></td>
@@ -73,6 +76,7 @@
                 </tr>
                 <tr id="light-type3">
                     <td id="table-light-type3-vendor"></td>
+                    <td id="table-light-type3-product_code"></td>
                     <td id="table-light-type3-description"></td>
                     <td id="table-light-type3-count"></td>
                     <td id="table-light-type3-price"></td>
