@@ -904,7 +904,7 @@ class OrderController extends Controller
         $notif->body = isset($object) ? $object->name : $company->companyname.' - просчет на склад';
         $notif->save();
 
-        Session::flash('success', 'Ващ запрос на повторное выставление счета отправлен. Ожидайте подтверждения от менеджера.');
+        Session::flash('success', 'Ваш запрос на повторное выставление счета отправлен. Ожидайте подтверждения от менеджера.');
         return back();
     }
 
