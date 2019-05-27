@@ -46,6 +46,9 @@ class AdminController extends Controller
         // IF have avatar save
         if(!empty($request->avatar))$user->avatar = $request->avatar;
         $user->regionname = $request->regionname;
+
+        if($request->regionname == 'shop')
+            $user->isShop = true;
         //Save user
         $user->save();
         //AttachRole designer/arch for new user

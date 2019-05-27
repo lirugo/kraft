@@ -42,6 +42,9 @@
                         <h6>{{ $user->phone }}</h6>
                         <h6>
                             {!! Form::open(['route' => ['manager.user.activate', $user->id], 'method' => 'post',  'class' => 'form-inline']) !!}
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="isShop" class="m-r-10">Is Shop</label>
+                            </div>
                             {!! Form::text('vendor_code_1c',null, ['class' => 'form-control', 'style' => 'width:200px', 'placeholder' => 'Ведите ID компании из 1С', 'required']) !!}
                             {!! Form::submit(trans('app.Activate'), ['class' => 'btn btn-primary ']) !!}
                             {!! Form::close() !!}

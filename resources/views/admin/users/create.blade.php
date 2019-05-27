@@ -43,6 +43,7 @@
                         <option value="east">{{ trans('admin.eastrole') }}</option>
                         <option value="south">{{ trans('admin.southrole') }}</option>
                         <option value="west">{{ trans('admin.westrole') }}</option>
+                        <option value="shop">Shop</option>
                     </select>
                 </div>
             </div>

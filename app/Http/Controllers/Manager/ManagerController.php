@@ -162,11 +162,14 @@ class ManagerController extends Controller
 
     public function users(){
         $u = Auth::user();
-        $users = User::all()->where('regionname', '=' , $u->regionname);
+        if(Auth::user()->isShop == true)
+            $users = User::all()->where('isShop', '=' , true);
+        else
+            $users = User::all()->where('regionname', '=' , $u->regionname);
         foreach ($users as $key => $user)
             if($user->hasRole('distributor'));
-                else if($user->hasRole('designer'));
-                else unset($users[$key]);
+            else if($user->hasRole('designer'));
+            else unset($users[$key]);
         return view('manager.users')->with('users', $users);
     }
 
@@ -199,7 +202,17 @@ class ManagerController extends Controller
 
     public function objects(){
         $user = Auth::user();
-        $objects = Object::all()->where('rmid', '=' , $user->id);
+        if(Auth::user()->isShop == true){
+            $objects = Object::all();
+            foreach ($objects as $key => $object){
+                $us = User::find($object->creatorid);
+                if($us->isShop == false){
+                    $objects->forget($key);
+                }
+            }
+        }
+        else
+            $objects = Object::all()->where('rmid', '=' , $user->id);
         $viewed = Object::all()->where('viewed' , '=', 0)->count();
         foreach ($objects as $object)
         {
@@ -216,9 +229,9 @@ class ManagerController extends Controller
     public function arch(){
         $user = Auth::user();
         $users = User::all()->where('regionname', '=' , $user->regionname);
-            foreach ($users as $key => $datauser)
-                if($datauser->hasRole('designer') || $datauser->hasRole('designer'));
-                else unset($users[$key]);
+        foreach ($users as $key => $datauser)
+            if($datauser->hasRole('designer') || $datauser->hasRole('designer'));
+            else unset($users[$key]);
 
         return view('manager.arch')->with('users', $users);
     }
@@ -227,6 +240,7 @@ class ManagerController extends Controller
         $user = User::find($id);
         $user->active == true ? $user->active = false : $user->active = true;
         $user->vendor_code_1c = $request->vendor_code_1c;
+        $user->isShop = $request->isShop == 'on' ? true : false;
         $user->save();
         Session::flash('success', 'User status was changed.');
         return back();
@@ -249,9 +263,9 @@ class ManagerController extends Controller
             $object->save();
         }
         else{
-        $object->active = true;
-        $object->dateofactivate = Carbon::now();
-        $object->dateofdelivery = $request->dateofdelivery;
+            $object->active = true;
+            $object->dateofactivate = Carbon::now();
+            $object->dateofdelivery = $request->dateofdelivery;
             if($request->reporttime == 0)
                 $object->reporttime = 0;
             else{
@@ -261,7 +275,7 @@ class ManagerController extends Controller
                 $report->dateofreport = Carbon::now()->addDays($request->reporttime);
                 $report->save();
             }
-        $object->save();
+            $object->save();
         }
         Session::flash('success', 'Object status was changed.');
         return back();
@@ -278,7 +292,7 @@ class ManagerController extends Controller
 
     public function showobject($id){
         $object = Object::find($id);
-            $object->viewed = $object->viewed + 1;
+        $object->viewed = $object->viewed + 1;
         $object->save();
         $company = Company::find($object->companyid);
         $rm = User::find($object->rmid);
@@ -323,7 +337,7 @@ class ManagerController extends Controller
 
     public function transferTo(Request $request, $objectId){
         $object = Object::find($objectId);
-            $object->rmid = $request->manager;
+        $object->rmid = $request->manager;
         $object->save();
 
         Session::flash('success', 'Object was transferred to another manager.');
