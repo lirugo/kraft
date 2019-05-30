@@ -496,14 +496,14 @@ function formTProfile() {
         // document.getElementById("table-susp-price-all").innerHTML = vSusp_price_all.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         document.getElementById("table-total").innerHTML = (
-            +document.getElementById("table-3600-price-all").innerHTML+
-            +document.getElementById("table-1200-price-all").innerHTML+
-            +document.getElementById("table-600-price-all").innerHTML+
-            +document.getElementById("table-wall-profile-price-all").innerHTML+
-            +document.getElementById("table-wireWithEar-price-all").innerHTML+
-            +document.getElementById("table-wireWithHook-price-all").innerHTML+
-            +document.getElementById("table-light-price-all").innerHTML+
-            +document.getElementById("table-springSusp-price-all").innerHTML
+            +document.getElementById("table-3600-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-1200-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-600-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-wall-profile-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-wireWithEar-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-wireWithHook-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-light-price-all").innerHTML.replace(',', '')+
+            +document.getElementById("table-springSusp-price-all").innerHTML.replace(',', '')
         ).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').bold();
         // //ShowTable
     });
