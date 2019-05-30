@@ -21,6 +21,7 @@
     <thead>
     <tr>
         <th scope="col" style="color: #f78421;">Артикул</th>
+        <th scope="col" style="color: #f78421;">Код</th>
         <th scope="col" style="color: #f78421;">Ім'я</th>
         <th scope="col" style="color: #f78421;">Кількість</th>
         <th scope="col" style="color: #f78421;">Ціна</th>
@@ -32,6 +33,7 @@
         @if($order->production == false)
             <tr>
                 <td>{{$order->vendor_code}}</td>
+                <td>{{$order->product_code}}</td>
                 <td>{{$order->description}}</td>
                 <td>{{$order->count}}</td>
                 <td>{{$order->price}}</td>
