@@ -857,7 +857,7 @@ class OrderController extends Controller
         foreach ($orders as $order)
         {
             $temp = ProfileGrilyato::where('vendor_code', $order->vendor_code)->first();
-            $order->product_code = $temp->product_code;
+            $order->product_code = $temp != null ? $temp->product_code : '';
             $total += $order->count*$order->price;
         }
         $orders->total = $total;
