@@ -53,9 +53,9 @@ class LoginController extends Controller
     }
 
     protected function authenticated(Request $request, User $user){
-        if($user->hasTwoFactorAuthenticationEnabled()){
-            return $this->logoutAndRedirectToTokenEntry($request, $user);
-        }
+//        if($user->hasTwoFactorAuthenticationEnabled()){
+//            return $this->logoutAndRedirectToTokenEntry($request, $user);
+//        }
 
         return redirect()->intended($this->redirectPath());
     }
@@ -69,14 +69,14 @@ class LoginController extends Controller
            'using_sms' => false,
            'remember' => $request->has('remember')
         ]);
-        if($user->hasSmsTwoFactorAuthenticationEnabled() || $user->hasTwoFactorType('firstTime')){
-            try{
-                Authy::requestSms($user);
-            }catch (SmsRequestFailedException $e){
-                return redirect()->back();
-            }
-            $request->session()->push('authy.using_sms', true);
-        }
+//        if($user->hasSmsTwoFactorAuthenticationEnabled() || $user->hasTwoFactorType('firstTime')){
+//            try{
+//                Authy::requestSms($user);
+//            }catch (SmsRequestFailedException $e){
+//                return redirect()->back();
+//            }
+//            $request->session()->push('authy.using_sms', true);
+//        }
 
         return redirect($this->redirectTokenPath());
     }
