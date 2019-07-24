@@ -24,10 +24,10 @@ class ProductController extends Controller
     {
         $size = 50;
 
-        if(count($request->query->all()) > 0)
-            $size = $request->query->all()['size'];
+//        if(count($request->query->all()) > 0)
+//            $size = $request->query->all()['size'];
 
-        $products = ProfileGrilyato::paginate($size);
+        $products = ProfileGrilyato::paginate(2000);
         return view('admin.product.index')->with('products', $products);
     }
 
