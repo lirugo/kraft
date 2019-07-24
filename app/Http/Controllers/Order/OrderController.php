@@ -13,14 +13,13 @@ use App\ProfileGrilyato;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JavaScript;
-use Session;
 use PDF;
+use Session;
 
 class OrderController extends Controller
 {
@@ -28,18 +27,18 @@ class OrderController extends Controller
         $object = Object::find($id);
         $constants = Constants::get()->last();
         $lightTypes = ProfileGrilyato::
-                        where('vendor_code', '=', 15601123015)
-                            ->orWhere('vendor_code', '=', 15601063015)
-                            ->orWhere('vendor_code', '=', 15601063024)
-                            ->orWhere('vendor_code', '=', 15601123024)
-                            ->orWhere('vendor_code', '=', 15603123024)
-                            ->orWhere('vendor_code', '=', 15603123024)
-                            ->orWhere('vendor_code', '=', 15603246024)
-                            ->orWhere('vendor_code', '=', 15602123024)
-                            ->orWhere('vendor_code', '=', 15602063015)
-                            ->orWhere('vendor_code', '=', 15602123015)
-                            ->orWhere('vendor_code', '=', 15602063024)
-                            ->get();
+        where('vendor_code', '=', 15601123015)
+            ->orWhere('vendor_code', '=', 15601063015)
+            ->orWhere('vendor_code', '=', 15601063024)
+            ->orWhere('vendor_code', '=', 15601123024)
+            ->orWhere('vendor_code', '=', 15603123024)
+            ->orWhere('vendor_code', '=', 15603123024)
+            ->orWhere('vendor_code', '=', 15603246024)
+            ->orWhere('vendor_code', '=', 15602123024)
+            ->orWhere('vendor_code', '=', 15602063015)
+            ->orWhere('vendor_code', '=', 15602123015)
+            ->orWhere('vendor_code', '=', 15602063024)
+            ->get();
         $data = new Collection;
         $data->put('objectId' , $object->id);
         $data->put('stock' , false);
@@ -251,7 +250,7 @@ class OrderController extends Controller
         //Get array of users id
         $usersIdArray = [];
         array_push($usersIdArray, Auth::user()->id);
-            //Get workers id
+        //Get workers id
         if(Auth::user()->hasRole('distributor')){
             $workers = User::whereHas('roles', function ($query) {
                 $query->where('name', '=', 'worker');
@@ -426,11 +425,11 @@ class OrderController extends Controller
         $collection = new Collection();
         if($request->grilyato_model == 'classical'){
             $grilyato_2400 = ProfileGrilyato::where([
-                 ['length', '=', '2400'],
-                 ['cells', '=', $sizecells],
-                 ['type', '=', 'Грильято'],
-                 ['color', '=', $color],
-             ])->first();
+                ['length', '=', '2400'],
+                ['cells', '=', $sizecells],
+                ['type', '=', 'Грильято'],
+                ['color', '=', $color],
+            ])->first();
             $grilyato_1200 = NULL;
             $grilyato_600 = ProfileGrilyato::where([
                 ['length', '=', '600'],
@@ -496,7 +495,7 @@ class OrderController extends Controller
             $collection->put('dowel2',$dowel2);
             $collection->put('light',$light);
 
-        return $collection;
+            return $collection;
         }
         else if($request->grilyato_model == 'pyramidal'){
             $grilyato_2400 = ProfileGrilyato::where([
@@ -668,7 +667,7 @@ class OrderController extends Controller
             return $collection;
         }
         else
-        return $request->grilyato_model;
+            return $request->grilyato_model;
     }
 
     public function railvendor(Request $request){
@@ -861,10 +860,19 @@ class OrderController extends Controller
             $total += $order->count*$order->price;
         }
         $orders->total = $total;
-        $pdf = PDF::setOptions([
-            'logOutputFile' => storage_path('logs/log.htm'),
-            'tempDir' => storage_path('logs/')
-        ])->loadView('order.pdf', compact('orders'));
+
+        if(Auth::user()->isShop){
+            $pdf = PDF::setOptions([
+                'logOutputFile' => storage_path('logs/log.htm'),
+                'tempDir' => storage_path('logs/')
+            ])->loadView('order.pdfShop', compact('orders'));
+        }else{
+            $pdf = PDF::setOptions([
+                'logOutputFile' => storage_path('logs/log.htm'),
+                'tempDir' => storage_path('logs/')
+            ])->loadView('order.pdf', compact('orders'));
+        }
+
         return $pdf->download('invoice.pdf');
     }
 
