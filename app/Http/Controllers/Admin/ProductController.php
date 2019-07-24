@@ -20,9 +20,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = ProfileGrilyato::paginate(50);
+        $size = 50;
+
+        if(count($request->query->all()) > 0)
+            $size = $request->query->all()['size'];
+
+        $products = ProfileGrilyato::paginate($size);
         return view('admin.product.index')->with('products', $products);
     }
 
