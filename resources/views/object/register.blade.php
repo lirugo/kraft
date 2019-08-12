@@ -224,7 +224,7 @@
             url:'/upload/photo',
             type:'POST',
             maxFilesize:3,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf,.dwg",
             maxFiles: 5,
             addRemoveLinks: true,
             sending: function(file, xhr, formData) {

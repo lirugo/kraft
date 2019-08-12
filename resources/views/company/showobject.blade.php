@@ -169,6 +169,22 @@
             <div class="col-md-12 text-center">
                 <hr>
                 @if($object->photo1 != null)
+                    <a href="/uploads/objects/{{$object->photo1}}">Download 1</a>
+                @endif
+                @if($object->photo2 != null)
+                    <a href="/uploads/objects/{{$object->photo2}}">Download 2</a>
+                @endif
+                @if($object->photo3 != null)
+                    <a href="/uploads/objects/{{$object->photo3}}">Download 3</a>
+                @endif
+                @if($object->photo4 != null)
+                    <a href="/uploads/objects/{{$object->photo4}}">Download 4</a>
+                @endif
+                @if($object->photo5 != null)
+                    <a href="/uploads/objects/{{$object->photo5}}">Download 5</a>
+                @endif
+                <hr>
+                @if($object->photo1 != null)
                     <a data-toggle="lightbox" href="#demoLightbox1">
                         <img src="/uploads/objects/{{$object->photo1}}" class="small-img">
                     </a>
