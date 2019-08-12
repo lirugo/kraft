@@ -33,6 +33,7 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Address</th>
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
@@ -62,6 +63,9 @@
                                     bgcolor="white"
                                 @endif>
                                 <th scope="row">{{$object->id}}</th>
+                                <td>
+                                    {{$object->city}} {{$object->street}}
+                                </td>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
                                 <td>{{$object->user->name}}</td>
@@ -108,6 +112,7 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Address</th>
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
@@ -122,6 +127,9 @@
                         @if($object->active == false)
                             <tr>
                                 <th scope="row">{{$object->id}}</th>
+                                <td>
+                                    {{$object->city}} {{$object->street}}
+                                </td>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
                                 <td>{{$object->user->name}}</td>
