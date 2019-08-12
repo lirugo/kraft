@@ -144,7 +144,7 @@ class ProductController extends Controller
 
                 //WRITE TO FILE
                 foreach (ProfileGrilyato::all() as $product)
-                    fputcsv($FH, [$product->vendor_code, $product->price], ';');
+                    fputcsv($FH, [$product->vendor_code, $product->product_code, $product->price], ';');
 
                 fclose($FH);
             };
