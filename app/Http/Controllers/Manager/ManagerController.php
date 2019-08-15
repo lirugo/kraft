@@ -218,7 +218,7 @@ class ManagerController extends Controller
         {
             $creator = User::find($object->creatorid);
             $object->creatorname = $creator->name;
-            $object->distr = Company::find($object->companyid)->companyname;
+            $object->distr = $object->companyid;
         }
         $data = new Collection();
         $data->put('objects',$objects);
