@@ -134,6 +134,22 @@
                     <td id="table-light-price"></td>
                     <td id="table-light-price-all"></td>
                 </tr>
+                <tr id="tprofile-dowel1">
+                    <td id="table-dowel1-vendor"></td>
+                    <td id="table-dowel1-product_code"></td>
+                    <td id="table-dowel1-description"></td>
+                    <td id="table-dowel1-count"></td>
+                    <td id="table-dowel1-price"></td>
+                    <td id="table-dowel1-price-all"></td>
+                </tr>
+                <tr id="tprofile-dowel2">
+                    <td id="table-dowel2-vendor"></td>
+                    <td id="table-dowel2-product_code"></td>
+                    <td id="table-dowel2-description"></td>
+                    <td id="table-dowel2-count"></td>
+                    <td id="table-dowel2-price"></td>
+                    <td id="table-dowel2-price-all"></td>
+                </tr>
                 {{--<tr>--}}
                     {{--<td id="table-susp-vendor"></td>--}}
                     {{--<td id="table-susp-product_code"></td>--}}

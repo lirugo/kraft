@@ -395,6 +395,12 @@ class OrderController extends Controller
             ['weight', '=', $request->profile_thickness],
             ['length', '=', '600'],
         ])->first();
+        $dowel1 = ProfileGrilyato::where([
+            ['vendor_code', '=', '2231100406'],
+        ])->first();
+        $dowel2 = ProfileGrilyato::where([
+            ['vendor_code', '=', '2232100406'],
+        ])->first();
 
         $collection = new Collection();
         foreach ($profiles as $profile)
@@ -412,6 +418,9 @@ class OrderController extends Controller
             $collection->put('spring_susp', $springSusp);
         }
         $collection->put('light',$light);
+
+        $collection->put('dowel1',$dowel1);
+        $collection->put('dowel2',$dowel2);
         return $collection;
     }
 

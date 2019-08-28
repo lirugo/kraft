@@ -876,6 +876,36 @@ function tprofile_add() {
     row.insertCell(2).appendChild(newinput);
     row.insertCell(3).innerHTML =  document.getElementById("table-springSusp-price").innerHTML;
     row.insertCell(4).innerHTML =  document.getElementById("table-springSusp-price-all").innerHTML;
+    //Dowel1
+    row = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+    newinput = document.createElement("INPUT");
+    newinput.setAttribute("type", "number");
+    newinput.setAttribute("min", "1");
+    newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
+    row.insertCell(0).innerHTML = document.getElementById("table-dowel1-vendor").innerHTML;
+    row.insertCell(1).innerHTML = document.getElementById("table-dowel1-description").innerHTML;
+    newinput.setAttribute("value", document.getElementById("table-dowel1-count").innerHTML);
+    row.insertCell(2).appendChild(newinput);
+    row.insertCell(3).innerHTML =  document.getElementById("table-dowel1-price").innerHTML;
+    row.insertCell(4).innerHTML =  document.getElementById("table-dowel1-price-all").innerHTML;
+    //Dowel2
+    row = table.insertRow(-1);
+        row.style.borderLeft = "1px solid #f78620";
+        row.style.borderRight = "1px solid #f78620";
+    newinput = document.createElement("INPUT");
+    newinput.setAttribute("type", "number");
+    newinput.setAttribute("min", "1");
+    newinput.setAttribute("class", "form-control");
+    newinput.setAttribute("onchange", "update_pack()");
+    row.insertCell(0).innerHTML = document.getElementById("table-dowel2-vendor").innerHTML;
+    row.insertCell(1).innerHTML = document.getElementById("table-dowel2-description").innerHTML;
+    newinput.setAttribute("value", document.getElementById("table-dowel2-count").innerHTML);
+    row.insertCell(2).appendChild(newinput);
+    row.insertCell(3).innerHTML =  document.getElementById("table-dowel2-price").innerHTML;
+    row.insertCell(4).innerHTML =  document.getElementById("table-dowel2-price-all").innerHTML;
     if(document.getElementById("table-light-vendor").innerHTML != '') {
         row = table.insertRow(-1);
         row.style.borderLeft = "1px solid #f78620";

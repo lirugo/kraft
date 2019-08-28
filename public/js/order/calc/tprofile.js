@@ -474,6 +474,24 @@ function formTProfile() {
         document.getElementById("table-springSusp-price-all").innerHTML = (Math.ceil(vSusp_count)*susp_spring_price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         //EndSuspSpring
 
+        //Dowel1
+        let dowelCount = Math.ceil(p*2/100);
+        document.getElementById("table-dowel1-vendor").innerHTML = vendor['dowel1'].vendor_code;
+        document.getElementById("table-dowel1-product_code").innerHTML = vendor['dowel1'].product_code;
+        document.getElementById("table-dowel1-description").innerHTML = vendor['dowel1'].description;
+        document.getElementById("table-dowel1-count").innerHTML = dowelCount;
+        document.getElementById("table-dowel1-price").innerHTML = vendor['dowel1'].price;
+        document.getElementById("table-dowel1-price-all").innerHTML = (Math.ceil(dowelCount)*vendor['dowel1'].price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+        //Dowel2
+        document.getElementById("table-dowel2-vendor").innerHTML = vendor['dowel2'].vendor_code;
+        document.getElementById("table-dowel2-product_code").innerHTML = vendor['dowel2'].product_code;
+        document.getElementById("table-dowel2-description").innerHTML = vendor['dowel2'].description;
+        document.getElementById("table-dowel2-count").innerHTML = dowelCount;
+        document.getElementById("table-dowel2-price").innerHTML = vendor['dowel2'].price;
+        document.getElementById("table-dowel2-price-all").innerHTML = (Math.ceil(dowelCount)*vendor['dowel2'].price).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+
         //light
         if(light != null) {
             $("#tprofile-light").show();
