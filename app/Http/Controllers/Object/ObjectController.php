@@ -224,4 +224,12 @@ class ObjectController extends Controller
         Session::flash('success', 'Объект удален');
         return back();
     }
+
+    public function deleteTop($id){
+        $object = Object::find($id);
+        $object->delete();
+
+        Session::flash('success', 'Объект удален');
+        return back();
+    }
 }

@@ -116,6 +116,7 @@ Route::group(['prefix' => 'manager',
 
 Route::post('/object/{id}/request/delete', 'Object\ObjectController@requestOnDeleting');
 Route::post('/object/{id}/delete', 'Object\ObjectController@delete');
+Route::post('/object/{id}/delete/top', 'Object\ObjectController@deleteTop');
 
 //distributor route
 Route::group(['prefix' => 'distributor',

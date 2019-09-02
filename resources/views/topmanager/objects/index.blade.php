@@ -18,6 +18,8 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Distributor</th>
+                        <th scope="col">Address</th>
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
@@ -49,6 +51,10 @@
                                     bgcolor="white"
                                     @endif>
                                     <th scope="row">{{$object->id}}</th>
+                                    <td>{{$object->distr}}</td>
+                                    <td>
+                                        {{$object->city}} <br/> {{$object->street}}
+                                    </td>
                                     <td>{{$object->name}}</td>
                                     <td>{{$object->getregion->regionname_ru}}</td>
                                     <td>{{$object->user->name}}</td>
@@ -72,7 +78,7 @@
                                         <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
                                     </td>
                                     <td>
-                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
                                         <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                                         {!! Form::close() !!}
                                     </td>
@@ -80,6 +86,10 @@
                             @else
                                 <tr bgcolor="white">
                                     <th scope="row">{{$object->id}}</th>
+                                    <td>{{$object->distr}}</td>
+                                    <td>
+                                        {{$object->city}} <br/> {{$object->street}}
+                                    </td>
                                     <td>{{$object->name}}</td>
                                     <td>{{$object->getregion->regionname_ru}}</td>
                                     <td>{{$object->user->name}}</td>
@@ -94,7 +104,7 @@
                                         <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
                                     </td>
                                     <td>
-                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
                                         <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                                         {!! Form::close() !!}
                                     </td>
@@ -113,6 +123,8 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Distributor</th>
+                        <th scope="col">Address</th>
                         <th scope="col">{{trans('app.Name')}}</th>
                         <th scope="col">{{trans('app.Region')}}</th>
                         <th scope="col">{{trans('app.Manager')}}</th>
@@ -129,6 +141,10 @@
                         @if($object->active == false)
                             <tr>
                                 <th scope="row">{{$object->id}}</th>
+                                <td>{{$object->distr}}</td>
+                                <td>
+                                    {{$object->city}} <br/> {{$object->street}}
+                                </td>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
                                 <td>{{$object->user->name}}</td>
@@ -141,7 +157,7 @@
                                     <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
                                 </td>
                                 <td>
-                                    {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                    {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
                                     <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                                     {!! Form::close() !!}
                                 </td>
