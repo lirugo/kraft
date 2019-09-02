@@ -71,6 +71,11 @@
                                     <td>
                                         <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
                                     </td>
+                                    <td>
+                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                        {!! Form::close() !!}
+                                    </td>
                                 </tr>
                             @else
                                 <tr bgcolor="white">
@@ -87,6 +92,11 @@
                                     <td>{{$object->rmuser->phone}}</td>
                                     <td>
                                         <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
+                                    </td>
+                                    <td>
+                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endif
@@ -129,6 +139,11 @@
                                 <td>{{$object->rmuser->phone}}</td>
                                 <td>
                                     <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
+                                </td>
+                                <td>
+                                    {!! Form::open(['url' => '/object/'.$object->id.'/delete', 'methods' => 'POST']) !!}
+                                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                    {!! Form::close() !!}
                                 </td>
                             </tr>
                         @endif
