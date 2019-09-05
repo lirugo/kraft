@@ -226,6 +226,9 @@ class ObjectController extends Controller
     }
 
     public function deleteTop($id){
+        $reportPhoto = ReportPhoto::where('object_id', $id)->delete();
+        $report = Report::where('object_id', $id)->delete();
+
         $object = Object::find($id);
         $object->delete();
 
