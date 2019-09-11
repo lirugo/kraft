@@ -165,7 +165,8 @@ class ManagerController extends Controller
         if(Auth::user()->isShop == true)
             $users = User::all()->where('isShop', '=' , true);
         else
-            $users = User::all()->where('regionname', '=' , $u->regionname);
+            $users = User::all();
+//            $users = User::all()->where('regionname', '=' , $u->regionname);
         foreach ($users as $key => $user)
             if($user->hasRole('distributor'));
             else if($user->hasRole('designer'));
@@ -212,7 +213,8 @@ class ManagerController extends Controller
             }
         }
         else
-            $objects = Object::all()->where('rmid', '=' , $user->id);
+            $objects = Object::all();
+//            $objects = Object::all()->where('rmid', '=' , $user->id);
         $viewed = Object::all()->where('viewed' , '=', 0)->count();
         foreach ($objects as $object)
         {
