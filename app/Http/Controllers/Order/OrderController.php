@@ -207,11 +207,13 @@ class OrderController extends Controller
     }
 
     public function select($id){
-        $orders = CalcHistory::all()->where('object_id', $id);
-        $orders = $orders->unique('order_id');
-        $data = new Collection();
-        $data->put('orders', $orders);
-        $data->put('id', $id);
+
+        $PER_PAGE = 10;
+
+        $orders = CalcHistory::where('object_id', $id)->select('order_id', 'created_at')->distinct()->get();
+
+        $data = $this->paginate($orders, $PER_PAGE, Input::get('page') == null ? 1 : Input::get('page'));
+
         //BAck if empty
         if(count($orders) === 0 )
         {
@@ -219,6 +221,13 @@ class OrderController extends Controller
             return back();
         }
         return view('order.calc.select')->with('data', $data);
+    }
+
+    private function paginate($items, $perPage = 15, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
     public function showStock($orderId){
