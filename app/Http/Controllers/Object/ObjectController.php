@@ -49,7 +49,7 @@ class ObjectController extends Controller
         $this->validate($request,[
             //Validate company profile
             'name' => 'required|max:255',
-            'type' => 'required|max:25',
+            'type' => 'required|max:255',
             //'country' => 'required|max:255',
             'region' => 'required|max:255',
             'city' => 'required|max:255',
