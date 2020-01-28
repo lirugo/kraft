@@ -118,12 +118,8 @@ class ProductController extends Controller
                     if(is_null($product))
                         continue;
 
-                    if($data[$c+1] != null)
-                        $product->product_code = $data[$c+1];
-                    else
-                        $product->product_code = null;
 
-                    $product->price = $data[$c+2];
+                    $product->price = $data[$c+1];
                     $product->save();
                     $c++;
                 }
