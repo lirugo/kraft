@@ -144,10 +144,10 @@ function formGrilyato() {
     if(document.getElementById("grilyato_model").value === 'classical' || document.getElementById("grilyato_model").value === 'pyramidal'){
         var k2400;
         if (document.getElementById("grilyato_model").value === 'classical' || document.getElementById("grilyato_model").value === 'pyramidal') {
-            if (document.getElementById("grilyato_sizecells").value <= 100)
+            // if (document.getElementById("grilyato_sizecells").value <= 100)
                 k2400 = grilyato_g2400c_a;
-            else
-                k2400 = grilyato_g2400c_b;
+            // else
+            //     k2400 = grilyato_g2400c_b;
         }
         var tp2400 = k2400 * s + ((k2400 * s) / 100) * difficult;
         var tp3600 = 0;
@@ -159,10 +159,10 @@ function formGrilyato() {
         else
             tp1200 = grilyato_g1200c_b * s + ((grilyato_g1200c_b * s) / 100) * difficult;
 
-        if (document.getElementById("grilyato_sizecells").value <= 100)
+        // if (document.getElementById("grilyato_sizecells").value <= 100)
             tp600 = grilyato_g600c_a * s + ((grilyato_g600c_a * s) / 100) * difficult;
-        else
-            tp600 = grilyato_g1200c_b * s + ((grilyato_g1200c_b * s) / 100) * difficult;
+        // else
+        //     tp600 = grilyato_g1200c_b * s + ((grilyato_g1200c_b * s) / 100) * difficult;
 
         tp600f = (600 / sizecells - 1) * grilyato_g600fc_a * s;
         tp600f = tp600f + (tp600f / 100) * (difficult / 10);
