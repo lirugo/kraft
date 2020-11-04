@@ -18,7 +18,7 @@ class ObjectsController extends Controller
 //             $objects = Object::orderBy('dateofdelivery', 'desc')->get();
 //         else
 //             $objects = Object::all();
-        $objects = Object::orderBy('сreated_at', 'desc')->get();
+        $objects = Object::orderBy('id', 'desc')->get();
 
         foreach ($objects as $object)
         {
