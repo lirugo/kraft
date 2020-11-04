@@ -21,10 +21,14 @@ class ObjectsController extends Controller
 
         foreach ($objects as $object)
         {
-            $creator = User::find($object->creatorid);
-            if(!is_null($creator)){
-                $object->creatorname = $creator->name;
-                $object->distr = $object->companyid != null ? Company::find($object->companyid)->companyname : '';
+            if(!is_null($object)){
+                if(!is_null($object->creatorid)){
+                    $creator = User::find($object->creatorid);
+                    if(!is_null($creator)){
+                        $object->creatorname = $creator->name;
+                        $object->distr = $object->companyid != null ? Company::find($object->companyid)->companyname : '';
+                    }
+                }
             }
         }
         $data = new Collection();
