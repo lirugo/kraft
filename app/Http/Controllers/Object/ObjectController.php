@@ -23,10 +23,10 @@ class ObjectController extends Controller
 
         foreach ($objects as $object)
         {
-            if($object != null){
-                if($object->creatorid != null){
+            if(!is_null($object)){
+                if(!is_null($object->creatorid)){
                     $creator = User::find($object->creatorid);
-                    if($creator != null){
+                    if(!is_null($creator)){
                        $object->creatorname = $creator->name;
                        if(!empty($object->rmid))
                        {
