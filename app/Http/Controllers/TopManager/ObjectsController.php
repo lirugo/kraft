@@ -12,12 +12,13 @@ use Illuminate\Support\Collection;
 class ObjectsController extends Controller
 {
     public function index(Request $request){
-        if($request->sort === 'date_asc')
-            $objects = Object::orderBy('dateofdelivery', 'asc')->get();
-        else  if($request->sort === 'date_desc')
-            $objects = Object::orderBy('dateofdelivery', 'desc')->get();
-        else
-            $objects = Object::all();
+//         if($request->sort === 'date_asc')
+//             $objects = Object::orderBy('dateofdelivery', 'asc')->get();
+//         else  if($request->sort === 'date_desc')
+//             $objects = Object::orderBy('dateofdelivery', 'desc')->get();
+//         else
+//             $objects = Object::all();
+        $objects = Object::orderBy('сreated_at', 'desc')->get();
 
         foreach ($objects as $object)
         {
