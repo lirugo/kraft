@@ -20,7 +20,7 @@ class ObjectController extends Controller
         $user = Auth::user();
         $company = Company::where('companyname', $user->company)->firstOrFail();
         $objects = Object::all()->where('companyid', '=' , $company->id);
-
+dd('test');
         foreach ($objects as $object)
         {
             if(!is_null($object)){
