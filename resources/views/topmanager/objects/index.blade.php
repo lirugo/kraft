@@ -87,7 +87,7 @@
                                 @else
                                     <tr bgcolor="white">
                                         <th scope="row">{{$object->id}}</th>
-                                        <td>{{$object->distr}}</td>
+                                        <td></td>
                                         <td>
                                             {{$object->city}} <br/> {{$object->street}}
                                         </td>
