@@ -23,16 +23,18 @@ class ObjectController extends Controller
 
         foreach ($objects as $object)
         {
-            if($object->creatorid != null){
-                $creator = User::find($object->creatorid);
-                if($creator != null){
-                   $object->creatorname = $creator->name;
-                   if(!empty($object->rmid))
-                   {
-                       $rm = User::find($object->rmid);
-                       $object->rmname = $rm->name;
-                       $object->rmphone = $rm->phone;
-                   }
+            if($object != null){
+                if($object->creatorid != null){
+                    $creator = User::find($object->creatorid);
+                    if($creator != null){
+                       $object->creatorname = $creator->name;
+                       if(!empty($object->rmid))
+                       {
+                           $rm = User::find($object->rmid);
+                           $object->rmname = $rm->name;
+                           $object->rmphone = $rm->phone;
+                       }
+                    }
                 }
             }
         }
