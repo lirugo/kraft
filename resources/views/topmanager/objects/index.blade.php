@@ -85,31 +85,7 @@
                                         </td>
                                     </tr>
                                 @else
-                                    <tr bgcolor="white">
-                                        <th scope="row">{{$object->id}}</th>
-                                        <td></td>
-                                        <td>
-                                            {{$object->city}} <br/> {{$object->street}}
-                                        </td>
-                                        <td>{{$object->name}}</td>
-                                        <td>{{$object->getregion->regionname_ru}}</td>
-                                        <td>{{$object->user->name}}</td>
-                                        <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
-                                        <td>{{$object->dateofdelivery}}</td>
-                                        <td>
-                                            {{trans('app.Without report')}}
-                                        </td>
-                                        <td>{{$object->rmuser->name}}</td>
-                                        <td>{{$object->rmuser->phone}}</td>
-                                        <td>
-                                            <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
-                                        </td>
-                                        <td>
-                                            {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
-                                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                                            {!! Form::close() !!}
-                                        </td>
-                                    </tr>
+                                  
                                 @endif
                             @endif
                         @endif
