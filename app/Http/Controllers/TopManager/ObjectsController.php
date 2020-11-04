@@ -19,7 +19,6 @@ class ObjectsController extends Controller
         else
             $objects = Object::all();
 
-        dd($objects);
         foreach ($objects as $object)
         {
             if(!is_null($object)){
