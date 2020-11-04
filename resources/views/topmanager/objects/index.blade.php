@@ -33,82 +33,84 @@
                     </thead>
                     <tbody>
                     @foreach($data['objects'] as $object)
-                        @if($object->active == true)
-                            @if($object->reports->last())
-                                @php
-                                    $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
-                                @endphp
-                                <tr
-                                    @if(!empty($object->reports->last()))
-                                    @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
-                                    bgcolor="#ffff81"
-                                    @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
-                                    bgcolor="white"
-                                    @else
-                                    bgcolor="#efbfbc"
-                                    @endif
-                                    @else
-                                    bgcolor="white"
-                                    @endif>
-                                    <th scope="row">{{$object->id}}</th>
-                                    <td>{{$object->distr}}</td>
-                                    <td>
-                                        {{$object->city}} <br/> {{$object->street}}
-                                    </td>
-                                    <td>{{$object->name}}</td>
-                                    <td>{{$object->getregion->regionname_ru}}</td>
-                                    <td>{{$object->user->name}}</td>
-                                    <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
-                                    <td>{{$object->dateofdelivery}}</td>
-                                    <td>
-                                        @php
-                                            if($reportdiff->invert == 0 && $reportdiff->days == 0)
-                                                echo trans('app.Report need send today');
-                                            else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
-                                                echo trans('app.Report need send tomorrow');
-                                            else  if($reportdiff->invert == 1)
-                                                echo trans('app.Days left').$reportdiff->days;
-                                            else  if($reportdiff->invert == 0)
-                                                echo trans('app.Days overdue').$reportdiff->days;
-                                        @endphp
-                                    </td>
-                                    <td>{{$object->rmuser->name}}</td>
-                                    <td>{{$object->rmuser->phone}}</td>
-                                    <td>
-                                        <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
-                                    </td>
-                                    <td>
-                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
-                                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                            @else
-                                <tr bgcolor="white">
-                                    <th scope="row">{{$object->id}}</th>
-                                    <td>{{$object->distr}}</td>
-                                    <td>
-                                        {{$object->city}} <br/> {{$object->street}}
-                                    </td>
-                                    <td>{{$object->name}}</td>
-                                    <td>{{$object->getregion->regionname_ru}}</td>
-                                    <td>{{$object->user->name}}</td>
-                                    <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
-                                    <td>{{$object->dateofdelivery}}</td>
-                                    <td>
-                                        {{trans('app.Without report')}}
-                                    </td>
-                                    <td>{{$object->rmuser->name}}</td>
-                                    <td>{{$object->rmuser->phone}}</td>
-                                    <td>
-                                        <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
-                                    </td>
-                                    <td>
-                                        {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
-                                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
+                        @if(!is_null($object))
+                            @if($object->active == true)
+                                @if($object->reports->last())
+                                    @php
+                                        $reportdiff = Carbon\Carbon::parse($object->reports->last()->dateofreport)->diff(Carbon\Carbon::now());
+                                    @endphp
+                                    <tr
+                                        @if(!empty($object->reports->last()))
+                                        @if($reportdiff->days <= 3 && $reportdiff->invert == 1))
+                                        bgcolor="#ffff81"
+                                        @elseif($reportdiff->days > 3 && $reportdiff->invert == 1)
+                                        bgcolor="white"
+                                        @else
+                                        bgcolor="#efbfbc"
+                                        @endif
+                                        @else
+                                        bgcolor="white"
+                                        @endif>
+                                        <th scope="row">{{$object->id}}</th>
+                                        <td>{{$object->distr}}</td>
+                                        <td>
+                                            {{$object->city}} <br/> {{$object->street}}
+                                        </td>
+                                        <td>{{$object->name}}</td>
+                                        <td>{{$object->getregion->regionname_ru}}</td>
+                                        <td>{{$object->user->name}}</td>
+                                        <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
+                                        <td>{{$object->dateofdelivery}}</td>
+                                        <td>
+                                            @php
+                                                if($reportdiff->invert == 0 && $reportdiff->days == 0)
+                                                    echo trans('app.Report need send today');
+                                                else  if($reportdiff->invert == 1 && $reportdiff->days == 0)
+                                                    echo trans('app.Report need send tomorrow');
+                                                else  if($reportdiff->invert == 1)
+                                                    echo trans('app.Days left').$reportdiff->days;
+                                                else  if($reportdiff->invert == 0)
+                                                    echo trans('app.Days overdue').$reportdiff->days;
+                                            @endphp
+                                        </td>
+                                        <td>{{$object->rmuser->name}}</td>
+                                        <td>{{$object->rmuser->phone}}</td>
+                                        <td>
+                                            <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
+                                        </td>
+                                        <td>
+                                            {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
+                                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                @else
+                                    <tr bgcolor="white">
+                                        <th scope="row">{{$object->id}}</th>
+                                        <td>{{$object->distr}}</td>
+                                        <td>
+                                            {{$object->city}} <br/> {{$object->street}}
+                                        </td>
+                                        <td>{{$object->name}}</td>
+                                        <td>{{$object->getregion->regionname_ru}}</td>
+                                        <td>{{$object->user->name}}</td>
+                                        <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
+                                        <td>{{$object->dateofdelivery}}</td>
+                                        <td>
+                                            {{trans('app.Without report')}}
+                                        </td>
+                                        <td>{{$object->rmuser->name}}</td>
+                                        <td>{{$object->rmuser->phone}}</td>
+                                        <td>
+                                            <a href="/manager/object/show/{{$object->id}}" class="btn btn-danger btn-sm pull-right">{{trans('app.View')}}<br></a>
+                                        </td>
+                                        <td>
+                                            {!! Form::open(['url' => '/object/'.$object->id.'/delete/top', 'methods' => 'POST']) !!}
+                                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                @endif
                             @endif
                         @endif
                     @endforeach
