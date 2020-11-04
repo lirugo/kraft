@@ -87,7 +87,12 @@
                                 @else
                                     <tr bgcolor="white">
                                         <th scope="row">{{$object->id}}</th>
-                                       
+                                        <td>{{$object->distr}}</td>
+                                        <td>
+                                            {{$object->city}} <br/> {{$object->street}}
+                                        </td>
+                                        <td>{{$object->name}}</td>
+                                        <td>{{$object->getregion->regionname_ru}}</td>
                                         <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                         <td>{{$object->dateofdelivery}}</td>
                                         <td>
