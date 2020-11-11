@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Notification;
 use App\Object;
 use App\ObjectRequestOnDeleting;
+use App\Report;
+use App\ReportPhoto;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
