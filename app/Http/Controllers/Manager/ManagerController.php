@@ -219,7 +219,9 @@ class ManagerController extends Controller
         foreach ($objects as $object)
         {
             $creator = User::find($object->creatorid);
-            $object->creatorname = $creator->name;
+            if($creator){
+                $object->creatorname = $creator->name;
+            }
             $object->distr = $object->companyid != null ? Company::find($object->companyid)->companyname : '';
         }
         $data = new Collection();
