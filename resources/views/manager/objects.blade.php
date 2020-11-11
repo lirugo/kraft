@@ -70,7 +70,7 @@
                                 </td>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name}}</td>
+                                <td>{{$object->user ? $object->user->name : ''}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>
@@ -136,7 +136,7 @@
                                 </td>
                                 <td>{{$object->name}}</td>
                                 <td>{{$object->getregion->regionname_ru}}</td>
-                                <td>{{$object->user->name}}</td>
+                                <td>{{$object->user ? $object->user->name : ''}}</td>
                                 <td>{{ Carbon\Carbon::parse($object->created_at)->format('Y-m-d') }}</td>
                                 <td>{{$object->dateofdelivery}}</td>
                                 <td>{{$object->dateofreport}}</td>
