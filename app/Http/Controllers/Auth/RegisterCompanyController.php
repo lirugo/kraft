@@ -48,7 +48,7 @@ class RegisterCompanyController extends Controller
             'name' => 'required|max:255',
             'dateofbirth' => 'required|max:255',
             'sex' => 'required|max:255',
-            'phone' => 'required|unique:users,phone|regex:/(\+38)[ 0-9]{10}/',
+//             'phone' => 'required|unique:users,phone|regex:/(\+38)[ 0-9]{10}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             ]);
