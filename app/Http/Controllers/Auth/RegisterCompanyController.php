@@ -21,37 +21,37 @@ class RegisterCompanyController extends Controller
 
     public function createRegisterCompany(Request $request){
         //Validate
-        $this->validate($request,[
-            //Validate company profile
-            'companyname' => 'required|unique:companies|max:255',
-            'city' => 'required|max:255',
-            'street' => 'required|max:255',
-            'house' => 'required|integer',
-            'phonecompany' => 'required|regex:/(\+38)[ 0-9]{10}/',
+//         $this->validate($request,[
+//             //Validate company profile
+//             'companyname' => 'required|unique:companies|max:255',
+//             'city' => 'required|max:255',
+//             'street' => 'required|max:255',
+//             'house' => 'required|integer',
+//             'phonecompany' => 'required|regex:/(\+38)[ 0-9]{10}/',
 
-            'bank' => 'required|max:255',
-            'mfo' => 'required|max:255',
-            'settlementaccount' => 'required|max:255',
-            'okpo' => 'required|max:255',
+//             'bank' => 'required|max:255',
+//             'mfo' => 'required|max:255',
+//             'settlementaccount' => 'required|max:255',
+//             'okpo' => 'required|max:255',
 
-            'lawcity' => 'required|max:255',
-            'lawstreet' => 'required|max:255',
-            'lawhouse' => 'required|integer',
-            'lawphone' => 'required|regex:/(\+38)[ 0-9]{10}/',
+//             'lawcity' => 'required|max:255',
+//             'lawstreet' => 'required|max:255',
+//             'lawhouse' => 'required|integer',
+//             'lawphone' => 'required|regex:/(\+38)[ 0-9]{10}/',
 
-            'site' => 'active_url',
-            'social1' => 'active_url',
-            'social2' => 'active_url',
-            'social3' => 'active_url',
+//             'site' => 'active_url',
+//             'social1' => 'active_url',
+//             'social2' => 'active_url',
+//             'social3' => 'active_url',
 
-            //Validate user profile
-            'name' => 'required|max:255',
-            'dateofbirth' => 'required|max:255',
-            'sex' => 'required|max:255',
+//             //Validate user profile
+//             'name' => 'required|max:255',
+//             'dateofbirth' => 'required|max:255',
+//             'sex' => 'required|max:255',
 //             'phone' => 'required|unique:users,phone|regex:/(\+38)[ 0-9]{10}/',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-            ]);
+//             'email' => 'required|email|max:255|unique:users',
+//             'password' => 'required|min:6|confirmed',
+//             ]);
 
         // Save data to db
         $company = new Company;
