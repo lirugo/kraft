@@ -139,16 +139,16 @@ class RegisterCompanyController extends Controller
         $user->attachRole($distributor);
 
         //Set authy ID
-        try{
-            $authyId = Authy::registerUser($user);
-            $user->authy_id = $authyId;
-            $user->save();
-        }catch (\Exception $e){
-            $user->delete();
-            $company->delete();
-            Session::flash('warning', 'Email or phone exist or not valid');
-            return redirect()->back();
-        }
+//        try{
+//            $authyId = Authy::registerUser($user);
+//            $user->authy_id = $authyId;
+//            $user->save();
+//        }catch (\Exception $e){
+//            $user->delete();
+//            $company->delete();
+//            Session::flash('warning', 'Email or phone exist or not valid');
+//            return redirect()->back();
+//        }
 
         //Set Flash message
         Session::flash('success', 'Company and distributor was successfully created.');
