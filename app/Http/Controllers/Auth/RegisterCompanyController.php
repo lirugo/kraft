@@ -137,7 +137,8 @@ class RegisterCompanyController extends Controller
         //AttachRole designer/arch for new user
         $distributor = Role::where('name', 'distributor')->first();
         $user->attachRole($distributor);
-
+        $user->save();
+        
         //Set authy ID
 //        try{
 //            $authyId = Authy::registerUser($user);
